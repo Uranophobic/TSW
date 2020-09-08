@@ -1,0 +1,38 @@
+@charset "ISO-8859-1";
+
+body{
+  overflow-x:hidden; 
+}
+
+*{
+	    font-family: "Dosis";
+	background-color: #a6ec84
+	
+}
+
+
+@font-face{
+	font-family: "Dosis";
+	src: url("../font/Dosis/AnyConv.com__Dosis-Regular.otf");
+}
+
+@font-face {
+    font-family: 'treeftrregular';
+    src: url("../font/treeftr-webfont/treeftr-p58o-webfont.woff") format('woff2'),
+         url("../font/treeftr-webfont/treeftr-p58o-webfont.woff2") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/***********************************************   NAVBAR   *******************************************************************/
+.navbar-expand-lg {
+	-ms-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+	-ms-flex-pack: start;
+	justify-content: center;
+}
+
+a .navlink{
+	font-size: 18px;
+}
