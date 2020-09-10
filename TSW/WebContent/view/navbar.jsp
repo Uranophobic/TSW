@@ -31,13 +31,25 @@ body{
 
  .nav-link{
 	font-size: 18px;
+	
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+	color: rgba(0,0,0,.7);
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+	font-size: 20px;
+	color: rgba(0,0,0,1);
 }
 
 .titolo {
 	font-size: 22px;
 	font-weight: bold;
 	position: absolute;
-	right: 89%;
+	/* right: 89%; */
+	left: 1%;
 }
 </style>
 </head>
@@ -47,22 +59,21 @@ body{
 
  <a class="titolo" style=" "> NATURAL SHOP</a>
  
-    <ul class="navbar-nav justify-content-center ">
-      <li class="nav-item active mr-5  dropdown ">
-     
-        <a class=" nav-link navbar-element" href="#"  style="font-size: 18px">COME FUNZIONA</a>
-
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">COME FUNZIONA</a>
       </li>
-      <li class="nav-item active mr-5 navbar-element">
-        <a class="nav-link navbar-element" href="#">VANTAGGI</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">VANTAGGI</a>
       </li>
-      <li class="nav-item active mr-5 ">
-        <a class="nav-link active navbar-element" href="#">CHI SIAMO</a>
+      <li class="nav-item ">
+        <a class="nav-link" href="#">CHI SIAMO</a>
       </li>
-      <li class="nav-item active mr-5">
-        <a class="nav-link navbar-element" href="#">ASSISTENZA</a>
+      <li class="nav-item">
+        <a class="nav-link" href="#">ASSISTENZA</a>
       </li>
     </ul> 
+    
 </nav>
 
 </body>

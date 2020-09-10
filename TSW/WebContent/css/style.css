@@ -6,8 +6,6 @@ body{
 
 *{
 	    font-family: "Dosis";
-	background-color: #a6ec84
-	
 }
 
 
@@ -25,14 +23,18 @@ body{
 }
 
 
-/***********************************************   NAVBAR   *******************************************************************/
-.navbar-expand-lg {
-	-ms-flex-flow: row nowrap;
-	flex-flow: row nowrap;
-	-ms-flex-pack: start;
-	justify-content: center;
+/***********************************************   HOMEPAGE   *******************************************************************/
+.titoloPag{
+	font-family: 'Dosis';
+	font-size: 30px; 
+	font-weight: bold;
 }
 
-a .navlink{
-	font-size: 18px;
+.titBen{
+	
+	
+}
+
+#divCentrale{
+	padding: 20px;
 }
