@@ -3,39 +3,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/stilesito.css">
 <title>Agricolàrio - Footer</title>
 
-<style>
-body{
-	   font-family: "Dosis";
-	src: url("../font/Dosis/AnyConv.com__Dosis-Regular.otf");
-	} 
-	
-	
-/*Footer*/
-.footer{
-	padding: 25px;	
-	color: black;
-	background-color: #a6ec84; 
-	width: 100%;
-	
-}
 
-.tit{
-	color: black;
-	font-size: 18px;
-}
-
-.border-bottom {
-	border-bottom: 1px solid #000 !important;
-}
-
-</style>
 </head>
 <body>
 
 
-<div class="footer">
+<footer class="footer">
 <div class="row" >
  	<div class=" col col-md-2 offset-md-2"  >
     <h5   class="tit border-bottom"> CHI SIAMO</h5>
@@ -60,7 +36,7 @@ body{
    </div>
    
   </div>
-	</div>
+	</footer>
 
 </body>
 </html>

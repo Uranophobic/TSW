@@ -24,7 +24,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img class="d-block w-100" src="../images/slider.jpg" alt="First slide" style="height: 700px;"> 
-    </div>
+    </div>   
     <div class="carousel-item">
       <img class="d-block w-100" src="../images/slider2.jpg" alt="Second slide" style="height: 700px;">
     </div>
