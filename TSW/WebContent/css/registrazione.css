@@ -1,0 +1,24 @@
+h1{
+	font-family:"Dosis";
+	font-size:100px;
+	font-weight:bold;
+	margin-top:20px;
+}
+
+.container{
+	font-family:"Dosis";
+	margin-top:20px;
+	margin-bottom:20px;
+	
+}
+
+label{
+	font-weight:"bold";
+}
+.registrati{
+	font-family:"Dosis";
+	background-color: #a6ec84;
+}
+.ripPw{
+	margin-left:10px;
+}

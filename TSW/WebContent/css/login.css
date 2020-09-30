@@ -1,0 +1,39 @@
+h1 {
+	color: green;
+	font-family: "Dosis";
+	font-size: 100px;
+}
+
+label {
+	color: black;
+	font-family: "Dosis";
+	font-weight: bold;
+	align: center;
+	display: inline-block;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.login {
+	font-family: "Dosis";
+	font-size: 20px;
+	color: black;
+	border: green;
+	background-color: #a6ec84;
+	font-weight: bold;
+	margin-top: 15px;
+	text-decoration: underline;
+	/* non funziona non so perchè border-color: black;*/
+}
+
+.ricordami {
+	font-family: "Dosis";
+	font-weight: bold;
+	margin-top: 15px;
+	text-decoration: underline;
+}
+
+.registrati {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
