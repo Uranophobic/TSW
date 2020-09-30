@@ -17,12 +17,12 @@
 		<form>
 			<center>
 				<label>Username: </label> <input type="text" placeholder="Username"
-					name="username" required>
+					name="username" >
 	</div>
 	<div>
 		<center>
 			<label>Password: </label> <input type="password"
-				placeholder="Password" name="password" required>
+				placeholder="Password" name="password" >
 		</center>
 	</div>
 	<center>
@@ -42,7 +42,7 @@
 	<div class=registrati>
 		<center>
 			<button type="submit" >Se non sei registrato, fallo ora</button>
-			<link rel="stylesheet" href="../Prove/registrazione.jsp">
+			<link rel="stylesheet" href="registrazione.jsp">
 		</center>
 	
 	</div>

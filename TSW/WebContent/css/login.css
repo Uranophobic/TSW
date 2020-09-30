@@ -18,12 +18,12 @@ label {
 	font-family: "Dosis";
 	font-size: 20px;
 	color: black;
-	border: green;
+	border: 1px solid black;
 	background-color: #a6ec84;
 	font-weight: bold;
 	margin-top: 15px;
 	text-decoration: underline;
-	/* non funziona non so perchè border-color: black;*/
+
 }
 
 .ricordami {
