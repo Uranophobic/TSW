@@ -1,69 +1,110 @@
-.titoloReg{
+.titoloReg {
 	margin: auto;
-	width: 50px;
-	color: green;
-	font-family: "Dosis";
+	font-size: 55px;
+	color: black;
+	text-align: center;
+	width: 50%;
 }
 
-
-
-.nome{
-	margin: auto;
-	
-		
-}
-
-
-.cognome{
-	margin: auto;
-	margin-top:20px;
-	margin-bottom:10px;
-	
-		
-}
-.telefono{
-	margin-top:20px;
+.contenitore{
+	width: 50%;
+	height: auto;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);/*che so?*/
+	border-radius: 5px;
+	margin-top: 15px;
 	margin: auto;
 }
 
-.datiPagamento{
+.titoloInformazioni{
+	font-size: 35px;
+	color: #4CAF50;
+	margin-top: 55px;
+	font-weight: bold;
 	margin:auto;
+	text-align: center;
+	font-weight: bold;
+	border:none;
+}
+.etichette {
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 15px;
+}
+
+.conferma{
+	margin:auto;
+	width:10%;
+	padding: 5px;
+	font-size: 16px;
+	background-color: #CBFFC0ED;
+	color: black;
+	margin-top: 15px;
+	text-decoration: underline;
+	border:none;
+	cursor:pointer;
+	border-radius:5px;
+	font-weight:bold;
+	
+	
+}
+.nome {
+	margin: auto;
+}
+
+.cognome {
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.telefono {
+	margin-top: 20px;
+	margin: auto;
+}
+
+.datiPagamento {
+	margin: auto;
 	margin-top: 20px;
 	font-size: 20px;
-	font-weight:bold;
+	font-weight: bold;
 	color: green;
 }
 
-.numeroCarta{
-	margin:auto;
-	margin-top:10px;
+.numeroCarta {
+	margin: auto;
+	margin-top: 10px;
 }
 
-.scadenzaCarta{
-	margin:auto;
-	margin-top:10px;
-	margin-bottom:10px;
-}
-.buttonConferma{
-	font-family:"Dosis";
-	font-size:20px;
-	border:1px solid black;
-	background-color: #a6ec84;
-	font-weight:bold;
-	text-decoration:underline;
-	
-	
+.scadenzaCarta {
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.buttonConferma1{
-	font-family: "Dosis";
-	margin:auto;
-	width:50px;
-	margin-top:10px;
+.buttonConferma {
+	margin: auto;
+	width: 75px;
+	padding: 5px;
+	font-size: 16px;
+	background-color: #CBFFC0ED;
+	color: black;
+	border: none;
+	cursor: pointer; /*a che serve?*/
+	border-radius: 5px;
+	font-weight: bold;
 }
-.tipoCarta{
-	margin:auto;
-	width:150px;
+
+.pulsanteConferma {
+	margin: auto;
+	width: 50px;
+	margin-top: 10px;
+}
+
+.tipoCarta {
+	margin: auto;
+	width: 150px;
 }
 /*
 .campiform{

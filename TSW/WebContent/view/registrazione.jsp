@@ -4,99 +4,65 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Registrazione</title>
 <link type="text/css" rel="stylesheet" href="../css/registrazione.css">
+<title>Registrazione</title>
 </head>
 <body>
-	<%@include file="navbarnoButton.jsp"%>
-	<h1 class="titoloReg">Registrati!</h1>
-	<div class="container">
-		<form class="campiForm">
-			<div class="nome">
-				<!-- nome,cognome, telefono, dati pagamento (titolo) numero carta, circuito, scadenza, cvv, email, password, ripeti  password -->
-				<!-- 
-			<p class="nome">Nome: </p>
-			<input type="text"  class=nomeT placeholder="nome" value="Nome">
-			</div>
-			<div class="cognome">
-				Cognome: <input type="text" placeholder="cognome" value="Cognome">
-			</div>
-			<div class="cellulare">
-				Cellulare: <input type="text" placeholder="Cellulare"
-					value="Cellulare">
-			</div>
-			<div class="datiDiSpedizione">
-				<p class="titoloPagamento">DATI PAGAMENTO</p>
-			</div>
-			<div class="datiPagamento">
-
-				Numero Carta: <input type="text" placeholder="numeroDiCarta"
-					value="numero di carta"> Circuito Carta: <input type="text"
-					placeholder="circuitoCarta" value="circuito della carta">
-				Scadenza Carta: <input type="text" placeholder="scadenzaCarta"
-					value="scadenza della carta"> CVV: <input type="text"
-					placeholder="codiceCVV" value="CVV">
-			</div>
-
-			<div class="datiAccesso">
-
-				Email: <input type="text" placeholder="email" value="email">
-				Password: <input type="text" placeholder="password" value="password">
-				Ripeti password: <input type="text" placeholder="password"
-					value="password">
-
-			</div>
-
-			<div class="buttonConferma1">
-				<button type="submit" class="buttonConferma">Conferma</button>
-			</div>
-
- -->
-				<p class="nome" align="center">
-					Nome: <input type="text" placeholder="name" value="Nome">
-				</p>
-				<p class="cognome" align="center">
-					Cognome: <input type="text" placeholder="cognome" value="Cognome">
-				</p>
-				<p class="telefono" align="center">
-					Telefono: <input type="text" placeholder="telefono"
-						value="Telefono">
-				</p>
-				<p class="datiPagamento" align="center">DATI PAGAMENTO</p>
-				<p class="numeroCarta" align="center">
-					Numero Carta: <input type="text" placeholder="numeroCarta"
-						value="Numero della carta">
-				</p>
-				<p class="scadenzaCarta" align="center">
-					Scadenza Carta <input type="text" placeholder="scadenzaCarta"
-						value="scadenzaCarta">
-				</p>
-				<p class="cvv" align="center">
-					CVV: <input type="text" placeholder="cvv" value="CVV">
-				</p>
-				<p class="tipoCarta" align="center">
-					Tipo Carta: <input type="text" placeholder="tipoCarta" value="tipoCarta">
-				</p>
-				<p class="datiPagamento" align="center">DATI SPEDIZIONE</p>
-				<p class="indirizzo" align="center">
-					indirizzo: <input type="text" placeholder="indirizzo"
-						value="indirizzo">
-				</p>
-				<p class="email" align="center">
-					Email: <input type="text" placeholder="email" value="email">
-				</p>
-				<p class="password" align="center">
-					Password: <input type="text" placeholder="password" value="password">
-				</p>
-				<p class="rippassword" align="center">
-					Ripeti Password: <input type="text" placeholder="password" value="password">
-				</p>
-				<div class="buttonConferma1">
-				<button type="submit" class="buttonConferma">Conferma</button>
-			</div>
-		</form>
-		<%@include file="footer.jsp"%>
+	<%@ include file="navbarnoButton.jsp"%>
+	<div>
+		<p class="titoloReg">Registrati!</p>
+		<!-- modificare class con titoloPagine quando il css andrà inserito dentro stilesito -->
 	</div>
+	<div class="contenitore">
+		<!-- ma come è possibile? -->
+		<div class="inserimentoDati">
+			<h2 class="titoloInformazioni">Dati Personali:</h2>
+			<label class="etichette">Nome: </label> <input type="text">
+			<div class="cognome">
+				<label class="etichette">Cognome: </label> <input type="text">
+			</div>
+			<div class="telefono">
+				<label class="etichette">Telefono </label> <input type="text">
+			</div>
+		</div>
+		<h2 class="titoloInformazioni">Dati Spedizione:</h2>
+		<label class="etichette">Indirizzo: </label> <input type="text">
+		<h2 class="titoloInformazioni">Dati Pagamento:</h2>
+
+		<div class="numeroCarta">
+			<label class="etichette">Numero Carta:</label> <input type="text">
+		</div>
+		<div class="scadenzaCarta">
+			<label class="etichette">Scadenza Carta:</label> <input type="text">
+		</div>
+		<div class="codiceCVV">
+			<label class="etichette">CVV: </label> <input type="text">
+		</div>
+		<div class="tipologiaCarta">
+		<label class="etichette"> TipoCarta: </label> <input type="radio">Mastercard
+		<input type="radio">Maestro
+		<input type="radio">Visa
+		
+		</div>
+
+<h2 class="titoloInformazioni">Dati di Accesso:</h2>
+<div class="email">
+			<label class="etichette">Email: </label> <input type="text">
+		</div>
+		<div class="password">
+			<label class="etichette">Password: </label> <input type="text">
+		</div>
+		<div class="ripetiPw">
+			<label class="etichette">Ripeti Password: </label> <input type="text">
+		</div>
+	</div>
+	<!-- Questo è il div dell'inserimento dati -->
+		
+	
+	</div>
+	<div align="center">
+			<button type="submit" class="conferma">Conferma</button></div>
+	<!-- Questa è la chiusura del div da parte del contenitore -->
 
 </body>
 </html>
