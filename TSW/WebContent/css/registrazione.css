@@ -1,24 +1,122 @@
-h1{
-	font-family:"Dosis";
-	font-size:100px;
-	font-weight:bold;
-	margin-top:20px;
+.titoloReg{
+	margin: auto;
+	width: 50px;
+	color: green;
+	font-family: "Dosis";
 }
 
-.container{
-	font-family:"Dosis";
+
+
+.nome{
+	margin: auto;
+	
+		
+}
+
+
+.cognome{
+	margin: auto;
 	margin-top:20px;
-	margin-bottom:20px;
+	margin-bottom:10px;
+	
+		
+}
+.telefono{
+	margin-top:20px;
+	margin: auto;
+}
+
+.datiPagamento{
+	margin:auto;
+	margin-top: 20px;
+	font-size: 20px;
+	font-weight:bold;
+	color: green;
+}
+
+.numeroCarta{
+	margin:auto;
+	margin-top:10px;
+}
+
+.scadenzaCarta{
+	margin:auto;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.buttonConferma{
+	font-family:"Dosis";
+	font-size:20px;
+	border:1px solid black;
+	background-color: #a6ec84;
+	font-weight:bold;
+	text-decoration:underline;
+	
 	
 }
 
-label{
-	font-weight:"bold";
+.buttonConferma1{
+	font-family: "Dosis";
+	margin:auto;
+	width:50px;
+	margin-top:10px;
 }
-.registrati{
+
+/*
+.campiform{
+	margin:auto;
+	width:50px;
+}
+/*
+
+/*.nome{
+	margin:auto;
+	width:50px;
+}
+*/
+/*
+.cognome{
+	margin:auto;
+	width:50px;
+}
+
+.cellulare{
+	margin:auto;
+	width:50px;
+}
+
+.titoloPagamento{
+	margin:auto;
+	width:50px;
+	font-weight:bold;
+	margin-top:10px;
+}
+
+.datiPagamento{
+	margin:auto;
+	width:50px;
+}
+
+.datiAccesso{
+	margin:auto;
+	width:50px;
+}
+
+.buttonConferma{
 	font-family:"Dosis";
+	font-size:20px;
+	border:1px solid black;
 	background-color: #a6ec84;
+	font-weight:bold;
+	text-decoration:underline;
+	
+	
 }
-.ripPw{
-	margin-left:10px;
+
+.buttonConferma1{
+	font-family: "Dosis";
+	margin:auto;
+	width:50px;
+	margin-top:10px;
 }
+*/

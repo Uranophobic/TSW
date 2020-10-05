@@ -1,7 +1,15 @@
-h1 {
+.titoloLogin {
+	margin: auto;
+	width: 50px;
 	color: green;
 	font-family: "Dosis";
-	font-size: 100px;
+	/*font-size: 100px;*/
+}
+
+.immagineLog {
+	margin: auto;
+	width: 50%;
+	display: block;
 }
 
 label {
@@ -12,6 +20,8 @@ label {
 	display: inline-block;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	margin: auto;
+	width: 80%;
 }
 
 .login {
@@ -23,7 +33,6 @@ label {
 	font-weight: bold;
 	margin-top: 15px;
 	text-decoration: underline;
-
 }
 
 .ricordami {
@@ -36,4 +45,32 @@ label {
 .registrati {
 	margin-top: 15px;
 	margin-bottom: 15px;
+}
+
+.username {
+	margin: auto;
+	width: 50%;
+}
+
+.container {
+	margin: auto;
+	width: 50%;
+}
+
+.pulReg {
+	font-family: "Dosis";
+	font-weight: bold;
+	background-color: #a6ec84;
+	margin: auto;
+	margin-top: 15px;
+	font-size: 15px;
+	border: 1px solid black;
+}
+
+.registrazione{
+	font-family: "Dosis";
+	color:black;
+	font-weight:bold;
+	background-color:#a6ec84;
+	text-decoration: underline;
 }
