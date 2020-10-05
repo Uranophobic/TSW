@@ -17,7 +17,7 @@
 	
 	<div class="campiFormLogin" align="center">
 	<label class="username">
-	Username: <input type="text" placeholder="Username" name="username">
+	Username: <input type="text" placeholder="Usernamee" name="username">
 	</label>
 	<label class="password">
 	Password: <input type="text" placeholder="Password" name="password">

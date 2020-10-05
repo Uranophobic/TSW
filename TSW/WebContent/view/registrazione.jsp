@@ -74,6 +74,14 @@
 				<p class="cvv" align="center">
 					CVV: <input type="text" placeholder="cvv" value="CVV">
 				</p>
+				<p class="tipoCarta" align="center">
+					Tipo Carta: <input type="text" placeholder="tipoCarta" value="tipoCarta">
+				</p>
+				<p class="datiPagamento" align="center">DATI SPEDIZIONE</p>
+				<p class="indirizzo" align="center">
+					indirizzo: <input type="text" placeholder="indirizzo"
+						value="indirizzo">
+				</p>
 				<p class="email" align="center">
 					Email: <input type="text" placeholder="email" value="email">
 				</p>
