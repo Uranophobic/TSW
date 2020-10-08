@@ -102,6 +102,17 @@ public class Prodotto {
 	public void setPercentualeSconto(double percentualeSconto) {
 		this.percentualeSconto = percentualeSconto;
 	}
+
+
+
+	
+	public String toString() {
+		return "Prodotto [codiceProdotto=" + codiceProdotto + ", nomeProdotto=" + nomeProdotto + ", descrizione="
+				+ descrizione + ", prezzo=" + prezzo + ", tipo=" + tipo + ", percentualeSconto=" + percentualeSconto
+				+ "]";
+	}
+	
+	
 	
 	
 }

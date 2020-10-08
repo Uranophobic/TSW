@@ -36,6 +36,13 @@ public class Composizione {
 		this.codiceProd = codiceProd;
 	}
 
+
+	
+	public String toString() {
+		return "Composizione [codiceOrdine=" + codiceOrdine + ", codiceProd=" + codiceProd + "]";
+	}
+
+	
 	
 	
 	

@@ -1,23 +1,27 @@
 package model.bean;
+/*
+ * Aggiungi toString e metodi get e set per dataDiNascita
+ */
 
 public class Utente {
 	private String email; 
 	private String password; 
 	private String nome; 
 	private String cognome; 
+	private String dataDiNascita;
 	private String telefono; 
-	private String datiPagamento; 
-	private String datiSpedizione;
-	
-	
+	private int numeroCarta; 
+	private String indirizzo;
+
+
 	public Utente(String email, String password) {
 		this.email = email;
 		this.password = password;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.telefono = telefono;
-		this.datiPagamento = datiPagamento;
-		this.datiSpedizione = datiSpedizione;
+		this.numeroCarta = numeroCarta;
+		this.indirizzo = indirizzo;
 	}
 
 
@@ -28,8 +32,8 @@ public class Utente {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.telefono = telefono;
-		this.datiPagamento = datiPagamento;
-		this.datiSpedizione = datiSpedizione;
+		this.numeroCarta = numeroCarta;
+		this.indirizzo = indirizzo;
 	}
 
 
@@ -83,26 +87,44 @@ public class Utente {
 	}
 
 
-	public String getDatiPagamento() {
-		return datiPagamento;
+	public int getNumeroCarta() {
+		return numeroCarta;
 	}
 
 
-	public void setDatiPagamento(String datiPagamento) {
-		this.datiPagamento = datiPagamento;
+	public void setNumeroCarta(int numeroCarta) {
+		this.numeroCarta = numeroCarta;
 	}
 
 
-	public String getDatiSpedizione() {
-		return datiSpedizione;
+	public String getIndirzzo() {
+		return indirizzo;
 	}
 
 
-	public void setDatiSpedizione(String datiSpedizione) {
-		this.datiSpedizione = datiSpedizione;
+	public void setIndirizzo(String datiSpedizione) {
+		this.indirizzo = datiSpedizione;
 	}
-	
-		
-	
+
+	public String getDataDiNascita()
+	{
+		return dataDiNascita;
+	}
+
+	public void setDataDiNascita(String dataDiNascita)
+	{
+		this.dataDiNascita=dataDiNascita;
+	}
+
+
+
+	public String toString() {
+		return "Utente [email=" + email + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome
+				+ ", dataDiNascita=" + dataDiNascita + ", telefono=" + telefono + ", numeroCarta=" + numeroCarta
+				+ ", indirizzo=" + indirizzo + "]";
+	}
+
+
+
 }
 

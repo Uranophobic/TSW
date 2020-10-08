@@ -66,6 +66,14 @@ public class Ordine {
 
 
 	
+	public String toString() {
+		return "Ordine [codiceOrdine=" + codiceOrdine + ", emailUtente=" + emailUtente + ", importoTot=" + importoTot
+				+ ", dataOrdine=" + dataOrdine + "]";
+	}
+
+	
+
+	
 	
 	
 	
