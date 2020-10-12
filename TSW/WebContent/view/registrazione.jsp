@@ -4,65 +4,97 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/registrazione.css">
-<title>Registrazione</title>
+<link rel="stylesheet" type="text/css" href="../css/regi.css">
+<title>Registrati,cazzo</title>
 </head>
 <body>
 	<%@ include file="navbarnoButton.jsp"%>
+
 	<div>
-		<p class="titoloReg">Registrati!</p>
-		<!-- modificare class con titoloPagine quando il css andrà inserito dentro stilesito -->
-	</div>
-	<div class="contenitore">
-		<!-- ma come è possibile? -->
-		<div class="inserimentoDati">
-			<h2 class="titoloInformazioni">Dati Personali:</h2>
-			<label class="etichette">Nome: </label> <input type="text">
-			<div class="cognome">
-				<label class="etichette">Cognome: </label> <input type="text">
-			</div>
-			<div class="telefono">
-				<label class="etichette">Telefono </label> <input type="text">
-			</div>
-		</div>
-		<h2 class="titoloInformazioni">Dati Spedizione:</h2>
-		<label class="etichette">Indirizzo: </label> <input type="text">
-		<h2 class="titoloInformazioni">Dati Pagamento:</h2>
+		<p class="titoloPagine">Registrati</p>
 
-		<div class="numeroCarta">
-			<label class="etichette">Numero Carta:</label> <input type="text">
-		</div>
-		<div class="scadenzaCarta">
-			<label class="etichette">Scadenza Carta:</label> <input type="text">
-		</div>
-		<div class="codiceCVV">
-			<label class="etichette">CVV: </label> <input type="text">
-		</div>
-		<div class="tipologiaCarta">
-		<label class="etichette"> TipoCarta: </label> <input type="radio">Mastercard
-		<input type="radio">Maestro
-		<input type="radio">Visa
+	</div>
+	<div id="area-utente">
+		<div class="item-a ">
+			<h4 id="titoloCaselle">Dati personali e accesso</h4>
+			<div class="riga1" class="hr"></div>
+			<div class="datiPersonalieAccesso">
+					<div class="container">
+						<h4>
+							<b>Nome: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Cognome: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Dati di Nascita: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Telefono: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Email: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Password: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Ripeti Password: <input type="text"></b>
+						</h4>
+					</div>
 		
+			</div>
 		</div>
 
-<h2 class="titoloInformazioni">Dati di Accesso:</h2>
-<div class="email">
-			<label class="etichette">Email: </label> <input type="text">
-		</div>
-		<div class="password">
-			<label class="etichette">Password: </label> <input type="text">
-		</div>
-		<div class="ripetiPw">
-			<label class="etichette">Ripeti Password: </label> <input type="text">
+		<div class="item-b ">
+			<div class="datiSpedizioneEPagamento">
+				<h4 id="titoloCaselle">Dati di Spedizione</h4>
+				<div class="riga" class="hr"></div>
+
+				<div class="row justify-content">
+					
+					<h4>
+						<b>Indirizzo: <input type="text"></b>
+					</h4>
+
+
+
+					<h4 id="titoloCaselle">Dati Pagamento</h4>
+					<div class="riga" class="hr"></div>
+					<div class="row justify-content">
+						<h4>
+							<b>Numero Carta: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>Scadenza Carta: <input type="text"></b>
+						</h4>
+						<h4>
+							<b>CVV: <input type="text" class="CVV"></b>
+						</h4>
+						<h4>
+							<b>Tipo Carta: <input type="radio" class="tipo"> Mastercard <input
+								type="radio"> Maestro <input type="radio"> Visa
+							</b>
+						</h4>
+
+					</div>
+				</div>
+
+
+
+
+			</div>
+
 		</div>
 	</div>
-	<!-- Questo è il div dell'inserimento dati -->
-		
-	
+	<div class="bottoni" align="center">
+		<button type="submit" class="conferma">Salva</button>
+		<button type="submit" class="conferma">Indietro</button>
 	</div>
-	<div align="center">
-			<button type="submit" class="conferma">Conferma</button></div>
-	<!-- Questa è la chiusura del div da parte del contenitore -->
+
+
+
+	<%@ include file="footer.jsp"%>
 
 </body>
 </html>

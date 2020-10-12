@@ -7,9 +7,10 @@ public class Prodotto {
 	private double prezzo;
 	private String tipo;
 	private double percentualeSconto;
-	
-	
-	
+	private String immaginePath;
+
+
+
 	public Prodotto() {
 		this.codiceProdotto = codiceProdotto;
 		this.nomeProdotto = nomeProdotto;
@@ -17,20 +18,32 @@ public class Prodotto {
 		this.prezzo = prezzo;
 		this.tipo = tipo;
 		this.percentualeSconto = percentualeSconto;
+		this.immaginePath=immaginePath;
 	}
 
 
 
 	public Prodotto(String codiceProdotto, String nomeProdotto, String descrizione, double prezzo, String tipo,
-			double percentualeSconto) {
+			double percentualeSconto,String immaginePath) {
 		this.codiceProdotto = codiceProdotto;
 		this.nomeProdotto = nomeProdotto;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
 		this.tipo = tipo;
 		this.percentualeSconto = percentualeSconto;
+		this.immaginePath=immaginePath;
 	}
 
+
+
+	public String getImmaginePath() {
+		return immaginePath;
+	}
+
+
+	public void setImmaginePath(String immaginePath) {
+		this.immaginePath=immaginePath;
+	}
 
 
 	public String getCodiceProdotto() {
@@ -105,14 +118,14 @@ public class Prodotto {
 
 
 
-	
+
 	public String toString() {
 		return "Prodotto [codiceProdotto=" + codiceProdotto + ", nomeProdotto=" + nomeProdotto + ", descrizione="
 				+ descrizione + ", prezzo=" + prezzo + ", tipo=" + tipo + ", percentualeSconto=" + percentualeSconto
 				+ "]";
 	}
-	
-	
-	
-	
+
+
+
+
 }

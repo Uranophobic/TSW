@@ -1,15 +1,15 @@
 package model.bean;
 
 public class Ordine {
-	
+
 	private String codiceOrdine;
 	private String emailUtente;
 	private double importoTot;
-	private String dataOrdine; //potremmo cambiarla a Gregorian Calendar 
-	
-	
+	private String dataOrdine;  
+
+
 	public Ordine() {
-		
+
 		this.codiceOrdine = codiceOrdine;
 		this.emailUtente = emailUtente;
 		this.importoTot = importoTot;
@@ -65,20 +65,12 @@ public class Ordine {
 	}
 
 
-	
+
 	public String toString() {
 		return "Ordine [codiceOrdine=" + codiceOrdine + ", emailUtente=" + emailUtente + ", importoTot=" + importoTot
 				+ ", dataOrdine=" + dataOrdine + "]";
 	}
 
-	
 
-	
-	
-	
-	
-	
-
-	
 
 }
