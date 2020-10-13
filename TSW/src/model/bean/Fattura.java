@@ -1,44 +1,53 @@
 package model.bean;
 
 public class Fattura {
-	
-	private int codiceFattura;
-	private int codiceOrdine;
-	
-	public Fattura(int codiceFattura,int codiceOrdine) {
-		this.codiceFattura=codiceFattura;
-		this.codiceOrdine=codiceOrdine;
-	}
-	
+
+	private String  codiceFattura;
+	private String codiceOrdine;
+
 	public Fattura() {
 		this.codiceFattura=codiceFattura;
 		this.codiceOrdine=codiceOrdine;
 	}
 
-	public int getCodiceFattura() {
+
+	public Fattura(String codiceFattura,String codiceOrdine) {
+		this.codiceFattura=codiceFattura;
+		this.codiceOrdine=codiceOrdine;
+	}
+
+
+	public String getCodiceFattura() {
 		return codiceFattura;
 	}
 
-	public void setCodiceFattura(int codiceFattura) {
+	public void setCodiceFattura(String codiceFattura) {
 		this.codiceFattura = codiceFattura;
 	}
 
-	public int getCodiceOrdine() {
+	public String getCodiceOrdine() {
 		return codiceOrdine;
 	}
 
-	public void setCodiceOrdine(int codiceOrdine) {
+	public void setCodiceOrdine(String codiceOrdine) {
 		this.codiceOrdine = codiceOrdine;
 	}
 
-	
+
+
 	public String toString() {
 		return "Fattura [codiceFattura=" + codiceFattura + ", codiceOrdine=" + codiceOrdine + "]";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
 
 }
