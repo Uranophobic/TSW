@@ -1,19 +1,16 @@
 .conferma {
-	
-	margin:auto;
-	width:10%;
+	margin: auto;
+	width: 10%;
 	padding: 5px;
 	font-size: 20px;
 	background-color: #CBFFC0ED;
 	color: black;
 	margin-top: 15px;
 	text-decoration: underline;
-	border:none;
-	cursor:pointer;
-	border-radius:5px;
-	font-weight:bold;
-	
-	
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
 }
 
 #area-utente {
@@ -25,7 +22,6 @@
 	justify-content: center;
 	grid-column-gap: 2%;
 }
-
 
 .item-a {
 	grid-row-start: 1;
@@ -58,23 +54,23 @@
 	padding-left: 25px;
 }
 
-#caselle{
-border-bottom: 1px solid rgba(40, 150, 5, 0.9);
+#caselle {
+	border-bottom: 1px solid rgba(40, 150, 5, 0.9);
 }
 
-#titoloCaselle{ 
+#titoloCaselle {
 	font-size: 35px;
 	color: #4CAF50;
 	margin-top: 55px;
 	font-weight: bold;
-	margin:auto;
+	margin: auto;
 	text-align: center;
 	font-weight: bold;
 }
 
 .riga {
 	height: 1px;
-	background: rgba(0,0,0,.2);
+	background: rgba(0, 0, 0, .2);
 	width: 100%;
 	margin: auto;
 	margin-top: 10px;
@@ -93,10 +89,9 @@ border-bottom: 1px solid rgba(40, 150, 5, 0.9);
 	margin-left: 15px;
 }
 
-.datiSpedizioneEPagamento{
-margin: auto;
-width: 80%;
-
+.datiSpedizioneEPagamento {
+	margin: auto;
+	width: 80%;
 }
 
 .pulsanti {
@@ -109,7 +104,7 @@ width: 80%;
 	word-wrap: break-word;
 	background-color: #fff;
 	background-clip: border-box;
-	border: 1px solid rgba(0,0,0,.125);
+	border: 1px solid rgba(0, 0, 0, .125);
 	border-radius: .25rem;
 	margin: 5px;
 }
@@ -118,25 +113,26 @@ width: 80%;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 */
-.CVV{
-	margin-top:10px;
+.CVV {
+	margin-top: 10px;
 }
 
-.tipo{margin-top:30px;}
+.tipo {
+	margin-top: 30px;
+}
 
 .container {
 	padding: 2px 16px;
 	width: 100%;
 }
 
-.datiPersonalieAccesso{
+.datiPersonalieAccesso {
 	margin-top: 20px;
 }
 
-
-.riga1 { 
+.riga1 {
 	height: 1px;
-	background: rgba(0,0,0,.2);
+	background: rgba(0, 0, 0, .2);
 	width: 80%;
 	margin: auto;
 	margin-top: 10px;

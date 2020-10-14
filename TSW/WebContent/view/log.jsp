@@ -12,35 +12,26 @@
 	<%@include file="navbarnoButton.jsp"%>
 	<h1 class="titoloLogin ">Login</h1>
 	<div class="contenitore">
-		<div class="datiAccesso"> 
+		<div class="datiAccesso" > 
 
 			<div class="immagineLog" align="center">
 				<img src="../images/log.png">
 			</div>
-			<div class="riga" class="hr"></div>
+			<div class="riga" class="hr" ></div>
 
-			<div class="row justify-content">
+			<div  class="row justify-content">
 
-				<div class="col-6 form-group" align="center">
+				<div class="col-6 form-group" >
 					<label class="etichette">Username:</label> <input type="text">
 				</div>
 			</div>
 
-			<div class="row justify-content">
-				<div class="col-6 form-group">
+			<div class="row justify-content" >
+				<div class="col-6 form-group" >
 					<label class="etichette">Password:</label> <input type="text">
 				</div>
 			</div>
-			<!--  	
-
-			<div class="campiFormLogin" align="center">
-				<label class="dati"> Username: <input type="text"
-					placeholder="Username" name="username">
-				</label> <label class="dati"> Password: <input type="text"
-					placeholder="Password" name="password">
-				</label>
-			</div>
--->
+			
 			<div align="center">
 				<button type="submit" class="login">Login</button>
 			</div>
@@ -52,6 +43,11 @@
 				<a class="registrazione" href="../view/registrazione.jsp">Registrati</a>
 			</div>
 		</div>
+	</div>
+	
+	<div class="botton" align="center">
+	<button type="submit" class="conferma">Salva</button>
+	<button type="submit" class="conferma">Indietro</button>
 	</div>
 
 
