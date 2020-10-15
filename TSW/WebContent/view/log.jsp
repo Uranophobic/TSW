@@ -19,18 +19,18 @@
 			</div>
 			<div class="riga" class="hr" ></div>
 
-			<div  class="row justify-content">
+			<div  class="formLogin ">  <!--  ho sostituito fomrLogin con row justify-center -->
 
-				<div class="col-6 form-group" >
-					<label class="etichette">Username:</label> <input type="text">
-				</div>
-			</div>
-
-			<div class="row justify-content" >
-				<div class="col-6 form-group" >
-					<label class="etichette">Password:</label> <input type="text">
-				</div>
-			</div>
+<!-- ho eliminato un div row justify-center e i div col6 form gruop -->
+				
+					<!--  l'ho chiamata etichette2 perchè etichette in stilesito esiste già e non andava -->
+					<label class="etichette2">Username:</label> <br> <!--  ho aggiunto un br per andare a capo -->
+					<input id= "casella" type="text"> <br>  <!--  ho aggiunto un id alle input text per la lunghezza -->
+		
+					<label class="etichette2">Password:</label> <br>
+					<input  id= "casella" type="text"> <br>
+				
+			</div>  
 			
 			<div align="center">
 				<button type="submit" class="login">Login</button>

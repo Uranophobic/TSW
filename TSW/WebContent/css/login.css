@@ -6,15 +6,19 @@
 	text-align: center;
 	
 }
-.etichette {
-	font-size: 18px;
-	font-weight: bold;
-	margin-left: 15px;
-	text-align:center;
-	matgin:auto; 
-	width:50%;
-}
 
+#casella{
+	width: 200px;
+	
+}
+.etichette2 {
+	font-size: 24px; 
+	font-weight: bold;
+	/* margin-left: 15px; */
+	text-align: center;
+	matgin: auto;
+	padding: 5px; /* ho aggiunto un po' di paggind alle etichette*/
+}
 .contenitore{
 	width: 50%;
 	height: auto;
@@ -124,3 +128,4 @@
 	mmargin-left:10px;
 	
 }
+
