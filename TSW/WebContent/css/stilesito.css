@@ -14,6 +14,41 @@ body{
 	src: url("../font/Dosis/AnyConv.com__Dosis-Regular.otf");
 }
 
+@font-face {
+    font-family: 'treeftrregular';
+    src: url("../font/treeftr-webfont/treeftr-p58o-webfont.woff") format('woff2'),
+         url("../font/treeftr-webfont/treeftr-p58o-webfont.woff2") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+ /************************************************TITOLI DELLE PAGINE **************************************************/
+ 
+#titoloPagina{  /*titoloi di tutte le pagine */
+	font-size: 52px; 
+	color: black;
+	font-family: 'treeftrregular';
+} 
+
+
+
+.titoloPagine { /*TITOLO DI TUTTE LE PAGINE*/
+	margin: auto;
+	font-size: 55px;
+	color: #626262;
+	margin:auto;
+	text-align: center;
+	font-family: 'treeftrregular';
+	
+}
+
+
+#titoloHP {
+	font-size: 42px;
+	color: black;
+	margin-top: 15px;
+	margin-bottom: 35px;
+}
 
 
 /******************************************************   NAVBAR   ***********************************************************/
@@ -74,26 +109,115 @@ body{
 	border-bottom: 1px solid #000 !important;
 }
 
-/******************************************************   HOME PAGE   ***********************************************************/
-.titoloPag{
-	font-family: 'Dosis';
-	font-size: 30px; 
+
+
+/*******************************************************HOME PAGE LOGGATA E NON ***************************************************/
+/*Cards funzionalità sulla Homepage loggata*/
+.funzionalita {
+	display: grid;
+	grid-template-columns: 35% 35%;
+	grid-template-rows: 80px;
+	justify-content: center;
+	grid-row-gap: 20%;
+	grid-Column-gap: 5%;
+	height: 350px;
+}
+.descrFunz {
+	text-align: center;
+	margin: auto;
+	width: 80%;
+	font-size: 20px;
+}
+
+.titoloParagrafo2{
+	font-family: 'treeftrregular';
+	font-size: 32px;
+	text-decoration: none;
+	color:#00BB2D;
 	font-weight: bold;
 }
 
-
-#divCentrale{
-	padding: 20px;
+.link:hover{
+	text-decoration: underline;
+	color:#00BB2D;
 }
 
-.titoloPagine { /*TITOLO DI TUTTE LE PAGINE*/
-	margin: auto;
-	font-size: 55px;
-	color: black;
-	margin:auto;
-	text-align: center;
+
+
+
+
+@media all and (max-width: 1690px)and (min-width : 990px) { 
+	.titoloParagrafo2{
+		font-size: 22px;
+	}
 	
+	.descrFunz{
+		font-size: 18px;
+	}
+	
+.funzionalita {
+	grid-template-columns: 40% 40%;
+	grid-template-rows: 95px;
+	height: 250px;
 }
+
+
+}
+
+
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+	.titoloParagrafo2{
+		font-size: 22px;
+	}
+	
+	.descrFunz{
+		font-size: 18px;
+	}
+	
+.funzionalita {
+	grid-template-columns: 40% 40%;
+	grid-template-rows: 95px;
+	height: 250px;
+}
+
+ }
+ 
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+		.titoloParagrafo2{
+		font-size: 20px;
+	}
+	
+	.descrFunz{
+		font-size: 16px;
+	}
+	
+.funzionalita {
+	grid-template-columns: 40% 40%;
+	grid-template-rows: 110px;
+}
+
+}
+
+ /*extra-small devices*/
+@media all and (max-width: 600px) {
+	.titoloParagrafo2{
+		font-size: 20px;
+	}
+	
+	.descrFunz{
+		font-size: 16px;
+	}
+	
+.funzionalita {
+	grid-template-columns: 40% 40%;
+	grid-template-rows: 110px;
+}
+}
+ 
+ 
+
 
 /**************************************************   PROFILO UTENTE   ******************************************************/
 #area-utente {
@@ -272,4 +396,27 @@ width: 80%;
 	color: black;
 	border-bottom: 1px solid black;
 	font-size: 32px;
+}
+
+
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+
+
+@media all and (max-width: 1690px)and (min-width : 990px) { 
+	
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+
+}
+ 
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+
+}
+
+ /*extra-small devices*/
+@media all and (max-width: 600px) {
+
 }
