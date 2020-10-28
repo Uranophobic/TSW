@@ -398,7 +398,283 @@ width: 80%;
 	font-size: 32px;
 }
 
+/*************************** CATALOGO ************************************/
+.catalogo{
+	height: 1000px;
+}
+.menuSx {
+	/* float: left; */
+	background-color: transparent;
+	width: 300px;
+	height: 1300px;
+	border-right: 1px solid #eee;
+	/* position: absolute; */
+	z-index: 1;
+	animation: fadeInLeft;
+	animation-duration: 1s;
+	float: left;
+	position: relative;
+	border-radius: 10px;
+	border: 1px solid #eee;
+	/* width: 302px; */
+	/* margin-top: 10%; */
+	margin-left: 3px;
+}
 
+
+#titSx {
+	font-family: 'treeftrregular';
+	font-size: 48px;
+	color: #626262;
+	font-weight: bold;
+	text-align: center;
+	padding: 15px;
+	margin-top: 30px;
+}
+
+.icon-bar {
+	display: none;
+	width: 100%;
+	background-color: #5ba83599;
+	z-index: 1;
+	animation: fadeInLeft;
+	animation-duration: 1s;
+	float: left;
+	position: relative;
+	/* margin-top: 10%; */
+	border-radius: 10px;
+	/* border: 1px solid #eee; */
+	text-align: center;
+	height: 30px;
+}
+
+.sottoCateg {
+	color: #262626;
+	text-decoration: none;
+	background-color: transparent;
+}
+
+.sottoCateg:hover{
+	color: black;
+	text-decoration: none;
+}
+
+
+
+#categ {
+	font-family: 'treeftrregular';
+	font-weight: bold;
+	font-size: 35px;
+	color: #5ba835;
+	text-align: center;
+	width: 70%;
+	margin: auto;
+}
+
+.sottoList{
+	margin-right: 10px;
+	font-size: 22px; 
+	color: #262626;
+}
+
+#grid {
+	width: 1030px;
+	position: absolute;
+	left: 315px;
+	height: auto;
+	top: 150px;
+}
+
+
+.listaProdotti {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+	display: inline-block;
+	width: 300px;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+
+#prod{
+
+	display: inline-block;
+	width: 300px;
+	float: left;
+	margin-right: 15px;
+	margin-bottom: 15px;
+
+}
+
+.prodotto {
+	border: 1px solid #ddd;
+	color: #333;
+	margin-bottom: 20px;
+	position: relative;
+	padding-bottom: 20px;
+	padding: 15px 0;
+	background-color: #fff;
+	text-align: center;
+}
+
+#img {
+	/* border: 3px solid #f8f8f8; */
+	-webkit-border-radius: 50%;
+	border-radius: 40%;
+	transition: all 0.3s ease 0s;
+	margin: 0 auto;
+	height: 260px;
+	width: 260px;
+}
+
+.descrProd {
+	padding: 10px;
+	text-align: center;
+	border-top: 1px solid #eee;
+	
+}
+
+#titInfo{
+font-size: 28px;
+font-weight: bold;
+}
+
+#info {
+	font-size: 22px;
+	margin: 10px;
+	line-height: 22px;
+}
+
+.vediInfo {
+	position: absolute;
+	right: 0;
+	bottom: 3px;
+}
+
+.showBioBtn {
+	background-color: #337ab7;
+	padding: 5px 10px;
+	color: #fff;
+	font-size: 12px;
+}
+
+#paginazione {
+	clear: both;
+	margin: 20px 0;
+}
+
+#paginazione a {
+	padding: 3px 6px;
+	border: 1px solid #2e6da4;
+	margin: 2px;
+	color: black;
+	text-decoration: none
+}
+
+.active_page {
+	background: #337ab7;
+	color: white !important;
+}
+
+#prova{
+	width: 300px;
+	background-color: #5ba83599;
+	z-index: 1;
+	animation: fadeInLeft;
+	animation-duration: 1s;
+	float: left;
+	position: relative;
+	/* margin-top: 10%; */
+	border-radius: 10px;
+	border: 1px solid #eee; 
+	text-align: center;
+	height: 30px;
+}
+
+.dropdown-menu-animation .prova{
+	animation:slideInUp;
+	animation-duration:1s!important;
+}
+
+.icon-bar a:not(.nohover):hover {  
+    background-color: #4b4c4d9e ; 
+    cursor:pointer;
+}
+
+/* icona frecce per menù a scomparsa */
+.arrow-style {
+  color: white;
+  margin-left:-24px;
+}
+@keyframes load {
+  0% {
+    opacity: 0;
+  }
+  20% {
+  	opacity:1;
+  }100% {
+    opacity: 1;
+  }
+}
+
+.uno {
+  -webkit-animation: load 5s 4 0.5s;
+  animation: load 5s 4 0.5s;
+}
+.due {
+  -webkit-animation: load 5s 4 0.6s;
+  animation: load 5s 4 0.6s;
+}
+.tre {
+  -webkit-animation: load 5s 4 0.7s;
+  animation: load 5s 4 0.7s;
+}
+
+ /*extra-small devices*/
+@media all and (max-width: 600px) {
+	.icon-bar{
+		display:block;
+	}
+}
+
+/*********** VISUALIZZA DETTAGLI PRODOTTO ***********/
+.visualizzaProdotto{
+		width: 100%;
+	display: grid;
+	grid-template-columns: 30% 60%;
+	grid-template-rows: 65% 5% 25%;
+	height: 350px;
+	justify-content: center;
+	grid-column-gap: 2%;
+	
+}
+
+.fotoProdotto{
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+
+.dettagliProdotto{
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: auto;
+	width: 100%;
+	text-align: inherit;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/
 

@@ -7,183 +7,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="menu.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/stilesito.css">
-<title>Insert title here</title>
-<style>
-a {
-	text-decoration: none;
-}
-
-
-
-.lista ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.lista ul li {
-	display: inline-block;
-	width: 300px;
-	float: left;
-	margin-right: 15px;
-	margin-bottom: 15px;
-}
-
-.prodotto {
-	border: 1px solid #ddd;
-	color: #333;
-	margin-bottom: 20px;
-	position: relative;
-	padding-bottom: 20px;
-	background-color: #f5f5f5;
-}
-
-.prodotto .picture {
-	padding: 15px 0;
-	background-color: #fff;
-	text-align: center;
-}
-
-#img {
-	/* border: 3px solid #f8f8f8; */
-	-webkit-border-radius: 50%;
-	border-radius: 40%;
-	transition: all 0.3s ease 0s;
-	margin: 0 auto;
-	height: 260px;
-	width: 260px;
-}
-
-.descrProd {
-	padding: 10px;
-	text-align: center;
-	border-top: 1px solid #eee;
-	
-}
-
-
-#titInfo{
-font-size: 28px;
-font-weight: bold;
-}
-
-#info {
-	font-size: 22px;
-	margin: 10px;
-	line-height: 22px;
-}
-
-.vediInfo {
-	position: absolute;
-	right: 0;
-	bottom: 3px;
-}
-
-.physicianModal {
-	text-align: center;
-}
-
-.physicianModal .picture img {
-	border: 6px solid #f8f8f8;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-	transition: all 0.3s ease 0s;
-	margin: 0 auto;
-	height: 180px;
-	width: 180px;
-}
-
-.physicianModal .info p, .physicianModal .info  {
-	margin: 0;
-}
-
-.showBioBtn {
-	background-color: #337ab7;
-	padding: 5px 10px;
-	color: #fff;
-	font-size: 12px;
-}
-
-/*Pagination CSS*/
-#page_navigation {
-	clear: both;
-	margin: 20px 0;
-}
-
-#page_navigation a {
-	padding: 3px 6px;
-	border: 1px solid #2e6da4;
-	margin: 2px;
-	color: black;
-	text-decoration: none
-}
-
-.active_page {
-	background: #337ab7;
-	color: white !important;
-}
-#grid {
-	width: 1030px;
-	position: absolute;
-	left: 315px;
-	height: auto;
-	top: 150px;
-}
-.menuSx {
-	/* float: left; */
-	background: #fff;
-	width: 300px;
-	height: 1300px;
-	border-right: 1px solid #eee;
-	/* position: absolute; */
-}
-
-#titSx {
-	font-family: 'treeftrregular';
-	font-size: 48px;
-	color: #626262;
-	font-weight: bold;
-	text-align: center;
-	padding: 15px;
-}
-.categorie ul{
-	margin-right: 10px;
-	font-size: 22px; 
-	color: #262626;
-}
-
-.sottoCateg {
-	color: #262626;
-	text-decoration: none;
-	background-color: transparent;
-}
-
-.sottoCateg:hover{
-	color: black;
-	text-decoration: none;
-}
-
-#categ {
-	font-family: 'treeftrregular';
-	font-weight: bold;
-	font-size: 35px;
-	color: #5ba835;
-	text-align: center;
-	width: 70%;
-	margin: auto;
-}
-</style>
+<title> Catalogo - Oltre il Giardino</title>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
 <div>
 <p  class="titoloPagine"> CATALOGO </p>
 </div>
-<div class="menuSx">
-	<h3 id="titSx"> CATEGORIE </h3>
 
+<div class="catalogo">
+ <div style="display:block" id="menuSx">
+ 
+ <div class="menuSx">
+  <a class="icon-bar" onclick="w3_close()" style=" font-size: 18px"> 
+  <img class="tre" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaklEQVRIie3UsQmAQAxG4UOstdWRdAad9yztXObgWYlHGkW5aPG/BT4SQkJQSv0hoAXGL9AIJGD2RBfOVqD2QGOGbkAnVKitumO/RR4HNO6rvsB74aVxe+nlX2aGH5MnYHJBDT64okop2w4gjRheP8Dm7QAAAABJRU5ErkJggg=="/>
+    <img class="due arrow-style" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaklEQVRIie3UsQmAQAxG4UOstdWRdAad9yztXObgWYlHGkW5aPG/BT4SQkJQSv0hoAXGL9AIJGD2RBfOVqD2QGOGbkAnVKitumO/RR4HNO6rvsB74aVxe+nlX2aGH5MnYHJBDT64okop2w4gjRheP8Dm7QAAAABJRU5ErkJggg=="/>
+    <img class="uno arrow-style" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaklEQVRIie3UsQmAQAxG4UOstdWRdAad9yztXObgWYlHGkW5aPG/BT4SQkJQSv0hoAXGL9AIJGD2RBfOVqD2QGOGbkAnVKitumO/RR4HNO6rvsB74aVxe+nlX2aGH5MnYHJBDT64okop2w4gjRheP8Dm7QAAAABJRU5ErkJggg=="/>
+   </a>
+   <div class="">
+	<h3 id="titSx"> CATEGORIE </h3>
+	</div>
 <div class=" categorie">
-    		<ul>
+    		<ul class="sottoList">
     			<li><a class="sottoCateg" href=""><span></span>Nuovi Arrivi</a></li>
     			<li><a  class="sottoCateg" href=""><span></span>Scontati</a></li>
         	</ul>
@@ -211,14 +56,25 @@ font-weight: bold;
         	</ul>
     	</div>
 </div>
+</div>
+
+
+<div class="">
+  <a><button class="icon-bar" style="display:none;"  id=prova onclick="w3_open()"> 
+  <img class="uno" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaUlEQVRIie3Vuw2AMBAEUZtWXAK9QF8gEopEUMEQOMABggT2kn0NjO7kT0pmFgHIwAhkdXSmWoFOFS7AzmWRTQ70wNbEpZPfxUMnd/yR5mB8KWTVjv4dLcAhfzKpn8Qkv7NNfJBGzezNCeLiIwNs96qWAAAAAElFTkSuQmCC"/>
+    <img class="due arrow-style" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaUlEQVRIie3Vuw2AMBAEUZtWXAK9QF8gEopEUMEQOMABggT2kn0NjO7kT0pmFgHIwAhkdXSmWoFOFS7AzmWRTQ70wNbEpZPfxUMnd/yR5mB8KWTVjv4dLcAhfzKpn8Qkv7NNfJBGzezNCeLiIwNs96qWAAAAAElFTkSuQmCC"/>
+    <img class="tre arrow-style" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAaUlEQVRIie3Vuw2AMBAEUZtWXAK9QF8gEopEUMEQOMABggT2kn0NjO7kT0pmFgHIwAhkdXSmWoFOFS7AzmWRTQ70wNbEpZPfxUMnd/yR5mB8KWTVjv4dLcAhfzKpn8Qkv7NNfJBGzezNCeLiIwNs96qWAAAAAElFTkSuQmCC"/>
+     </button> </a>
+</div>
 
 	
 	<div id="grid"> <!-- Inizio Catalogo -->
 	<div class="lista">
-		<input type='hidden' id='current_page' /> <input type='hidden'
-			id='show_per_page' />
-		<ul id="pagingBox">
-			<li>
+		<input type='hidden' id='current_page' /> 
+		<input type='hidden' id='show_per_page' />
+		
+		<ul id="listaProdotti">
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbice" border="0">
@@ -235,7 +91,7 @@ font-weight: bold;
 					</div>
 				</div>
 			</li>
-<li>
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.peragashop.com/pub/media/catalog/product/cache/5ea676a585d1025fff988e7c16910e8b/1/3/1348411_bb_00_fb.eps_1000.jpg" alt="troncarami" border="0">
@@ -252,7 +108,7 @@ font-weight: bold;
 					</div>
 				</div>
 			</li>
-			<li>
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
@@ -269,7 +125,7 @@ font-weight: bold;
 					</div>
 				</div>
 			</li>
-			<li>
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
@@ -286,7 +142,7 @@ font-weight: bold;
 					</div>
 				</div>
 			</li>
-			<li>
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
@@ -303,7 +159,7 @@ font-weight: bold;
 					</div>
 				</div>
 			</li>
-			<li>
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
@@ -320,76 +176,7 @@ font-weight: bold;
 					</div>
 				</div>
 			</li>
-			<li>
-				<div class="prodotto">
-					<div class="picture">
-						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
-					</div>
-
-					<div class="descrProd">
-							<p id="titInfo">Forbici per erba</p>
-							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
-							<p id="info">Codice: AAA598721</p>
-					</div>
-
-					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
-					</div>
-				</div>
-			</li>
-
-			<li>
-				<div class="prodotto">
-					<div class="picture">
-						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
-					</div>
-
-					<div class="descrProd">
-							<p id="titInfo">Forbici per erba</p>
-							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
-							<p id="info">Codice: AAA598721</p>
-					</div>
-
-					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="prodotto">
-					<div class="picture">
-						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
-					</div>
-
-					<div class="descrProd">
-							<p id="titInfo">Forbici per erba</p>
-							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
-							<p id="info">Codice: AAA598721</p>
-					</div>
-
-					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
-					</div>
-				</div>
-			</li>
-			<li>
-				<div class="prodotto">
-					<div class="picture">
-						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
-					</div>
-
-					<div class="descrProd">
-							<p id="titInfo">Forbici per erba</p>
-							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
-							<p id="info">Codice: AAA598721</p>
-					</div>
-
-					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
-					</div>
-				</div>
-			</li>
-			<li>
+			<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
@@ -407,7 +194,76 @@ font-weight: bold;
 				</div>
 			</li>
 
-		<li>
+			<li id="prod">
+				<div class="prodotto">
+					<div class="picture">
+						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
+					</div>
+
+					<div class="descrProd">
+							<p id="titInfo">Forbici per erba</p>
+							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
+							<p id="info">Codice: AAA598721</p>
+					</div>
+
+					<div class="vediInfo">
+						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+					</div>
+				</div>
+			</li>
+			<li id="prod">
+				<div class="prodotto">
+					<div class="picture">
+						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
+					</div>
+
+					<div class="descrProd">
+							<p id="titInfo">Forbici per erba</p>
+							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
+							<p id="info">Codice: AAA598721</p>
+					</div>
+
+					<div class="vediInfo">
+						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+					</div>
+				</div>
+			</li>
+			<li id="prod">
+				<div class="prodotto">
+					<div class="picture">
+						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
+					</div>
+
+					<div class="descrProd">
+							<p id="titInfo">Forbici per erba</p>
+							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
+							<p id="info">Codice: AAA598721</p>
+					</div>
+
+					<div class="vediInfo">
+						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+					</div>
+				</div>
+			</li>
+			<li id="prod">
+				<div class="prodotto">
+					<div class="picture">
+						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
+					</div>
+
+					<div class="descrProd">
+							<p id="titInfo">Forbici per erba</p>
+							<p id="info"> Prezzo: 19,50 euro. </p> <!--  si prenderà dal database, idem il codice -->
+							<p id="info">Codice: AAA598721</p>
+					</div>
+
+					<div class="vediInfo">
+						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+					</div>
+				</div>
+			</li>
+
+		<li id="prod">
 				<div class="prodotto">
 					<div class="picture">
 						<img id="img" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbici" border="0">
@@ -427,24 +283,32 @@ font-weight: bold;
 
 		</ul>
 	</div>
-	<div id='page_navigation'></div>
+	<div id='paginazione'></div>
 </div>
-	
+</div>
+<%@ include file="footer.jsp"%>
+	<script>
+function w3_open() {
+  document.getElementById("menuSx").style.display = "block";
+document.getElementById("prova").style.display = "none";
+}
+
+function w3_close() {
+  document.getElementById("menuSx").style.display = "none";
+  document.getElementById("prova").style.display = "block";
+}
+</script>
 
 	<script type="text/javascript">
-		jQuery(document)
-				.ready(
-						function() {
+		jQuery(document).ready(function() {
 
 							//Pagination JS
 							//how much items per page to show
-							var show_per_page = 4;
-							//getting the amount of elements inside pagingBox div
-							var number_of_items = $('#pagingBox').children()
-									.size();
+							var show_per_page = 6;
+							//getting the amount of elements inside listaProdotti div
+							var number_of_items = $('#listaProdotti').children().size();
 							//calculate the number of pages we are going to have
-							var number_of_pages = Math.ceil(number_of_items
-									/ show_per_page);
+							var number_of_pages = Math.ceil(number_of_items/ show_per_page);    //Math ceil serve ad arrotondare un numero
 
 							//set the value of our hidden input fields
 							$('#current_page').val(0);
@@ -471,17 +335,17 @@ font-weight: bold;
 							}
 							navigation_html += '<a class="next_link" href="javascript:next();">Next</a>';
 
-							$('#page_navigation').html(navigation_html);
+							$('#paginazione').html(navigation_html);
 
 							//add active_page class to the first page link
-							$('#page_navigation .page_link:first').addClass(
+							$('#paginazione .page_link:first').addClass(
 									'active_page');
 
-							//hide all the elements inside pagingBox div
-							$('#pagingBox').children().css('display', 'none');
+							//hide all the elements inside listaProdotti div
+							$('#listaProdotti').children().css('display', 'none');
 
 							//and show the first n (show_per_page) elements
-							$('#pagingBox').children().slice(0, show_per_page)
+							$('#listaProdotti').children().slice(0, show_per_page)
 									.css('display', 'block');
 
 						});
@@ -516,8 +380,8 @@ font-weight: bold;
 			//get the element number where to end the slice
 			end_on = start_from + show_per_page;
 
-			//hide all children elements of pagingBox div, get specific items and show them
-			$('#pagingBox').children().css('display', 'none').slice(start_from,
+			//hide all children elements of listaProdotti div, get specific items and show them
+			$('#listaProdotti').children().css('display', 'none').slice(start_from,
 					end_on).css('display', 'block');
 
 			/*get the page link that has longdesc attribute of the current page and add active_page class to it
@@ -529,5 +393,6 @@ font-weight: bold;
 			$('#current_page').val(page_num);
 		}
 	</script>
+	
 </body>
 </html>
