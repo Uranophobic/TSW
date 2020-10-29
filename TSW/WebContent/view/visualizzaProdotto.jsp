@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../css/stilesito.css">
-<title>Modifica Dati Utente</title>
+<title>Visualizza prodotto - Oltre il Giardino </title>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
@@ -24,10 +24,28 @@
 		<div class="datiPersona"> 
 					<h4 id="titoloCaselle" > Dettagli Informazioni Prodotto</h4>
 					<div class= "riga" class="hr"></div>
-				<span> NOME PRODOTTO: </span> <br>
-				<span> CODICE PRDOTTO: </span>	<br>
-				<span> PREZZO PRODOTTO: </span> <br>
-				<span> DESCRIZIONE: </span>	
+		
+					<div class="row justify-content">
+    					<div class="col-10 form-group">
+    						<label class="etichette">NOME:</label> 
+    						<a id="informazioni"> qualcosa</a> <br>
+    						<label class="etichette">CODICE:</label>
+      				<a id="informazioni"> qualcosa</a><br>
+      				<label class="etichette">DESCRIZIONE:</label>
+      				<a id="informazioni"> qualcosa</a><br>
+      				<label class="etichette">SPECIFICHE DEL PRODOTTO:</label>
+      				<a id="informazioni"> qualcosa</a><br>
+      				<label class="etichette">PREZZO:</label>
+      				<a id="informazioni"> qualcosa</a><br>
+      				
+      				
+      				
+      				<!-- LO METTIAMO A DESTRA -->
+      				<label class="etichette">SCONTO: sì / no</label><br>
+      				<label class="etichette">COSTI SPEDIZIONE:</label>
+      				<a id="informazioni"> qualcosa</a><br>
+    					</div>
+  					</div>
 	</div>
 	
 </div>

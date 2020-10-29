@@ -87,7 +87,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -104,7 +104,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -121,7 +121,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -138,7 +138,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -155,7 +155,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -172,7 +172,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -189,7 +189,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -207,7 +207,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -224,7 +224,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -241,7 +241,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -258,7 +258,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
@@ -276,7 +276,7 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="javascript:void(0)">Show BIO</a>
+						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
 					</div>
 				</div>
 			</li>
