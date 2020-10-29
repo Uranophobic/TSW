@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../css/regi.css">
-<title>Registrati,cazzo</title>
+<title>REGISTRATI</title>
 </head>
 <body>
 	<%@ include file="navbarnoButton.jsp"%>

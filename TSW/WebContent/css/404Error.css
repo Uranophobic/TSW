@@ -1,0 +1,53 @@
+.contenuto {
+	height: 550px;
+	padding: 20px;
+}
+
+.triste {
+	margin: auto;
+	width: 50%;
+}
+
+.titoloError {
+	margin: auto;
+	text-align: center;
+	color: black;
+	font-size: 55px;
+	font-weight: bold;
+}
+
+.contenutoErrore {
+	margin: auto;
+	text-align: center;
+	padding: 50px;
+	font-weight: bold;
+	
+}
+
+.tornaHomeLink {
+	margin: auto;
+	text-align: center;
+	font-size: 30px;
+	color: black;
+	weight: 100px;
+}
+
+.tornaAllaHome {
+	margin: auto;
+	weight: 50%;
+	
+
+}
+
+.immagine404{
+	margin:auto;
+	width:200px;
+	height:auto;
+}
+/*
+.immagineErrorDiv{
+	margin:auto;
+	width:auto;
+	height:auto;
+}
+*/
