@@ -1,0 +1,88 @@
+*{
+	    font-family: "Dosis";	
+}
+
+body {
+	overflow-x: hidden;
+}
+
+@font-face{
+	font-family: "Dosis";
+	src: url("../font/Dosis/AnyConv.com__Dosis-Regular.otf");
+}
+@font-face {
+    font-family: 'treeftrregular';
+    src: url('../font/treeftr-webfont/treeftr-p58o-webfont.woff2') format('woff2'),
+         url('../font/treeftr-webfont/treeftr-p58o-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* titolo generale delle pagine, è quello più grande di tutti */
+.title {
+	font-family: 'treeftrregular';
+	font-size: 70px;
+}
+@media screen and (max-width: 320px) {
+  .title {
+    font-size: 45px;
+  }
+}
+
+.titoloParagrafo {
+	font-size: 28px;
+    font-family: 'treeftrregular';
+    font-weight: bold;
+    color: #289605;
+    margin-top: 15px;
+}
+@media screen and (min-width: 320px) and (max-width: 1199px){
+  .titoloParagrafo {
+    font-size: 30px;
+  }
+}
+
+.corpoParagrafo {
+	font-size: 18px;
+}
+
+/* header delle pagine chi siamo e vantaggi */
+.header {
+	color: white;
+  	padding: 70px;
+  	line-height: 2.0;
+  	text-align: center;
+ 	text-shadow: 2px 2px 4px #000000;
+ 	box-shadow: inset 0 -20px 25px -10px rgba(0, 0, 0, 0.19);
+ 	background-color: aquamarine; /* For browsers that do not support gradients */
+ 	background-image: linear-gradient(to bottom right, aquamarine, darkturquoise, mediumturquoise, darkseagreen);
+}
+
+/* pic di sfondo per l'header */
+.picture {
+	background-repeat: no-repeat;
+ 	background-size: cover;
+ 	background-position: center;
+}
+
+/*elenco puntato con foglie di tre colori con colori ordinati a gradiente */
+.foglie {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.foglie li:nth-child(4n+1) {
+	list-style-image: url('../image/foglia1.png');
+}
+
+.foglie li:nth-child(4n+2) {
+	list-style-image: url('../image/foglia2.png');
+}
+
+.foglie li:nth-child(4n+3) {
+	list-style-image: url('../image/foglia3.png');
+}
+
+.foglie li:nth-child(4n+4) {
+	list-style-image: url('../image/foglia2.png');
+}
