@@ -22,28 +22,26 @@ body{
     font-style: normal;
 }
 
- /************************************************TITOLI DELLE PAGINE **************************************************/
+ /**************************************************** TITOLI DELLE PAGINE **************************************************************/
+
+.titoloPagine { /*titolo di TUTTE le pagine (tranne della home) */
+	margin: auto;
+	font-size: 68px;
+	color: black;
+	margin: auto;
+	text-align: center;
+	font-family: 'treeftrregular';
+} 
  
-#titoloPagina{  /*titoloi di tutte le pagine */
+ 
+ 
+/*questi due sono il titolo e il sottotitolo della homepage*/
+#titoloHome{  
 	font-size: 52px; 
 	color: black;
 	font-family: 'treeftrregular';
 } 
-
-
-
-.titoloPagine { /*TITOLO DI TUTTE LE PAGINE*/
-	margin: auto;
-	font-size: 55px;
-	color: #626262;
-	margin:auto;
-	text-align: center;
-	font-family: 'treeftrregular';
-	
-}
-
-
-#titoloHP {
+#sottotitolo {
 	font-size: 42px;
 	color: black;
 	margin-top: 15px;
@@ -51,7 +49,7 @@ body{
 }
 
 
-/******************************************************   NAVBAR   ***********************************************************/
+/****************************************************************   NAVBAR   **************************************************************/
 .primo {
 	background: #CBFFC0ED;
 	color: black;
@@ -91,7 +89,7 @@ body{
 }
 
 
-/**************************************************   FOOTER   ******************************************************/
+/**************************************************************   FOOTER   ****************************************************************/
 .footer {
 	padding: 25px;
 	color: black;
@@ -111,7 +109,7 @@ body{
 
 
 
-/*******************************************************HOME PAGE LOGGATA E NON ***************************************************/
+/*******************************************************HOME PAGE LOGGATA E NON ***********************************************************/
 /*Cards funzionalità sulla Homepage loggata*/
 .funzionalita {
 	display: grid;
@@ -219,7 +217,7 @@ body{
  
 
 
-/**************************************************   PROFILO UTENTE   ******************************************************/
+/*************************************************************   PROFILO UTENTE   **********************************************************/
 #area-utente {
 	width: 100%;
 	display: grid;
@@ -342,7 +340,7 @@ width: 80%;
 	margin-bottom: 10px;
 }
 
-/*************************** MODIFICA DATI UTENTE ************************************/
+/******************************************************* MODIFICA DATI UTENTE **************************************************************/
 .contenitore {
 	/* grid-row-start: 1; */
 	/* grid-row-end: 5; */
@@ -380,7 +378,7 @@ width: 80%;
 }
 
 
-/*************************** VISUALIZZA ORDINI UTENTE ************************************/
+/***************************************************** VISUALIZZA ORDINI UTENTE ***********************************************************/
 .w3-black, .w3-hover-black:hover {
 	color: #fff !important;
 	background-color: #000 !important;
@@ -398,7 +396,7 @@ width: 80%;
 	font-size: 32px;
 }
 
-/*************************** CATALOGO ************************************/
+/****************************************************************** CATALOGO **************************************************************/
 .catalogo{
 	height: 1000px;
 }
@@ -639,7 +637,7 @@ font-weight: bold;
 	}
 }
 
-/*********** VISUALIZZA DETTAGLI PRODOTTO ***********/
+/************************************************* VISUALIZZA DETTAGLI PRODOTTO *******************************************************/
 .visualizzaProdotto{
 		width: 100%;
 	display: grid;
@@ -675,6 +673,32 @@ font-weight: bold;
 	border-radius: 5px;
 	margin-top: 15px;
 }
+
+
+/*********************************************************** CARRELLO ******************************************************************/
+.carello {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 15% 40% 8% 7% 7% 15%;
+	grid-template-rows: 65% 5% 25%;
+	height: auto;
+	justify-content: center;
+}
+
+.totale{
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+
+
+
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/
 

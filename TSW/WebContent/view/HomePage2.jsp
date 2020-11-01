@@ -17,10 +17,10 @@
 	<div class="row justify-content-center ">
 
 		<div id="" class="col col-lg-12 text-center ">
-			<h1 id="titoloPagina" style="color: #00BB2D; font-size: 77px;" >Oltre il <a id="titoloPagina"  style="color: #47cf00; font-size: 82px;">GIARDINO</a>,</h1>
+			<h1 id="titoloHome" style="color: #00BB2D; font-size: 77px;" >Oltre il <a id="titoloHome"  style="color: #47cf00; font-size: 82px;">GIARDINO</a>,</h1>
 		</div>
 			<div class="col-lg-12 text-center ">
-			<p id="titoloHP" style="font-size: 34px;"> Tutto a portata di un click! </p>
+			<p id="sottotitolo" style="font-size: 34px;"> Tutto a portata di un click! </p>
 		</div>
 </div>
 
