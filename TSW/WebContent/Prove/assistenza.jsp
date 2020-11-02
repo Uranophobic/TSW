@@ -9,7 +9,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" href="../css/stylesheet.css">
 <meta charset="ISO-8859-1">
 <title>Agricolàrio - Assistenza</title>
 
@@ -174,7 +174,7 @@ background-color: red;
                 <img class="img-fluid" style="width:auto" src="https://img.icons8.com/bubbles/300/000000/online-support.png"/>
       </div>
     <div class="col justify-content-center p-5">
-    <div class="card card-body rounded-0 shadow picture" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('image/formbackground.jpg')">
+    <div class="card card-body rounded-0 shadow picture" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url('../image/formbackground.jpg')">
  	<h1 class="text-center py-4 text-light"><b>Contattaci</b></h1><br>
 		 <form class="needs-validation" novalidate id="form-contattaci" action="mailto:" method="post" enctype="text/plain">
 			

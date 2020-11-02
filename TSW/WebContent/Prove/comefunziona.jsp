@@ -13,7 +13,7 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" href="../css/stylesheet.css">
 
 
 <meta charset="ISO-8859-1">
@@ -357,7 +357,7 @@ html {
 			<div class="card card-body rounded-0 border-0 h-100"
 				style="background:#e6edb7">
 				<img class="img-fluid my-auto" style="width: auto"
-					src="image/registromacvec.gif" />
+					src="../image/registromacvec.gif" />
 			</div>
 
 		</div>
@@ -552,7 +552,7 @@ html {
 			<div class="card card-body rounded-0 border-0 h-100"
 				style="background: #e6edb7">
 				<img class="img-fluid my-auto" style="width: auto"
-					src="image/magazzinomacvec.gif" />
+					src="../image/magazzinomacvec.gif" />
 			</div>
 		</div>
 
@@ -819,8 +819,8 @@ Per farlo basta eseguire questi pochi e semplici passi: </p>
   informazioni e dati, formati da caratteri alfanumerici e/o numerici. </p></div>
   
 <div class="row justify-content-center">
-<img class="img-fluid my-auto" src="image/qr-code-ex1.png" alt="QR-code Image" width="240"/>
-  <img class="img-fluid my-auto" src="image/qr-code-ex2.png" alt="QR-code Image" width="200"/>
+<img class="img-fluid my-auto" src="../image/qr-code-ex1.png" alt="QR-code Image" width="240"/>
+  <img class="img-fluid my-auto" src="../image/qr-code-ex2.png" alt="QR-code Image" width="200"/>
   <br></div>
    <div class="row justify-content-center">
     <p class="font-weight-bold">
@@ -844,7 +844,7 @@ Le immagini sono solo illustrative.</p></div>
             <p class="accordionText text-center font-weight-bold text-uppercase" style="font-size: 19px;">Utilizzando il tuo stesso smartphone o tablet! </p>
             	<div class="row row-cols-1 row-cols-lg-2">
             		<div class="col-lg-4 px-3 pb-3 my-auto">       
-              <img class="mx-auto d-block img-fluid" src="image/scan-code.jpg" alt="QR-code Image"/>
+              <img class="mx-auto d-block img-fluid" src="../image/scan-code.jpg" alt="QR-code Image"/>
               </div>
               <div class="col-lg-8">
 			  <p class="accordionText">Questi dispositivi sono predisposti ad accedere alle informazioni in 

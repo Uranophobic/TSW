@@ -10,14 +10,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   
-<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" href="../css/stylesheet.css">
 <meta charset="ISO-8859-1">
 <title>Agricolàrio - Chi siamo</title>
 
 </head>
 <body>
 
-<div class="header picture" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('image/chisiamosfondo.jpg')">
+<div class="header picture" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('../image/chisiamosfondo.jpg')">
 <h2 class="title">,CHI SIAMO</h2>
 <h5><br>Agricolàrio nasce dall'idea di realizzare un sistema adatto alla compilazione di un <b><i>registro fitosanitario</i></b></h5>
 <h5><b>innovativo</b>, <b>moderno</b>, <b>dinamico</b> e, sopra ogni cosa,
@@ -36,7 +36,7 @@
   <div class="row row-cols-1 row-cols-md-3">
    <div class="col mb-4">
     <div class="card shadow h-100">
-    <img class="card-img-top rounded-circle img-fluid" src="image/alessandro.png" alt="Card image" style="width:100%">
+    <img class="card-img-top rounded-circle img-fluid" src="../image/alessandro.png" alt="Card image" style="width:100%">
       <div class="card-body text-center">
       	<h4 class="titoloParagrafo">Alessandro Capodanno</h4>
         <p class="corpoParagrafo">Io non scrivo codice. <br>Io implemento forte. Troppo forte.</p>
@@ -45,7 +45,7 @@
     </div>
     <div class="col mb-4">
     <div class="card shadow h-100">
-    <img class="card-img-top rounded-circle img-fluid" src="image/alessia.png" alt="Card image" style="width:100%">
+    <img class="card-img-top rounded-circle img-fluid" src="../image/alessia.png" alt="Card image" style="width:100%">
       <div class="card-body text-center">
        	<h4 class="titoloParagrafo">Alessia Crispo</h4>
        	<p class="corpoParagrafo">Mi sveglio presto la mattina <br>per fare più pause studio.</p>
@@ -54,7 +54,7 @@
     </div>
     <div class="col mb-4">
     <div class="card shadow h-100">
-    <img class="card-img-top rounded-circle img-fluid" src="image/sara.png" alt="Card image" style="width:100%">
+    <img class="card-img-top rounded-circle img-fluid" src="../image/sara.png" alt="Card image" style="width:100%">
       <div class="card-body text-center">
       	<h4 class="titoloParagrafo">Sara Patierno</h4>
         <p class="corpoParagrafo">Faccio i capricci, <br>ma per il bene dell'universo.</p>
