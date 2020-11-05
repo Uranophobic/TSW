@@ -404,7 +404,7 @@ width: 80%;
 	/* float: left; */
 	background-color: transparent;
 	width: 300px;
-	height: 1300px;
+	height: 1000px;
 	border-right: 1px solid #eee;
 	/* position: absolute; */
 	z-index: 1;
@@ -419,11 +419,10 @@ width: 80%;
 	margin-left: 3px;
 }
 
-
 #titSx {
 	font-family: 'treeftrregular';
 	font-size: 48px;
-	color: #626262;
+	color: black;
 	font-weight: bold;
 	text-align: center;
 	padding: 15px;
@@ -478,11 +477,10 @@ width: 80%;
 #grid {
 	width: 1030px;
 	position: absolute;
-	left: 315px;
 	height: auto;
 	top: 150px;
+	left: 300px;
 }
-
 
 .listaProdotti {
 	margin: 0;
@@ -531,7 +529,8 @@ width: 80%;
 	padding: 10px;
 	text-align: center;
 	border-top: 1px solid #eee;
-	
+	width: 100%;
+	height: 200px;
 }
 
 #titInfo{
@@ -548,7 +547,9 @@ font-weight: bold;
 .vediInfo {
 	position: absolute;
 	right: 0;
-	bottom: 3px;
+	bottom: 25px;
+	width: 100%;
+	margin: auto;
 }
 
 .showBioBtn {
@@ -589,6 +590,21 @@ font-weight: bold;
 	border: 1px solid #eee; 
 	text-align: center;
 	height: 30px;
+}
+
+#prodBtn {
+	margin: auto;
+	width: 70%
+	padding: 5px; 
+	font-size: 16px;
+	background-color: #4CAF50;
+	color: #fafbfa;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	/* border: 1px solid #b3b3b3; */
+	/* margin-bottom: 10px; */
 }
 
 .dropdown-menu-animation .prova{
@@ -636,6 +652,7 @@ font-weight: bold;
 		display:block;
 	}
 }
+
 
 /************************************************* VISUALIZZA DETTAGLI PRODOTTO *******************************************************/
 .visualizzaProdotto{
@@ -697,7 +714,28 @@ font-weight: bold;
 	margin-top: 15px;
 }
 
+#backBtn{
+	margin: auto;
+	width: 20%;
+	padding: 5px; 
+	font-size: 16px; 
+	background-color: #CBFFC0ED;
+	color: black;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	border: 1px solid green;
+	margin-bottom: 10px;
 
+	/*
+	padding: 7px 15px;
+	
+	
+	width: 20%;
+
+	right: 3%;*/
+}
 
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/

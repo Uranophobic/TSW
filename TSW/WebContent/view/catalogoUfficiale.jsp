@@ -87,7 +87,8 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
+						<a href="visualizzaProdotto.jsp"><button id="prodBtn">Visualizza descrizione</button></a>
+						<a href="carrello.jsp"> <button id="prodBtn" >Aggiungi al Carrello</button></a>
 					</div>
 				</div>
 			</li>
@@ -104,7 +105,8 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
+						<a href="visualizzaProdotto.jsp"><button id="prodBtn">Visualizza descrizione</button></a>
+						<a href="carrello.jsp"> <button id="prodBtn" >Aggiungi al Carrello</button></a>
 					</div>
 				</div>
 			</li>
@@ -121,7 +123,8 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
+						<a href="visualizzaProdotto.jsp"><button id="prodBtn">Visualizza descrizione</button></a>
+						<a href="carrello.jsp"> <button id="prodBtn" >Aggiungi al Carrello</button></a>
 					</div>
 				</div>
 			</li>
@@ -138,7 +141,8 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
+						<a href="visualizzaProdotto.jsp"><button id="prodBtn">Visualizza descrizione</button></a>
+						<a href="carrello.jsp"> <button id="prodBtn" >Aggiungi al Carrello</button></a>
 					</div>
 				</div>
 			</li>
@@ -155,7 +159,8 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
+						<a href="visualizzaProdotto.jsp"><button id="prodBtn">Visualizza descrizione</button></a>
+						<a href="carrello.jsp"> <button id="prodBtn" >Aggiungi al Carrello</button></a>
 					</div>
 				</div>
 			</li>
@@ -172,7 +177,8 @@
 					</div>
 
 					<div class="vediInfo">
-						<a class="showBioBtn" href="visualizzaProdotto.jsp">Show BIO</a>
+						<a href="visualizzaProdotto.jsp"><button id="prodBtn">Visualizza descrizione</button></a>
+						<a href="carrello.jsp"> <button id="prodBtn" >Aggiungi al Carrello</button></a>
 					</div>
 				</div>
 			</li>

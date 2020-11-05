@@ -16,6 +16,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/stilesito.css">
+<title> Carrello - Oltre il Giardino</title>
 </head>
 
 <style>
@@ -55,7 +56,7 @@ font-weight: bold;
 <%@ include file="navbar.jsp"%>
 
 <div>
-<p  class="titoloPagine"> Carrello </p>
+<p  class="titoloPagine"> CARRELLO </p>
 </div>
 <div class="container">                                                                                   
   <div class="table-responsive">          
@@ -113,8 +114,8 @@ Ideale per delle finiture pulite e nette.
   </div>
 </div>
 <div class= "riga1" class="hr"></div>
-<button id="modificaBtn"> Indietro</button>
-<button id="modificaBtn"> Acquista </button>
+<button id="backBtn"> Indietro</button>
+<button id="backBtn"> Acquista </button>
 <%@ include file="footer.jsp"%>
 </body>
 </html>
