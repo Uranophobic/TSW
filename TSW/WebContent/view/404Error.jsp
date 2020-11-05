@@ -23,7 +23,7 @@
 
 		<div class="tornaAllaHome" align="center">
 
-			<a class="tornaHomeLink" href="../view/HomePage.jsp">Torna alla
+			<a class="tornaHomeLink" href="../view/HomePage2.jsp">Torna alla
 				home</a>
 
 		</div>

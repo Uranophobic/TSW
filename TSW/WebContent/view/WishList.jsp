@@ -30,7 +30,7 @@
 						Prodotto</a>
 				</h3>
 				<h4>Questo prodotto è una pianta morta</h4>
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
 					src="../images/carrello.png" width="auto" height="50px"
 					title="aggiungi a carello" alt="carrello"></a> <a
 					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
@@ -56,7 +56,7 @@
 						Prodotto</a>
 				</h3>
 				<h4>Questo prodotto è una pianta morta</h4>
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
 					src="../images/carrello.png" width="auto" height="50px"
 					title="aggiungi a carello" alt="carrello"></a> <a
 					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
@@ -77,7 +77,7 @@
 						Prodotto</a>
 				</h3>
 				<h4>Questo prodotto è una pianta morta</h4>
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
 					src="../images/carrello.png" width="auto" height="50px"
 					title="aggiungi a carello" alt="carrello"></a> <a
 					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
@@ -97,28 +97,7 @@
 						Prodotto</a>
 				</h3>
 				<h4>Questo prodotto è una pianta morta</h4>
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
-					src="../images/carrello.png" width="auto" height="50px"
-					title="aggiungi a carello" alt="carrello"></a> <a
-					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
-					src="../images/cestino.png" width="auto" height="50px"
-					title="rimuovi dalla wishlist" alt="elimina"></a>
-
-			</div>
-
-
-			<div class="riga" class="hr"></div>
-		</div>
-		<div class="prodotto">
-			<div class="immagineProd">
-				<img src="../images/imm4042.jpg" width="auto" height="200px">
-				<!-- <div class="rigaVert" class="hr"></div> -->
-				<h3>
-					<a class="visualizzaProd" href="../view/visualizzaProdotto.jsp">Nome
-						Prodotto</a>
-				</h3>
-				<h4>Questo prodotto è una pianta morta</h4>
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
 					src="../images/carrello.png" width="auto" height="50px"
 					title="aggiungi a carello" alt="carrello"></a> <a
 					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
@@ -139,8 +118,29 @@
 						Prodotto</a>
 				</h3>
 				<h4>Questo prodotto è una pianta morta</h4>
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
+					src="../images/carrello.png" width="auto" height="50px"
+					title="aggiungi a carello" alt="carrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+					src="../images/cestino.png" width="auto" height="50px"
+					title="rimuovi dalla wishlist" alt="elimina"></a>
 
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
+			</div>
+
+
+			<div class="riga" class="hr"></div>
+		</div>
+		<div class="prodotto">
+			<div class="immagineProd">
+				<img src="../images/imm4042.jpg" width="auto" height="200px">
+				<!-- <div class="rigaVert" class="hr"></div> -->
+				<h3>
+					<a class="visualizzaProd" href="../view/visualizzaProdotto.jsp">Nome
+						Prodotto</a>
+				</h3>
+				<h4>Questo prodotto è una pianta morta</h4>
+
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
 					src="../images/carrello.png" width="auto" height="50px"
 					title="aggiungi a carello" alt="carrello"></a> <a
 					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
@@ -160,7 +160,7 @@
 						Prodotto</a>
 				</h3>
 				<h4>Questo prodotto è una pianta morta</h4>
-				<a class="buttonCarrello" href="../view/visualizzaProdotto.jsp"><img
+				<a class="buttonCarrello" href="../view/carrello.jsp"><img
 					src="../images/carrello.png" width="auto" height="50px"
 					title="aggiungi a carello" alt="carrello"></a> 
 					<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
