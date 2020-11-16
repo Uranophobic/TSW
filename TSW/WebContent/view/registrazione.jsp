@@ -72,8 +72,8 @@
 							<b>CVV: <input type="text" class="CVV"></b>
 						</h4>
 						<h4>
-							<b>Tipo Carta: <input type="radio" class="tipo"> Mastercard <input
-								type="radio"> Maestro <input type="radio"> Visa
+							<b>Tipo Carta: <input type="radio" class="tipo"><img src="../images/mastercard.jpg" width="auto" height="50px"> Mastercard <input
+								type="radio"> <img src="../images/maestro.png" width="auto" height="50px"> Maestro <input type="radio"> <img src="../images/visa.jpg" width="auto" height="50px"> Visa
 							</b>
 						</h4>
 
