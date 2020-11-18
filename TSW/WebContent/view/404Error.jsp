@@ -12,7 +12,7 @@
 	<div class="contenuto">
 
 
-		<h1 class="titoloError">Error 404</h1>
+		<h1 class="titoloPagine">Error 404</h1>
 
 		<div class="immagineErrorDiv" align="center">
 			<img src="../images/imm4042.jpg" class="immagine404">

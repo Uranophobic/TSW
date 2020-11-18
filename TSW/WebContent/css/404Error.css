@@ -21,7 +21,7 @@
 	text-align: center;
 	padding: 50px;
 	font-weight: bold;
-	
+	font-family: 'treeftrregular';
 }
 
 .tornaHomeLink {
@@ -30,6 +30,7 @@
 	font-size: 30px;
 	color: black;
 	weight: 100px;
+	font-family: 'treeftrregular';
 }
 
 .tornaAllaHome {

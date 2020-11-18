@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%@include file="navbarnoButton.jsp"%>
-	<h1 class="titoloLogin ">Login</h1>
+	<h1 class="titoloPagine ">Login</h1>
 	<div class="contenitore">
 		<div class="datiAccesso" > 
 

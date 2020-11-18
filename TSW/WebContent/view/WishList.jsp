@@ -11,7 +11,7 @@
 
 	<%@include file="navbarnoButton.jsp"%>
 	<div>
-		<p class="titoloWish">WishList!</p>
+		<p class="titoloPagine">WishList!</p>
 
 	</div>
 	<div>
