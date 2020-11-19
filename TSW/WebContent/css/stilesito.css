@@ -22,6 +22,10 @@ body{
     font-style: normal;
 }
 
+@font-face{
+	font-family: "janda";
+	src: url("../font/janda_elegant_handwriting/JandaElegantHandwriting.ttf");
+}
  /**************************************************** TITOLI DELLE PAGINE **************************************************************/
 
 .titoloPagine { /*titolo di TUTTE le pagine (tranne della home) */
@@ -41,11 +45,16 @@ body{
 	color: black;
 	font-family: 'treeftrregular';
 } 
-#sottotitolo {
+#sottotitolo{
+	letter-spacing: 2px;
+}
+#sottotitolo a {
 	font-size: 42px;
-	color: black;
+	color: #394a3c;
 	margin-top: 15px;
 	margin-bottom: 35px;
+	font-family:"janda";
+	letter-spacing: 3px;
 }
 
 
@@ -341,18 +350,76 @@ width: 80%;
 }
 
 /******************************************************* MODIFICA DATI UTENTE **************************************************************/
-.contenitore {
-	/* grid-row-start: 1; */
-	/* grid-row-end: 5; */
-	width: 50%;
-	height: auto;
-	text-align: center;
-	border: 1px solid rgba(40, 150, 5, 0.2);
-	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
-	border-radius: 5px;
-	margin-top: 15px;
+.container-dati {
+	width: 100%;
+	/* padding-right: 15px; */
+	/* padding-left: 15px; */
+	height: 350px;
 	margin: auto;
 }
+
+#nuovoIndirizzo {
+	border: 1px gainsboro dashed;
+	background-color: ghostwhite;
+}
+
+#indirizzi{
+	border: 1px solid gainsboro;
+	background-color: rgb(250, 330, 300);
+}
+
+.modificaDati {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	height: auto;
+	column-gap: 2%;
+	width: 100%;
+	margin: auto;
+	margin-left: 35px;
+}
+
+.opBtn {
+	margin: auto;
+	width: auto;
+	padding: 10px;
+	/* margin-right: 10px; */
+	height: auto;
+	display: flex;
+}
+
+.opBtn button {
+	font-size: 22px;
+	background-color: #a6ec84;
+	border: none;
+	border-radius: 5px;
+	width: 50%;
+	padding: 5px;
+	margin-right: 10px;
+}
+
+.opBtn2 {
+	margin: auto;
+	width: 55%;
+	padding: 10px;
+	/* margin-right: 10px; */
+	height: auto;
+	display: flex;
+}
+
+.opBtn2 button {
+	font-size: 22px;
+	background-color: #a6ec84;
+	border: none;
+	border-radius: 5px;
+	width: 30%;
+	padding: 5px;
+	margin-right: 10px;
+	margin: auto;
+}
+
+
 
 #modificaBtn{
 	margin: auto;
@@ -376,8 +443,6 @@ width: 80%;
 
 	right: 3%;*/
 }
-
-
 /***************************************************** VISUALIZZA ORDINI UTENTE ***********************************************************/
 .w3-black, .w3-hover-black:hover {
 	color: #fff !important;
