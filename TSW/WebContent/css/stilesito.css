@@ -59,19 +59,125 @@ body{
 
 
 /****************************************************************   NAVBAR   **************************************************************/
+
+
+
+.row {
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+
+
+.navContenitore {
+	height: 160px;
+	background-color: ghostwhite;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+
+
+.logo {
+	position: absolute;
+	left: 20px;
+	margin-top: 25px;
+}
+
+.barraRicerca {
+	width: 100%;
+	position: relative;
+}
+
+.input-group {
+	width: 85%;
+	margin: 120px 20px 20px 50px;
+}/*TOP, RIGHT, BOTTOM, LEFT*/
+
+
+.btnRicerca {
+	height: 38px;
+	background-color: #ffffff;
+	border: none;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	border: 2px solid #aced8c;
+
+}
+
+.form-control {
+	color: #394a3c;
+	border: 2px solid #a6ec84;
+	border-right-color: white;
+}
+
+.fa {
+	color: #394a3c;
+}
+
+
+#nav {
+	width: 90%;
+	position: absolute;
+	top: 200px;
+	left: 70px;
+	background-color: #a6ec84;
+	border-radius: 5px;
+	color: white;
+}
+.item {
+	list-style-type: none;
+	width: 20%;
+	position: relative;
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	padding: 6px;
+	margin-left: 65px;
+}
+
+.group-menu {
+	vertical-align: top;
+	width: 100%;
+	display: inline-block;
+	padding: 0;
+	margin: auto;
+}
+
+#categMenu {
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #a6ec84;
+	text-align: center;
+	padding: 6px;
+	border-radius: 5px;
+}
+
+.icone-gruppo {
+	margin-top: 130px;
+	width: auto;
+	/* margin: auto; */
+	margin-left: 65px;
+}
+
+#icona {
+	text-decoration: none;
+	font-size: 20px;
+	color: #394a3c;
+}
+
 .primo {
 	background: #CBFFC0ED;
 	color: black;
 	padding: 7px 15px;
-	/* margin: 8px 0; */
 	border: none;
 	cursor: pointer;
 	width: 20%;
 	border-radius: 5px;
 	font-weight: bold;
 	border: 1px solid green;
-	position: absolute;
-	right: 3%;
+	position: absolute; 
+	right: 50px;
 }
 
  .nav-link{
@@ -96,24 +202,21 @@ body{
 	left: 1%;
 	margin-top: 16px;
 }
-
-
 /**************************************************************   FOOTER   ****************************************************************/
 .footer {
 	padding: 25px;
-	color: black;
-	background-color: #a6ec84;
+	color: #394a3c;
+	background-color: whitesmoke;
 	width: 100%;
 	margin-top: 50px;
+	border-top: 2px solid #a6ec84;
 }
 
-.tit{
-	color: black;
-	font-size: 18px;
-}
 
-.border-bottom {
-	border-bottom: 1px solid #000 !important;
+
+.tit-footer{
+	font-family:"janda";
+	font-size: 20px;
 }
 
 

@@ -11,7 +11,7 @@
 <title>HomePage Di Oltre Il Giardino</title>
 </head>
 <body>
-<%@ include file="navbar3.jsp"%>
+<%@ include file="navbar.jsp"%>
 <br>
 <br>
 <div class="container-fluid mt-5 ">
