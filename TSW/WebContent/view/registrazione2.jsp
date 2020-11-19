@@ -24,7 +24,6 @@
 		<div class="item-a">
 <h3 class="titoloCasella">Dati personali e accesso</h3>
 			<div class="contenitore">
-				<div class="formReg1">
 					<label class="etichette">Nome <br>
 					<input type="text"></label> <label class="etichette">Cognome
 						<input type="text">
@@ -34,8 +33,7 @@
 					<input type="text"></label> <label class="etichette">Password
 						<input type="text">
 					</label>
-				</div>
-				<!-- chiusura div form reg1 -->
+				
 			</div>
 		</div>
 		<!-- chiusura container item-a  -->
@@ -43,7 +41,6 @@
 		<div class="item-b">
 		<h3 class="titoloCasella">Dati spedizione e pagamento</h3>
 		<div class="contenitore">
-		<div class="formReg2">
 			<label class="etichette">Indirizzo <br>
 					<input type="text"></label>
 					<label class="etichette">Numero Carta<br>
@@ -67,7 +64,7 @@
 			
 					</div>
 		<!-- chiusura div item-b -->
-	</div>
+	
 	<!-- chiusura div area-utente -->
 	<div class="bottoni" align="center">
 		<button type="submit" class="conferma">Salva</button>
