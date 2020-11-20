@@ -27,17 +27,16 @@ body{
 	src: url("../font/janda_elegant_handwriting/JandaElegantHandwriting.ttf");
 }
  /**************************************************** TITOLI DELLE PAGINE **************************************************************/
-
-.titoloPagine { /*titolo di TUTTE le pagine (tranne della home) */
+ /*titolo di TUTTE le pagine (tranne della home) */
+.titoloPagine {
 	margin: auto;
-	font-size: 68px;
-	color: black;
-	margin: auto;
+	font-size: 60px;
+	color: #394a3e;
 	text-align: center;
-	font-family: 'treeftrregular';
-} 
- 
- 
+	font-family: 'janda';
+	margin-top: 80px;
+	margin-bottom: 20px;
+}
  
 /*questi due sono il titolo e il sottotitolo della homepage*/
 #titoloHome{  
@@ -122,8 +121,9 @@ body{
 	left: 70px;
 	background-color: #a6ec84;
 	border-radius: 5px;
-	color: white;
+	color: #394a3e;
 }
+
 .item {
 	list-style-type: none;
 	width: 20%;
@@ -646,7 +646,7 @@ width: 80%;
 	width: 1030px;
 	position: absolute;
 	height: auto;
-	top: 150px;
+	top: 356px;
 	left: 300px;
 }
 

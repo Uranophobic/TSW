@@ -12,7 +12,7 @@
 <body>
 <%@ include file="navbar.jsp"%>
 <div>
-<p  class="titoloPagine"> CATALOGO </p>
+<p  class="titoloPagine"> Catalogo </p>
 </div>
 
 <div class="catalogo">

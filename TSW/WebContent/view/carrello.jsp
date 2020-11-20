@@ -56,7 +56,7 @@ font-weight: bold;
 <%@ include file="navbar.jsp"%>
 
 <div>
-<p  class="titoloPagine"> CARRELLO </p>
+<p  class="titoloPagine"> Carrello</p>
 </div>
 <div class="container">                                                                                   
   <div class="table-responsive">          

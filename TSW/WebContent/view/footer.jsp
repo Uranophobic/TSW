@@ -43,14 +43,14 @@
 		<p> Scopri come funziona il nostro sito web!</p>
 		<p> Ogni azione è facile e veloce. </p>
 		<p> Per ogni dubbio consultare la pagina 
-		<br> <a style="font-weight: bold; color: #a6ec84" > COME FUNZIONA </a> </p>
+		<br> <a style="font-weight: bold; color: #81bb65" > COME FUNZIONA </a> </p>
 	</div>
 	<div class="col-sm-3">
 		<p class="tit-footer"> Assistenza</p>
 		<p> La nostra assistenza è disponibile 24h!</p>
 		<p> Se riscontri qualsiasi tipo di problema puoi subito metterti in contatto con un nostro operatore. </p>
 		<p> Per ogni dubbio consultare la pagina 
-		<br> <a style="font-weight: bold; color: #a6ec84" > ASSISTENZA</a> </p>
+		<br> <a style="font-weight: bold; color: #81bb65" > ASSISTENZA</a> </p>
 	</div>
 	<div class="col-sm-3">
 		<p class="tit-footer"> Informazioni Utili</p>
