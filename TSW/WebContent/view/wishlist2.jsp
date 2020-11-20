@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +8,8 @@
 <title>WishList!</title>
 </head>
 <body>
-<%@include file="navbar.jsp" %>
-<div>
+	<%@include file="navbar.jsp"%>
+	<div>
 		<p class="titoloPagine">WishList!</p>
 
 	</div>
@@ -18,70 +18,89 @@
 			che ti piacerebbe acquistare !</h2>
 	</div>
 	<div id="area-utente">
-	<div class="item-b">
-	<div class="prodotto">
-<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
+		<div class="item-b">
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+		</div>
+		<!-- chiusura item-a -->
+		<div class="item-b">
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+			<div class="prodotto">
+				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+					class="descrizioneProdotto">Questa immagine è una pianta
+					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
+						src="../images/carrello.png" class="immagineCarrello"></a> <a
+					class="buttonCestino" href="../view/prodottoEliminato.jsp"><img
+						src="../images/cestino.png" class="immagineCarrello"></a>
+				</label>
+			</div>
+		</div>
+		<!-- chiusura item-b -->
 	</div>
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	</div><!-- chiusura item-a -->
-	<div class="item-b">
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	<div class="prodotto">
-	<img src="../images/imm4042.jpg" class="immagineProdotto">
-	<label class="descrizioneProdotto">Questa immagine è una pianta morta
-	<a class="buttonCarrello" href="../view/carrello.jsp"><img src="../images/carrello.png" class="immagineCarrello"></a>
-	<a class="buttonCestino" href="../view/prodottoEliminato.jsp"><img src="../images/cestino.png" class="immagineCarrello"></a>
-	</label>
-	</div>
-	</div><!-- chiusura item-b -->
-	</div><!-- chiusura div area utente -->
+	<!-- chiusura div area utente -->
 	<div align="center">
-	<button type="submit" class="indietro">Indietro</button>
+		<button type="submit" class="indietro">Indietro</button>
 	</div>
-	<%@include file="footer.jsp" %>
+	<%@include file="footer.jsp"%>
 </body>
 </html>
