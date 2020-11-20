@@ -6,12 +6,12 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="../css/assistenza.css">
 
-<title>Assistenza</title>
+<title>Assistenza!</title>
 </head>
 <body>
-	<%@include file="navbarnoButton.jsp"%>
+	<%@include file="navbar.jsp"%>
 	<div>
-		<p class="titoloAssistenza">Assistenza!</p>
+		<p class="titoloPagine">Assistenza!</p>
 
 	</div>
 	<div>
@@ -19,37 +19,59 @@
 			contatti attraverso i quali un utente può contattare "oltre il
 			giardino", per dubbi, perplessità, reclami ma soprattutto per
 			conoscerci meglio. Attraverso la nostra pagina facebook e instagram.
+
 		</h2>
+		<h2 class="sottotitoloAssistenza">Oppure puoi chiamarci
+			direttamente</h2>
 	</div>
 
-	<div class="mailDiv">
-		<h4 class="mail" align="center">Per contattarci in caso di reclami puoi
-			scriverci qui..</h4>
-		<h5 align="center">
-			<img src="../images/gmail.png">oltreilgiardino@gmail.com
-		</h5>
-	</div>
+	<div class="item-a">
 
-	<div class="FbDiv">
-		<h4 class="facebook" align="center">Oppure puoi visitare le nostre pagine</h4>
-		<h5 align="center">
-			<img src="../images/facebook.png" style="width: 10%"> Oltre il
-			giardino
-		</h5>
+		<h3 class="titoloCasella">I nostri contatti</h3>
+		<div class="riga1" class="hr"></div>
+		<div class="mail">
+			<h4 class="titoloContatto">La nostra mail</h4>
+			<h4>
+				<img src="../images/gmail.png" class="img">
+			</h4>
+			<br>
+			<h5 class="contatto">oltreilgiardino@gmail.com</h5>
+		</div>
+		<!-- chiusura div mail -->
+		<div class="riga1" class="hr"></div>
+		<div class="facebook">
+			<h4 class="titoloContatto">Il nostro account facebook</h4>
+			<h4>
+				<img src="../images/facebook.png" class="imgfb">
+			</h4>
+			<br>
+			<h5 class="contatto">Oltre il giardino</h5>
+		</div>
+		<div class="riga1" class="hr"></div>
+		<div class="instagram">
+			<h4 class="titoloContatto">Il nostro account instragram</h4>
+			<h4>
+				<img src="../images/instagram.jpg" class="img">
+			</h4>
+			<br>
+			<h5 class="contatto">_oltre_il_giardino_</h5>
+		</div>
+		<div class="riga1" class="hr"></div>
+		<div class="telefono">
+			<h4 class="titoloContatto">Il nostro numero di cellulare</h4>
+			<h4>
+				<img src="../images/tel-wa.jpg" class="img">
+			</h4>
+			<br>
+			<h5 class="contatto">
+				3383557942
+				<!-- ovviamente è inventato -->
+			</h5>
+		</div>
 	</div>
-
-	<div class="IgDiv">
-		<h5 align="center">
-			<img src="../images/instagram.jpg">oltre_il_giardino
-		</h5>
+	<div class="bottoni" align="center">
+		<button type="submit" class="conferma">Indietro</button>
 	</div>
-	
-	
-	
-	<div align="center">
-	<button type="submit" class="conferma">Indietro</button>
-	</div>
-	
 	<%@include file="footer.jsp"%>
 </body>
 </html>
