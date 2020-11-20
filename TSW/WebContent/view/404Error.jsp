@@ -8,7 +8,7 @@
 <title>Error 404</title>
 </head>
 <body>
-	<%@include file="navbarnoButton.jsp"%>
+	<%@include file="navbar.jsp"%>
 	<div class="contenuto">
 
 

@@ -9,7 +9,7 @@
 
 </head>
 <body>
-	<%@include file="navbarnoButton.jsp"%>
+	<%@include file="navbar.jsp"%>
 	<h1 class="titoloPagine ">Login</h1>
 	<div class="contenitore">
 		<div class="datiAccesso" > 

@@ -24,10 +24,10 @@ height:280px;}
 se non la vuole più, anche se alla fine non serve perchè quando impareremo a fare le altre cose o gli facciamo uscire un alert o un messaggio sotto 
 però io la faccio momentaneamente per completare wishlist senno mi sento una persona inutile se non vedo prodotto eliminato ahahaahhaah -->
 
-<%@include file="navbarnoButton.jsp" %>
+<%@include file="navbar.jsp" %>
 
 <div>
-		<p class="titoloPaginaDelete">Prodotto Eliminato</p>
+		<p class="titoloPagine">Prodotto Eliminato</p>
 
 	</div>
 	

@@ -8,12 +8,13 @@
 	width: 50%;
 }
 
-.titoloError {
+.titoloErr {
 	margin: auto;
 	text-align: center;
 	color: black;
 	font-size: 55px;
 	font-weight: bold;
+	margin-bottom:30px;
 }
 
 .contenutoErrore {

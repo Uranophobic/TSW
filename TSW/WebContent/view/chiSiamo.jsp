@@ -8,9 +8,9 @@
 <title>Chi siamo</title>
 </head>
 <body>
-	<%@include file="navbarnoButton.jsp"%>
+	<%@include file="navbar.jsp"%>
 	<div>
-		<p class="titoloChiSiamo">Chi siamo!</p>
+		<p class="titoloPagine">Chi siamo!</p>
 
 	</div>
 	<div>
