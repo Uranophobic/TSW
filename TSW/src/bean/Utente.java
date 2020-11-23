@@ -1,4 +1,4 @@
-package model.bean;
+package bean;
 /*
  * Aggiungi toString e metodi get e set per dataDiNascita
  */
