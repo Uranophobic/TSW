@@ -925,6 +925,13 @@ font-weight: bold;
 	right: 3%;*/
 }
 
+
+/*********************************************************** PROCEDI ORDINE ******************************************************************/
+#titColonne{
+	font-size: 28px;
+	font-family: 'janda';
+}
+
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/
 
