@@ -4,7 +4,7 @@ public class DatiPagamento {
 
 	private int numeroCarta;
 	private String email;
-	private String tipoCarta;
+	private String circuito;
 	private String scadenzaCarta;
 	private int CVV;
 
@@ -13,16 +13,16 @@ public class DatiPagamento {
 	{
 		this.email=email;
 		this.numeroCarta=numeroCarta;
-		this.tipoCarta=tipoCarta;
+		this.circuito=circuito;
 		this.scadenzaCarta=scadenzaCarta;
 		this.CVV=CVV;
 	}
 
-	public DatiPagamento(int numeroCarta, String email, String tipoCarta,String scadenzaCarta,int CVV)
+	public DatiPagamento(int numeroCarta, String email, String circuito, String scadenzaCarta,int CVV)
 	{
 		this.numeroCarta=numeroCarta;
 		this.email=email;
-		this.tipoCarta=tipoCarta;
+		this.circuito=circuito;
 		this.scadenzaCarta=scadenzaCarta;
 		this.CVV=CVV;
 	}
@@ -49,13 +49,13 @@ public class DatiPagamento {
 	}
 
 
-	public String getTipoCarta() {
-		return tipoCarta;
+	public String getCircuito() {
+		return circuito;
 	}
 
-	public void setTipoCarta(String tipoCarta)
+	public void Circuito(String circuito)
 	{
-		this.tipoCarta=tipoCarta;
+		this.circuito=circuito;
 	}
 
 	public String getScadenzaCarta() {
@@ -76,7 +76,7 @@ public class DatiPagamento {
 
 
 	public String toString() {
-		return "DatiPagamento [numeroCarta=" + numeroCarta + ", email=" + email + ", tipoCarta=" + tipoCarta
+		return "DatiPagamento [numeroCarta=" + numeroCarta + ", email=" + email + ", circuito=" + circuito
 				+ ", scadenzaCarta=" + scadenzaCarta + ", CVV=" + CVV + "]";
 	}
 
