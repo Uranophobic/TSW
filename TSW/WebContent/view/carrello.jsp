@@ -114,8 +114,14 @@ Ideale per delle finiture pulite e nette.
   </div>
 </div>
 <div class= "riga1" class="hr"></div>
-<button id="backBtn"> Indietro</button>
-<button id="backBtn"> Acquista </button>
+<div class="opBtn3">
+		<a class=" bottoni bottoni-colori " >
+		    <span class="">Indietro</span>
+		</a>	
+		<a class=" bottoni bottoni-colori " >
+		    <span class=""> Procedi all'ordine ></span>
+		</a>	
+  	</div>
 <%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -80,10 +80,14 @@
     </div>
     
  </div>
- 	<div class="opBtn2">
-  					<button> Indietro</button>
-  					<button> Torna alla HomePage</button>
-  				</div>
+ <div class="opBtn">
+		<a class=" bottoni bottoni-colori " >
+		    <span class="">Indietro</span>
+		</a>	
+		<a class=" bottoni bottoni-colori " >
+		    <span class="">Torna alla Home</span>
+		</a>	
+  	</div>
  </div>
  
  		

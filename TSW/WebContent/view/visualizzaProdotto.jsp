@@ -49,8 +49,16 @@
 	</div>
 	
 </div>
-</div>
 
+</div>
+<div class="opBtn4">
+		<a class=" bottoni bottoni-colori " >
+		    <span class="">Indietro</span>
+		</a>	
+		<a class=" bottoni bottoni-colori " >
+		    <span class=""> Aggiungi al carrello ></span>
+		</a>	
+  	</div>
 <%@ include file="footer.jsp"%>
 <button id="modificaBtn"> Indietro</button>
 <button id="modificaBtn"> Aggiungi al carello </button>

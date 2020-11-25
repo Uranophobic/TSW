@@ -63,22 +63,22 @@
   
 <div class="funzionalita" >
 		<div class="descrFunz">
-  		 	<a class="link"  href=""> <h4 class="titoloParagrafo2"> ,ACCEDI o REGISTRATI</h4></a>
+  		 	<a class="link"  href=""> <h4 class="titoloParagrafo2"> ACCEDI o REGISTRATI</h4></a>
   		  	<p id="descrFunz">Effettua l'accesso per poter usufruire del nostro shop online! </p>
 		</div>
 
 		<div class="descrFunz">
- 			<a class="link" href="">  <h4 class="titoloParagrafo2" > ,ACQUISTA SUBITO</h4> </a>
+ 			<a class="link" href="">  <h4 class="titoloParagrafo2" > ACQUISTA SUBITO</h4> </a>
             <p id="sparisci">Acquista in modo rapido e sicuro i nostri prodotti, ti garantiamo che riuscirai a trovare tutto ciò di cui hai bisogno!</p>
 		</div>
 
 		<div class="descrFunz"> 
-      		<a class="link"  href="">  <h4 class="titoloParagrafo2"> ,TUTTO SOTTO CONTROLLO</h4> </a>
+      		<a class="link"  href="">  <h4 class="titoloParagrafo2"> TUTTO SOTTO CONTROLLO</h4> </a>
     		<p id="sparisci">Ti garantiamo che avrai sempre tutto sotto controllo, monitorando passo dopo passo lo status della tua spedizione. </p>
 		</div>
 
 		<div class="descrFunz">
-			<a class="link"  href=""> <h4 class="titoloParagrafo2"> ,SERVIZIO DI ASSISTENZA</h4> </a>
+			<a class="link"  href=""> <h4 class="titoloParagrafo2"> SERVIZIO DI ASSISTENZA</h4> </a>
     		<p id="sparisci" class="mt-2">Potrai in qualsiasi momento rivolgerti al nostro servizio di assistenza in caso di dubbi o necessità, 24 ore su 24!</p>
 		</div>
 </div>
