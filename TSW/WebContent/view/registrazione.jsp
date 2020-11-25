@@ -42,7 +42,7 @@
 				<label class="etichette">Indirizzo <br> <input
 					type="text"></label> <label class="etichette">Numero Carta<br>
 					<input type="text"></label> <label class="etichette">Scadenza
-					Carta<br> <input type="text">
+					Carta<br> <input type="date">
 				</label> <label class="etichette">CVV<br> <input type="text"></label>
 				<label class="etichette">Circuito<br></label>
 				<div class="immaginiCircuito" align="center">
