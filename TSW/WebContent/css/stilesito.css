@@ -927,9 +927,20 @@ font-weight: bold;
 
 
 /*********************************************************** PROCEDI ORDINE ******************************************************************/
-#titColonne{
+.titColonne{
 	font-size: 28px;
 	font-family: 'janda';
+} 
+
+.oppure {
+	width: 100%;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#oppure{
+font-family: 'janda';
+font-size: 20px;
 }
 
 /*********** grandezze monitor per il responsive ***********/
