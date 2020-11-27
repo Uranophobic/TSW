@@ -99,40 +99,43 @@ body{
 }
 
 /****************************************************************   NAVBAR   **************************************************************/
-
-
-
-.row {
-	margin-left: -10px;
-	margin-right: -10px;
+.iconNav {
+	display: inline-block;
+	width: 31%;
+	margin-left: 22px;
 }
 
-
-
-.navContenitore {
-	height: 160px;
-	background-color: ghostwhite;
-	border-bottom: 1px solid #e8e8e8;
+.logoNav{
+display: inline-block;
+	width: 31%
 }
 
+.barraRicercaNav{
+display: inline-block;
+	width: 31%
+}
 
+.item {
+	list-style-type: none;
+	font-size: 15px;
+	display: inline-block;
+	width: 23%;
+	margin: 5px;
+	/* margin-left: 15px; */
+	font-weight: bold;
+	text-align: center;
+}
 
-.logo {
-	position: absolute;
-	left: 20px;
-	margin-top: 25px;
+.group-menu {
+	padding: 0;
+	margin: auto;
 }
 
 .barraRicerca {
-	width: 100%;
-	position: relative;
+	width: 80%;
+	margin-left: 85px;
+	/* margin-top: 80px; */
 }
-
-.input-group {
-	width: 85%;
-	margin: 120px 20px 20px 50px;
-}/*TOP, RIGHT, BOTTOM, LEFT*/
-
 
 .btnRicerca {
 	height: 38px;
@@ -154,95 +157,56 @@ body{
 	color: #394a3c;
 }
 
-
-#nav {
-	width: 90%;
+.bottoniNav {
+	width: 100%;
 	position: absolute;
-	top: 200px;
-	left: 70px;
+	/* top: 180px; */
+	/* left: 70px; */
 	background-color: #a6ec84;
 	border-radius: 5px;
 	color: #394a3e;
+	line-height: 30px;
 }
 
-.item {
-	list-style-type: none;
-	width: 20%;
-	position: relative;
-	float: left;
-	font-size: 18px;
-	font-weight: bold;
-	text-align: center;
-	padding: 6px;
-	margin-left: 65px;
-}
-
-.group-menu {
-	vertical-align: top;
+.contenutoNav {
+	/* height: auto; */
+	height: 200px;
 	width: 100%;
-	display: inline-block;
-	padding: 0;
 	margin: auto;
 }
 
-#categMenu {
-	font-size: 18px;
-	font-weight: bold;
-	background-color: #a6ec84;
-	text-align: center;
-	padding: 6px;
-	border-radius: 5px;
+.logo {
+	width: 250px;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
-.icone-gruppo {
-	margin-top: 130px;
-	width: auto;
-	/* margin: auto; */
-	margin-left: 65px;
+.logoContenitore{
+text-align: center;
+display: block-ruby;
 }
 
-#icona {
+.iconeContenitore {
+	/* text-align: center; */
+	display: inline-flex;
+	width: 100%;
+}
+.iconaTxt {
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 21px;
 	color: #394a3c;
 }
 
-.primo {
-	background: #CBFFC0ED;
-	color: black;
-	padding: 7px 15px;
-	border: none;
-	cursor: pointer;
-	width: 20%;
-	border-radius: 5px;
-	font-weight: bold;
-	border: 1px solid green;
-	position: absolute; 
-	right: 50px;
+.col-lg-12 {
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	max-width: 94%;
 }
 
- .nav-link{
-	font-size: 22px;
-	
+.navbarVerde {
+	list-style-type: none;
 }
 
-
-.navbar-light .navbar-nav .nav-link {
-	color: rgba(0,0,0,.7);
-}
-
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-	font-size: 20px;
-	color: rgba(0,0,0,1);
-}
-
-.titolo {
-	font-size: 25px;
-	font-weight: bold;
-	position: absolute;
-	left: 1%;
-	margin-top: 16px;
-}
 /**************************************************************   FOOTER   ****************************************************************/
 .footer {
 	padding: 25px;

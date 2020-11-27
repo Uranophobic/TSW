@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/stilesito.css">
 
-<title>OLTRE IL GIARDINO</title>
+<title>NAVBAR PROVA 2</title>
 	
 <style> 
 @media all and (max-width: 1690px)and (min-width : 990px) { 
