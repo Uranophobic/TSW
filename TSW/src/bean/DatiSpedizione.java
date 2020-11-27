@@ -2,26 +2,29 @@ package bean;
 
 public class DatiSpedizione {
 
-	private String indirizzo;
+	private String via;
+	private String citta;
+	private int cap;
+	private String provincia;
 	private String email;
 
 	public DatiSpedizione() {
-		this.indirizzo=indirizzo;
+		this.via=via;
+		this.citta=citta;
+		this.cap=cap;
+		this.provincia=provincia;
 		this.email=email;
 	}
 
-	public DatiSpedizione(String indirizzo,String email) {
-		this.indirizzo=indirizzo;
+	public DatiSpedizione(String via,String citta,int cap,String provincia,String email) {
+		this.via=via;
+		this.citta=citta;
+		this.cap=cap;
+		this.provincia=provincia;
 		this.email=email;
 	}
 
-	public String getIndirizzo() {
-		return indirizzo;
-	}
-
-	public void setIndirizzo(String indirizzo) {
-		this.indirizzo=indirizzo;
-	}
+	
 
 	public String getEmail()
 	{
@@ -33,10 +36,46 @@ public class DatiSpedizione {
 		this.email=email;
 	}
 
-
-	public String toString() {
-		return "DatiSpedizione [indirizzo=" + indirizzo + ", email=" + email + "]";
+	public String getVia() {
+		return via;
 	}
+
+	public void setVia(String via) {
+		this.via = via;
+	}
+
+	public String getCitta() {
+		return citta;
+	}
+
+	public void setCitta(String citta) {
+		this.citta = citta;
+	}
+
+	public int getCap() {
+		return cap;
+	}
+
+	public void setCap(int cap) {
+		this.cap = cap;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	@Override
+	public String toString() {
+		return "DatiSpedizione [via=" + via + ", citta=" + citta + ", cap=" + cap + ", provincia=" + provincia
+				+ ", email=" + email + "]";
+	}
+
+
+	
 
 
 

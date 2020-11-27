@@ -2,27 +2,27 @@ package bean;
 
 public class Fattura {
 
-	private String  codiceFattura;
+	private String idFattura;
 	private String codiceOrdine;
 
 	public Fattura() {
-		this.codiceFattura=codiceFattura;
+		this.idFattura=idFattura;
 		this.codiceOrdine=codiceOrdine;
 	}
 
 
-	public Fattura(String codiceFattura,String codiceOrdine) {
-		this.codiceFattura=codiceFattura;
+	public Fattura(String idFattura,String codiceOrdine) {
+		this.idFattura=idFattura;
 		this.codiceOrdine=codiceOrdine;
 	}
 
 
-	public String getCodiceFattura() {
-		return codiceFattura;
+	public String getIdFattura() {
+		return idFattura;
 	}
 
-	public void setCodiceFattura(String codiceFattura) {
-		this.codiceFattura = codiceFattura;
+	public void setIdFattura(String idFattura) {
+		this.idFattura = idFattura;
 	}
 
 	public String getCodiceOrdine() {
@@ -36,7 +36,7 @@ public class Fattura {
 
 
 	public String toString() {
-		return "Fattura [codiceFattura=" + codiceFattura + ", codiceOrdine=" + codiceOrdine + "]";
+		return "Fattura [idFattura=" + idFattura + ", codiceOrdine=" + codiceOrdine + "]";
 	}
 
 

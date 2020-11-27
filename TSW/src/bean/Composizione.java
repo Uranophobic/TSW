@@ -3,20 +3,29 @@ package bean;
 public class Composizione {
 	
 	private String codiceOrdine; 
-	private String codiceProd;
+	private String codiceProdotto;
 	private int quantità;
+	private double prezzoUnitario;
+	private double scontoAttuale; // cambia su workbench 
+	private double iva;
 	
 	public Composizione() {
 		this.codiceOrdine = codiceOrdine;
-		this.codiceProd = codiceProd;
+		this.codiceProdotto = codiceProdotto;
 		this.quantità=quantità;
+		this.prezzoUnitario=prezzoUnitario;
+		this.scontoAttuale=scontoAttuale;
+		this.iva=iva;
 	}
 
 	
-	public Composizione(String codiceOrdine, String codiceProd, int quantità) {
+	public Composizione(String codiceOrdine, String codiceProd, int quantità,double prezzoUnitario,double scontoAttuale,double iva) {
 		this.codiceOrdine = codiceOrdine;
-		this.codiceProd = codiceProd;
+		this.codiceProdotto = codiceProdotto;
 		this.quantità=quantità;
+		this.prezzoUnitario=prezzoUnitario;
+		this.scontoAttuale=scontoAttuale;
+		this.iva=iva;
 	}
 
 
@@ -30,16 +39,16 @@ public class Composizione {
 	}
 
 
-	public String getCodiceProd() {
-		return codiceProd;
+	public String getCodiceProdotto() {
+		return codiceProdotto;
 	}
 
 
-	public void setCodiceProd(String codiceProd) {
-		this.codiceProd = codiceProd;
+	public void setCodiceProdotto(String codiceProdotto) {
+		this.codiceProdotto = codiceProdotto;
 	}
-	
-	
+
+
 	public int getQuantità() {
 		return quantità;
 	}
@@ -50,12 +59,43 @@ public class Composizione {
 	}
 
 
+	public double getPrezzoUnitario() {
+		return prezzoUnitario;
+	}
+
+
+	public void setPrezzoUnitario(double prezzoUnitario) {
+		this.prezzoUnitario = prezzoUnitario;
+	}
+
+
+	public double getScontoAttuale() {
+		return scontoAttuale;
+	}
+
+
+	public void setScontoAttuale(double scontoAttuale) {
+		this.scontoAttuale = scontoAttuale;
+	}
+
+
+	public double getIva() {
+		return iva;
+	}
+
+
+	public void setIva(double iva) {
+		this.iva = iva;
+	}
+
+
+	@Override
 	public String toString() {
-		return "Composizione [codiceOrdine=" + codiceOrdine + ", codiceProd=" + codiceProd + "]";
+		return "Composizione [codiceOrdine=" + codiceOrdine + ", codiceProdotto=" + codiceProdotto + ", quantità="
+				+ quantità + ", prezzoUnitario=" + prezzoUnitario + ", scontoAttuale=" + scontoAttuale + ", iva=" + iva
+				+ "]";
 	}
 
 	
-	
-	
-	
+
 }

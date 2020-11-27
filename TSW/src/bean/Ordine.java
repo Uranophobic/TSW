@@ -2,36 +2,37 @@ package bean;
 
 public class Ordine {
 
-	private String codiceOrdine;
+	private String idOrdine;
 	private String emailUtente;
+	private String dataOrdine; 
 	private double importoTot;
-	private String dataOrdine;  
+	 
 
 
 	public Ordine() {
 
-		this.codiceOrdine = codiceOrdine;
+		this.idOrdine = idOrdine;
 		this.emailUtente = emailUtente;
 		this.importoTot = importoTot;
 		this.dataOrdine = dataOrdine;
 	}
 
 
-	public Ordine(String codiceOrdine, String emailUtente, double importoTot, String dataOrdine) {
-		this.codiceOrdine = codiceOrdine;
+	public Ordine(String idOrdine, String emailUtente, String dataOrdine,double importoTot) {
+		this.idOrdine = idOrdine;
 		this.emailUtente = emailUtente;
-		this.importoTot = importoTot;
 		this.dataOrdine = dataOrdine;
+		this.importoTot = importoTot;
 	}
 
 
-	public String getCodiceOrdine() {
-		return codiceOrdine;
+	public String geIdOrdine() {
+		return idOrdine;
 	}
 
 
-	public void setCodiceOrdine(String codiceOrdine) {
-		this.codiceOrdine = codiceOrdine;
+	public void setIdOrdine(String idOrdine) {
+		this.idOrdine = idOrdine;
 	}
 
 
@@ -67,7 +68,7 @@ public class Ordine {
 
 
 	public String toString() {
-		return "Ordine [codiceOrdine=" + codiceOrdine + ", emailUtente=" + emailUtente + ", importoTot=" + importoTot
+		return "Ordine [idOrdine=" + idOrdine + ", emailUtente=" + emailUtente + ", importoTot=" + importoTot
 				+ ", dataOrdine=" + dataOrdine + "]";
 	}
 

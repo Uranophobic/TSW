@@ -2,14 +2,14 @@ package bean;
 
 public class DatiPagamento {
 
-	private int numeroCarta;
+	private String numeroCarta;
 	private String email;
 	private String circuito;
 	private String scadenzaCarta;
 	private int CVV;
 
 
-	public DatiPagamento(String email,int numeroCarta)
+	public DatiPagamento(String email,String numeroCarta)
 	{
 		this.email=email;
 		this.numeroCarta=numeroCarta;
@@ -18,7 +18,7 @@ public class DatiPagamento {
 		this.CVV=CVV;
 	}
 
-	public DatiPagamento(int numeroCarta, String email, String circuito, String scadenzaCarta,int CVV)
+	public DatiPagamento(String numeroCarta, String email, String circuito, String scadenzaCarta,int CVV)
 	{
 		this.numeroCarta=numeroCarta;
 		this.email=email;
@@ -28,12 +28,12 @@ public class DatiPagamento {
 	}
 
 
-	public int getNumeroCarta()
+	public String getNumeroCarta()
 	{
 		return numeroCarta;
 	}
 
-	public void setNumeroCarta(int numeroCarta)
+	public void setNumeroCarta(String numeroCarta)
 	{
 		this.numeroCarta=numeroCarta;
 	}
