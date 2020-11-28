@@ -17,7 +17,18 @@
 <link rel="stylesheet" href="../css/stilesito.css">
 
 <title>OLTRE IL GIARDINO</title>
+<style>
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
 	
 </head>
 
@@ -74,10 +85,10 @@
 			</li>
 			
 			<!-- navbar verde -->
-			<li class="navbarVerde"> 
+			<li id="navbarVerde"> 
 						<div class="col-sm-4 col-md-4 col-lg-12">
 							<ul class="bottoniNav">
-							    <li class="item"> <a> <span> CATEGORIE </span> </a></li>
+							    <li class="item"> <a> <span> CATALOGO </span> </a></li>
 								<li class="item"> <a> <span> COME FUNZIONA </span> </a></li>
 								<li class="item"> <a> <span> ASSISTENZA </span> </a></li>
 								<li class="item"> <a> <span> CHI SIAMO </span> </a> </li>
@@ -87,8 +98,23 @@
 		
 	</ul>
 </div>
+
 </nav>
 
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbarVerde");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 
 
 

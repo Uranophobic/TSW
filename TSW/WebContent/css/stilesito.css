@@ -34,7 +34,7 @@ body{
 	color: #394a3e;
 	text-align: center;
 	font-family: 'janda';
-	margin-top: 80px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 }
  
@@ -203,9 +203,21 @@ display: block-ruby;
 	max-width: 94%;
 }
 
-.navbarVerde {
+#navbarVerde {
+
 	list-style-type: none;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
 @media all and (max-width: 1690px)and (min-width : 990px) { 
 	.iconaTxt {
 	font-size: 18px;
@@ -284,7 +296,7 @@ margin-left: 5px;
 
 }
 .iconNav {
-	margin-left: 25px;
+	margin-left: 5px;
 	margin-right: 10px;
 	width: 90%;
 	margin-top: 10px;
@@ -312,17 +324,27 @@ margin-left: 5px;
 
 }
 .item {
-
-	display: inline;
-
+	font-size: 13px;
+	display: contents;
 }
+
+.item span{
+	margin: 5px;
+}
+
+
+
 .bottoniNav {
-	width: 90%;
+	width: 100%;
 	margin-top: 10px;
 }
 .iconeContenitore {
 
 	margin-left: 35px;
+}
+#navbarVerde {
+	list-style-type: none;
+	margin-right: 5px;
 }
 }
 
@@ -683,9 +705,9 @@ width: 80%;
 }
 
 #titSx {
-	font-family: 'treeftrregular';
+	font-family: 'janda';
 	font-size: 48px;
-	color: black;
+	color: white;
 	font-weight: bold;
 	text-align: center;
 	padding: 15px;
@@ -709,7 +731,7 @@ width: 80%;
 }
 
 .sottoCateg {
-	color: #262626;
+	color: ghostwhite;
 	text-decoration: none;
 	background-color: transparent;
 }
@@ -722,7 +744,7 @@ width: 80%;
 
 
 #categ {
-	font-family: 'treeftrregular';
+	font-family: 'janda';
 	font-weight: bold;
 	font-size: 35px;
 	color: #5ba835;
@@ -735,6 +757,11 @@ width: 80%;
 	margin-right: 10px;
 	font-size: 22px; 
 	color: #262626;
+}
+
+.sottoList li {
+	text-decoration: none;
+	list-style-type: none;
 }
 
 #grid {
