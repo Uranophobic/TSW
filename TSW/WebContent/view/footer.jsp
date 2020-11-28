@@ -35,8 +35,11 @@
 		<p> web@oig.com </p>
 		
 		<p style="font-weight: bold;"> ORARI APERTURA </p>
-		<p> Ogni azione è facile e veloce. </p>
-		<p> Per ogni dubbio consultare la pagina
+		<p> Dal Lunedì al Venerdì  9:00 - 19:00 </p>
+		<p> Sabato e Domenica  9:30 - 13:30 </p>
+				
+		
+		
 	</div>
    <div class="col-sm-3">
 		<p class="tit-footer"> Come Funziona </p>
@@ -55,11 +58,12 @@
 	<div class="col-sm-3">
 		<p class="tit-footer"> Informazioni Utili</p>
 		<p style="font-weight: bold;"> PAGAMENTI </p>
-		<p> Se riscontri qualsiasi tipo di problema puoi subito metterti in contatto con un nostro operatore. </p>
-		<p> Per ogni dubbio consultare la pagina </p>
+		<img src="https://www.peragashop.com/pub/media/wysiwyg/immagini_footer-21.png" alt="" style="width: 300px;">
+		<br>
+		<br>
+		<br>
 		<p style="font-weight: bold;"> SPEDIZIONI </p>
-		<p> Se riscontri qualsiasi tipo di problema puoi subito metterti in contatto con un nostro operatore. </p>
-		<p> Per ogni dubbio consultare la pagina </p>
+		<img src="https://www.peragashop.com/pub/media/wysiwyg/immagini_footer-20.png" alt="" style="width: 300px;">
 		
 	</div>
   </div>
