@@ -18,7 +18,7 @@
 
 <title>OLTRE IL GIARDINO</title>
 <style>
-
+/*
 .sticky {
   position: fixed;
   top: 0;
@@ -27,7 +27,7 @@
 
 .sticky + .content {
   padding-top: 60px;
-}
+}*/
 </style>
 	
 </head>
@@ -100,7 +100,7 @@
 </div>
 
 </nav>
-
+<!-- 
 <script>
 window.onscroll = function() {myFunction()};
 
@@ -115,7 +115,7 @@ function myFunction() {
   }
 }
 </script>
-
+ -->
 
 
 
