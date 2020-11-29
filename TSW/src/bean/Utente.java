@@ -8,7 +8,7 @@ public class Utente {
 	private String dataDiNascita;
 
 
-	public Utente(String email, String password) {
+	public Utente() {
 		this.email = email;
 		this.password = password;
 		this.nome = nome;

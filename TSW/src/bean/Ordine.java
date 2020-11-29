@@ -26,7 +26,7 @@ public class Ordine {
 	}
 
 
-	public String geIdOrdine() {
+	public String getIdOrdine() {
 		return idOrdine;
 	}
 
