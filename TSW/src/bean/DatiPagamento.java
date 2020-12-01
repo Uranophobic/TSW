@@ -9,7 +9,7 @@ public class DatiPagamento {
 	private int CVV;
 
 
-	public DatiPagamento(String email,String numeroCarta)
+	public DatiPagamento()
 	{
 		this.email=email;
 		this.numeroCarta=numeroCarta;
@@ -53,7 +53,7 @@ public class DatiPagamento {
 		return circuito;
 	}
 
-	public void Circuito(String circuito)
+	public void setCircuito(String circuito)
 	{
 		this.circuito=circuito;
 	}
@@ -62,7 +62,7 @@ public class DatiPagamento {
 		return scadenzaCarta;
 	}
 
-	public void setScadenzaCarta() {
+	public void setScadenzaCarta(String scadenzaCarta) {
 		this.scadenzaCarta=scadenzaCarta;
 	}
 

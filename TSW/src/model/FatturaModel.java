@@ -11,7 +11,7 @@ public interface FatturaModel {
 
 
 
-	public Fattura doRetrieveByKey(String codiceFattura) throws SQLException;
+	public Fattura doRetrieveByKey(String idFattura) throws SQLException;
 
 
 	public ArrayList<Fattura> doRetrieveAll(String order) throws SQLException;

@@ -11,7 +11,7 @@ public interface DatiPagamentoModel {
 
 
 
-	public DatiPagamento doRetrieveByKey(int numeroCarta) throws SQLException;
+	public DatiPagamento doRetrieveByKey(String numeroCarta) throws SQLException;
 
 
 	public ArrayList<DatiPagamento> doRetrieveAll(String order) throws SQLException;
@@ -22,7 +22,7 @@ public interface DatiPagamentoModel {
 
 
 
-	public void doDelete(int numeroCarta) throws SQLException;
+	public void doDelete(String numeroCarta) throws SQLException;
 
 
 }

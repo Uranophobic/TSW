@@ -7,7 +7,7 @@ import bean.DatiSpedizione;
 
 public interface DatiSpedizioneModel {
 
-	public void doSave(DatiSpedizione ds) throws SQLException;
+	public void doSave(DatiSpedizione dsp) throws SQLException;
 
 
 	public DatiSpedizione doRetrieveByKey(String via, String citta, int cap, String provincia) throws SQLException;
@@ -17,7 +17,7 @@ public interface DatiSpedizioneModel {
 
 
 
-	public int doUpdate(DatiSpedizione ds)throws SQLException;
+	public int doUpdate(DatiSpedizione dsp)throws SQLException;
 
 
 
