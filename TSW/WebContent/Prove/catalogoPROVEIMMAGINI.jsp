@@ -1,0 +1,294 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="menu.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/stilesito.css">
+<title> Catalogo - Oltre il Giardino</title>
+<style>
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 10px;
+	padding: 2px;
+	margin-left: 40px;
+	margin-right: 10px;
+}
+
+.grid-container > div {
+	background-color: white;
+	text-align: center;
+	padding: 20px 0;
+	font-size: 30px;
+	height: 440px;
+	width: 380px;
+	border: 1px solid #d2d2d2;
+	border-radius: 5px;
+}
+
+/*
+.ombra:hover{
+	background: grey;
+	opacity: 0.9;
+
+}*/
+
+.imgProdotto{
+	width: 280px;
+	height: 280px;
+}
+
+.nomeProdotto {
+	font-size: 20px;
+	margin-bottom: 0;
+}
+.opBtn5 {
+	margin: auto;
+	width: 100%;
+	color: ghostwhite;
+
+}
+
+.opBtn5 a {
+	font-size: 15px;
+
+}
+/*style sidebar*/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #394a3c;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************da qui *************************/
+.hovereffect {
+	width: 100%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	cursor: default;
+}
+.hovereffect .overlay {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 250px;
+	/* left: 10%; */
+	top: 10%;
+	border-bottom: 1px solid #FFF;
+	border-top: 1px solid #FFF;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(0,1);
+	-ms-transform: scale(0,1);
+	transform: scale(0,1);
+}
+
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+}
+
+.hovereffect a, .hovereffect p {
+	color: #FFF;
+	padding: 1em 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+	width: 100%;
+	font-size: 18px;
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.imgProdotto{
+
+width: 350px;
+height:300px;
+}
+</style>
+</head>
+<body>
+
+
+<div>
+<p  class="titoloPagine"> Catalogo </p>
+</div>
+
+
+
+
+
+
+<div id="main">
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIE</span>
+
+<div class="grid-container">
+
+  <div class="item1"> <!-- prodotto 1  -->
+
+	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+    <div class="hovereffect">
+		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
+            <div class="overlay">
+				<p>
+					<a href="#">Scopri di più</a>
+				</p>
+				<p>
+					<a href="#">Aggiungi al carrello  </a>
+					 <img class="iconcina" src="../images/icons8-add-shopping-cart-16.png">
+				</p>
+				<p>
+					<a href="#">Aggiungi alla WishList</a>
+				</p>
+            </div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+		 <p class="nomeProdotto">FORBICE IN ALLUMINIO DA POTATURA </p>
+		 <p class="nomeProdotto"> Prezzo: 26,70 euro  </p>
+
+		  
+  			
+  </div>
+  
+  <div class="item2">
+		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
+		 <p class="nomeProdotto">FORBICE DA POTATURA </p>
+		 <p class="nomeProdotto"> Prezzo: 17,50 euro  </p>
+			<div class="opBtn5">
+				<a class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
+				</a>	
+			</div>
+  </div>
+  
+  <div class="item3">
+  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRPSEC.jpg" alt="forbice">
+		  <p class="nomeProdotto">TASCA PORTA FORBICE </p>
+		  <p class="nomeProdotto"> Prezzo: 5,20 euro  </p>
+			 <div class="opBtn5">
+				<a class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
+				</a>	
+			</div>
+  </div>  
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+	
+</body>
+</html>
