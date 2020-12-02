@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HomePageServlet
+ * Servlet implementation class InformazioniServlet
  */
-@WebServlet("/HomePageServlet")
-public class HomePageServlet extends HttpServlet {
+@WebServlet("/InformazioniServlet")
+public class InformazioniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomePageServlet() {
+    public InformazioniServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,18 @@ public class HomePageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String f= request.getParameter("informazioni");
 		
-		getServletContext().getRequestDispatcher("/view/HomePage.jsp").forward(request, response);
+		if(f.equals("assistenza")) {
+			getServletContext().getRequestDispatcher("/view/assistenza.jsp").forward(request, response);
+
+	
+
+		}else if(f.equals("chisiamo")) {
+			getServletContext().getRequestDispatcher("/view/chiSiamo.jsp").forward(request, response);
+
+		}
 	}
 
 	/**

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/chisiamo.css">
+<link rel="stylesheet" type="text/css" href="css/chisiamo.css">
 <title>Chi siamo</title>
 </head>
 <body>
@@ -25,11 +25,11 @@
 		</h4>
 	</div>
 	<div class="container">
-		<img src="../image/alessia.png" style="width: 25%">
+		<img src="image/alessia.png" style="width: 25%">
 		<h4 class="titoloParagrafo">Alessia Crispo</h4>
 	</div>
 	<div class="container">
-		<img src="../images/luisa.PNG" style="width: 25%">
+		<img src="images/luisa.PNG" style="width: 25%">
 		<h4 class="titoloParagrafo">Luisa Cauteruccio</h4>
 	</div>
 

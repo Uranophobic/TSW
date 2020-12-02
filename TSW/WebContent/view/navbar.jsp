@@ -89,9 +89,9 @@
 						<div class="col-sm-4 col-md-4 col-lg-12">
 							<ul class="bottoniNav">
 							    <li class="item"> <a> <span> CATALOGO </span> </a></li>
-								<li class="item"> <a> <span> COME FUNZIONA </span> </a></li>
-								<li class="item"> <a> <span> ASSISTENZA </span> </a></li>
-								<li class="item"> <a> <span> CHI SIAMO </span> </a> </li>
+								<li class="item"> <a href=""> COME FUNZIONA </a></li>
+								<li class="item"> <a href="InformazioniServlet?informazioni=assistenza"> ASSISTENZA  </a></li>
+								<li class="item"> <a href="InformazioniServlet?informazioni=chisiamo"> CHI SIAMO  </a> </li>
 							</ul>
 						</div>
 		</li>

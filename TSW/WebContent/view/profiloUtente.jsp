@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/stilesito.css">
+<link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
 
 
@@ -29,7 +29,7 @@
 			<div class="pulsanti">
 				<img src="https://img.icons8.com/plasticine/150/000000/box.png"/>
   					<div class="container">
-  					  <h4><b>I miei Ordini</b></h4> 
+  					  <h4><b><a href="ProfiloUtenteServlet?infoProfilo=ordini">I miei Ordini </a></b></h4> 
   					  <p>Visualizza qui gli ordini effettuati in precedenza e gli ordini in arrivo!</p> 
  					</div>
 			</div>
@@ -38,7 +38,7 @@
 			<div class="pulsanti">
 				<img src="https://img.icons8.com/plasticine/150/000000/wish-list.png"/>
   					<div class="container">
-    					<h4><b>WishList</b></h4> 
+    					<h4><b><a href="ProfiloUtenteServlet?infoProfilo=wishlist">WishList</a></b></h4> 
     					<p>Visualizza qui gli oggetti che hai aggiunto alla tua lista dei desideri!</p> 
   					</div>
 			</div>
@@ -46,7 +46,7 @@
 			<div class="pulsanti">
 				<img src="https://img.icons8.com/plasticine/150/000000/bank-cards.png"/>
   					<div class="container">
-    					<h4><b>Dati di pagamento e di spedizione</b></h4> 
+    					<h4><b><a href="ProfiloUtenteServlet?infoProfilo=datiUtente">Dati di pagamento e di spedizione</a></b></h4> 
     					<p>Clicca qui per modificare i dati della tua carta oppure il tuo indirizzo!</p> 
   					</div>
 			</div>			

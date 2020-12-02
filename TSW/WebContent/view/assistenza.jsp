@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/assistenza.css">
+<link rel="stylesheet" type="text/css" href="css/assistenza.css">
 
 <title>Assistenza!</title>
 </head>
@@ -32,7 +32,7 @@
 		<div class="mail">
 			<h4 class="titoloContatto">La nostra mail</h4>
 			<h4>
-				<img src="../images/gmail.png" class="img">
+				<img src="images/gmail.png" class="img">
 			</h4>
 			<br>
 			<h5 class="contatto">oltreilgiardino@gmail.com</h5>
@@ -42,7 +42,7 @@
 		<div class="facebook">
 			<h4 class="titoloContatto">Il nostro account facebook</h4>
 			<h4>
-				<img src="../images/facebook.png" class="imgfb">
+				<img src="images/facebook.png" class="imgfb">
 			</h4>
 			<br>
 			<h5 class="contatto">Oltre il giardino</h5>
@@ -51,7 +51,7 @@
 		<div class="instagram">
 			<h4 class="titoloContatto">Il nostro account instragram</h4>
 			<h4>
-				<img src="../images/instagram.jpg" class="img">
+				<img src="images/instagram.jpg" class="img">
 			</h4>
 			<br>
 			<h5 class="contatto">_oltre_il_giardino_</h5>
@@ -60,7 +60,7 @@
 		<div class="telefono">
 			<h4 class="titoloContatto">Il nostro numero di cellulare</h4>
 			<h4>
-				<img src="../images/tel-wa.jpg" class="img">
+				<img src="images/tel-wa.jpg" class="img">
 			</h4>
 			<br>
 			<h5 class="contatto">
