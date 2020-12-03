@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/assistenza.css">
+<link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
 <title>Assistenza!</title>
 </head>
@@ -25,7 +25,7 @@
 			direttamente</h2>
 	</div>
 
-	<div class="item-a">
+	<div class="quadrato-a">
 
 		<h3 class="titoloCasella">I nostri contatti</h3>
 		<div class="riga1" class="hr"></div>

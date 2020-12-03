@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/login.css">
+<link type="text/css" rel="stylesheet" href="../css/stilesito.css">
 <title>Login form</title>
 
 </head>
@@ -12,26 +12,22 @@
 	<%@include file="navbar.jsp"%>
 	<h1 class="titoloPagine ">Login</h1>
 	<div class="contenitore">
-		<div class="datiAccesso" > 
+		<div class="datiAccesso">
 
 			<div class="immagineLog" align="center">
 				<img src="../images/log.png">
 			</div>
-			<div class="riga" class="hr" ></div>
+			<div class="riga" class="hr"></div>
 
-			<div  class="formLogin ">  <!--  ho sostituito fomrLogin con row justify-center -->
+			<div class="formLogin ">
 
-<!-- ho eliminato un div row justify-center e i div col6 form gruop -->
-				
-					<!--  l'ho chiamata etichette2 perchè etichette in stilesito esiste già e non andava -->
-					<label class="etichette2">Username:</label> <br> <!--  ho aggiunto un br per andare a capo -->
-					<input id= "casella" type="text"> <br>  <!--  ho aggiunto un id alle input text per la lunghezza -->
-		
-					<label class="etichette2">Password:</label> <br>
-					<input  id= "casella" type="text"> <br>
-				
-			</div>  
-			
+				<label class="etichette2">Username:</label> <br> <input
+					id="casella" type="text"> <br> <label
+					class="etichette2">Password:</label> <br> <input id="casella"
+					type="text"> <br>
+
+			</div>
+
 			<div align="center">
 				<button type="submit" class="login">Login</button>
 			</div>
@@ -44,10 +40,10 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="botton" align="center">
-	<button type="submit" class="conferma">Salva</button>
-	<button type="submit" class="conferma">Indietro</button>
+		<button type="submit" class="conferma">Salva</button>
+		<button type="submit" class="conferma">Indietro</button>
 	</div>
 
 

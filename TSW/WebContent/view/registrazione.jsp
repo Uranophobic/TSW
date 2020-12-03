@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/registrazione2.css">
-<title>REGISTRATI PORCO DIO</title>
+<link type="text/css" rel="stylesheet" href="../css/stilesito.css">
+<title>REGISTRATI</title>
 </head>
 <body>
 	<%@include file="navbar.jsp"%>
@@ -21,7 +21,7 @@
 		<!--  	<h4 id="titoloCaselle">Dati personali e accesso</h4>-->
 		<!-- la riga non si vede -->
 
-		<div class="item-a">
+		<div class="quadrato-a">
 			<h3 class="titoloCasella">Dati personali e accesso</h3>
 			<div class="contenitore">
 				<label class="etichette">Nome <br> <input type="text"></label>

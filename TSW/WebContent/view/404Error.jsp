@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/404Error.css">
+<link type="text/css" rel="stylesheet" href="../css/stilesito.css">
 <title>Error 404</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
 
 		<div class="tornaAllaHome" align="center">
 
-			<a class="tornaHomeLink" href="../view/HomePage2.jsp">Torna alla
+			<a class="tornaHomeLink" href="../view/HomePage.jsp">Torna alla
 				home</a>
 
 		</div>

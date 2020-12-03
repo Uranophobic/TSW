@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/wishlist.css">
+<link rel="stylesheet" type="text/css" href="../css/stilesito.css">
 <title>WishList!</title>
 </head>
 <body>
@@ -59,7 +59,7 @@
 		<!-- chiusura item-a -->
 		<div class="item-b">
 			<div class="prodotto">
-				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+				<img src="../images/imm4042.jpg" class="fotoProdottoWish"> <label
 					class="descrizioneProdotto">Questa immagine è una pianta
 					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
 						src="../images/carrello.png" class="immagineCarrello"></a> <a
@@ -68,7 +68,7 @@
 				</label>
 			</div>
 			<div class="prodotto">
-				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+				<img src="../images/imm4042.jpg" class="fotoProdottoWish"> <label
 					class="descrizioneProdotto">Questa immagine è una pianta
 					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
 						src="../images/carrello.png" class="immagineCarrello"></a> <a
@@ -77,7 +77,7 @@
 				</label>
 			</div>
 			<div class="prodotto">
-				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+				<img src="../images/imm4042.jpg" class="fotoProdottoWish"> <label
 					class="descrizioneProdotto">Questa immagine è una pianta
 					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
 						src="../images/carrello.png" class="immagineCarrello"></a> <a
@@ -86,7 +86,7 @@
 				</label>
 			</div>
 			<div class="prodotto">
-				<img src="../images/imm4042.jpg" class="immagineProdotto"> <label
+				<img src="../images/imm4042.jpg" class="fotoProdottoWish"> <label
 					class="descrizioneProdotto">Questa immagine è una pianta
 					morta <a class="buttonCarrello" href="../view/carrello.jsp"><img
 						src="../images/carrello.png" class="immagineCarrello"></a> <a

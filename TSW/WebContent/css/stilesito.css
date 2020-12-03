@@ -472,8 +472,226 @@ margin-left: 5px;
 	grid-template-rows: 110px;
 }
 }
- 
- 
+/******************************************************* LOGIN  **************************************************************/ 
+#casella{
+	width: 200px;
+	
+}
+.etichette2 {
+	font-size: 24px; 
+	font-weight: bold;
+	/* margin-left: 15px; */
+	text-align: center;
+	matgin: auto;
+	padding: 5px; 
+}
+.contenitore{
+	width: 50%;
+	height: auto;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+	margin: auto;
+}
+.immagineLog {
+	margin-bottom:15px;
+	margin: auto;
+	width: 50%;
+	display: block;
+}
+.login {
+	
+	margin:auto;
+	width:10%;
+	padding: 5px;
+	font-size: 20px;
+	background-color: #CBFFC0ED;
+	color: black;
+	margin-top: 15px;
+	text-decoration: underline;
+	border:none;
+	cursor:pointer;
+	border-radius:5px;
+	font-weight:bold;	
+}
+	
+
+.ricordami {
+	font-family: "Dosis";
+	font-weight: bold;
+	margin-top: 15px;
+	text-decoration: underline;
+	font-size:20px;
+	text-align:center;
+}
+
+.registrati {
+	font-size:20px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.registrazione{
+	font-family: "Dosis";
+	color:black;
+	font-weight:bold;
+	background-color: #CBFFC0ED;
+	text-decoration: underline;
+	text-align:center;
+	margin:auto;
+	width:50px;
+	font-size:20px;	
+}
+.conferma{
+	width:10%;
+	margin:auto;
+	margin-top:20px;
+	padding:5px;
+	font-size:20px;
+	background-color: #CBFFC0ED;
+	text-decoration:underline;
+	border:none;
+	cursor:pointer;
+	border-radius:5px;
+	font-weight:bold;
+	margin-righ:10px;
+	margin-left:10px;
+	
+}
+
+
+/******************************************************* REGISTRAZIONE **************************************************************/ 
+.formReg1{
+	margin:auto;
+	width:100%;
+	height:100px;
+}
+
+.formReg2{
+	margin:auto;
+	width:100%;
+}
+
+
+
+.sottotitoloReg{
+	margin:auto;
+	text-align:center;
+	font-size:20px;
+	color:black;
+	font-weight:bold;
+}
+
+.titoloCasella{
+	font-size:25px;
+	color: #4CAF50;
+	margin-top:55px;
+	margin:auto;
+	text-align:center;
+	font-weight:bold;
+}
+/*
+
+#area-utente {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 35% 35%;
+	grid-template-rows: 65% 5% 25%;
+	height: 500px;
+	justify-content: center;
+	grid-column-gap: 2%;
+}
+*/
+/*
+.quadrato-a {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: 200%;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+*/
+/*
+.item-b {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: auto;
+	text-align: inherit;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+*/
+.conferma{
+	width:10%;
+	margin:auto;
+	margin-top:20px;
+	padding:5px;
+	font-size:20px;
+	background-color: #CBFFC0ED;
+	text-decoration:underline;
+	border:none;
+	cursor:pointer;
+	border-radius:5px;
+	font-weight:bold;
+	margin-righ:10px;
+	margin-left:10px;
+	
+}
+/*
+#titoloCaselle{ 
+	font-size: 35px;
+	color: #4CAF50;
+	margin-top: 55px;
+	font-weight: bold;
+	margin:auto;
+	text-align: center;
+}
+*/
+/*
+.riga1 { 
+	height: 1px;
+	background: rgba(0,0,0,.2);
+	width: 80%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+*/
+.contenitore{
+	width: 50%;
+	text-align: center;
+	margin-top: 15px;
+	margin: auto;
+}
+/*
+.etichette {
+	font-size: 18px;
+	font-weight: bold;
+	margin-left: 15px;
+}
+*/
+
+.circuito {
+	margin-bottom:15px;
+	margin: auto;
+	width: 65px;
+	display: block;
+	height: 50px;
+	margin-top:10px;
+
+}
+
+.immaginiCircuito{
+	position:absolute;
+}
 
 
 /*************************************************************   PROFILO UTENTE   **********************************************************/
@@ -1041,6 +1259,249 @@ font-family: 'janda';
 font-size: 20px;
 }
 
+
+/*********************************************************** 404 ERROR******************************************************************/
+.contenuto {
+	height: 550px;
+	padding: 20px;
+}
+
+.triste {
+	margin: auto;
+	width: 50%;
+}
+
+
+
+.contenutoErrore {
+	margin: auto;
+	text-align: center;
+	padding: 50px;
+	font-weight: bold;
+	font-family: 'treeftrregular';
+}
+
+.tornaHomeLink {
+	margin: auto;
+	text-align: center;
+	font-size: 30px;
+	color: black;
+	weight: 100px;
+	font-family: 'treeftrregular';
+}
+
+.tornaAllaHome {
+	margin: auto;
+	weight: 50%;
+	
+
+}
+
+.immagine404{
+	margin:auto;
+	width:200px;
+	height:auto;
+}
+
+/*********************************************************** ASSISTENZA******************************************************************/
+
+.sottotitoloAssistenza {
+	margin: auto;
+	text-align: center;
+	font-size: 20px;
+	margin-top: 15px;
+}
+
+.quadrato-a{
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: 200%;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+
+.titoloCasella {
+	font-size: 25px;
+	color: #4CAF50;
+	margin-top: 55px;
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+}
+
+.mail {
+	align: center;
+}
+/*
+
+.riga1 {
+	height: 1px;
+	background: rgba(0, 0, 0, .2);
+	width: 80%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+*/
+
+.titoloContatto {
+	margin: auto;
+	font-size: 20px;
+}
+
+.contatto {
+	font-weight: bold;
+	text-decoration: underline;
+	color: #007FFF;
+}
+
+.img {
+	margin-bottom: 15px;
+	margin: auto;
+	width: 150px;
+	display: block;
+	height: 150px;
+	margin-top: 10px;
+}
+
+.conferma {
+	width: 10%;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+	font-size: 20px;
+	background-color: #CBFFC0ED;
+	text-decoration: underline;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-righ: 10px;
+	margin-left: 10px;
+}
+
+.imgfb {
+	margin-bottom: 15px;
+	margin: auto;
+	width: 100px;
+	height: 100px;
+	display: block;
+	margin-top: 10px;
+}
+
+/******************************************************* CHI SIAMO  **************************************************************/
+
+.sottotitoloChiSiamo {
+	margin: auto;
+	text-align: center;
+	font-size: 24px;
+	margin-top: 15px;
+}
+
+.membri {
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.divMembri {
+	margin-top: 50px;
+}
+
+.container {
+	width: 50%;
+	height: auto;
+	text-align: center;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+	margin: auto
+}
+
+.titoloParagrafo {
+	text-align: center;
+}
+
+.conferma {
+	width: 10%;
+	margin: auto;
+	margin-top: 20px;
+	padding: 5px;
+	font-size: 20px;
+	background-color: #CBFFC0ED;
+	text-decoration: underline;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-righ: 10px;
+	margin-left: 10px;
+}
+/******************************************************* WISHLIST **************************************************************/
+
+.sottotitoloWish {
+	margin: auto;
+	text-align: center;
+	font-size: 24px;
+	margin-top: 15px;
+}
+/*
+#area-utente {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 35% 35%;
+	grid-template-rows: 65% 5% 25%;
+	height: 500px;
+	justify-content: center;
+	grid-column-gap: 2%;
+}
+*/
+/*
+.item-b {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: auto;
+	text-align: inherit;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border-radius: 5px;
+	margin-top: 15px;
+}
+*/
+
+.fotoProdottoWish{
+	margin:auto;
+	width:50px;
+}
+
+.immagineCarrello{
+	margin:auto;
+	width:30px;
+}
+
+.indietro{
+	width:20%;
+	margin:auto;
+	margin-top:20px;
+	padding:5px;
+	font-size:20px;
+	background-color: #CBFFC0ED;
+	text-decoration:underline;
+	border:none;
+	cursor:pointer;
+	border-radius:5px;
+	font-weight:bold;
+	margin-righ:10px;
+	margin-left:10px;
+	text-align:center;
+	
+}
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/
 
