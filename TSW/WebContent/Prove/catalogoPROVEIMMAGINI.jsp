@@ -24,8 +24,8 @@
 	text-align: center;
 	padding: 20px 0;
 	font-size: 30px;
-	height: 440px;
-	width: 380px;
+	height: 450px;
+	width: 350px;
 	border: 1px solid #d2d2d2;
 	border-radius: 5px;
 }
@@ -46,14 +46,14 @@
 	font-size: 20px;
 	margin-bottom: 0;
 }
-.opBtn5 {
+.bottoneAddCarrello {
 	margin: auto;
 	width: 100%;
 	color: ghostwhite;
 
 }
 
-.opBtn5 a {
+.bottoneAddCarrello a {
 	font-size: 15px;
 
 }
@@ -109,8 +109,7 @@
 /**********************da qui *************************/
 .hovereffect {
 	width: 100%;
-	height: 100%;
-	float: left;
+	/* float: left; */
 	overflow: hidden;
 	position: relative;
 	text-align: center;
@@ -194,6 +193,19 @@
 width: 350px;
 height:300px;
 }
+
+.addWishlist {
+	display: flex;
+	margin: auto;
+	width: 50%;
+}
+
+.scopri {
+	width: 50%;
+	margin-top: 110px;
+	font-size: 18px;
+}
+
 </style>
 </head>
 <body>
@@ -214,65 +226,76 @@ height:300px;
 <div class="grid-container">
 
   <div class="item1"> <!-- prodotto 1  -->
-
-	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
     <div class="hovereffect">
 		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
             <div class="overlay">
-				<p>
-					<a href="#">Scopri di più</a>
-				</p>
-				<p>
-					<a href="#">Aggiungi al carrello  </a>
-					 <img class="iconcina" src="../images/icons8-add-shopping-cart-16.png">
-				</p>
-				<p>
-					<a href="#">Aggiungi alla WishList</a>
-				</p>
+				<button class="scopri bottoni bottoni-colori"> Scopri di più</button>
             </div>
     </div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-		 <p class="nomeProdotto">FORBICE IN ALLUMINIO DA POTATURA </p>
-		 <p class="nomeProdotto"> Prezzo: 26,70 euro  </p>
-
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto"> FORBICE DA POTATURA  </p>
+		 <p class="nomeProdotto"> Prezzo: 17,50 euro   </p>
+		 </div>
+			<div class="bottoneAddCarrello">
+				<a class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
+				</a>	
+			</div>
 		  
   			
   </div>
   
-  <div class="item2">
-		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
-		 <p class="nomeProdotto">FORBICE DA POTATURA </p>
-		 <p class="nomeProdotto"> Prezzo: 17,50 euro  </p>
-			<div class="opBtn5">
+  
+    <div class="item2"> <!-- prodotto 2  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbice">
+            <div class="overlay">
+				<button class="scopri bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">FORBICE IN ALLUMINIO DA POTATURA   </p>
+		 <p class="nomeProdotto"> Prezzo: 26,70 euro  </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			</div>
+		  
+  			
   </div>
   
-  <div class="item3">
-  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRPSEC.jpg" alt="forbice">
-		  <p class="nomeProdotto">TASCA PORTA FORBICE </p>
-		  <p class="nomeProdotto"> Prezzo: 5,20 euro  </p>
-			 <div class="opBtn5">
+  
+  
+    <div class="item3"> <!-- prodotto 3  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRPSEC.jpg" alt="forbice">
+            <div class="overlay">
+				<button class="scopri bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">TASCA PORTA FORBICE  </p>
+		 <p class="nomeProdotto"> Prezzo: 5,20 euro   </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			</div>
-  </div>  
+		  
+  			
+  </div>
+  
+  
 
+  
+
+ 
 
 
 </div>

@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="../css/stilesito.css">
 <title> Catalogo - Oltre il Giardino</title>
 <style>
-
 .grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto;
@@ -24,8 +23,8 @@
 	text-align: center;
 	padding: 20px 0;
 	font-size: 30px;
-	height: 440px;
-	width: 380px;
+	height: 480px;
+	width: 350px;
 	border: 1px solid #d2d2d2;
 	border-radius: 5px;
 }
@@ -46,14 +45,14 @@
 	font-size: 20px;
 	margin-bottom: 0;
 }
-.opBtn5 {
+.bottoneAddCarrello {
 	margin: auto;
 	width: 100%;
 	color: ghostwhite;
-
+	margin-top: 5px;
 }
 
-.opBtn5 a {
+.bottoneAddCarrello a {
 	font-size: 15px;
 
 }
@@ -93,6 +92,119 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**********************da qui *************************/
+.hovereffect {
+	width: 100%;
+	/* float: left; */
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	cursor: default;
+}
+
+.hovereffect .overlay {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 250px;
+	/* left: 10%; */
+	top: 10%;
+	border-bottom: 1px solid #FFF;
+	border-top: 1px solid #FFF;
+	-webkit-transition: opacity 0.50s, -webkit-transform 0.5s;
+	transition: opacity 0.50s, transform 0.50s;
+	-webkit-transform: scale(0,1);
+	-ms-transform: scale(0,1);
+	transform: scale(0,1);
+}
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+}
+
+.hovereffect a, .hovereffect p {
+	color: #FFF;
+	padding: 1em 0;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+	width: 100%;
+	font-size: 18px;
+}
+
+.hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+.imgProdotto{
+
+width: 350px;
+height:300px;
+}
+
+.addWishlist {
+	display: flex;
+	margin: auto;
+	width: 50%;
+}
+
+#scopri {
+	width: 50%;
+	margin-top: 110px;
+	font-size: 18px;
+}
+
 </style>
 </head>
 <body>
@@ -112,108 +224,139 @@
 
 <div class="grid-container">
 
-  <div class="item1"> <!-- prodotto 1  -->
-  	<div class="ombra">
-		 <img class="imgProdotto" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbice">
-		 <p class="nomeProdotto">FORBICE IN ALLUMINIO DA POTATURA </p>
-		 <p class="nomeProdotto"> Prezzo: 26,70 euro  </p>
-	</div>
-		   	<div class="opBtn5">
+    <div class="item1"> <!-- prodotto 1  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
+            <div class="overlay">
+				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto"> FORBICE DA POTATURA  </p>
+		 <p class="nomeProdotto"> Prezzo: 17,50 euro   </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
-				    <span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
+					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
-		  	</div>
+			</div>
+		  
   			
   </div>
   
-  <div class="item2">
-		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
-		 <p class="nomeProdotto">FORBICE DA POTATURA </p>
-		 <p class="nomeProdotto"> Prezzo: 17,50 euro  </p>
-			<div class="opBtn5">
+  
+    <div class="item2"> <!-- prodotto 2  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbice">
+            <div class="overlay">
+				<button  id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">FORBICE IN ALLUMINIO DA POTATURA   </p>
+		 <p class="nomeProdotto"> Prezzo: 26,70 euro  </p>
+		 </div>
+			<div class="bottoneAddCarrello">
+				<a class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
+				</a>	
+			</div>
+		  
+  			
+  </div>
+  
+  
+  
+    <div class="item3"> <!-- prodotto 3  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRPSEC.jpg" alt="forbice">
+            <div class="overlay">
+				<button  id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">TASCA PORTA FORBICE  </p>
+		 <p class="nomeProdotto"> Prezzo: 5,20 euro   </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			</div>
   </div>
   
-  <div class="item3">
-  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRPSEC.jpg" alt="forbice">
-		  <p class="nomeProdotto">TASCA PORTA FORBICE </p>
-		  <p class="nomeProdotto"> Prezzo: 5,20 euro  </p>
-			 <div class="opBtn5">
+      <div class="item4"> <!-- prodotto 4  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/p/r/prcbc75_new.jpg" alt="forbice">
+            <div class="overlay">
+				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">TRONCARAMI A DEMOLTIPLICAZIONE </p>
+		 <p class="nomeProdotto"> Prezzo: 55,20 euro    </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			</div>
-  </div>  
-  <div class="item4">
-   		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/p/r/prcbc75_new.jpg" alt="forbice">
-		  <p class="nomeProdotto">TRONCARAMI A DEMOLTIPLICAZIONE</p>
-		  <p class="nomeProdotto"> Prezzo: 55,20 euro  </p>
-			 <div class="opBtn5">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
+  </div>
   
-  </div>
-  <div class="item5">
-  		    <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/p/r/prcbt98_new.jpg" alt="forbice">
-		  <p class="nomeProdotto">TRONCARAMI CON CONTROLAMA DENTATA</p>
-		  <p class="nomeProdotto"> Prezzo: 65,10 euro  </p>
-			 <div class="opBtn5">
+   <div class="item5"> <!-- prodotto 5  -->
+    <div class="hovereffect">
+		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/p/r/prcbt98_new.jpg" alt="forbice">
+            <div class="overlay">
+				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">TRONCARAMI CON CONTROLAMA DENTATA </p>
+		 <p class="nomeProdotto"> Prezzo: 65,10 euro  </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			</div>
   </div>
-  <div class="item6">
-  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRCH43.jpg" alt="forbice">
-		  <p class="nomeProdotto">	CESOIA DA RIFINITURA</p>
-		  <p class="nomeProdotto"> Prezzo: 27,90 euro  </p>
-			 <div class="opBtn5">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
   
-  </div>
-  <div class="item7">
-  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSC170.jpg" alt="forbice">
-		  <p class="nomeProdotto"> SEGHETTO PIEGHEVOLE</p>
-		  <p class="nomeProdotto"> Prezzo: 14,99 euro  </p>
-			 <div class="opBtn5">
+   <div class="item6"> <!-- prodotto 6 -->
+    <div class="hovereffect">
+		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRCH43.jpg" alt="forbice">
+            <div class="overlay">
+				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
+            </div>
+    </div>
+		<div class="prova">
+		<div class="addWishlist"><img class="size" src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		 <p class="nomeProdotto">CESOIA DA RIFINITURA </p>
+		 <p class="nomeProdotto"> Prezzo: 27,90 euro  </p>
+		 </div>
+			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			</div>
   </div>
-  <div class="item8">
-  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSCE380.jpg" alt="forbice">
-		  <p class="nomeProdotto">SEGA DA POTATURA</p>
-		  <p class="nomeProdotto"> Prezzo: 22,00 euro  </p>
-			 <div class="opBtn5">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-  </div>  
-  <div class="item9">
-  		  <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSERP28I.jpg" alt="forbice">
-		  <p class="nomeProdotto"> RANCOLA </p>
-		  <p class="nomeProdotto"> Prezzo: 16,40 euro  </p>
-			 <div class="opBtn5">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-  </div>
-
-
+  
+  
+  
+  
+  
+  
+  
+  
 </div>
 
 </div>
+
+
 
 <!-- sidebar -->
 <div id="mySidenav" class="sidenav">
