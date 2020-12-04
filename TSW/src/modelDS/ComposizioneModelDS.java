@@ -2,6 +2,7 @@ package modelDS;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,9 +14,7 @@ import model.ComposizioneModel;
 public class ComposizioneModelDS implements ComposizioneModel {
 
 	private static DataSource ds;
-	/*
-	 * FAI DO RETRIVE ALL
-	 */
+	
 	static {
 		/*
 		 * CONNESSIONE DB
@@ -57,8 +56,49 @@ public class ComposizioneModelDS implements ComposizioneModel {
 
 	@Override
 	public ArrayList<Composizione> doRetrieveAll(String order) throws SQLException {
-		// tralasciamo
-		return null;
-	}
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
+		ArrayList<Composizione> composizioni = new ArrayList<Composizione>();
+
+		String selectSQL = "SELECT * FROM " + ComposizioneModelDS.TABLE_NAME;
+
+		if (order != null && !order.equals("")) {
+			selectSQL += " ORDER BY " + order;
+		}
+
+		try {
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				
+				Composizione composizioneBean = new Composizione();
+
+				composizioneBean.setCodiceProdotto(rs.getString("CodiceProdotto"));
+				composizioneBean.setCodiceOrdine(rs.getString("CodiceOrdine"));
+				composizioneBean.setQuantità(rs.getInt("quantita"));
+				composizioneBean.setPrezzoUnitario(rs.getDouble("PrezzoUnitario"));
+				composizioneBean.setScontoAttuale(rs.getInt("ScontoAttuale"));
+				
+				composizioni.add(composizioneBean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+		
+		return composizioni;
+		
+	}
+	
 }

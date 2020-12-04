@@ -1478,11 +1478,13 @@ font-size: 20px;
 .fotoProdottoWish{
 	margin:auto;
 	width:50px;
+	
 }
 
 .immagineCarrello{
 	margin:auto;
 	width:30px;
+	
 }
 
 .indietro{
@@ -1501,6 +1503,27 @@ font-size: 20px;
 	margin-left:10px;
 	text-align:center;
 	
+}
+
+.prodotto{
+	margin:auto;
+	height:90px;
+	
+}
+
+.descrizioneProdotto{
+	margin:auto;
+	text-align:center;
+	font-size:20px;
+}
+
+.riga1 { 
+	height: 1px;
+	background: rgba(0,0,0,.2);
+	width: 80%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/

@@ -9,9 +9,7 @@ import bean.Utente;
 import model.UtenteModel;
 
 public class UtenteModelDS implements UtenteModel {
-	/*
-	 * FAI DO RETREIVE ALL
-	 */
+
 	private static DataSource ds;
 	static {
 		/*
@@ -90,13 +88,56 @@ public class UtenteModelDS implements UtenteModel {
 	}
 
 	@Override
+	/*
+	 * Questo metodo ritorna un array list di oggetti in questo caso di utente in pratica ritorna tutti gli utenti in modo ordinato, 
+	 * per ordinato si intende in modo ascedente, infatti questa cosa è specificata dalla clausola order by di sql che si occupa di ritornare
+	 * tutti gli oggetti in modo ascendente. E' un metodo "standard"nei model ds ma non so bene dove va usato.
+	 */
 	public ArrayList<Utente> doRetrieveAll(String order) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
 
-		/*
-		 * Questo per il momento lo lasciamo perchè non sono sicura
-		 */
-		return null;
+		ArrayList<Utente> users = new ArrayList<Utente>();
+
+		String selectSQL = "SELECT * FROM " + UtenteModelDS.TABLE_NAME;
+
+		if (order != null && !order.equals("")) {
+			selectSQL += " ORDER BY " + order;
+		}
+
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+
+				Utente utenteBean = new Utente();
+
+				utenteBean.setEmail(rs.getString("email"));
+				utenteBean.setPassword(rs.getString("password"));
+				utenteBean.setNome(rs.getString("nome"));
+				utenteBean.setCognome(rs.getString("cognome"));
+				utenteBean.setDataDiNascita("dataDiNascita");
+
+
+				users.add(utenteBean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+
+		return users;
+
 	}
 
 	@Override

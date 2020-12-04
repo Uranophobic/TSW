@@ -9,15 +9,11 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import bean.DatiPagamento;
+import bean.DatiSpedizione;
 import model.DatiPagamentoModel;
 
 public class DatiPagamentoModelDS  implements DatiPagamentoModel{
-	/*
-	 * fai do retrive all, controlla do update
-	 */
-	
 	private static DataSource ds;
-	
 	static {
 		/*
 		 * connessione
@@ -26,12 +22,12 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 	private static final String TABLE_NAME = "datipagamento";
 	@Override
 	public void doSave(DatiPagamento dp) throws SQLException {
-	
+
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
-		
+
 		String insertSQL="INSERT INTO"+DatiPagamentoModelDS.TABLE_NAME+"(numeroCarta,emailUtente,circuito,scadenzaCarta,CVV)"+
-		"values(?,?,?,?,?)";
+				"values(?,?,?,?,?)";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(insertSQL);
@@ -49,24 +45,67 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 				if(connection!=null)
 					connection.close();
 			}
-			
+
 		}
-		
+
 	}
 
-	
+
 	@Override
 	public ArrayList<DatiPagamento> doRetrieveAll(String order) throws SQLException {
-		// ciao
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<DatiPagamento> datiPag = new ArrayList<DatiPagamento>();
+
+		String selectSQL = "SELECT * FROM " + DatiPagamentoModelDS.TABLE_NAME;
+
+		if (order != null && !order.equals("")) {
+			selectSQL += " ORDER BY " + order;
+		}
+
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+
+				DatiPagamento dpBean=new DatiPagamento();
+
+				dpBean.setNumeroCarta(rs.getString("numeroCarta"));
+				dpBean.setEmail(rs.getString("emailUtente"));
+				dpBean.setCircuito(rs.getString("circuito"));
+				dpBean.setScadenzaCarta(rs.getString("scadenzaCarta"));
+				dpBean.setCVV(rs.getInt("CVV"));
+
+
+
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+
+		return datiPag;
+
 	}
+
 
 	@Override
 	public int doUpdate(DatiPagamento dp) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		int result=0;
-		
+
 		String updateSQL="UPDATE"+DatiPagamentoModelDS.TABLE_NAME+"set numeroCarta=?,emailUtente=?,circuito=?,scandenzaCarta=?,CVV=?";
 		try {
 			connection=ds.getConnection();
@@ -76,9 +115,9 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 			preparedStatement.setString(3, dp.getCircuito());
 			preparedStatement.setString(4, dp.getScadenzaCarta());
 			preparedStatement.setInt(5, dp.getCVV());
-			
+
 			result=preparedStatement.executeUpdate();
-			
+
 		}finally {
 
 			try {
@@ -89,13 +128,13 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 					connection.close();
 			}
 		}
-			
-	
+
+
 		return result;
-	
+
 	}
 
-	
+
 
 
 	@Override
@@ -115,7 +154,7 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 				dpBean.setCircuito(rs.getString("circuito"));
 				dpBean.setScadenzaCarta(rs.getString("scadenzaCarta"));
 				dpBean.setCVV(rs.getInt("CVV"));
-				
+
 			}
 		}finally {
 			try {
@@ -143,12 +182,12 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 				preparedStatement.setString(1, numeroCarta);
 				preparedStatement.executeUpdate();
 
-								
+
 			}catch(SQLException e){
 				e.printStackTrace();
-				
+
 			}
-		
+
 		}finally {
 			try {
 				if(preparedStatement!=null)
@@ -159,9 +198,9 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 			}
 		}
 
-			
-		}
-		
+
 	}
+
+}
 
 

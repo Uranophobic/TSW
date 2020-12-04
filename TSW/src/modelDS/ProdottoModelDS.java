@@ -9,9 +9,7 @@ import bean.Prodotto;
 import model.ProdottoModel;
 
 public class ProdottoModelDS implements ProdottoModel {
-	/*
-	 * FAI DO RETREIVE ALL
-	 */
+
 	private static DataSource ds;
 
 	static {
@@ -96,10 +94,54 @@ public class ProdottoModelDS implements ProdottoModel {
 	@Override
 	public ArrayList<Prodotto> doRetrieveAll(String order) throws SQLException {
 
-		/*
-		 * Questo per ora lo tralasciamo 
-		 */
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<Prodotto> prodott = new ArrayList<Prodotto>();
+
+		String selectSQL = "SELECT * FROM " + ProdottoModelDS.TABLE_NAME;
+
+		if (order != null && !order.equals("")) {
+			selectSQL += " ORDER BY " + order;
+		}
+
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+
+				Prodotto prodottoBean = new Prodotto();
+
+				prodottoBean.setIdProdotto(rs.getString("idProdotto"));
+				prodottoBean.setNome(rs.getString("Nome"));
+				prodottoBean.setDescrizione(rs.getString("sescrizione"));
+				prodottoBean.setCategoria(rs.getString("categoria"));
+				prodottoBean.setPrezzo(rs.getDouble("prezzo"));
+				prodottoBean.setIva(rs.getDouble("iva"));
+				prodottoBean.setSconto(rs.getDouble("sconto"));
+				prodottoBean.setImmaginePath(rs.getString("immaginePath"));
+
+
+				prodott.add(prodottoBean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+
+		return prodott;
+
+
 	}
 
 	@Override

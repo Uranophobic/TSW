@@ -8,9 +8,7 @@ import javax.sql.DataSource;
 import bean.Ordine;
 import model.OrdineModel;
 public class OrdineModelDS implements OrdineModel{
-	/*
-	 * FAI DO RETREIVE ALL
-	 */
+
 	private static DataSource ds;
 	static {
 		/*
@@ -80,11 +78,53 @@ public class OrdineModelDS implements OrdineModel{
 
 	@Override
 	public ArrayList<Ordine> doRetrieveAll(String order) throws SQLException {
-		/*
-		 * Lo tralasciamo
-		 */
-		return null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		ArrayList<Ordine> ordine = new ArrayList<Ordine>();
+
+		String selectSQL = "SELECT * FROM " + OrdineModelDS.TABLE_NAME;
+
+		if (order != null && !order.equals("")) {
+			selectSQL += " ORDER BY " + order;
+		}
+
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(selectSQL);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+
+				Ordine ordineBean = new Ordine();
+
+				ordineBean.setIdOrdine(rs.getString("idOrdine"));
+				ordineBean.setEmailUtente(rs.getString("emailUtente"));
+				ordineBean.setImportoTot(rs.getDouble("importoTotale"));
+				ordineBean.setDataOrdine(rs.getString("DataOrdine"));
+
+				ordine.add(ordineBean);
+			}
+
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}
+
+		return ordine;
+
 	}
+
+
+
+
 
 	@Override
 	public int doUpdate(Ordine ordine) throws SQLException {
