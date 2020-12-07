@@ -122,7 +122,7 @@ public class LoginServlet extends HttpServlet {
 					sessione.invalidate();
 					
 					getServletContext().getRequestDispatcher("homepage.jsp").forward(request, response);
-					//RequestDispatcher dispatcher  = request.getRequestDispather(homepage.jsp); 
+					//RequestDispatcher dispatcher  = request.getRequestDispather("homepage.jsp"); 
 					//dispatcher.forward(request , response);
 					break;
 			}
