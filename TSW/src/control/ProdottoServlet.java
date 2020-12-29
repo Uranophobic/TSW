@@ -38,6 +38,16 @@ public class ProdottoServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String azioneP=request.getParameter("azioneProdotto");
+		if(azioneP.equals("visualizzaCatalogo")) {
+			try {
+				ArrayList<Prodotto> catalogo=new ArrayList<Prodotto>();
+				catalogo=prodottoModel.doRetrieveAll("idProdotto");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			RequestDispatcher view=request.getRequestDispatcher("catalogo.jsp");//si chiama cosi?
+			view.forward(request, response);
+		}
 		if(azioneP.equals("visualizzaProdotto")) {
 			String idProdotto= request.getParameter("idProdotto");
 			try {

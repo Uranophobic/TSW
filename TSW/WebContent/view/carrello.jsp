@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+     import="java.util.ArrayList, bean.Prodotto, java.text.*, bean.Composizione, bean.DatiSpedizione, bean.DatiPagamento"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,9 +56,15 @@ font-weight: bold;
 <body>
 <%@ include file="navbar.jsp"%>
 
+<%ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");%>
 <div>
 <p  class="titoloPagine"> Carrello</p>
 </div>
+<%if(carrello.size()!=0){ %>
+	
+	
+
 <div class="container">                                                                                   
   <div class="table-responsive">          
   <table class="table">
@@ -111,6 +118,8 @@ Ideale per delle finiture pulite e nette.
       </tr>
     </tbody>
   </table>
+<%  }else{//se invece è diverso da 0%>
+<%} %>
   </div>
 </div>
 <div class= "riga1" class="hr"></div>
