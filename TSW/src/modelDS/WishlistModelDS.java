@@ -1,13 +1,15 @@
 package modelDS;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
-
 import bean.Prodotto;
 import bean.Wishlist;
 import model.WishlistModel;
@@ -17,7 +19,23 @@ public class WishlistModelDS  implements WishlistModel{
 	private static DataSource ds;
 
 	static {
-		//connessione db
+		/*
+		 *try {
+			Context inizioContext=new InitialContext();
+			Context envContext=(Context) inizioContext.lookup("java:comp/env");
+			ds= (DataSource)envContext.lookup("jdbc/oltreilgiardino");
+		} catch (NamingException e) {
+			System.out.println("Errore: "+e.getMessage());
+			
+		} 
+		 */
+		try {
+			Context inizioContext=new InitialContext();
+			Context envContex= (Context) inizioContext.lookup("java:comp/env");
+			ds=(DataSource) envContex.lookup("jdbc/oltreilgiardino");
+		} catch (NamingException e) {
+			System.out.println("Errore: "+e.getMessage());
+		}
 	}
 	private static final String TABLE_NAME = "wishlist";
 

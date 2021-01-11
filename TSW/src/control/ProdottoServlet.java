@@ -52,10 +52,10 @@ public class ProdottoServlet extends HttpServlet {
 			String idProdotto= request.getParameter("idProdotto");
 			try {
 				Prodotto prodottoBean=prodottoModel.doRetrieveByKey(idProdotto);
-				//sessione??
+				request.getSession().setAttribute("prodottoVisualizzato",prodottoBean);
 				RequestDispatcher view=request.getRequestDispatcher("visualizzaProdotto.jsp");//si chiama cosi?
 				view.forward(request, response);
-				//forward=?
+				
 			} catch (SQLException e) {
 
 				e.printStackTrace();
@@ -96,7 +96,7 @@ public class ProdottoServlet extends HttpServlet {
 					 * 
 					 */
 
-					// GESTIONE DELLA SESSIONE
+					request.getSession().setAttribute("risultatiRicerca",risultatiRicerca);
 					RequestDispatcher dispatcher=request.getRequestDispatcher("catalogo.jsp");//controlla nome jsp
 					dispatcher.forward(request, response);
 

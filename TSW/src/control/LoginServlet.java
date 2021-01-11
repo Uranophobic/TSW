@@ -23,6 +23,8 @@ public class LoginServlet extends HttpServlet {
     
 	Utente utente = new Utente();
 	UtenteModel utenteModel = new UtenteModelDS();
+	HttpSession VecchiaSessione;
+	HttpSession NuovaSessione;
 	
     public LoginServlet() {
         super();
@@ -69,20 +71,32 @@ public class LoginServlet extends HttpServlet {
 				if(!utente.getEmail().equals(null)) { //controlla se è diversa da null
 					if(utente.getPassword().equals(password)) {
 						
-						/*
-						 * Email e password sono apposto e devi dirlo all'utente e settare la sessione
-						 */
+						System.out.println("Email e password funzionano");
+						VecchiaSessione=request.getSession();
+						if(VecchiaSessione!=null) {
+							/*
+							 * perchè se è diverso da null vuol dire che la sessione esiste già e la invalidiamo
+							 */
+							VecchiaSessione.invalidate();
+						}else{
+							
+							NuovaSessione.setAttribute("utenteSessione", utente);
+							//controllare maiuscole e minuscole della parola sessioneUtente e in caso uniformarla
+						}
+					
+						
 					} else {
 						
-						/*
-						 * password non corretta, devi dirlo all'utente 
-						 */
+						System.out.println("password non corretta");
+						request.getSession().getAttribute("errore password");//nel caso non va controllare qua
 					}
 				} else {
 					
 					/*
 					 * vuol dire che anche l'email è sbagliata e di all'utente di reinserirla oppure registrarsi 
 					 */
+					System.out.println("email sbagliata, o inserisci nuovamente mail o registrati");
+					request.getSession().getAttribute("errore email/registrazione");//nel caso controllare qua
 				}
 				
 				break; 
@@ -107,10 +121,7 @@ public class LoginServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-					 
-					 /*
-					  * QUI VA SETTATA LA SESSIONE 
-					  */
+				NuovaSessione.setAttribute("utenteSessione", utente);
 				
 				getServletContext().getRequestDispatcher("homepage.jsp").forward(request, response);
 				
@@ -118,8 +129,12 @@ public class LoginServlet extends HttpServlet {
 				
 				case "logoutUtente" : 
 					
-					HttpSession sessione = request.getSession();
-					sessione.invalidate();
+					NuovaSessione = request.getSession();
+					NuovaSessione.invalidate();
+					/*
+					 * VecchiaSessione=request.getSessione();
+					 * VecchiaSessione.invalidate();
+					 */
 					
 					getServletContext().getRequestDispatcher("homepage.jsp").forward(request, response);
 					//RequestDispatcher dispatcher  = request.getRequestDispather("homepage.jsp"); 

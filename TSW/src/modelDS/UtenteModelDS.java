@@ -1,9 +1,13 @@
 package modelDS;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 import bean.Utente;
 import model.UtenteModel;
@@ -12,9 +16,11 @@ public class UtenteModelDS implements UtenteModel {
 
 	private static DataSource ds;
 	static {
+		
 		/*
 		 * CONNESSIONE DB
 		 */
+
 	}
 	private static final String TABLE_NAME = "utente";
 

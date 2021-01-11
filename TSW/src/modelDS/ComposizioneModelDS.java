@@ -1,24 +1,40 @@
 package modelDS;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import bean.Composizione;
 import model.ComposizioneModel;
 
+
 public class ComposizioneModelDS implements ComposizioneModel {
 
 	private static DataSource ds;
-	
+
 	static {
-		/*
-		 * CONNESSIONE DB
-		 */
+		
+		try {
+			Context inizioContext=new InitialContext();
+
+			Context envContext=(Context) inizioContext.lookup("java: comp/env");
+
+			ds=(DataSource) envContext.lookup("jdbc/oltreilgiardino");
+
+		} catch (NamingException e) {
+
+			System.out.println("Errore: "+e.getMessage());
+		
+		}
+		
 	}
 	private static final String TABLE_NAME = "composizione";
 	@Override
@@ -68,14 +84,14 @@ public class ComposizioneModelDS implements ComposizioneModel {
 		}
 
 		try {
-			
+
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(selectSQL);
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				
+
 				Composizione composizioneBean = new Composizione();
 
 				composizioneBean.setCodiceProdotto(rs.getString("CodiceProdotto"));
@@ -83,7 +99,7 @@ public class ComposizioneModelDS implements ComposizioneModel {
 				composizioneBean.setQuantità(rs.getInt("quantita"));
 				composizioneBean.setPrezzoUnitario(rs.getDouble("PrezzoUnitario"));
 				composizioneBean.setScontoAttuale(rs.getInt("ScontoAttuale"));
-				
+
 				composizioni.add(composizioneBean);
 			}
 
@@ -96,9 +112,9 @@ public class ComposizioneModelDS implements ComposizioneModel {
 					connection.close();
 			}
 		}
-		
+
 		return composizioni;
-		
+
 	}
-	
+
 }
