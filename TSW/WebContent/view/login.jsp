@@ -18,13 +18,22 @@
 				<img src="../images/log.png">
 			</div>
 			<div class="riga" class="hr"></div>
-
-			<div class="formLogin ">
-
-				<label class="etichette2">Username:</label> <br> <input
-					id="casella" type="text"> <br> <label
-					class="etichette2">Password:</label> <br> <input id="casella"
-					type="text"> <br>
+			
+ 		<form action="/LoginServlet" method="post">
+			<input type="text" id="email" placeholder="Email" name="email" required>
+			<input type="password" id="password" placeholder="Password" name ="password" required>
+			<br>
+			<button type="submit" name ="azioneLogin" value="loginUtente" id="login-button" >
+			Login
+			</button>
+		</form>	
+			
+<!-- 	<form action = "login" method="post">
+		<div class="formLogin ">
+				<label class="etichette2"> Email: </label> <br> 
+				<input id="casella" type="text"> <br> 
+				<label class="etichette2"> Password: </label> <br> 
+				<input id="casella" type="text"> <br>
 
 			</div>
 
@@ -34,10 +43,13 @@
 			<div align="center" class=ricordami>
 				<input type="checkbox" id="check" name="ricordami1"
 					value="ricordami">Ricordami
-			</div>
+			</div>	
+	</form>  <!-- CHIUSURA FORM LOGIN UTENTE  -->
+	
 			<div align="center">
 				<a class="registrazione" href="../view/registrazione.jsp">Registrati</a>
 			</div>
+
 		</div>
 	</div>
 

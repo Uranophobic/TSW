@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -80,7 +81,10 @@ public class LoginServlet extends HttpServlet {
 							VecchiaSessione.invalidate();
 						}else{
 							
+							RequestDispatcher view = request.getRequestDispatcher("HomePage.jsp");
+							view.forward(request, response);
 							NuovaSessione.setAttribute("utenteSessione", utente);
+							
 							//controllare maiuscole e minuscole della parola sessioneUtente e in caso uniformarla
 						}
 					
@@ -123,7 +127,7 @@ public class LoginServlet extends HttpServlet {
 				}
 				NuovaSessione.setAttribute("utenteSessione", utente);
 				
-				getServletContext().getRequestDispatcher("homepage.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("Homepage.jsp").forward(request, response);
 				
 				break; 
 				

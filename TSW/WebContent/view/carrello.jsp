@@ -20,47 +20,16 @@
 <title> Carrello - Oltre il Giardino</title>
 </head>
 
-<style>
-.table{
-font-size: 20px;
-}
-#numCol{
-width: auto;
-}
-
-#imgCol{
-width: 20%;
-}
-
-#descrCol{
-width: auto;
-}
-
-#priceCol{
-width: 10%;
-}
-
-#qntCol{
-width: 10%;
-}
-
-#totCol{
-width: auto;
-}
-
-#titDescr{
-font-weight: bold; 
-
-}
-</style>
 <body>
 <%@ include file="navbar.jsp"%>
 
 <%ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");%>
+
 <div>
 <p  class="titoloPagine"> Carrello</p>
 </div>
+
 <%if(carrello.size()!=0){ %>
 	
 	

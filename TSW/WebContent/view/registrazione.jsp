@@ -21,21 +21,23 @@
 		<!--  	<h4 id="titoloCaselle">Dati personali e accesso</h4>-->
 		<!-- la riga non si vede -->
 
+  <form action="LoginServlet" method="post">
 		<div class="quadrato-a">
 			<h3 class="titoloCasella">Dati personali e accesso</h3>
 			<div class="contenitore">
-				<label class="etichette">Nome <br> <input type="text"></label>
-				<label class="etichette">Cognome <input type="text">
-				</label> <label class="etichette">Data di Nascita <input type="text"></label>
-				<label class="etichette">Telefono <input type="text"></label>
-				<label class="etichette">Email<br> <input type="text"></label>
-				<label class="etichette">Password <input type="text">
+				<label class="etichette">Nome <br> <input id="nome" type="text"></label>
+				<label class="etichette">Cognome <input id="cognome" type="text">
+				</label> <label class="etichette">Data di Nascita <input id="dataDiNascita" type="text"></label>
+				<label class="etichette">Email<br> <input id="email" type="text"></label>
+				<label class="etichette">Password <input id="password" type="text">
 				</label>
 
 			</div>
 		</div>
 		<!-- chiusura container item-a  -->
+	</form> <!--  chiusura form registra utente -->
 
+<!-- 
 		<div class="item-b">
 			<h3 class="titoloCasella">Dati spedizione e pagamento</h3>
 			<div class="contenitore">
@@ -65,11 +67,13 @@
 			<div class="riga1" class="hr"></div> -->
 
 	</div>
-	<!-- chiusura div item-b -->
+	<!-- chiusura div item-b  -->
 
 	<!-- chiusura div area-utente -->
 	<div class="bottoni" align="center">
-		<button type="submit" class="conferma">Salva</button>
+		<button type="submit" name ="azioneLogin" value="registraUtente" id="login-button" >
+			Registrati
+			</button>
 		<button type="submit" class="conferma">Indietro</button>
 	</div>
 	<%@include file="footer.jsp"%>

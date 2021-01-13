@@ -5,21 +5,30 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import bean.Utente;
-import model.UtenteModel;
+import model.UtenteModel; 
 
 public class UtenteModelDS implements UtenteModel {
 
 	private static DataSource ds;
 	static {
 		
-		/*
-		 * CONNESSIONE DB
-		 */
+		try {
+			Context inizioContext=new InitialContext();
+			Context envContext=(Context) inizioContext.lookup("java:comp/env");
+			
+			ds=(DataSource) envContext.lookup("jdbc/oltreilgiardino");
+			
+					
+		} catch (NamingException e) {
+			System.out.println("Errore: "+e.getMessage());
+			 
+		}
 
 	}
 	private static final String TABLE_NAME = "utente";

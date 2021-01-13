@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../stilesito.css">
+<link rel="stylesheet" type="text/css" href="../css/stilesito.css">
 <title>Visualizza prodotto - Oltre il Giardino </title>
 <style>
-
 .procediOrdine {
 	width: 91%;
 	display: grid;
@@ -112,6 +111,162 @@ width: 100%;
 padding: 5px;
 margin: 5px;
 } */
+
+#righe {
+	margin: 0;
+	font-size: 20px;
+	line-height: 15px;
+	float: left;
+}
+
+#caselle{
+border-bottom: 1px solid rgba(40, 150, 5, 0.9);
+}
+
+#informazioniUtente{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.rigaSx {
+	height: 1px;
+	background: rgba(0,0,0,.2);
+	width: 35%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.rigaDx {
+	height: 1px;
+	background: rgba(0,0,0,.2);
+	width: 35%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: right;
+}
+
+.cose {
+	font-size: 1.2em;
+	color: #394a3c;
+	padding: 5px;
+}
+
+#via, #civico, #provincia, #cap, #nome, #cognome, #numCarta, #cvv, #scadenza  {
+	width: 90%;
+	display: inline-block;
+	border: none;
+	box-sizing: border-box;
+	background: transparent;
+	border-bottom: 1px solid #b5afaf;
+	margin-bottom: 15px;
+	margin-left: 5px;
+}
+
+
+.select {
+	width: 100%;
+	margin-top: 6px;
+	display: inline-block;
+	border: none;
+	box-sizing: border-box;
+	background: transparent;
+	border-bottom: 1px solid red;
+	color: black;
+}
+
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.abledbutton {
+    pointer-events: visible;
+     opacity: 1;
+}.procediOrdine {
+	width: 91%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	/* grid-template-rows: 50% 50%; */
+	height: 1000px;
+	justify-content: center;
+	grid-column-gap: 5%;
+	margin-left: 90px;
+}
+
+.colonnaSx {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 100%;
+	height: 965px;
+	width: 100%;
+	border: 1px solid gainsboro;
+	background-color: rgb(250, 330, 300);
+	border-radius: 5px;
+}
+
+.colonnaDx1 {
+	width: 100%;
+	height: 365px;
+	width: 90%;
+	border: 1px solid gainsboro;
+	background-color: rgb(250, 330, 300);
+	border-radius: 5px;
+	grid-row-gap: 5%;
+}
+
+.colonnaDx2 {
+	width: 100%;
+	height: 565px;
+	width: 90%;
+	border: 1px solid gainsboro;
+	background-color: rgb(250, 330, 300);
+    border-radius: 5px;
+	grid-row-gap: 0;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+#titColonne{
+	font-size: 16px;
+}
+
+
+#carrelloOrdine {
+	border-collapse: collapse;
+	width: 90%;
+	margin-left: 40px;
+	font-size: 20px;
+}
+
+.immagineProd, .nomeProd, .quantProd, .prezzoProd, .scontoProd {
+   padding: 8px;
+   text-align: left;
+   border-bottom: 1px solid #ddd;
+}
+
+
+
+#specificheTab{
+	text-align: left;
+}
+
+#specificheTab:hover {background-color:#f5f5f5;}	
+
+.totaleCol {
+	position: absolute;
+	top: 1230px;
+	width: 40%;
+	/* float: right; */
+	font-size: 20px;
+}
+
+.totaleCol a{
+	float:right;
+}
+
 
 #righe {
 	margin: 0;
