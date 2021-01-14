@@ -43,6 +43,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	 */
 	public ProfiloUtenteServlet() {
 		super();
+		System.out.println("sono prima del doPost di profilo utente");
 		// TODO Auto-generated constructor stub
 	}
 
@@ -51,7 +52,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		getServletContext().getRequestDispatcher("/view/profiloUtente.jsp").forward(request, response);
+		//getServletContext().getRequestDispatcher("/view/profiloUtente.jsp").forward(request, response);
 
 	}
 
@@ -60,6 +61,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("sono del dopost di profilo utente");
 		String azioneProfilo = request.getParameter("azioneProfilo");
 
 		if(azioneProfilo!=null) {

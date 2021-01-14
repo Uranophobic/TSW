@@ -19,7 +19,7 @@
 			</div>
 			<div class="riga" class="hr"></div>
 			
- 		<form action="/LoginServlet" method="post">
+ 		<form action="/LoginServlet" method="POST">
 			<input type="text" id="email" placeholder="Email" name="email" required>
 			<input type="password" id="password" placeholder="Password" name ="password" required>
 			<br>

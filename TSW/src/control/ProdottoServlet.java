@@ -20,7 +20,7 @@ import modelDS.WishlistModelDS;
 /**
  * Servlet implementation class prodottoServlete
  */
-@WebServlet("/prodottoServlete")
+@WebServlet("/prodottoServlet")
 public class ProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static ProdottoModelDS prodottoModel=new ProdottoModelDS();
@@ -28,17 +28,22 @@ public class ProdottoServlet extends HttpServlet {
 
 	public ProdottoServlet() {
 		super();
+		System.out.println("sono prima del doPost\n");
 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
 	}
-
-
+	
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("sono in prodottoservlet\n");
 		String azioneP=request.getParameter("azioneProdotto");
+		
 		if(azioneP.equals("visualizzaCatalogo")) {
+			System.out.println("sono in visualizzaCatalogo");
 			try {
 				ArrayList<Prodotto> catalogo=new ArrayList<Prodotto>();
 				catalogo=prodottoModel.doRetrieveAll("idProdotto");
@@ -49,6 +54,7 @@ public class ProdottoServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 		if(azioneP.equals("visualizzaProdotto")) {
+			System.out.println("sono in visualizzaProdotto\n");
 			String idProdotto= request.getParameter("idProdotto");
 			try {
 				Prodotto prodottoBean=prodottoModel.doRetrieveByKey(idProdotto);

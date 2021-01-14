@@ -29,6 +29,7 @@ public class LoginServlet extends HttpServlet {
 	
     public LoginServlet() {
         super();
+        System.out.println("Sono prima del doPost");
         // TODO Auto-generated constructor stub
     }
 
@@ -52,6 +53,7 @@ public class LoginServlet extends HttpServlet {
 	 * 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Sono nel doPost di login Servlet");
 		String azioneLogin = request.getParameter("azioneLogin");
 		// controlla azione login dov'è collegata
 		
@@ -59,10 +61,12 @@ public class LoginServlet extends HttpServlet {
 			switch (azioneLogin) {
 			
 				case "loginUtente": 
+					System.out.println("Sto entrando nel case login Utente");
 					String email = request.getParameter("email");
 					String password = request.getParameter("password");
 					
 				try {
+					System.out.println("sto per ricercare l'utente");
 					utente = utenteModel.doRetrieveByKey(email);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -106,13 +110,13 @@ public class LoginServlet extends HttpServlet {
 				break; 
 				
 				case "registraUtente" : 
-					
+					System.out.println("sono in registraUtente\n");
 					 email = request.getParameter("email");
 					 password = request.getParameter("password");
 					 String nome = request.getParameter("nome");
 					 String cognome = request.getParameter("cognome");
 					 String dataDiNascita = request.getParameter("dataNascita");
-					 
+					 System.out.println("sto creando l'utente\n");
 					 utente.setEmail(email);
 					 utente.setPassword(password);
 					 utente.setNome(nome);
@@ -121,6 +125,7 @@ public class LoginServlet extends HttpServlet {
 					 
 				try {
 					utenteModel.doSave(utente);
+					System.out.println("utente salvato");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -132,7 +137,7 @@ public class LoginServlet extends HttpServlet {
 				break; 
 				
 				case "logoutUtente" : 
-					
+					System.out.println("sono in logout");
 					NuovaSessione = request.getSession();
 					NuovaSessione.invalidate();
 					/*

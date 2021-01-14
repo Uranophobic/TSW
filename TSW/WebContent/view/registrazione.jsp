@@ -21,15 +21,16 @@
 		<!--  	<h4 id="titoloCaselle">Dati personali e accesso</h4>-->
 		<!-- la riga non si vede -->
 
-  <form action="LoginServlet" method="post">
+  <form action="/LoginServlet" method="POST">
+   <%System.out.println("sono nel form\n");%>
 		<div class="quadrato-a">
 			<h3 class="titoloCasella">Dati personali e accesso</h3>
 			<div class="contenitore">
-				<label class="etichette">Nome <br> <input id="nome" type="text"></label>
-				<label class="etichette">Cognome <input id="cognome" type="text">
-				</label> <label class="etichette">Data di Nascita <input id="dataDiNascita" type="text"></label>
-				<label class="etichette">Email<br> <input id="email" type="text"></label>
-				<label class="etichette">Password <input id="password" type="text">
+				<label class="etichette">Nome <br> <input id="nome" type="text" name="nome"></label>
+				<label class="etichette">Cognome <input id="cognome" type="text" name="cognome">
+				</label> <label class="etichette">Data di Nascita <input id="dataDiNascita" type="text" name="dataDiNascita"></label>
+				<label class="etichette">Email<br> <input id="email" type="text" name="email"></label>
+				<label class="etichette">Password <input id="password" type="password" name="password">
 				</label>
 
 			</div>
