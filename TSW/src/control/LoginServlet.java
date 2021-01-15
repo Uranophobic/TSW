@@ -22,10 +22,8 @@ import modelDS.UtenteModelDS;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	Utente utente = new Utente();
 	UtenteModel utenteModel = new UtenteModelDS();
-	HttpSession VecchiaSessione;
-	HttpSession NuovaSessione;
+	
 	
     public LoginServlet() {
         super();
@@ -33,125 +31,133 @@ public class LoginServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 * 
-	 * azioneLogin =
-	 * 1) Accesso dell'utente 
-	 * 2) Accesso dell'amministratore
-	 * 3) Registrazione dell'utente
-	 * 4) Logout dell'utente
-	 * 5) Logout dell'amministratore
-	 * 
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Sono nel doPost di login Servlet");
 		String azioneLogin = request.getParameter("azioneLogin");
+		System.out.println("azione" + azioneLogin);
 		// controlla azione login dov'è collegata
 		
-		if (azioneLogin != null) {
-			switch (azioneLogin) {
-			
-				case "loginUtente": 
-					System.out.println("Sto entrando nel case login Utente");
+
+			if(azioneLogin.equals("loginUtente")) {
+				System.out.println("sono in loginUtente\n");
+		
+				try {
 					String email = request.getParameter("email");
 					String password = request.getParameter("password");
+					String errore= "";
+					Utente utente = new Utente();
 					
-				try {
-					System.out.println("sto per ricercare l'utente");
 					utente = utenteModel.doRetrieveByKey(email);
+					String mess = "Ho cercato l'utente " + utente.toString();
+					System.out.println(mess);
+					
+					if ( utente.getEmail().equals(email)) {
+						
+						if(utente.getPassword().equals(password)) {
+							 //utente si può loggare e quindi instaziare la sessione
+							System.out.println("Mi sono loggato.\n");
+							
+							
+							//verificare anche la sessione vecchia
+							HttpSession utenteSessione = request.getSession();
+							utenteSessione.setAttribute("utenteSessione", utente);
+							
+							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
+							dispatcher.forward(request, response);
+						} else {
+							System.out.println("password sbagliata, o inserisci nuovamente mail o registrati");
+							errore = "Password errata.\n"; 
+							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+							dispatcher.forward(request, response);
+						}
+				
+				} else {  //nel caso l'email non è uguale 
+						System.out.println("email sbagliata, o inserisci nuovamente mail o registrati");
+						errore = "Email errata.\n"; 
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+						dispatcher.forward(request, response);
+				} //chiusa par. di else di utente email uguale email 
+
+				
+				if(!utente.getEmail().equals(email) && !utente.getPassword().equals(password)) {
+						System.out.println("email sbagliata e password sbagliata, o inserisci nuovamente mail o registrati");
+						errore = "Email e password errati, registrati.\n"; 
+						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+						dispatcher.forward(request, response);
+				}//email e pasw sbagliati
+					
+				if( !errore.equals("") ) {
+						request.setAttribute("errore", errore);		
+				}
+				
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			
 				
-				if(!utente.getEmail().equals(null)) { //controlla se è diversa da null
-					if(utente.getPassword().equals(password)) {
-						
-						System.out.println("Email e password funzionano");
-						VecchiaSessione=request.getSession();
-						if(VecchiaSessione!=null) {
-							/*
-							 * perchè se è diverso da null vuol dire che la sessione esiste già e la invalidiamo
-							 */
-							VecchiaSessione.invalidate();
-						}else{
-							
-							RequestDispatcher view = request.getRequestDispatcher("HomePage.jsp");
-							view.forward(request, response);
-							NuovaSessione.setAttribute("utenteSessione", utente);
-							
-							//controllare maiuscole e minuscole della parola sessioneUtente e in caso uniformarla
-						}
-					
-						
-					} else {
-						
-						System.out.println("password non corretta");
-						request.getSession().getAttribute("errore password");//nel caso non va controllare qua
-					}
-				} else {
-					
-					/*
-					 * vuol dire che anche l'email è sbagliata e di all'utente di reinserirla oppure registrarsi 
-					 */
-					System.out.println("email sbagliata, o inserisci nuovamente mail o registrati");
-					request.getSession().getAttribute("errore email/registrazione");//nel caso controllare qua
-				}
+				}//chiusura parentesi dell'azione login 
+			
+			if(azioneLogin.equals("registraUtente")) {
+				System.out.println("Sono in registraUtente\n");
 				
-				break; 
+				String email = request.getParameter("email");
+				String password = request.getParameter("password");
+				String nome = request.getParameter("nome");
+				String cognome = request.getParameter("cognome");
+				String dataDiNascita = request.getParameter("dataDiNascita");
 				
-				case "registraUtente" : 
-					System.out.println("sono in registraUtente\n");
-					 email = request.getParameter("email");
-					 password = request.getParameter("password");
-					 String nome = request.getParameter("nome");
-					 String cognome = request.getParameter("cognome");
-					 String dataDiNascita = request.getParameter("dataNascita");
-					 System.out.println("sto creando l'utente\n");
-					 utente.setEmail(email);
-					 utente.setPassword(password);
-					 utente.setNome(nome);
-					 utente.setCognome(cognome);
-					 utente.setDataDiNascita(dataDiNascita);
-					 
+				System.out.println("Sto creando l'utente");
+				Utente utente = new Utente();
+				
+				utente.setNome(nome);
+				utente.setCognome(cognome);
+				utente.setEmail(email);
+				utente.setPassword(password);
+				utente.setDataDiNascita(dataDiNascita);
+				
 				try {
 					utenteModel.doSave(utente);
-					System.out.println("utente salvato");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				NuovaSessione.setAttribute("utenteSessione", utente);
 				
-				getServletContext().getRequestDispatcher("Homepage.jsp").forward(request, response);
+				HttpSession utenteSessione = request.getSession(); //VEDERE SE è GIUSTO 
+				utenteSessione.setAttribute("utenteSessione", utente);
 				
-				break; 
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
+				dispatcher.forward(request, response);
 				
-				case "logoutUtente" : 
-					System.out.println("sono in logout");
-					NuovaSessione = request.getSession();
-					NuovaSessione.invalidate();
-					/*
-					 * VecchiaSessione=request.getSessione();
-					 * VecchiaSessione.invalidate();
-					 */
-					
-					getServletContext().getRequestDispatcher("homepage.jsp").forward(request, response);
-					//RequestDispatcher dispatcher  = request.getRequestDispather("homepage.jsp"); 
-					//dispatcher.forward(request , response);
-					break;
-			}
-		}
+			} //chiusura dell'if di registrazione 
+			
+			if(azioneLogin.equals("logoutUtente")) {
+				System.out.println("Sono in logout");
+				HttpSession utenteSessione;
+				utenteSessione = request.getSession();
+				utenteSessione.invalidate();
+				
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+				dispatcher.forward(request, response);
+			} //chiusura dell'if di loguout
 		
+		
+		
+		
+
+			
+				
+				
+	
+			}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request,response);
+	}
 	}
 
-}
+		
+		
+
