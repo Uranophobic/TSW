@@ -1322,7 +1322,7 @@ border-bottom: 1px solid rgba(40, 150, 5, 0.9);
 	color: #394a3c;
 	padding: 5px;
 }
-
+ /*
 #via, #civico, #provincia, #cap, #nome, #cognome, #numCarta, #cvv, #scadenza, #dataDiNascita, #email, #password {
 	width: 90%;
 	display: inline-block;
@@ -1332,7 +1332,7 @@ border-bottom: 1px solid rgba(40, 150, 5, 0.9);
 	border-bottom: 1px solid #b5afaf;
 	margin-bottom: 15px;
 	margin-left: 5px;
-}
+} */
 
 
 .select {
@@ -1479,16 +1479,6 @@ border-bottom: 1px solid rgba(40, 150, 5, 0.9);
 	padding: 5px;
 }
 
-#via, #civico, #provincia, #cap, #nome, #cognome, #numCarta, #cvv, #scadenza  {
-	width: 90%;
-	display: inline-block;
-	border: none;
-	box-sizing: border-box;
-	background: transparent;
-	border-bottom: 1px solid #b5afaf;
-	margin-bottom: 15px;
-	margin-left: 5px;
-}
 
 
 .select {

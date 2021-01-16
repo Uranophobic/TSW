@@ -26,19 +26,18 @@
 		<div class="quadrato-a">
 			<h3 class="titoloCasella">Dati personali e accesso</h3>
 			<div class="contenitore">
-				<label class="etichette">Nome <br> <input id="nome" type="text" name="nome"></label>
-				<label class="etichette">Cognome <input id="cognome" type="text" name="cognome">
-				</label> <label class="etichette">Data di Nascita <input id="dataDiNascita" type="text" name="dataDiNascita"></label>
-				<label class="etichette">Email<br> <input id="email" type="text" name="email"></label>
-				<label class="etichette">Password <input id="password" type="password" name="password">
-				</label>
+				 <label class="etichette"> Nome <input type="text" name="nome" id="nome">  </label>
+				 <label class="etichette"> Cognome  <input type="text" name="cognome" id="cognome"> </label>
+				 <label class="etichette">Data di nascita  <input type="date" placeholder="dd mm yyyy" name="dataDiNascita" id="dataDiNascita" data-date-format="DD MM YYYY"> </label> <br>
+				 <label class="etichette"> Email <input type="text" name="email" id="email">  </label>
+				 <label class="etichette"> Password <input type="password" name="password" id="password">  </label> <br>
+				 <button type="submit" name ="azioneLogin" value="registraUtente" id="login-button" >Registrati</button> <!-- i bottoni sono meglio nel form  -->
+				
 
 			</div>
 		</div>
 		<!-- chiusura container item-a  -->
-		<button type="submit" name ="azioneLogin" value="registraUtente" id="login-button" >
-			Registrati
-		</button> <!-- i bottoni sono meglio nel form  -->
+		
 	</form> <!--  chiusura form registra utente -->
 
 <!-- 

@@ -72,7 +72,7 @@ public class UtenteModelDS implements UtenteModel {
 		PreparedStatement preparedStatement=null;
 
 		Utente utenteBean=new Utente();
-		String selectSQL="SELECT * FROM"+UtenteModelDS.TABLE_NAME +" where email=?";
+		String selectSQL="SELECT * FROM " + UtenteModelDS.TABLE_NAME + " where email=?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -160,7 +160,7 @@ public class UtenteModelDS implements UtenteModel {
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE"+UtenteModelDS.TABLE_NAME+ "SET password=?, nome=?, cognome=?, dataDiNascita=?"+"where email=?";
+		String updateSQL="UPDATE "+UtenteModelDS.TABLE_NAME+ " SET password=?, nome=?, cognome=?, dataDiNascita=?"+" where email=?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);

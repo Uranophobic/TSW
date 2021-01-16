@@ -51,8 +51,7 @@ public class LoginServlet extends HttpServlet {
 						//	HttpSession utenteSessione = request.getSession();
 						//	utenteSessione.setAttribute("utenteSessione", utente);
 							
-							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
-							dispatcher.forward(request, response);
+							getServletContext().getRequestDispatcher("/HomePage.jsp").forward(request, response);
 						} else {
 							System.out.println("password sbagliata, o inserisci nuovamente mail o registrati");
 							errore = "Password errata.\n"; 
