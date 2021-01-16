@@ -17,52 +17,39 @@ import modelDS.UtenteModelDS;
 
 /**
  * Servlet implementation class LoginServlet
+ * In questa servlet sono gestite le operazioni di login/logout dell'utente e la registrazione
  */
-@WebServlet("/LoginServlet")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	UtenteModel utenteModel = new UtenteModelDS();
+	Utente utente = new Utente();
 	
-	
-    public LoginServlet() {
-        super();
-        System.out.println("Sono prima del doPost");
-        // TODO Auto-generated constructor stub
-    }
-
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Sono nel doPost di login Servlet");
 		String azioneLogin = request.getParameter("azioneLogin");
 		System.out.println("azione" + azioneLogin);
-		// controlla azione login dov'è collegata
 		
-
 			if(azioneLogin.equals("loginUtente")) {
-				System.out.println("sono in loginUtente\n");
-		
+			
 				try {
 					String email = request.getParameter("email");
 					String password = request.getParameter("password");
 					String errore= "";
-					Utente utente = new Utente();
 					
 					utente = utenteModel.doRetrieveByKey(email);
 					String mess = "Ho cercato l'utente " + utente.toString();
 					System.out.println(mess);
 					
 					if ( utente.getEmail().equals(email)) {
-						
 						if(utente.getPassword().equals(password)) {
-							 //utente si può loggare e quindi instaziare la sessione
 							System.out.println("Mi sono loggato.\n");
 							
-							
 							//verificare anche la sessione vecchia
-							HttpSession utenteSessione = request.getSession();
-							utenteSessione.setAttribute("utenteSessione", utente);
+						//	HttpSession utenteSessione = request.getSession();
+						//	utenteSessione.setAttribute("utenteSessione", utente);
 							
 							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
 							dispatcher.forward(request, response);
@@ -103,6 +90,7 @@ public class LoginServlet extends HttpServlet {
 			if(azioneLogin.equals("registraUtente")) {
 				System.out.println("Sono in registraUtente\n");
 				
+				try {
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
 				String nome = request.getParameter("nome");
@@ -110,7 +98,7 @@ public class LoginServlet extends HttpServlet {
 				String dataDiNascita = request.getParameter("dataDiNascita");
 				
 				System.out.println("Sto creando l'utente");
-				Utente utente = new Utente();
+	
 				
 				utente.setNome(nome);
 				utente.setCognome(cognome);
@@ -118,8 +106,9 @@ public class LoginServlet extends HttpServlet {
 				utente.setPassword(password);
 				utente.setDataDiNascita(dataDiNascita);
 				
-				try {
-					utenteModel.doSave(utente);
+				utenteModel.doSave(utente);
+				System.out.println("ECCO: " + utente.toString());
+				
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -128,7 +117,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession utenteSessione = request.getSession(); //VEDERE SE è GIUSTO 
 				utenteSessione.setAttribute("utenteSessione", utente);
 				
-				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Homepage.jsp");
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
 				dispatcher.forward(request, response);
 				
 			} //chiusura dell'if di registrazione 

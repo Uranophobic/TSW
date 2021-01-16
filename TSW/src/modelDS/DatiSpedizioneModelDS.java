@@ -150,7 +150,7 @@ public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO"+ DatiSpedizioneModelDS.TABLE_NAME+"(via,citta,cap,prov,email)"+"values(?,?,?,?,?)";
+		String insertSQL="INSERT INTO "+ DatiSpedizioneModelDS.TABLE_NAME+"(via,citta,cap,prov,email)"+"values(?,?,?,?,?)";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(insertSQL);
@@ -160,7 +160,8 @@ public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
 			preparedStatement.setString(4, dsp.getProvincia());
 			preparedStatement.setString(5, dsp.getEmail());
 			preparedStatement.executeUpdate();
-
+			
+			
 		}finally {
 			try {
 				if(preparedStatement!=null)

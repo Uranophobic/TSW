@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/stilesito.css">
+<link type="text/css" rel="stylesheet" href="css/stilesito.css">
 <title>Error 404</title>
 </head>
 <body>

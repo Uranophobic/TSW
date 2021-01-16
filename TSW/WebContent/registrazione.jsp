@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/stilesito.css">
+<link type="text/css" rel="stylesheet" href="css/stilesito.css">
 <title>REGISTRATI</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
 		<!--  	<h4 id="titoloCaselle">Dati personali e accesso</h4>-->
 		<!-- la riga non si vede -->
 
-  <form action="/LoginServlet" method="POST">
+  <form action="login" method="POST">
    <%System.out.println("sono nel form\n");%>
 		<div class="quadrato-a">
 			<h3 class="titoloCasella">Dati personali e accesso</h3>
@@ -36,6 +36,9 @@
 			</div>
 		</div>
 		<!-- chiusura container item-a  -->
+		<button type="submit" name ="azioneLogin" value="registraUtente" id="login-button" >
+			Registrati
+		</button> <!-- i bottoni sono meglio nel form  -->
 	</form> <!--  chiusura form registra utente -->
 
 <!-- 
@@ -72,9 +75,7 @@
 
 	<!-- chiusura div area-utente -->
 	<div class="bottoni" align="center">
-		<button type="submit" name ="azioneLogin" value="registraUtente" id="login-button" >
-			Registrati
-			</button>
+		
 		<button type="submit" class="conferma">Indietro</button>
 	</div>
 	<%@include file="footer.jsp"%>

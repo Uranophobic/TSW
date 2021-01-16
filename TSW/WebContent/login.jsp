@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/stilesito.css">
+<link type="text/css" rel="stylesheet" href="css/stilesito.css">
 <title>Login form</title>
 
 </head>
@@ -15,11 +15,11 @@
 		<div class="datiAccesso">
 
 			<div class="immagineLog" align="center">
-				<img src="../images/log.png">
+				<img src="images/log.png">
 			</div>
 			<div class="riga" class="hr"></div>
 			
- 		<form action="/LoginServlet" method="POST">
+ 		<form action="login" method="POST">
 			<input type="text" id="email" placeholder="Email" name="email" required>
 			<input type="password" id="password" placeholder="Password" name ="password" required>
 			<br>

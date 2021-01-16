@@ -37,7 +37,7 @@ public class FatturaModelDS implements FatturaModel {
 
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
-		String insertSQl="INSERT INTO"+FatturaModelDS.TABLE_NAME+"(idFattura,codiceOrdine)+values(?,?)";
+		String insertSQl="INSERT INTO "+FatturaModelDS.TABLE_NAME+"(idFattura,codiceOrdine)+values(?,?)";
 		try {
 
 			connection=ds.getConnection();
@@ -45,7 +45,8 @@ public class FatturaModelDS implements FatturaModel {
 			preparedStatement.setString(2, fattura.getCodiceOrdine());
 
 			preparedStatement.executeUpdate();
-
+	
+			
 		}finally {
 			try {
 				if(preparedStatement!=null)

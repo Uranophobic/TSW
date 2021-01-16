@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.startup.SetAllPropertiesRule;
-
 import bean.Composizione;
 import bean.Prodotto;
 import bean.Utente;
@@ -30,13 +28,7 @@ public class CarrelloServlet extends HttpServlet {
 	ArrayList<Prodotto> prodottiCarrello=new ArrayList<Prodotto>();
 	ProdottoModel prod=new ProdottoModelDS();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CarrelloServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

@@ -37,7 +37,7 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO"+DatiPagamentoModelDS.TABLE_NAME+"(numeroCarta,emailUtente,circuito,scadenzaCarta,CVV)"+
+		String insertSQL="INSERT INTO "+DatiPagamentoModelDS.TABLE_NAME+"(numeroCarta,emailUtente,circuito,scadenzaCarta,CVV)"+
 				"values(?,?,?,?,?)";
 		try {
 			connection=ds.getConnection();
@@ -48,6 +48,7 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 			preparedStatement.setString(4, dp.getScadenzaCarta());
 			preparedStatement.setInt(5, dp.getCVV());
 			preparedStatement.executeUpdate();
+		
 		}finally {
 			try {
 				if(preparedStatement!=null)

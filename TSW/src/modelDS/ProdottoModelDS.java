@@ -36,7 +36,7 @@ public class ProdottoModelDS implements ProdottoModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO"+ ProdottoModelDS.TABLE_NAME+"(idProdotto,immaginePath,nome,descrizione,categoria,prezzo,iva,sconto)"+"values(?,?,?,?,?,?,?,?)";
+		String insertSQL="INSERT INTO "+ ProdottoModelDS.TABLE_NAME+"(idProdotto,immaginePath,nome,descrizione,categoria,prezzo,iva,sconto)"+"values(?,?,?,?,?,?,?,?)";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(insertSQL);
@@ -50,6 +50,7 @@ public class ProdottoModelDS implements ProdottoModel {
 			preparedStatement.setDouble(8, prodotto.getSconto());
 
 			preparedStatement.executeUpdate();
+			
 		}finally {
 			try {
 				if(preparedStatement!=null)

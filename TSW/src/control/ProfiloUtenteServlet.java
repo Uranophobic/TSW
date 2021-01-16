@@ -38,14 +38,6 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	Utente utente = new Utente();
 	DatiSpedizione datiSped=new DatiSpedizione();
 	DatiPagamento datiPag=new DatiPagamento();
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ProfiloUtenteServlet() {
-		super();
-		System.out.println("sono prima del doPost di profilo utente");
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

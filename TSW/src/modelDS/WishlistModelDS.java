@@ -46,12 +46,13 @@ public class WishlistModelDS  implements WishlistModel{
 		PreparedStatement preparedStatement=null;
 		try {
 			connection=ds.getConnection();
-			String insertSQL="INSERT INTO"+ WishlistModelDS.TABLE_NAME+"(idWish,codiceProdotto)";
+			String insertSQL="INSERT INTO "+ WishlistModelDS.TABLE_NAME+"(idWish,codiceProdotto)";
 			preparedStatement=connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, wishlist.getIdWish());
 			preparedStatement.setString(2, wishlist.getCodiceProdotto());
 
 			preparedStatement.executeUpdate();
+			
 		}finally {
 			try {
 				if(preparedStatement!=null)

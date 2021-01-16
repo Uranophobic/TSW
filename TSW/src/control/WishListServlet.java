@@ -38,10 +38,7 @@ public class WishListServlet extends HttpServlet {
 	 * (QUESTA COSA PERò OVVIAMENTE VA FATTA NELLA SERVLET DI PRODOTTO, DURANTE LA SCELTA SE AGGIUNGERE A CARRELLO O A WISHLIST)
 	 * 
 	 */
-	public WishListServlet() {
-		super();
 
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

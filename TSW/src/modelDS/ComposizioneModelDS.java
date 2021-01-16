@@ -43,7 +43,7 @@ public class ComposizioneModelDS implements ComposizioneModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO"+ComposizioneModelDS.TABLE_NAME+("codiceOrdine,codiceProdotto,quantità,prezzoUnitario,scontoAttuale,iva")+
+		String insertSQL="INSERT INTO "+ComposizioneModelDS.TABLE_NAME+("codiceOrdine,codiceProdotto,quantità,prezzoUnitario,scontoAttuale,iva")+
 				"values(?,?,?,?,?,?)";
 		try {
 			connection=ds.getConnection();
@@ -55,7 +55,8 @@ public class ComposizioneModelDS implements ComposizioneModel {
 			preparedStatement.setDouble(6, composizione.getIva());
 
 			preparedStatement.executeUpdate();
-
+			
+			
 		}finally {
 			try {
 				if(preparedStatement!=null)

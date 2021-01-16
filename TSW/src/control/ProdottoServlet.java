@@ -26,11 +26,7 @@ public class ProdottoServlet extends HttpServlet {
 	static ProdottoModelDS prodottoModel=new ProdottoModelDS();
 	static WishlistModelDS wishlistModel=new WishlistModelDS();
 
-	public ProdottoServlet() {
-		super();
-		System.out.println("sono prima del doPost\n");
 
-	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);

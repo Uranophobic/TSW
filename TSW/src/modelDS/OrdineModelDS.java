@@ -40,7 +40,7 @@ public class OrdineModelDS implements OrdineModel{
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO"+OrdineModelDS.TABLE_NAME+"(idOrdine,emailUtente,dataOrdine,importoTotale)"+
+		String insertSQL="INSERT INTO "+OrdineModelDS.TABLE_NAME+"(idOrdine,emailUtente,dataOrdine,importoTotale)"+
 				"values(?,?,?,?)";
 		try {
 			connection=ds.getConnection();
@@ -50,6 +50,7 @@ public class OrdineModelDS implements OrdineModel{
 			preparedStatement.setString(3, ordine.getDataOrdine());
 			preparedStatement.setDouble(4, ordine.getImportoTot());
 			preparedStatement.executeUpdate();
+		
 		}finally {
 			try {
 				if(preparedStatement!=null)

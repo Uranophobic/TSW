@@ -55,14 +55,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 		Prodotto prod = new Prodotto();
 		
 		double prezzoTot = 0;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ProcediOrdineServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+  
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */

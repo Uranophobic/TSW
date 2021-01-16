@@ -40,7 +40,7 @@ public class UtenteModelDS implements UtenteModel {
 		PreparedStatement preparedStatement=null;
 
 
-		String insertSQL="INSERT INTO"+UtenteModelDS.TABLE_NAME+"(email,password,nome,cognome,dataDiNascita)"+ "values(?,?,?,?,?)";
+		String insertSQL="INSERT INTO "+UtenteModelDS.TABLE_NAME+"(email,password,nome,cognome,dataDiNascita)"+ "values(?,?,?,?,?)";
 
 		try {
 			connection=ds.getConnection();
@@ -52,7 +52,6 @@ public class UtenteModelDS implements UtenteModel {
 			preparedStatement.setString(5, utente.getDataDiNascita());
 
 			preparedStatement.executeUpdate();
-
 
 		}finally {
 			try {

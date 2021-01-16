@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="../css/stilesito.css">
+<link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title>Modifica Dati Utente</title>
 
 </head>

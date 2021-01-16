@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="../css/riep.css">
+<link type="text/css" rel="stylesheet" href="css/riep.css">
 <title>Riepilogo dati</title>
 </head>
 <body>
