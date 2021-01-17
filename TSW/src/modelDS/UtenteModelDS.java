@@ -17,17 +17,17 @@ public class UtenteModelDS implements UtenteModel {
 
 	private static DataSource ds;
 	static {
-		
+
 		try {
 			Context inizioContext=new InitialContext();
 			Context envContext=(Context) inizioContext.lookup("java:comp/env");
-			
+
 			ds=(DataSource) envContext.lookup("jdbc/oltreilgiardino");
-			
-					
+
+
 		} catch (NamingException e) {
 			System.out.println("Errore: "+e.getMessage());
-			 
+
 		}
 
 	}
@@ -58,9 +58,13 @@ public class UtenteModelDS implements UtenteModel {
 				if(preparedStatement!=null)
 					preparedStatement.close();
 			}finally {
-				if(connection!=null)
+				if(connection!=null) {
 					connection.close();
+
+
+				}
 			}
+
 		}
 
 

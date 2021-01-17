@@ -3,8 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 <link type="text/css" rel="stylesheet" href="css/stilesito.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <title>Login form</title>
 
 </head>
@@ -28,30 +31,8 @@
 			</button>
 		</form>	
 			
-<!-- 	<form action = "login" method="post">
-		<div class="formLogin ">
-				<label class="etichette2"> Email: </label> <br> 
-				<input id="casella" type="text"> <br> 
-				<label class="etichette2"> Password: </label> <br> 
-				<input id="casella" type="text"> <br>
-
-			</div>
-
-			<div align="center">
-				<button type="submit" class="login">Login</button>
-			</div>
-			<div align="center" class=ricordami>
-				<input type="checkbox" id="check" name="ricordami1"
-					value="ricordami">Ricordami
-			</div>	
-	</form>  <!-- CHIUSURA FORM LOGIN UTENTE  -->
-	
-			<div align="center">
-				<a class="registrazione" href="../view/registrazione.jsp">Registrati</a>
-			</div>
-
-		</div>
-	</div>
+</div>
+</div>
 
 	<div class="botton" align="center">
 		<button type="submit" class="conferma">Salva</button>
@@ -63,5 +44,24 @@
 	<%@include file="footer.jsp"%>
 
 
+<script>
+$(document).ready(function(){
+	$("#login-button").click(function(){
+		
+		$.post("/TSW/login",
+				{
+					"azioneLogin" : "loginUtente",
+				},
+				function(responseTxt, statusTxt, xhr){
+					if(responseTxt=="successo")
+						alert("Benvenuto");
+					if(responseTxt=="passwordFailed")
+						alert("Password non corretta!");
+					if(responseTxt=="notExists")
+						alert("Devi prima registrarti per accedere!");
+			});
+	});
+});
+</script>
 </body>
 </html>

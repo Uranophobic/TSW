@@ -33,59 +33,58 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("azione" + azioneLogin);
 		
 			if(azioneLogin.equals("loginUtente")) {
-			
+				/*
+				 * 1 mail inserita corrisponde a quella dell'utente o meglio a una presente nel db 
+				 * 	1.1 se la mail inserita non corrisponde a quella dell'utente, l'utente si deve registrare
+				 * 	1.2 se la mail corrisponde controlliamo la password
+				 * 2. controllo password
+				 * 2.1 se la passowrd non è corretta ti dice di rimetterla 
+				 * 2..2 se la password è corretta visualizza la home 
+				 */
+				
 				try {
 					String email = request.getParameter("email");
 					String password = request.getParameter("password");
 					String errore= "";
 					
-					utente = utenteModel.doRetrieveByKey(email);
-					String mess = "Ho cercato l'utente " + utente.toString();
-					System.out.println(mess);
+					utente=utenteModel.doRetrieveByKey(email);
+					System.out.println(utente);
 					
-					if ( utente.getEmail().equals(email)) {
+					//if controllo mail, se la mail esiste nel db 
+					if(utente.getEmail().equals(email)) {
 						if(utente.getPassword().equals(password)) {
-							System.out.println("Mi sono loggato.\n");
-							
-							//verificare anche la sessione vecchia
-						//	HttpSession utenteSessione = request.getSession();
-						//	utenteSessione.setAttribute("utenteSessione", utente);
-							
+							//password corretta
+							//perchè la mail è corretta e la password pure quindi mostra la homepage
 							getServletContext().getRequestDispatcher("/HomePage.jsp").forward(request, response);
-						} else {
-							System.out.println("password sbagliata, o inserisci nuovamente mail o registrati");
+							
+						}else {
+							System.out.println("password sbagliata\n");
 							errore = "Password errata.\n"; 
-							RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
-							dispatcher.forward(request, response);
-						}
-				
-				} else {  //nel caso l'email non è uguale 
-						System.out.println("email sbagliata, o inserisci nuovamente mail o registrati");
+							System.out.println(errore);
+							response.setContentType("text/html;charset=utf-8");
+							response.getWriter().write("passwordFailed");
+							getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+							
+						}	
+					}else {
+						System.out.println("email sbagliata\n");
 						errore = "Email errata.\n"; 
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
-						dispatcher.forward(request, response);
-				} //chiusa par. di else di utente email uguale email 
-
-				
-				if(!utente.getEmail().equals(email) && !utente.getPassword().equals(password)) {
-						System.out.println("email sbagliata e password sbagliata, o inserisci nuovamente mail o registrati");
-						errore = "Email e password errati, registrati.\n"; 
-						RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
-						dispatcher.forward(request, response);
-				}//email e pasw sbagliati
+						/*
+						System.out.println(errore);
+						response.setContentType("text/html;charset=utf-8");
+						response.getWriter().write("notExists");
+						
+						*/
 					
-				if( !errore.equals("") ) {
-						request.setAttribute("errore", errore);		
-				}
-				
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
+						getServletContext().getRequestDispatcher("/404Error.jsp").forward(request, response);
+						
+					}
+					
+				}catch(SQLException e) {
 					e.printStackTrace();
 				}
-			
+			}
 				
-				}//chiusura parentesi dell'azione login 
-			
 			if(azioneLogin.equals("registraUtente")) {
 				System.out.println("Sono in registraUtente\n");
 				
