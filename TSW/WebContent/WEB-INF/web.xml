@@ -18,7 +18,7 @@
   
   <error-page>
     <exception-type>java.lang.NullPointerException</exception-type>
-    <location>/404Error.jsp</location>
+    <location>/erroreLogin.jsp</location>
   </error-page>
 
 </web-app>

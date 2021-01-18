@@ -72,7 +72,7 @@
 	height: 200px;
 	width: 90%;
 	border: 2px solid  #a6ec84;
-	background-color: white;;
+	background-color: white;
 	border-radius: 5px;
 	/* grid-row-gap: 5%; */
 	margin-bottom: 5px;
@@ -136,7 +136,19 @@ color: grey;
 			<input type="text" name="numeroCarta" id="numeroCarta" placeholder="Numero Carta">
 			<input type="text" name="CVV" id="CVV"  placeholder="CVV">
 			<label id="inputData"> Scadenza </label><input type="date" placeholder="dd mm yyyy" name="scadenzaCarta" id="scadenzaCarta" class="inputLogin" data-date-format="DD MM YYYY"> 
-			<br><input type="radio" name="circuito" id="circuito">
+			<br><label class="etichette">Circuito<br></label>
+				
+				<div>
+	<!-- 	<label class="etichette"><input type="" name="circuito" id="circuito" onClick="return trovaCircuito()"><img src="images/mastercard.jpg" class="circuito"></label>
+					<label class="etichette"><input type="radio"  name="circuito" id="circuito" onClick=" return trovaCircuito()"><img src="images/maestro.png" class="circuito"></label> 
+					<label class="etichette"><input type="radio"  name="circuito" id="circuito" onClick=" return trovaCircuito()"><img src="images/visa.jpg" class="circuito"></label> 
+			</div>  -->
+			<select name="circuito" id="circuito">
+			<option value="0" selected> Perfavore, seleziona un circuito: </option>
+			<option value="mastercard"> Mastercard </option>
+			<option value="maestro"> Maestro </option>
+			<option value="visa"> Visa </option>
+			</select>
 		</div>
 	</div>
 	
@@ -149,5 +161,8 @@ color: grey;
 			
 			</form> <!--  chiusura form registra utente -->
 	<%@include file="footer.jsp"%>
+	
+
+
 </body>
 </html>

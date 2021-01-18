@@ -43,7 +43,7 @@
 
 	<%@include file="footer.jsp"%>
 
-
+<!-- 
 <script>
 $(document).ready(function(){
 	$("#login-button").click(function(){
@@ -62,6 +62,8 @@ $(document).ready(function(){
 			});
 	});
 });
+ 
 </script>
+-->
 </body>
 </html>
