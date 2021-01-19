@@ -42,22 +42,22 @@
 			<li class="iconNav"> <!-- elemento che contiene le icone -->
 				<div class="iconeContenitore">
 				
-				  	<!-- homepage -->
-					<div class="icona" href="HomePage.jsp"> 
-						<img  class="size" src="https://img.icons8.com/small/32/000000/home.png"/>
-						 <a class="iconaTxt"> Homepage </a>
+				  	<!-- profilo utente  -->
+					<div class="icona"> 
+						 <a href="profiloUtente.jsp"><img  class="size" src="https://img.icons8.com/small/32/000000/home.png" /></a><!-- cambia immagine -->
+						 <a class="iconaTxt" href="profiloUtente.jsp"> Profilo Utente </a>
 					</div>
 
 					<!-- wish list -->  
-					<div  class="icona" href="wishlist.jsp"> 
-						<img class="size" src="https://img.icons8.com/small/32/000000/like.png"/> 
-						<a class="iconaTxt"> Lista dei Desideri </a>
+					<div  class="icona"> 
+					<a href="wishlist.jsp">	<img class="size" src="https://img.icons8.com/small/32/000000/like.png"/> </a>
+						<a class="iconaTxt" href="wishlist.jsp"> Lista dei Desideri </a>
 					</div>
 		
 					<!-- carrello -->
-					<div class="icona" href="carrello.jsp"> 
-						<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> 
-						<a class="iconaTxt"> Carrello </a>
+					<div class="icona"> 
+					<a href="carrello.jsp">	<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> </a>
+						<a class="iconaTxt" href="carrello.jsp"> Carrello </a>
 					</div>
 				</div>
 			 </li>
@@ -89,7 +89,8 @@
 			<li id="navbarVerde"> 
 						<div class="col-sm-4 col-md-4 col-lg-12">
 							<ul class="bottoniNav">
-							    <li class="item"> <a> <span> CATALOGO </span> </a></li>
+							<li class="item"> <a href="HomePage.jsp">  HOME PAGE </a></li>
+							    <li class="item"> <a href="catalogo.jsp">  CATALOGO </a></li>
 								<li class="item"> <a href=""> COME FUNZIONA </a></li>
 								<li class="item"> <a href="InformazioniServlet?informazioni=assistenza"> ASSISTENZA  </a></li>
 								<li class="item"> <a href="InformazioniServlet?informazioni=chisiamo"> CHI SIAMO  </a> </li>

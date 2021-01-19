@@ -66,6 +66,9 @@ public class LoginServlet extends HttpServlet {
 					if(utente.getPassword().equals(password)) {
 						//password corretta
 						//perchè la mail è corretta e la password pure quindi mostra la homepage
+						request.getSession().setAttribute("utenteSessione", utente);
+						request.getSession().setAttribute("datiPagSessione",datiPag);
+						request.getSession().setAttribute("datiSpedSessione",datiSped);
 						getServletContext().getRequestDispatcher("/HomePage.jsp").forward(request, response);
 
 					}else {
