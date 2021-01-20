@@ -112,6 +112,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 			request.getSession().setAttribute("datiPagSessione", datiPag);
 			request.getSession().setAttribute("datiSpedSessione", datiSped);
 			
+			response.sendRedirect("profiloUtente.jsp");
 		}
 
 		if(azioneProfilo.equals("visualizzaWishList")) {

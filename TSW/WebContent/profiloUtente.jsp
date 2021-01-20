@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"import="java.util.ArrayList,bean.Utente,java.text.*,bean.DatiSpedizione,bean.DatiPagamento"%>
+    pageEncoding="ISO-8859-1" 
+    import="java.util.ArrayList, bean.Utente, bean.DatiSpedizione, bean.DatiPagamento"%>
     
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
 
 
 
-<title>Natural Shop - Profilo Utente</title>
+<title>Oltre il giardino - Profilo Utente</title>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
@@ -20,9 +21,14 @@
 
  </div>
  
-<%Utente utente=(Utente)request.getSession().getAttribute("utenteSessione"); 
+<%  
+	Utente utente=(Utente)request.getSession().getAttribute("utenteSessione"); 
 	DatiSpedizione datiSped=(DatiSpedizione)request.getSession().getAttribute("datiSpedSessione");
-	DatiPagamento datiPag=(DatiPagamento)request.getSession().getAttribute("datiPagSessione");%>
+	DatiPagamento datiPag=(DatiPagamento)request.getSession().getAttribute("datiPagSessione");
+
+%>
+	
+		<form action="ProfiloUtenteServlet" method="POST">
 <div id="area-utente" >
 	<div  class="item-a ">
 	<h4 id="titoloCaselle" >Operazioni</h4>
@@ -139,7 +145,7 @@
 	</div>
 </div>
 </div>
-
+</form>
 <%@ include file="footer.jsp"%>
 
 </body>

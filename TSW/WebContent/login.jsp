@@ -34,10 +34,9 @@
 </div>
 </div>
 
-	<div class="botton" align="center">
-		<button type="submit" class="conferma">Salva</button>
-		<button type="submit" class="conferma">Indietro</button>
-	</div>
+	<a href= "registrazione2.jsp"  >
+			Registrati
+	</a>
 
 
 
