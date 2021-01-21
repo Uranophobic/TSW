@@ -44,8 +44,8 @@
 				
 				  	<!-- profilo utente  -->
 					<div class="icona"> 
-						 <a href="profiloUtente.jsp"><img  class="size" src="https://img.icons8.com/small/32/000000/home.png" /></a><!-- cambia immagine -->
-						 <a class="iconaTxt" href="profiloUtente.jsp"> Profilo Utente </a>
+						 <a href="dsprova.jsp"><img  class="size" src="https://img.icons8.com/small/32/000000/home.png" /></a><!-- cambia immagine -->
+						 <a class="iconaTxt" href="dsprova.jsp"> Profilo Utente </a>
 					</div>
 
 					<!-- wish list -->  

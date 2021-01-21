@@ -33,18 +33,18 @@ public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
 	private static final String TABLE_NAME = "datispedizione";
 
 	@Override
-	public DatiSpedizione doRetrieveByKey(String via, String citta, int cap, String provincia) throws SQLException {
+	public DatiSpedizione doRetrieveByKey(String email) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		DatiSpedizione dspB=new DatiSpedizione();
-		String selectSQL="SELECT * FROM "+DatiSpedizioneModelDS.TABLE_NAME+"where via=?,citta=?,cap=?,provincia=?";
+		String selectSQL="SELECT * FROM "+DatiSpedizioneModelDS.TABLE_NAME+"where email=?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, dspB.getVia());
-			preparedStatement.setString(2, dspB.getCitta());
-			preparedStatement.setInt(3, dspB.getCap());
-			preparedStatement.setString(4, dspB.getProvincia());
+			preparedStatement.setString(1, dspB.getEmail());
+		//preparedStatement.setString(2, dspB.getCitta());
+		//	preparedStatement.setInt(3, dspB.getCap());
+		//	preparedStatement.setString(4, dspB.getProvincia());
 
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {

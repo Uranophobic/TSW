@@ -67,8 +67,6 @@ public class LoginServlet extends HttpServlet {
 						//password corretta
 						//perchè la mail è corretta e la password pure quindi mostra la homepage
 						request.getSession().setAttribute("utenteSessione", utente);
-						request.getSession().setAttribute("datiPagSessione",datiPag);
-						request.getSession().setAttribute("datiSpedSessione",datiSped);
 						getServletContext().getRequestDispatcher("/HomePage.jsp").forward(request, response);
 
 					}else {
@@ -153,7 +151,7 @@ public class LoginServlet extends HttpServlet {
 				datiPagModel.doSave(datiPag);
 				
 				
-				System.out.println("ECCO: " + utente.toString());
+				System.out.println("UTENTE: " + utente.toString());
 				System.out.println("SPED: "+datiSped.toString());
 				System.out.println("PAG: "+datiPag.toString());
 				
@@ -163,8 +161,15 @@ public class LoginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			HttpSession utenteSessione = request.getSession(); //VEDERE SE è GIUSTO 
+			HttpSession utenteSessione = request.getSession();
 			utenteSessione.setAttribute("utenteSessione", utente);
+			
+			//oltre alla sessione dell' utente ho aggiunto anche quella di dati pag e sped
+			HttpSession datiPagSessione = request.getSession();
+			datiPagSessione.setAttribute("datiPagSessione", datiPag);
+			HttpSession datiSpedSessione = request.getSession();
+			datiSpedSessione.setAttribute("dsSessione", datiSped);
+		
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
 			dispatcher.forward(request, response);
