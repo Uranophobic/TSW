@@ -16,17 +16,12 @@
 <body>
 <%@ include file="navbar.jsp"%>
 
-<div>
+<div>  
 <p  class="titoloPagine"> Profilo Utente </p>
 
  </div>
  
-<%  
-	Utente utente=(Utente)request.getSession().getAttribute("utenteSessione"); 
-	DatiSpedizione datiSped=(DatiSpedizione)request.getSession().getAttribute("datiSpedSessione");
-	DatiPagamento datiPag=(DatiPagamento)request.getSession().getAttribute("datiPagSessione");
 
-%>
 	
 		<form action="ProfiloUtenteServlet" method="POST">
 <div id="area-utente" >
@@ -70,23 +65,23 @@
 					<div class="row justify-content">
     					<div class="col-6 form-group">
     						<label class="etichette">Email:</label>
-    						<input type="text" id="informazioni" name="email" value="<%=utente.getEmail()%>">
+    						<input type="text" id="informazioni" name="email" ">
       						
     					</div>
     					<div class="col-6 form-group">
     					<label class="etichette">Password:</label>
-      				<input type="text" id="informazioni" name="password" value="<%=utente.getPassword()%>">
+      				<input type="text" id="informazioni" name="password" >
     					</div>
   					</div>
   					
 					<div class="row justify-content">
     					<div class="col-6 form-group">
     						<label class="etichette">Nome:</label>
-      					<input type="text" id="informazioni" name="nome" value="<%=utente.getNome()%>">
+      					<input type="text" id="informazioni" name="nome" >
     					</div>
     					<div class="col-6 form-group">
     					<label class="etichette" name="cognome">Cognome:</label>
-      				<input type="text" id="informazioni" name="cognome" value="<%=utente.getCognome()%>">
+      				<input type="text" id="informazioni" name="cognome" >
     					</div>
   					</div>
   					
@@ -99,22 +94,22 @@
 					<div class="row justify-content">
     					<div class="col-10 form-group">
     						<label class="etichette"> Numero Carta:</label>
-      						<input type="text" id="informazioni" name="numeroCarta" value="<%=datiPag.getNumeroCarta()%>">
+      						<input type="text" id="informazioni" name="numeroCarta" >
     					</div>	
     					<div class="row justify-content">
     					<div class="col-10 form-group">
     						<label class="etichette"> Data Scadenza:</label> 
-      						<input type="text" id="informazioni" name="scadenzaCarta" value="<%=datiPag.getScadenzaCarta()%>">
+      						<input type="text" id="informazioni" name="scadenzaCarta" >
     					</div>	
     					
     					<div class="row justify-content">
     					<div class="col-10 form-group">
     						<label class="etichette"> CVV:</label>
-      						<input type="text" id="informazioni" name="CVV" value="<%=datiPag.getCVV()%>">
+      						<input type="text" id="informazioni" name="CVV" >
     					</div>	
     					<div class="col-10 form-group">
     						<label class="etichette"> Circuito:</label>
-      						<input type="text" id="informazioni" name="circuito" value="<%=datiPag.getCircuito()%>">
+      						<input type="text" id="informazioni" name="circuito">
     					</div>	
   					</div>
   					
@@ -123,20 +118,20 @@
 					<div class="row justify-content">
     					<div class="col-10 form-group">
     						<label class="etichette">Via:</label>
-      				<input type="text" id="informazioni" name="via" value="<%=datiSped.getVia()%>">
+      				<input type="text" id="informazioni" name="via">
     					</div>
     					<div class="col-10 form-group">
     						<label class="etichette">Città:</label>
-      				<input type="text" id="informazioni" name="citta" value="<%=datiSped.getCitta()%>">
+      				<input type="text" id="informazioni" name="citta">
     					</div>
     					<div class="col-10 form-group">
     						<label class="etichette">Provincia:</label>
-      				<input type="text" id="informazioni" name="provincia" value="<%=datiSped.getProvincia()%>">
+      				<input type="text" id="informazioni" name="provincia">
     					</div>
     					
     					<div class="col-10 form-group">
     						<label class="etichette">Cap:</label>
-      				<input type="text" id="informazioni" name="cap" value="<%=datiSped.getCap()%>">
+      				<input type="text" id="informazioni" name="cap">
     					</div>
   					</div>
 	

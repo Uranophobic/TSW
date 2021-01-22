@@ -37,7 +37,7 @@ public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		DatiSpedizione dspB=new DatiSpedizione();
-		String selectSQL="SELECT * FROM "+DatiSpedizioneModelDS.TABLE_NAME+"where email=?";
+		String selectSQL="SELECT * FROM " + DatiSpedizioneModelDS.TABLE_NAME + "where email= ?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -95,7 +95,9 @@ public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
 				dspB.setCitta(rs.getString("citta"));
 				dspB.setCap(rs.getInt("cap"));
 				dspB.setProvincia(rs.getString("provincia"));
-				dspB.setEmail(rs.getString("emailUtente"));
+				dspB.setEmail(rs.getString("email"));
+				
+				datiSped.add(dspB);
 			}
 
 		} finally {

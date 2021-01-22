@@ -93,7 +93,7 @@ public class DatiPagamentoModelDS  implements DatiPagamentoModel{
 				dpBean.setScadenzaCarta(rs.getString("scadenzaCarta"));
 				dpBean.setCVV(rs.getInt("CVV"));
 
-
+				datiPag.add(dpBean);
 
 			}
 

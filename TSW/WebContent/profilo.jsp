@@ -29,8 +29,8 @@
 <%  
 	Utente utente=(Utente)request.getSession().getAttribute("utenteSessione"); 
 	DatiPagamento dp =(DatiPagamento) request.getSession().getAttribute("datiPagSessione");
-	DatiSpedizione ds =(DatiSpedizione) request.getSession().getAttribute("datiSpedSessione");
-
+	DatiSpedizione ds =(DatiSpedizione) request.getSession().getAttribute("spedizioneSessione");
+	ArrayList<DatiSpedizione> a = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");
 	System.out.println("utente: " + utente);
 	System.out.println("dp " + dp);
 	System.out.println("ds " + ds);

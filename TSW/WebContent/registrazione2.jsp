@@ -4,103 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-
+<link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title>Registrazione - Oltre Il Giardino</title>
 </head>
 <style>
 
-.inputLogin{
-	width: 90%;
-	display: inline-block;
-	border: none;
-	box-sizing: border-box;
-	background: transparent;
-	border-bottom: 1px solid #b5afaf;
-	margin: 10px;
-}
-.inputLogin2 {
-	width: 40%;
-	/* display: inline-block; */
-	border: none;
-	box-sizing: border-box;
-	background: transparent;
-	border-bottom: 1px solid #b5afaf;
-	margin: 20px;
-}
-#numeroCarta {
-	width: 60%;
-	/* display: inline-block; */
-	border: none;
-	box-sizing: border-box;
-	background: transparent;
-	border-bottom: 1px solid #b5afaf;
-	margin: 20px;
-}
 
-#CVV {
-	width: 20%;
-	/* display: inline-block; */
-	border: none;
-	box-sizing: border-box;
-	background: transparent;
-	border-bottom: 1px solid #b5afaf;
-	margin: 20px;
-}
-
-.regContenitore {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 50% 50%;
-	height: 504px;
-	justify-content: center;
-	grid-column-gap: 2%;
-	/* margin-left: 90px; */
-	/* grid-row-gap: 0px; */
-}
-
-.datiUtente {
-	grid-row-start: 1;
-	grid-row-end: 4;
-	width: 100%;
-	height: 504px;
-	width: 100%;
-	border: 2px solid  #a6ec84;
-	background-color: white;
-	border-radius: 5px;
-}
-.datiSped {
-	height: 200px;
-	width: 90%;
-	border: 2px solid  #a6ec84;
-	background-color: white;
-	border-radius: 5px;
-	/* grid-row-gap: 5%; */
-	margin-bottom: 5px;
-}
-.datiPag {
-	height: 300px;
-	width: 90%;
-	border: 2px solid  #a6ec84;
-	background-color: white;
-	border-radius: 5px;
-	grid-row-gap: 0;
-	grid-row-start: 2;
-	grid-row-end: 4;
-}
-#login{
-	width: 80%;
-	margin: auto;
-}
-
-#inputData {
-	float: left;
-	margin-left: 25px;
-	margin-top: 10px;
-}
-
-#dataDiNascita, #scadenzaCarta{
-color: grey;
-}
 
 </style>
 <body>
@@ -157,7 +66,7 @@ color: grey;
 		     <button type="submit" name ="azioneLogin" value="registraUtente" id="login-button" class=" bottoni bottoni-colori " > Registrati </button> <!-- i bottoni sono meglio nel form  -->
 			
   	</div>
-	
+</div>
 			
 			</form> <!--  chiusura form registra utente -->
 	<%@include file="footer.jsp"%>

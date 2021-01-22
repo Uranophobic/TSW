@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,11 +38,13 @@ public class LoginServlet extends HttpServlet {
 	DatiPagamento datiPag=new DatiPagamento();
 	DatiSpedizione datiSped=new DatiSpedizione();
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request,response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Sono nel doPost di login Servlet");
 		String azioneLogin = request.getParameter("azioneLogin");
-		System.out.println("azione" + azioneLogin);
+		System.out.println("Azione selezionata: " + azioneLogin);
 
 		if(azioneLogin.equals("loginUtente")) {
 			/*
@@ -64,11 +67,12 @@ public class LoginServlet extends HttpServlet {
 				//if controllo mail, se la mail esiste nel db 
 				if(utente.getEmail().equals(email)) {
 					if(utente.getPassword().equals(password)) {
-						//password corretta
-						//perchè la mail è corretta e la password pure quindi mostra la homepage
+						ArrayList<DatiSpedizione> indirizziUtente = cercaIndirizzi(utente.getEmail());
+						request.getSession().setAttribute("spedizioneSessione", indirizziUtente);
 						request.getSession().setAttribute("utenteSessione", utente);
-						getServletContext().getRequestDispatcher("/HomePage.jsp").forward(request, response);
-
+						
+						RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
+						view.forward(request, response);
 					}else {
 						System.out.println("password sbagliata\n");
 						errore = "Password errata.\n"; 
@@ -114,13 +118,8 @@ public class LoginServlet extends HttpServlet {
 				String circuito=request.getParameter("circuito");
 				String scadenzaCarta=request.getParameter("scadenzaCarta");
 				int CVV = Integer.parseInt(request.getParameter("CVV"));
-			//	String emailUtente=request.getParameter("email");
-				
-				
-			
 
 				System.out.println("Sto creando l'utente");
-
 
 				utente.setNome(nome);
 				utente.setCognome(cognome);
@@ -144,14 +143,10 @@ public class LoginServlet extends HttpServlet {
 				datiPag.setCVV(CVV);
 				datiPag.setEmail(email);
 				
-				
-				
 				utenteModel.doSave(utente);
 				datiSpedModel.doSave(datiSped);
 				datiPagModel.doSave(datiPag);
-				
-				
-				System.out.println("UTENTE: " + utente.toString());
+
 				System.out.println("SPED: "+datiSped.toString());
 				System.out.println("PAG: "+datiPag.toString());
 				
@@ -161,19 +156,23 @@ public class LoginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
+			
+	
 			HttpSession utenteSessione = request.getSession();
 			utenteSessione.setAttribute("utenteSessione", utente);
-			
+
 			//oltre alla sessione dell' utente ho aggiunto anche quella di dati pag e sped
-			HttpSession datiPagSessione = request.getSession();
-			datiPagSessione.setAttribute("datiPagSessione", datiPag);
-			HttpSession datiSpedSessione = request.getSession();
-			datiSpedSessione.setAttribute("dsSessione", datiSped);
-		
+		//	HttpSession datiPagSessione = request.getSession();
+		//	datiPagSessione.setAttribute("datiPagSessione", datiPag);
+			
+			ArrayList<DatiSpedizione> indirizziUtente = cercaIndirizzi(utente.getEmail());
+			HttpSession spedizioneSessione = request.getSession();
+			spedizioneSessione.setAttribute("spedizioneSessione", indirizziUtente);
+			
+			
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
 			dispatcher.forward(request, response);
-
 		} //chiusura dell'if di registrazione 
 
 		if(azioneLogin.equals("logoutUtente")) {
@@ -187,7 +186,37 @@ public class LoginServlet extends HttpServlet {
 		} //chiusura dell'if di loguout
 
 
+		if(azioneLogin.equals("visualizzaProfilo")) {
+		
+			System.out.println("Visualizzo il profilo");
+			try {
+				utente = (Utente) request.getSession().getAttribute("utenteSessione");
+				datiPag=(DatiPagamento) request.getSession().getAttribute("pagamentoSessione");
+				datiSped=(DatiSpedizione)request.getSession().getAttribute("spedizioneSessione");
 
+				ArrayList<DatiSpedizione> indirizzi = new ArrayList<DatiSpedizione>(); //tutti gli indirizzi
+				ArrayList<DatiSpedizione> indirizziUtente = new ArrayList<DatiSpedizione>();
+				
+				indirizzi = datiSpedModel.doRetrieveAll("email");
+				System.out.println("Grandezza lista di tutti gli indirizzi:"+indirizzi.size() + "\n");
+
+				for (int i=0; i<indirizzi.size(); i++) {
+					if(indirizzi.get(i).getEmail().equals(utente.getEmail())) {
+						indirizziUtente.add(indirizzi.get(i));
+						System.out.println("Questo è l'indirizzo dell'utente: " + indirizzi.get(i).toString());
+					}
+				}
+				
+				request.getSession().setAttribute("utenteSessione", utente);
+				request.getSession().setAttribute("spedizioneSessione", indirizziUtente);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dsprova.jsp");
+			dispatcher.forward(request, response);
+		}
 
 
 
@@ -196,8 +225,28 @@ public class LoginServlet extends HttpServlet {
 
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request,response);
+	
+	
+	//bisogna fare la stessa cosa con pagamento che al momento non è ancora stata gestita
+	public ArrayList<DatiSpedizione> cercaIndirizzi(String email) {
+		ArrayList<DatiSpedizione> indirizzi = new ArrayList<DatiSpedizione>(); //tutti gli indirizzi
+		ArrayList<DatiSpedizione> indirizziUtente = new ArrayList<DatiSpedizione>();
+		
+		try {
+			indirizzi = datiSpedModel.doRetrieveAll("email");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		for (int i=0; i<indirizzi.size(); i++) {
+			if(indirizzi.get(i).getEmail().equals(utente.getEmail())) {
+				indirizziUtente.add(indirizzi.get(i));
+				System.out.println("Questo è l'indirizzo dell'utente: " + indirizzi.get(i).toString());
+			}
+		}
+		
+	return indirizziUtente;
 	}
 }
 
