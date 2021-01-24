@@ -1,25 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@page import="bean.Utente"%>
-<%@page import="bean.DatiSpedizione"%>
-<%@page import="bean.DatiPagamento"%>
-<%@page import="java.util.ArrayList"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
-
-<!-- se modifica , esce pop-up con cosa deve modifcare (se non va facciamo un'altra jsp) 
-se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si mostriamo alert, se
-è no mostriamo nuovamente la pagina
- -->
- <style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" /> <!-- AGGIUNGERE QUESTA LIBRERIA  -->
+<title>Esempio di pop up </title>
+	
+<style> 
 .hr {
 	height: 2px;
 	margin: 60px 0 50px 0;
-	background: black;
+	background: rgba(255,255,255,.2);
 }
 
 .foot-lnk {
@@ -32,6 +24,7 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	display: inline-block;
 	border: none;
 	box-sizing: border-box;
+	background: transparent;
 	border-bottom: 1px solid black;
 	color: black;
 	margin-top: 15px;
@@ -107,15 +100,19 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	
 }
 
+
+
 /* modale Content/Box */
 .modificheSped {
 	/* width: 100%; */
 	margin: auto;
 	max-width: 520px;
-	background:white;
+	/* min-height: 660px; */
 	position: relative;
 	box-shadow: 0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
+
+
 
 /* Bottone chiusura (x) */
 .close {
@@ -135,39 +132,15 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	cursor: pointer;
 }
 </style>
-<title>Modifica Dati due</title>
+	
 </head>
 
 <body>
-	<%@include file="navbar.jsp"%>
-	<div>
-		<p class="titoloPagine">Modifica Dati due</p>
-
-	</div>
-
-	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");
-		if(indirizzi.size()!=0){
-			System.out.print("it's OK");
-		}else{
-			System.out.print("it's not OK");
-		}
-		//ArrayList<DatiPagamento> tuttiPagamenti=(ArrayList<DatiPagamento>) request.getSession().getAttribute("pagamentoSessione");
-		%>
-
-	<%for(int i=0;i<indirizzi.size();i++) {%>
-
-	<input name="viaModifica" value=" <%=indirizzi.get(i).getVia()%>" readonly>
-	<input name="capModifica" value="<%=indirizzi.get(i).getCap()%>" readonly>  
-	<input name="cittaModifica" value="<%=indirizzi.get(i).getCitta()%>" readonly> 
-	<input name="provinciaModifica" value=" <%=indirizzi.get(i).getProvincia()%> " readonly>
-	
-
-	 <button class="primo" onclick="document.getElementById('modificaSped').style.display='block'"
+ <button class="primo" onclick="document.getElementById('modificaSped').style.display='block'"
 		style="width:auto;">
 	MODIFICA</button>
 
-<%} %>
+
 <div id="modificaSped" class="modale">
   <form class="animate" action="profilo" method="post">
   <div class="modificheSped">
@@ -178,15 +151,15 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
     <div class="contenitore">
     	<h1 class="titAccedi text-center"><b> Modifica</b></h1><br>
       <label class="etichetteModifica"><b>Via</b></label>
-      <input  class= "inputModifica" type="text" placeholder="via" name="viaModificata"  required >
+      <input  class= "inputModifica" type="text" placeholder="via" name="via" required >
       <label class="etichetteModifica"><b>Citta'</b></label>
-      <input  class= "inputModifica" type="text" placeholder="Citta"  name="cittaModificata" required> 
+      <input  class= "inputModifica" type="text" placeholder="Citta" name="citta" required> 
        <label class="etichetteModifica"><b>Provincia</b></label>
-      <input  class= "inputModifica" type="text" placeholder="provincia"  name="provinciaModificata"  required> 
+      <input  class= "inputModifica" type="text" placeholder="provincia" name="provincia" required> 
        <label class="etichetteModifica"><b>Cap</b></label>
-      <input  class= "inputModifica" type="text" placeholder="CAP"  name="capModificata" required> 
+      <input  class= "inputModifica" type="text" placeholder="CAP" name="CAP" required> 
        
-	 <font color="#009e0f"> <button class="secondo" type="submit" name ="azioneProfilo" value="modificaDatiIndirizzo">MODIFICA</button></font>
+	 <font color="#009e0f"> <button class="secondo" type="submit">MODIFICA</button></font>
        <div class="hr"></div>
        
     </div>
@@ -195,13 +168,10 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
   </div>
 		</form>
 </div>
-	
-	<%@include file="footer.jsp"%>
-	
-	
-	<script>
+
+<script>
 	// Get the modal
-	var modal = document.getElementById('modificaSped');
+	var modal = document.getElementById('modificaSped')
 
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
@@ -211,5 +181,8 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	}
 
 </script>
+
+
+
 </body>
 </html>

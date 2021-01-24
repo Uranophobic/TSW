@@ -29,7 +29,7 @@ import modelDS.UtenteModelDS;
 /**
  * Servlet implementation class ProfiloUtenteServlet
  */
-@WebServlet("/ProfiloUtenteServlet")
+@WebServlet("/profilo")
 public class ProfiloUtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -46,7 +46,8 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//getServletContext().getRequestDispatcher("/view/profiloUtente.jsp").forward(request, response);
+		doPost(request,response);
+		
 
 	}
 
@@ -58,7 +59,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 		System.out.println("sono del dopost di profilo utente");
 		String azioneProfilo = request.getParameter("azioneProfilo");
 
-		
+
 		if(azioneProfilo.equals("visualizzaWishList")) {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("wishlist.jsp");
@@ -86,63 +87,97 @@ public class ProfiloUtenteServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		
-			if(azioneProfilo.equals("modificaDatiIndirizzo")) {
-	
-					utente= (Utente)request.getSession().getAttribute("utenteSessione");
-					ArrayList<DatiSpedizione> indirizzi= cercaIndirizzi(utente.getEmail());
-					HttpSession spedizioneSessione = request.getSession();
-					spedizioneSessione.setAttribute("spedizioneSessione", indirizzi);
-					
-					RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modificaDati.jsp");
-					dispatcher.forward(request, response);
-					
-				}
 
-				if(azioneProfilo.equals("modificaPagamento")) {
+		if(azioneProfilo.equals("visualizzaDatiIndirizzo")) {
 
-				}
+			utente= (Utente)request.getSession().getAttribute("utenteSessione");
+			ArrayList<DatiSpedizione> indirizzi= cercaIndirizzi(utente.getEmail());
+			HttpSession spedizioneSessione = request.getSession();
+			spedizioneSessione.setAttribute("spedizioneSessione", indirizzi);
 
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modificaDati.jsp");
+			dispatcher.forward(request, response);
+
+		}
+
+		if(azioneProfilo.equals("modificaDatiIndirizzo")) {
+			utente= (Utente)request.getSession().getAttribute("utenteSessione");
+			ArrayList<DatiSpedizione> indirizzi= cercaIndirizzi(utente.getEmail());
+			//	HttpSession spedizioneSessione = request.getSession();
+			//	spedizioneSessione.setAttribute("spedizioneSessione", indirizzi);
+
+			String viaModifica=request.getParameter("viaModifica");
+			String cittaModifica=request.getParameter("cittaModifica");
+			int capModifica=Integer.parseInt(request.getParameter("capModifica"));
+			String provinciaModifica=request.getParameter("provinciaModifica");
+
+			for(int i=0;i<indirizzi.size();i++) {
+
+				//if((indirizzi.get(i).getVia().equals("viaModifica"))&&(indirizzi.get(i).getCitta().equals("cittaModifica"))&&(indirizzi.get(i).getCap()==capModifica)&&(indirizzi.get(i).getProvincia().equals("provinciaModifica"))) {
+					String viaModificata=request.getParameter("viaModificata");
+					String cittaModificata=request.getParameter("cittaModificata");
+					int capModificata=Integer.parseInt(request.getParameter("capModificata"));
+					String provinciaModificata=request.getParameter("provinciaModificata");
+
+					datiSped.setVia(viaModificata);
+					datiSped.setCitta(cittaModificata);
+					datiSped.setProvincia(provinciaModificata);
+					datiSped.setCap(capModificata);
+
+					try {
+						datiSpedModel.doUpdate(datiSped);
+						System.out.println("indirizzo modificato");
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				//}
 			}
-	
-	
-	
+
+
+
+		}
+
+	}
+
+
+
 	public ArrayList<DatiSpedizione> cercaIndirizzi(String email) {
 		ArrayList<DatiSpedizione> indirizzi = new ArrayList<DatiSpedizione>(); //tutti gli indirizzi
 		ArrayList<DatiSpedizione> indirizziUtente = new ArrayList<DatiSpedizione>();
-		
+
 		try {
 			indirizzi = datiSpedModel.doRetrieveAll("email");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 		for (int i=0; i<indirizzi.size(); i++) {
 			if(indirizzi.get(i).getEmail().equals(utente.getEmail())) {
 				indirizziUtente.add(indirizzi.get(i));
 				System.out.println("Questo è l'indirizzo dell'utente: " + indirizzi.get(i).toString());
 			}
 		}
-		
-	return indirizziUtente;
+
+		return indirizziUtente;
 	}
-	
-	
-	
+
+
+
 	public ArrayList<DatiPagamento>cercaPagamento(String email){
 		ArrayList<DatiPagamento> tuttiPagamenti=new ArrayList<DatiPagamento>();//tutti i dati di pagamento di tutti gli utenti
 		ArrayList<DatiPagamento> pagamentoUtente=new ArrayList<DatiPagamento>();//dati pagametno di quell'utente
-		
+
 		try {
 			tuttiPagamenti=datiPagModel.doRetrieveAll("emailUtente");
 		}catch(SQLException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		for(int i=0;i<tuttiPagamenti.size();i++) {
-			
+
 			if(tuttiPagamenti.get(i).getEmail().equals(utente.getEmail())) {
 				pagamentoUtente.add(tuttiPagamenti.get(i));
 				System.out.println("Tutte le carte: "+tuttiPagamenti.get(i).toString());
@@ -150,7 +185,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 		}
 		return pagamentoUtente;
 	}
-		}
+}
 
 
-	
+
