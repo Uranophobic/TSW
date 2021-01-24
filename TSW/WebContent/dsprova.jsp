@@ -74,7 +74,7 @@
 
 	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");	
-
+		ArrayList<DatiPagamento> tuttiPagamenti=(ArrayList<DatiPagamento>) request.getSession().getAttribute("pagamentoSessione");
 		%>
 <div id="area-profilo" >
 	<div class="item-a" >
@@ -102,7 +102,7 @@
 			<div class="boxOperazioni">
 				<img src="https://img.icons8.com/plasticine/150/000000/bank-cards.png"/>
   					<div class="">
-    					<h4><a id="nomeOperazione"  href="ProfiloUtenteServlet?infoProfilo=datiUtente">Dati di pagamento e di spedizione</a></h4> 
+    					<h4><a id="nomeOperazione"  href="modificaDati.jsp">Dati di pagamento e di spedizione</a></h4> 
     					<p>Clicca qui per modificare i dati della tua carta oppure il tuo indirizzo!</p> 
   					</div>
 			</div>			
@@ -144,20 +144,22 @@
 			<div  class="text-center">
 			<p class="titProfilo text-center" > Dati Pagamento: </p>
 			<div class= "riga1" class="hr"></div>
-			<input type="text" name="numeroCarta" id="numeroCarta" placeholder="Numero Carta">
-			<input type="text" name="CVV" id="CVV"  placeholder="CVV">
-			<label id="inputData"> Scadenza </label><input type="date" placeholder="dd mm yyyy" name="scadenzaCarta" id="scadenzaCarta" class="inputProfilo" data-date-format="DD MM YYYY"> 
-			<br><label class="etichette">Circuito<br></label>
-				
-				<div>
-
-			<select name="circuito" id="circuito">
-			<option value="0" selected> Perfavore, seleziona un circuito: </option>
-			<option value="mastercard"> Mastercard </option>
-			<option value="maestro"> Maestro </option>
-			<option value="visa"> Visa </option>
-			</select>
-		</div>
+			
+			
+			<select>
+					<%
+						for (int i = 0; i < tuttiPagamenti.size(); i++) {
+					%>
+					<option value="<%=i%>" selected>NUMERO CARTA:
+						<%=tuttiPagamenti.get(i).getNumeroCarta()%> SCADENZA CARTA:
+						<%=tuttiPagamenti.get(i).getScadenzaCarta()%> CIRCUITO:
+						<%=tuttiPagamenti.get(i).getCircuito()%> CVV:
+						<%=tuttiPagamenti.get(i).getCVV()%></option>
+					<%
+						}
+					%>
+				</select>
+		
 	</div>
 </div>
 </div>

@@ -68,7 +68,9 @@ public class LoginServlet extends HttpServlet {
 				if(utente.getEmail().equals(email)) {
 					if(utente.getPassword().equals(password)) {
 						ArrayList<DatiSpedizione> indirizziUtente = cercaIndirizzi(utente.getEmail());
+						ArrayList<DatiPagamento> pagamentoUtente= cercaPagamento(utente.getEmail());
 						request.getSession().setAttribute("spedizioneSessione", indirizziUtente);
+						request.getSession().setAttribute("pagamentoSessione", pagamentoUtente);
 						request.getSession().setAttribute("utenteSessione", utente);
 						
 						RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
@@ -169,6 +171,9 @@ public class LoginServlet extends HttpServlet {
 			HttpSession spedizioneSessione = request.getSession();
 			spedizioneSessione.setAttribute("spedizioneSessione", indirizziUtente);
 			
+			ArrayList<DatiPagamento>pagamentoUtente=cercaPagamento(utente.getEmail());
+			HttpSession pagamentoSessione=request.getSession();
+			pagamentoSessione.setAttribute("pagamentoSessione", pagamentoUtente);
 			
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
@@ -193,13 +198,22 @@ public class LoginServlet extends HttpServlet {
 				utente = (Utente) request.getSession().getAttribute("utenteSessione");
 				datiPag=(DatiPagamento) request.getSession().getAttribute("pagamentoSessione");
 				datiSped=(DatiSpedizione)request.getSession().getAttribute("spedizioneSessione");
-
+				
+				//dati spedizione
 				ArrayList<DatiSpedizione> indirizzi = new ArrayList<DatiSpedizione>(); //tutti gli indirizzi
 				ArrayList<DatiSpedizione> indirizziUtente = new ArrayList<DatiSpedizione>();
+				
+				//datiPagamento
+				ArrayList<DatiPagamento> tuttiPagamenti=new ArrayList<DatiPagamento>();
+				ArrayList<DatiPagamento> pagamentoUtente=new ArrayList<DatiPagamento>();
+				
 				
 				indirizzi = datiSpedModel.doRetrieveAll("email");
 				System.out.println("Grandezza lista di tutti gli indirizzi:"+indirizzi.size() + "\n");
 
+				tuttiPagamenti=datiPagModel.doRetrieveAll("emailUtente");
+				System.out.println("Conteggio tutte le carte registrate: "+tuttiPagamenti.size()+"\n");
+				
 				for (int i=0; i<indirizzi.size(); i++) {
 					if(indirizzi.get(i).getEmail().equals(utente.getEmail())) {
 						indirizziUtente.add(indirizzi.get(i));
@@ -207,8 +221,19 @@ public class LoginServlet extends HttpServlet {
 					}
 				}
 				
+				
+				
+				for(int i=0;i<tuttiPagamenti.size();i++) {
+					if(tuttiPagamenti.get(i).getEmail().equals(utente.getEmail())) {
+						pagamentoUtente.add(tuttiPagamenti.get(i));
+						System.out.println("carte utente "+ tuttiPagamenti.get(i).toString());
+					}
+				}
+				
 				request.getSession().setAttribute("utenteSessione", utente);
 				request.getSession().setAttribute("spedizioneSessione", indirizziUtente);
+				request.getSession().setAttribute("pagamentoSessione", pagamentoUtente);
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -247,6 +272,29 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 	return indirizziUtente;
+	}
+	
+	
+	// metodo per datiPagamento
+	public ArrayList<DatiPagamento>cercaPagamento(String email){
+		ArrayList<DatiPagamento> tuttiPagamenti=new ArrayList<DatiPagamento>();//tutti i dati di pagamento di tutti gli utenti
+		ArrayList<DatiPagamento> pagamentoUtente=new ArrayList<DatiPagamento>();//dati pagametno di quell'utente
+		
+		try {
+			tuttiPagamenti=datiPagModel.doRetrieveAll("emailUtente");
+		}catch(SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		for(int i=0;i<tuttiPagamenti.size();i++) {
+			
+			if(tuttiPagamenti.get(i).getEmail().equals(utente.getEmail())) {
+				pagamentoUtente.add(tuttiPagamenti.get(i));
+				System.out.println("Tutte le carte: "+tuttiPagamenti.get(i).toString());
+			}
+		}
+		return pagamentoUtente;
 	}
 }
 
