@@ -147,6 +147,7 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 
 	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");
+
 		if(indirizzi.size()!=0){
 			System.out.print("it's OK");
 		}else{
@@ -158,13 +159,14 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	<%for(int i=0;i<indirizzi.size();i++) {%>
 
 	<input name="viaModifica" value=" <%=indirizzi.get(i).getVia()%>" readonly>
-	<input name="capModifica" value="<%=indirizzi.get(i).getCap()%>" readonly>  
+<input name="capModifica" value="<%=indirizzi.get(i).getCap()%>" readonly>   
 	<input name="cittaModifica" value="<%=indirizzi.get(i).getCitta()%>" readonly> 
 	<input name="provinciaModifica" value=" <%=indirizzi.get(i).getProvincia()%> " readonly>
+	<input name="emailModifica" value="<%=indirizzi.get(i).getEmail() %>"readonly>
 	
 
-	 <button class="primo" onclick="document.getElementById('modificaSped').style.display='block'"
-		style="width:auto;">
+	 <button class="primo" name ="azioneProfilo" value="bottoneModifica" onclick="document.getElementById('modificaSped').style.display='block'"
+		style="width:auto;" >
 	MODIFICA</button>
 
 <%} %>
@@ -185,10 +187,11 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
       <input  class= "inputModifica" type="text" placeholder="provincia"  name="provinciaModificata"  required> 
        <label class="etichetteModifica"><b>Cap</b></label>
       <input  class= "inputModifica" type="text" placeholder="CAP"  name="capModificata" required> 
-       
-	 <font color="#009e0f"> <button class="secondo" type="submit" name ="azioneProfilo" value="modificaDatiIndirizzo">MODIFICA</button></font>
+      <label class="etichetteModifica"><b>email</b></label>
+      <input  class= "inputModifica" type="text" placeholder="email"  name="emailModificata" required> 
+	 <font color="#009e0f"> <button class="secondo" type="submit" name ="azioneProfilo" value="bottoneModifica">MODIFICA</button></font>
        <div class="hr"></div>
-       
+       <!-- bottonemodifica sempre a posto di quello che stava prima nell if guarda servlet -->
     </div>
 
     

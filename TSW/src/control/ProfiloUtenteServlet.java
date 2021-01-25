@@ -47,7 +47,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		doPost(request,response);
-		
+
 
 	}
 
@@ -58,8 +58,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("sono del dopost di profilo utente");
 		String azioneProfilo = request.getParameter("azioneProfilo");
-
-
+		/*
 		if(azioneProfilo.equals("visualizzaWishList")) {
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher("wishlist.jsp");
@@ -87,8 +86,10 @@ public class ProfiloUtenteServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
+		 */
 		if(azioneProfilo.equals("visualizzaDatiIndirizzo")) {
+			System.out.println("sono in visualizzadatiIndirizzo");
+			System.out.println(azioneProfilo);
 
 			utente= (Utente)request.getSession().getAttribute("utenteSessione");
 			ArrayList<DatiSpedizione> indirizzi= cercaIndirizzi(utente.getEmail());
@@ -100,23 +101,144 @@ public class ProfiloUtenteServlet extends HttpServlet {
 
 		}
 
-		if(azioneProfilo.equals("modificaDatiIndirizzo")) {
+		//ho messo bottonemodifica che sarebbe il bottone verde a posto di modificaDatiIndirizzo
+		if(azioneProfilo.equals("bottoneModifica")) {
+			System.out.println("sono in modifica dati indirizzo");
 			utente= (Utente)request.getSession().getAttribute("utenteSessione");
 			ArrayList<DatiSpedizione> indirizzi= cercaIndirizzi(utente.getEmail());
-			//	HttpSession spedizioneSessione = request.getSession();
-			//	spedizioneSessione.setAttribute("spedizioneSessione", indirizzi);
+			if(azioneProfilo.equals("bottoneModifica")) {
+				System.out.println("sono in bottone modifica");
+				
+							String viaModificata=request.getParameter("viaModificata");
+							System.out.println(viaModificata);
+							String cittaModificata=request.getParameter("cittaModificata");
+							int capModificata=Integer.parseInt(request.getParameter("capModificata"));
+							System.out.println("cap modificato"+capModificata);
+							String provinciaModificata=request.getParameter("provinciaModificata");
+							String emailModificata=request.getParameter("emailModificata");
+							datiSped.setVia(viaModificata);
+							datiSped.setCitta(cittaModificata);
+							datiSped.setProvincia(provinciaModificata);
+							datiSped.setCap(capModificata);
+							datiSped.setEmail(emailModificata);
+							System.out.println(emailModificata);
+					 
+					
+							try {
 
-			String viaModifica=request.getParameter("viaModifica");
-			String cittaModifica=request.getParameter("cittaModifica");
-			int capModifica=Integer.parseInt(request.getParameter("capModifica"));
-			String provinciaModifica=request.getParameter("provinciaModifica");
+								datiSpedModel.doUpdate(datiSped);
+								if(datiSpedModel.doUpdate(datiSped)==1) {
+									System.out.println("uguale a 1");
+								}else {
+									System.out.println("uguale a 0");
+								}
+								System.out.println("indirizzo modificato"+datiSped.toString());
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							
 
+						}RequestDispatcher dispatcherr = getServletContext().getRequestDispatcher("/modificaDati.jsp");
+						dispatcherr.forward(request, response);
+					}
+				
+		}
+							
+							
+						
+					
+				
+					
+				
+				/*
+						String viaModificata=request.getParameter("viaModificata");
+						System.out.println(viaModificata);
+						String cittaModificata=request.getParameter("cittaModificata");
+						int capModificata=Integer.parseInt(request.getParameter("capModificata"));
+						System.out.println("cap modificato"+capModificata);
+						String provinciaModificata=request.getParameter("provinciaModificata");
+						String emailModificata=request.getParameter("emailModificata");
+						datiSped.setVia(viaModificata);
+						datiSped.setCitta(cittaModificata);
+						datiSped.setProvincia(provinciaModificata);
+						datiSped.setCap(capModificata);
+						datiSped.setEmail(emailModificata);
+						System.out.println(emailModificata);
+				 
+				
+						try {
+
+							datiSpedModel.doUpdate(datiSped);
+							if(datiSpedModel.doUpdate(datiSped)==1) {
+								System.out.println("uguale a 1");
+							}else {
+								System.out.println("uguale a 0");
+							}
+							System.out.println("indirizzo modificato"+datiSped.toString());
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						RequestDispatcher dispatcherr = getServletContext().getRequestDispatcher("/modificaDati.jsp");
+						dispatcherr.forward(request, response);
+
+					}
+				}
+			
+	}
+
+
+	
+
+
+	//if(azioneProfilo.equals("bottoneModifica")) {
+	//	System.out.println("sono in bottone modifica");
+	/*
+			String viaModificata=request.getParameter("viaModificata");
+			System.out.println(viaModificata);
+			String cittaModificata=request.getParameter("cittaModificata");
+			int capModificata=Integer.parseInt(request.getParameter("capModificata"));
+			System.out.println("cap modificato"+capModificata);
+			String provinciaModificata=request.getParameter("provinciaModificata");
+			String emailModificata=request.getParameter("emailModificata");
+			datiSped.setVia(viaModificata);
+			datiSped.setCitta(cittaModificata);
+			datiSped.setProvincia(provinciaModificata);
+			datiSped.setCap(capModificata);
+			datiSped.setEmail(emailModificata);
+			System.out.println(emailModificata);
+	 */
+	/*
+			try {
+
+				datiSpedModel.doUpdate(datiSped);
+				if(datiSpedModel.doUpdate(datiSped)==1) {
+					System.out.println("uguale a 1");
+				}else {
+					System.out.println("uguale a 0");
+				}
+				System.out.println("indirizzo modificato"+datiSped.toString());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			RequestDispatcher dispatcherr = getServletContext().getRequestDispatcher("/modificaDati.jsp");
+			dispatcherr.forward(request, response);
+
+		}
+	}
+	 */
+	/*
 			for(int i=0;i<indirizzi.size();i++) {
 
+				//non entra qua dentro
+				System.out.println("sono nel for\n");
 				//if((indirizzi.get(i).getVia().equals("viaModifica"))&&(indirizzi.get(i).getCitta().equals("cittaModifica"))&&(indirizzi.get(i).getCap()==capModifica)&&(indirizzi.get(i).getProvincia().equals("provinciaModifica"))) {
 					String viaModificata=request.getParameter("viaModificata");
 					String cittaModificata=request.getParameter("cittaModificata");
 					int capModificata=Integer.parseInt(request.getParameter("capModificata"));
+					System.out.println("cap modificto"+capModificata);
 					String provinciaModificata=request.getParameter("provinciaModificata");
 
 					datiSped.setVia(viaModificata);
@@ -132,13 +254,15 @@ public class ProfiloUtenteServlet extends HttpServlet {
 						e.printStackTrace();
 					}
 				//}
-			}
+	 * 
+	 */
+	//}
 
 
 
-		}
 
-	}
+
+
 
 
 
@@ -149,6 +273,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 		try {
 			indirizzi = datiSpedModel.doRetrieveAll("email");
 		} catch (SQLException e) {
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

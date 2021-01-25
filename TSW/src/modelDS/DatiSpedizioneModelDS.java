@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import bean.DatiSpedizione;
+import bean.Utente;
 import model.DatiSpedizioneModel;
 
 public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
@@ -181,20 +182,24 @@ public class DatiSpedizioneModelDS implements DatiSpedizioneModel {
 
 
 	@Override
-	public int doUpdate(DatiSpedizione dsp) throws SQLException {
+	public  synchronized int doUpdate(DatiSpedizione dsp) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		int result=0;
+		//preparedStatement.setString(1, dspB.getEmail());
 
-		String updateSQL="UPDATE"+DatiSpedizioneModelDS.TABLE_NAME+"set via=?,citta=?,cap=?,provincia=?,email=?";
+		String updateSQL="UPDATE "+DatiSpedizioneModelDS.TABLE_NAME+" SET via = ? , citta = ? , cap = ? , provincia = ?" + " WHERE email = ? ";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
+		//	preparedStatement.setString(1, email);
 			preparedStatement.setString(1, dsp.getVia());
 			preparedStatement.setString(2, dsp.getCitta());
 			preparedStatement.setInt(3, dsp.getCap());
 			preparedStatement.setString(4, dsp.getProvincia());
 			preparedStatement.setString(5, dsp.getEmail());
+			
+			
 
 			result=preparedStatement.executeUpdate();
 
