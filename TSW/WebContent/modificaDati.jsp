@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="bean.Utente"%>
-<%@page import="bean.DatiSpedizione"%>
-<%@page import="bean.DatiPagamento"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -146,30 +144,30 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	</div>
 
 	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");
+//		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");
 
-		if(indirizzi.size()!=0){
-			System.out.print("it's OK");
-		}else{
-			System.out.print("it's not OK");
-		}
+	//	if(indirizzi.size()!=0){
+	//		System.out.print("it's OK");
+		//}else{
+			//System.out.print("it's not OK");
+		//}
 		//ArrayList<DatiPagamento> tuttiPagamenti=(ArrayList<DatiPagamento>) request.getSession().getAttribute("pagamentoSessione");
-		%>
+		//%>
 
-	<%for(int i=0;i<indirizzi.size();i++) {%>
+	<%//for(int i=0;i<indirizzi.size();i++) {%>
 
-	<input name="viaModifica" value=" <%=indirizzi.get(i).getVia()%>" readonly>
-<input name="capModifica" value="<%=indirizzi.get(i).getCap()%>" readonly>   
-	<input name="cittaModifica" value="<%=indirizzi.get(i).getCitta()%>" readonly> 
-	<input name="provinciaModifica" value=" <%=indirizzi.get(i).getProvincia()%> " readonly>
-	<input name="emailModifica" value="<%=indirizzi.get(i).getEmail() %>"readonly>
-	
+<!-- 	<input name="viaModifica" value=" <%=//indirizzi.get(i).getVia()%>" readonly>
+<input name="capModifica" value="<%=//indirizzi.get(i).getCap()%>" readonly>   
+	<input name="cittaModifica" value="<%=//indirizzi.get(i).getCitta()%>" readonly> 
+	<input name="provinciaModifica" value=" <%=//indirizzi.get(i).getProvincia()%> " readonly>
+	<input name="emailModifica" value="<%=//indirizzi.get(i).getEmail() %>"readonly>
+	 -->
 
 	 <button class="primo" name ="azioneProfilo" value="bottoneModifica" onclick="document.getElementById('modificaSped').style.display='block'"
 		style="width:auto;" >
 	MODIFICA</button>
 
-<%} %>
+
 <div id="modificaSped" class="modale">
   <form class="animate" action="profilo" method="post">
   <div class="modificheSped">

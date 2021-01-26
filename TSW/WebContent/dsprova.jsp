@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <style>
 .inputProfilo {
-	width: 90%;
+	width: 100%;
 	display: inline-block;
 	border: none;
 	box-sizing: border-box;
@@ -17,17 +17,16 @@
 	border-bottom: 1px solid #b5afaf;
 	margin: -5px;
 }
-
 #area-profilo {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 35% 35%;
-	grid-template-rows: 65% 5% 25%;
+	width: 95%;
+	/* display: grid; */
+	/* grid-template-columns: 35% 35%; */
+	/* grid-template-rows: 65% 5% 25%; */
 	height: 900px;
-	justify-content: center;
-	grid-column-gap: 2%;
+	/* justify-content: center; */
+	/* grid-column-gap: 2%; */
+	margin: auto;
 }
-
 .bottoneProfilo {
 	margin: auto;
 	width: 10%;
@@ -35,30 +34,63 @@
 	/* float: right; */
 	/* margin-top: 70px; */
 }
+
+.bottoneModifiche {
+	margin: auto;
+	width: 57%;
+	color: ghostwhite;
+	/* float: right; */
+	/* margin-top: 70px; */
+	margin-top: 39px;
+}
 .titProfilo {
 	font-size: 28px;
 	font-family: 'janda';
 	margin-top: 25px;
 }
 
-.boxOperazioni {
-	position: relative;
-	display: -ms-flexbox;
-	/* display: flex; */
-	-ms-flex-direction: column;
-	/* flex-direction: column; */
-	min-width: 0;
-	word-wrap: break-word;
-	background-color: #fff;
-	background-clip: border-box;
-	margin: 5px;
+.oper {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 85%;
+	margin: auto;
+	height: 445px;
 }
 
-#nomeOperazione{
+#nomeOperazione {
 	text-decoration: none;
 	color: black;
 	font-family: "janda";
 }
+
+.operazioniBox {
+	width: 100%;
+	height: 355px;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-top: 20px;
+}
+.datiBox {
+	width: 100%;
+	height: 500px;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 35% 35% 35%;
+}
+.datiPersonali {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 85%;
+	margin: auto;
+	height: 445px;
+}
+
+.prova{ width: 80%;}
+.immagineOp{margin: auto;
+width: 27%;}
 </style>
 <title>Oltre il giardino - Profilo Utente</title>
 </head>
@@ -71,88 +103,119 @@
 
 
 	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-	
-		%>
-<div id="area-profilo" >
-	<div class="item-a" >
-	<p class="titProfilo text-center" > Operazioni </p>
-					<div class= "riga1" class="hr"></div>
-		<div class="operazioni">
-		
-			<div class="boxOperazioni">
-				<img src="https://img.icons8.com/plasticine/150/000000/box.png"/>
-  					<div class="">
-  					  <h4><a id="nomeOperazione" href="ProfiloUtenteServlet?infoProfilo=ordini">I miei Ordini </a></h4> 
-  					  <p>Visualizza qui gli ordini effettuati in precedenza e gli ordini in arrivo!</p> 
- 					</div>
+	   String datiSped = utente.getDatiSpedizione();
+	   System.out.println("Sono i dati spedizione: " + datiSped);
+	   String datiPag = utente.getDatiPagamento();
+	   System.out.println("Sono i dati pagamento: " + datiPag);
+	   
+	   String via="", citta="", cap="", provincia=""; 
+	   
+	   if(utente.getDatiSpedizione()!=null){
+		   
+		   int uno = datiSped.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   via = datiSped.substring(0, uno);
+		   String runo = datiSped.substring(uno+1); //r sta per resto quindi resto uno =runo
+		   
+		   int due = runo.indexOf("&");
+		   citta = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   cap = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);
+		   
+		   int quattro = rtre.indexOf("&");
+		   provincia = rtre.substring(0);
+	   }
+	   
+	   String numeroCarta="", scadenza="", circuito="", CVV="";
+	   
+	   if(utente.getDatiPagamento()!=null){
+		   int uno = datiPag.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   numeroCarta = datiPag.substring(0, uno);
+		   String runo = datiPag.substring(uno+1); //r sta per resto quindi resto uno =runo
+				   
+		   int due = runo.indexOf("&");
+		   scadenza = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   circuito = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);	
+		   
+		   int quattro = rtre.indexOf("&");
+		   CVV = rtre.substring(0);
+	   }
+	   
+	   
+	%>
+	<div id="area-profilo">
+	<!-- primo quadrante -->
+		<div class="datiBox">
+			<div class="datiPersonali">
+				<p class="titProfilo text-center">Dati Personali</p>
+				<div class="riga1" class="hr"></div>
+				<div class="prova">
+					<label id="inputData"> Email</label> <input type="text" name="email" id="email" class="inputProfilo" placeholder="Email" value="<%=utente.getEmail()%>" readonly>
+					<label id="inputData"> Password</label><input type="password" name="password" id="password" class="inputProfilo" placeholder="Password" value="<%=utente.getPassword() %>" readonly>
+					<label id="inputData"> Nome</label><input type="text" name="nome" id="nome" class="inputProfilo" placeholder="Nome" value="<%=utente.getNome() %>" readonly> 
+					<label id="inputData"> Cognome</label><input type="text" name="cognome" id="cognome" class="inputProfilo" placeholder="Cognome"	value="<%=utente.getCognome() %>" readonly> 
+					<label id="inputData"> Data di Nascita</label><input type="text" placeholder="dd mm yyyy" name="dataDiNascita" id="dataDiNascita" class="inputProfilo" value="<%=utente.getDataDiNascita() %>" readonly>
+				</div>
 			</div>
 
-
-			<div class="boxOperazioni">
-				<img src="https://img.icons8.com/plasticine/150/000000/wish-list.png"/>
-  					<div class="">
-    					<h4><a id="nomeOperazione"  href="ProfiloUtenteServlet?infoProfilo=wishlist">WishList</a></h4> 
-    					<p>Visualizza qui gli oggetti che hai aggiunto alla tua lista dei desideri!</p> 
-  					</div>
+			<div class="datiPersonali ">
+				<p class="titProfilo text-center">Dati Spedizione</p>
+				<div class="riga1" class="hr"></div>
+					<div class="prova">
+					<label id="inputData"> Via</label> <input type="text" name="via" id="via" class="inputProfilo" value="<%=via%>" readonly>
+					<label id="inputData"> Citta</label><input type="text" name="citta" id="citta" class="inputProfilo" value="<%=citta%>" readonly>
+					<label id="inputData"> Cap</label><input type="text" name="cap" id="cap" class="inputProfilo" value="<%=cap%>" readonly> 
+					<label id="inputData"> Provincia</label><input type="text" name="provincia" id="provincia" class="inputProfilo" value="<%=provincia%>" readonly> 
+				<div class="bottoneModifiche">
+					<button type="submit" class=" bottoni bottoni-colori ">Modifica Dati</button>
+				</div>
 			</div>
-
-			<div class="boxOperazioni">
-				<img src="https://img.icons8.com/plasticine/150/000000/bank-cards.png"/>
-  					<div class="">
-    					<h4><a id="nomeOperazione"  href="modificaDati.jsp">Dati di pagamento e di spedizione</a></h4> 
-    					<p>Clicca qui per modificare i dati della tua carta oppure il tuo indirizzo!</p> 
-  					</div>
-			</div>			
 			</div>
-	</div>
-	
-	
-	
-	<!-- COLONNA DI DESTRA -->
-		<div class="item-b" >
-		<div  class="text-center">
-			 <p class="titProfilo text-center" > Dati Personali: </p>
-			 <div class= "riga1" class="hr"></div>
-			 <label id="inputData"> Email</label><input type="text" name="email" id="email" class="inputProfilo" placeholder="Email" value="<%=utente.getEmail()%>" readonly >
-			 <label id="inputData"> Password</label><input type="password" name="password" id="password" class="inputProfilo" placeholder="Password" value="<%=utente.getPassword() %>" readonly >
-			 <label id="inputData"> Nome</label><input type="text" name="nome" id="nome" class="inputProfilo" placeholder="Nome" value="<%=utente.getNome() %>" readonly > 
-			 <label id="inputData"> Cognome</label><input type="text" name="cognome" id="cognome" class="inputProfilo" placeholder="Cognome" value="<%=utente.getCognome() %>" readonly > 
-			 <label id="inputData"> Data di Nascita</label><input type="text" placeholder="dd mm yyyy" name="dataDiNascita" id="dataDiNascita" class="inputProfilo" value="<%=utente.getDataDiNascita() %>" readonly > 
+			<div class="datiPersonali">
+				<p class="titProfilo text-center">Dati Pagamento</p>
+				<div class="riga1" class="hr"></div>
+				<div class="prova">
+					<label id=""> Numero</label> <input type="text" name="numeroCarta" id="numeroCarta" class="inputProfilo" value="<%=numeroCarta%>" readonly>
+					<label id=""> Scadenza</label><input type="text" name="scadenza" id="scadenza" class="inputProfilo" value="<%=scadenza%>" readonly>
+					<label id=""> Circuito</label><input type="text" name="circuito" id="circuito" class="inputProfilo" value="<%=circuito%>" readonly> 
+					<label id=""> CVV</label><input type="text" name="CVV" id="CVV" class="inputProfilo" value="<%=CVV%>" readonly> 
+			</div>
+			</div>	
 		</div>
-
-			<div class="text-center ">
-				<p class="titProfilo text-center">Dati Spedizione:</p>
-				<div class= "riga1" class="hr"></div>
-				<select>
-				<!-- 
-					<%
-						//for (int i = 0; i < indirizzi.size(); i++) {
-					%>
-					<option value="<%//=i%>" selected>VIA:
-						//<%//=indirizzi.get(i).getVia()%> CAP:
-					//	<%//=indirizzi.get(i).getCap()%> CITTA':
-						//<%//=indirizzi.get(i).getCitta()%> PROVINCIA:
-						//<%//=indirizzi.get(i).getProvincia()%></option>
-			//		<%
-				//		}
-					//%>
-					 -->
-				</select>
-			</div>
-
-			<div  class="text-center">
-			<p class="titProfilo text-center" > Dati Pagamento: </p>
-			<div class= "riga1" class="hr"></div>
-			
-			
-			
 		
+		<div class="operazioniBox">
+				<div class="datiPersonali">
+				<p class="titProfilo text-center">I miei ordini</p>
+				<div class="riga1" class="hr"></div>
+				<div class="immagineOp">
+					<img src="https://img.icons8.com/plasticine/150/000000/box.png" />
+				</div>
+						<h4 class="text-center"><a id="nomeOperazione" class="text-center" href="">I miei Ordini</a></h4>
+						<p class="text-center" >Visualizza qui gli ordini effettuati in precedenza e gli ordini in arrivo!</p>
+				</div>
+				
+				<div class="datiPersonali">
+				<p class="titProfilo text-center">Wishlist</p>
+				<div class="riga1" class="hr"></div>
+				<div class="immagineOp">
+					<img src="https://img.icons8.com/plasticine/150/000000/wish-list.png" />
+				</div>
+						<h4 class="text-center"><a id="nomeOperazione"   href="">WishList</a></h4>
+						<p class="text-center" >Visualizza qui gli oggetti che hai aggiunto alla tua lista dei desideri!</p>
+				</div>
+			
+		</div>
 	</div>
-</div>
-</div>
-<div class="bottoneProfilo">
-		     <button type="submit"  class=" bottoni bottoni-colori " > Indietro </button>	
-  		</div>	
-<%@ include file="footer.jsp"%>
+	<div class="bottoneProfilo">
+		<button type="submit" class=" bottoni bottoni-colori ">
+			Indietro</button>
+	</div>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -357,7 +357,7 @@ margin-left: 5px;
 	color: #394a3c;
 	background-color: whitesmoke;
 	width: 100%;
-	margin-top: 100px;
+	margin-top: 50px;
 	border-top: 2px solid #a6ec84;
 }
 
@@ -591,26 +591,27 @@ margin-left: 5px;
 	border-bottom: 1px solid #b5afaf;
 	margin: 20px;
 }
+/*
 #numeroCarta {
 	width: 60%;
-	/* display: inline-block; */
+	/* display: inline-block; 
 	border: none;
 	box-sizing: border-box;
 	background: transparent;
 	border-bottom: 1px solid #b5afaf;
 	margin: 20px;
-}
+} 
 
 #CVV {
 	width: 20%;
-	/* display: inline-block; */
+	/* display: inline-block; 
 	border: none;
 	box-sizing: border-box;
 	background: transparent;
 	border-bottom: 1px solid #b5afaf;
 	margin: 20px;
 }
-
+*/
 .regContenitore {
 	width: 100%;
 	display: grid;

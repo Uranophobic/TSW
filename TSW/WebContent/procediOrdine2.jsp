@@ -16,8 +16,6 @@
 	ArrayList<Composizione> carrello = new ArrayList<Composizione>();
 	carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
     ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
-	ArrayList<DatiSpedizione> datiSpedUtente = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("datSpedUtente");
-	ArrayList<DatiPagamento> datiPagUtente = (ArrayList<DatiPagamento>) request.getSession().getAttribute("datPagUtente");
 %>
 <div>
 <p  class="titoloPagine"> Procedi all'acquisto </p>
@@ -127,13 +125,13 @@
 				<select class="select"  name="indirizzi" id="indirizzi">
 				 <option>---</option> 
 				<%
-				if(datiSpedUtente.size()!=0){%>
-					<% for(int i = 0; i < datiSpedUtente.size(); i++){ %>
-						<option value="ind"> <%= datiSpedUtente.get(i).toString() %> </option>	<% // lo stampiamo tutti direttamente col to String %>
-					<%}
-				} else {%>
+			//	if(datiSpedUtente.size()!=0){%>
+					<%// for(int i = 0; i < datiSpedUtente.size(); i++){ %>
+						<option value="ind"> <%=// datiSpedUtente.get(i).toString() %> </option>	<% // lo stampiamo tutti direttamente col to String %>
+			<!-- 		<%//}  -->
+				//} else {%>
 					<option> Amico non hai inserito/salvato nessun indirizzo precedentemente! :)  </option>				
-			 <% } %>
+<!-- 			//} -->
  				</select>
  				
     	</div>			
@@ -200,15 +198,14 @@
 					</label>	
  				
 				<select class="select"  name="carte" id="carte">
-				 <option>---</option> 
-					<%if(datiPagUtente.size()!=0){%>
-							<% for(int i = 0; i < datiPagUtente.size(); i++){ %>
-								<option value="pag"> <%= datiPagUtente.get(i).toString() %> </option>	
-							<%}
-					} else {%>
-							<option> Amico non hai inserito/salvato nessuna carta precedentemente! :*  </option>				
-				 		<% } %>
- 				</select>
+			<!--  <option>---</option> 
+					//if(datiPagUtente.size()!=0){%>
+						<!-- for(int i = 0; i < datiPagUtente.size(); i++){ %>
+							<!--	<option value="pag">  <%=// datiPagUtente.get(i).toString() %> </option>	-->
+						<!-- 	//} -->
+				<!-- 	//} else {%> -->
+							<!-- <option> Amico non hai inserito/salvato nessuna carta precedentemente! :*  </option>		 -->		 	
+ 				</select> 
     	</div>					 
 		</fieldset>	
 	</div>

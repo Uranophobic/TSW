@@ -1,6 +1,4 @@
 <%@page import="bean.Utente"%>
-<%@page import="bean.DatiSpedizione"%>
-<%@page import="bean.DatiPagamento"%>
 <%@page import="bean.Utente"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
