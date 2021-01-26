@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,23 +14,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bean.DatiPagamento;
-import bean.DatiSpedizione;
+
 import bean.Ordine;
 import bean.Prodotto;
 import bean.Utente;
 import bean.Composizione;
 
 import model.ComposizioneModel;
-import model.DatiPagamentoModel;
-import model.DatiSpedizioneModel;
+
 import model.FatturaModel;
 import model.OrdineModel;
 import model.ProdottoModel;
 
 import modelDS.ComposizioneModelDS;
-import modelDS.DatiPagamentoModelDS;
-import modelDS.DatiSpedizioneModelDS;
+
 import modelDS.FatturaModelDS;
 import modelDS.OrdineModelDS;
 import modelDS.ProdottoModelDS;
@@ -45,13 +43,11 @@ public class ProcediOrdineServlet extends HttpServlet {
 		static OrdineModel ordineModel = new OrdineModelDS();
 		static FatturaModel fatturaModel = new FatturaModelDS();
 		static ComposizioneModel composizioneModel = new ComposizioneModelDS();
-		static DatiSpedizioneModel datiSpedModel = new DatiSpedizioneModelDS();
-		static DatiPagamentoModel datiPagModel = new DatiPagamentoModelDS();
+		
 		
 		Utente utente = new Utente();
 		Ordine ordine = new Ordine();
-		DatiSpedizione datiSped = new DatiSpedizione();
-		DatiPagamento datiPag = new DatiPagamento();
+		
 		Prodotto prod = new Prodotto();
 		
 		double prezzoTot = 0;
@@ -65,6 +61,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 		//test per vedere se stampava la data
 		String data = dataOggi();
 		System.out.println(data);
+		doPost(request,response);
 	}
 
 	/**
@@ -96,7 +93,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 				case "addIndirizzoSped":
 					
 					utente = (Utente) request.getSession().getAttribute("utenteSessione");
-					try {
+					
 						String via = request.getParameter("via");
 						String citta = request.getParameter("citta");
 						int cap = Integer.parseInt(request.getParameter("cap"));
@@ -104,7 +101,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 						String email = request.getParameter(utente.getEmail());
 						//email utente dovrebbe prenderla dalla sessione perchè l'utente è gia loggato, 
 						//altrimenti nel form per inserire l'indirizzo di spedizione dovrei fargli mettere anche l'email? Eh no 
-						
+						/*
 						datiSped.setVia(via);
 						datiSped.setCitta(citta);
 						datiSped.setCap(cap);
@@ -112,15 +109,13 @@ public class ProcediOrdineServlet extends HttpServlet {
 						datiSped.setEmail(email);
 						
 						datiSpedModel.doSave(datiSped);
+						*/
 						
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}	
 					break;
 					
 				case "scegliIndirizzoSped":
 					utente = (Utente) request.getSession().getAttribute("utenteSessione");
+					/*
 					ArrayList<DatiSpedizione> datiSpedUtente = new ArrayList<DatiSpedizione>();
 					ArrayList<DatiSpedizione> indirizziTutti = new ArrayList<DatiSpedizione>();
 					
@@ -149,19 +144,19 @@ public class ProcediOrdineServlet extends HttpServlet {
 						e1.printStackTrace();
 					}
 					break;
-				
+				*/
 				case "addMetodoPag":
 					
 					utente = (Utente) request.getSession().getAttribute("utenteSessione");
 					
-					try {
+					
 						
 						String numCarta = request.getParameter("numCarta");
-						String email = request.getParameter(utente.getEmail());
+						//String email = request.getParameter(utente.getEmail());
 						String circuito = request.getParameter("circuito");
 						String scadenzaCarta = request.getParameter("scadenzaCarta");
 						int cvv = Integer.parseInt(request.getParameter("cvv"));
-						
+						/*
 						datiPag.setNumeroCarta(numCarta);
 						datiPag.setEmail(email);
 						datiPag.setCircuito(circuito);
@@ -170,9 +165,6 @@ public class ProcediOrdineServlet extends HttpServlet {
 						
 						datiPagModel.doSave(datiPag);
 						
-						} catch (SQLException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
 						}
 					
 					
@@ -180,6 +172,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 				
 				case "scegliMetodoPag":
 					utente = (Utente) request.getSession().getAttribute("utenteSessione");
+					/*
 					ArrayList<DatiPagamento> datiPagUtente = new ArrayList<DatiPagamento>();
 					ArrayList<DatiPagamento> tuttiDatiPag = new ArrayList<DatiPagamento>();
 					
@@ -207,7 +200,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-						
+						*/
 					break;
 				
 					
@@ -220,8 +213,8 @@ public class ProcediOrdineServlet extends HttpServlet {
 					
 					utente = (Utente) request.getSession().getAttribute("utenteSessione");
 					
-					String email = utente.getEmail();
-					ordine.setEmailUtente(email);
+					//String email = utente.getEmail();
+				//	ordine.setEmailUtente(email);
 					
 					
 					//controlliamo se un prodotto ha lo sconto, nel caso ce l'ha lo calcoliamo
@@ -261,8 +254,8 @@ public class ProcediOrdineServlet extends HttpServlet {
 				case "visualizzaFattura":  
 					//passo tutto alla jsp con la sessione
 					utente = (Utente) request.getSession().getAttribute("utenteSessione"); 
-					datiSped = (DatiSpedizione) request.getSession().getAttribute("datiSpedSessione");
-					datiPag = (DatiPagamento) request.getSession().getAttribute("datiPagSessione");
+					//datiSped = (DatiSpedizione) request.getSession().getAttribute("datiSpedSessione");
+				//	datiPag = (DatiPagamento) request.getSession().getAttribute("datiPagSessione");
 					
 					prezzoTot =  (double) request.getSession().getAttribute("prezzoTot");  //prezzo totale dell'ordine 
 					

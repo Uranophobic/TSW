@@ -6,6 +6,8 @@ public class Utente {
 	private String nome; 
 	private String cognome; 
 	private String dataDiNascita;
+	private String datiPagamento;
+	private String datiSpedizione;
 
 
 	public Utente() {
@@ -14,14 +16,19 @@ public class Utente {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.dataDiNascita=dataDiNascita;
+		this.datiPagamento=datiPagamento;
+		this.datiSpedizione=datiSpedizione;
 	}
 
-	public Utente(String email, String password, String nome, String cognome, String dataDiNascita) {
+	public Utente(String email, String password, String nome, String cognome, String dataDiNascita,String datiPagamento,String datiSpedizione)
+			 {
 		this.email = email;
 		this.password = password;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.dataDiNascita=dataDiNascita;
+		this.datiPagamento=datiPagamento;
+		this.datiSpedizione=datiSpedizione;
 	}
 
 	public String getEmail() {
@@ -52,6 +59,7 @@ public class Utente {
 		return cognome;
 	}
 
+	
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
@@ -65,6 +73,24 @@ public class Utente {
 	{
 		this.dataDiNascita=dataDiNascita;
 	}
+	
+	
+	public String getDatiPagamento() {
+		return datiPagamento;
+	}
+
+	public void setDatiPagamento(String datiPagamento) {
+		this.datiPagamento = datiPagamento;
+	}
+
+	public String getDatiSpedizione() {
+		return datiSpedizione;
+	}
+
+	public void setDatiSpedizione(String datiSpedizione) {
+		this.datiSpedizione = datiSpedizione;
+	}
+
 
 	public String toString() {
 		return "Utente [email=" + email + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome

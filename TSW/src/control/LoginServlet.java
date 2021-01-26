@@ -1,6 +1,7 @@
 package control;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -11,15 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import bean.DatiPagamento;
-import bean.DatiSpedizione;
 import bean.Utente;
-import model.DatiPagamentoModel;
-import model.DatiSpedizioneModel;
 import model.UtenteModel;
-import modelDS.DatiPagamentoModelDS;
-import modelDS.DatiSpedizioneModelDS;
 import modelDS.UtenteModelDS;
 
 /**
@@ -31,12 +25,8 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	static UtenteModel utenteModel = new UtenteModelDS();
-	static DatiPagamentoModel datiPagModel=new DatiPagamentoModelDS();
-	static DatiSpedizioneModel datiSpedModel=new DatiSpedizioneModelDS();
 
 	Utente utente = new Utente();
-	DatiPagamento datiPag=new DatiPagamento();
-	DatiSpedizione datiSped=new DatiSpedizione();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
@@ -67,12 +57,9 @@ public class LoginServlet extends HttpServlet {
 				//if controllo mail, se la mail esiste nel db 
 				if(utente.getEmail().equals(email)) {
 					if(utente.getPassword().equals(password)) {
-						ArrayList<DatiSpedizione> indirizziUtente = cercaIndirizzi(utente.getEmail());
-						ArrayList<DatiPagamento> pagamentoUtente= cercaPagamento(utente.getEmail());
-						request.getSession().setAttribute("spedizioneSessione", indirizziUtente);
-						request.getSession().setAttribute("pagamentoSessione", pagamentoUtente);
+
 						request.getSession().setAttribute("utenteSessione", utente);
-						
+
 						RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
 						view.forward(request, response);
 					}else {
@@ -114,12 +101,12 @@ public class LoginServlet extends HttpServlet {
 				String dataDiNascita = request.getParameter("dataDiNascita");
 				String via=request.getParameter("via");
 				String citta=request.getParameter("citta");
-				int cap = Integer.parseInt(request.getParameter("cap"));
+				String cap = request.getParameter("cap");
 				String provincia=request.getParameter("provincia");
 				String numeroCarta=request.getParameter("numeroCarta");
 				String circuito=request.getParameter("circuito");
 				String scadenzaCarta=request.getParameter("scadenzaCarta");
-				int CVV = Integer.parseInt(request.getParameter("CVV"));
+				String CVV = request.getParameter("CVV");
 
 				System.out.println("Sto creando l'utente");
 
@@ -128,53 +115,31 @@ public class LoginServlet extends HttpServlet {
 				utente.setEmail(email);
 				utente.setPassword(password);
 				utente.setDataDiNascita(dataDiNascita);
-				
-				System.out.println("sto creando i dati spedizione");
-				
-				datiSped.setVia(via);
-				datiSped.setCitta(citta);
-				datiSped.setCap(cap);
-				datiSped.setProvincia(provincia);
-				datiSped.setEmail(email);
-				
-				System.out.println("sto creando i dati pagamento");
-				
-				datiPag.setNumeroCarta(numeroCarta);
-				datiPag.setCircuito(circuito);
-				datiPag.setScadenzaCarta(scadenzaCarta);
-				datiPag.setCVV(CVV);
-				datiPag.setEmail(email);
-				
-				utenteModel.doSave(utente);
-				datiSpedModel.doSave(datiSped);
-				datiPagModel.doSave(datiPag);
 
-				System.out.println("SPED: "+datiSped.toString());
-				System.out.println("PAG: "+datiPag.toString());
-				
+				String datiSpedizione=via+","+citta+","+cap+","+provincia;				
+				String datiPagamento=numeroCarta+","+scadenzaCarta+","+circuito+","+CVV;
+
+
+
+
+				utenteModel.doSave(utente);
+
+
+				System.out.println("SPED: "+datiSpedizione);
+				System.out.println("PAG: "+datiPagamento);
+
 
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-			
-	
+
+
 			HttpSession utenteSessione = request.getSession();
 			utenteSessione.setAttribute("utenteSessione", utente);
 
-			//oltre alla sessione dell' utente ho aggiunto anche quella di dati pag e sped
-		//	HttpSession datiPagSessione = request.getSession();
-		//	datiPagSessione.setAttribute("datiPagSessione", datiPag);
-			
-			ArrayList<DatiSpedizione> indirizziUtente = cercaIndirizzi(utente.getEmail());
-			HttpSession spedizioneSessione = request.getSession();
-			spedizioneSessione.setAttribute("spedizioneSessione", indirizziUtente);
-			
-			ArrayList<DatiPagamento>pagamentoUtente=cercaPagamento(utente.getEmail());
-			HttpSession pagamentoSessione=request.getSession();
-			pagamentoSessione.setAttribute("pagamentoSessione", pagamentoUtente);
-			
+
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
 			dispatcher.forward(request, response);
@@ -192,111 +157,26 @@ public class LoginServlet extends HttpServlet {
 
 
 		if(azioneLogin.equals("visualizzaProfilo")) {
-		
-			System.out.println("Visualizzo il profilo");
-			try {
-				utente = (Utente) request.getSession().getAttribute("utenteSessione");
-				datiPag=(DatiPagamento) request.getSession().getAttribute("pagamentoSessione");
-				datiSped=(DatiSpedizione)request.getSession().getAttribute("spedizioneSessione");
-				
-				//dati spedizione
-				ArrayList<DatiSpedizione> indirizzi = new ArrayList<DatiSpedizione>(); //tutti gli indirizzi
-				ArrayList<DatiSpedizione> indirizziUtente = new ArrayList<DatiSpedizione>();
-				
-				//datiPagamento
-				ArrayList<DatiPagamento> tuttiPagamenti=new ArrayList<DatiPagamento>();
-				ArrayList<DatiPagamento> pagamentoUtente=new ArrayList<DatiPagamento>();
-				
-				
-				indirizzi = datiSpedModel.doRetrieveAll("email");
-				System.out.println("Grandezza lista di tutti gli indirizzi:"+indirizzi.size() + "\n");
 
-				tuttiPagamenti=datiPagModel.doRetrieveAll("emailUtente");
-				System.out.println("Conteggio tutte le carte registrate: "+tuttiPagamenti.size()+"\n");
-				
-				for (int i=0; i<indirizzi.size(); i++) {
-					if(indirizzi.get(i).getEmail().equals(utente.getEmail())) {
-						indirizziUtente.add(indirizzi.get(i));
-						System.out.println("Questo è l'indirizzo dell'utente: " + indirizzi.get(i).toString());
-					}
-				}
-				
-				
-				
-				for(int i=0;i<tuttiPagamenti.size();i++) {
-					if(tuttiPagamenti.get(i).getEmail().equals(utente.getEmail())) {
-						pagamentoUtente.add(tuttiPagamenti.get(i));
-						System.out.println("carte utente "+ tuttiPagamenti.get(i).toString());
-					}
-				}
-				
-				request.getSession().setAttribute("utenteSessione", utente);
-				request.getSession().setAttribute("spedizioneSessione", indirizziUtente);
-				request.getSession().setAttribute("pagamentoSessione", pagamentoUtente);
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-			
+			System.out.println("Visualizzo il profilo");
+
+			utente = (Utente) request.getSession().getAttribute("utenteSessione");
+			request.getSession().setAttribute("utenteSessione", utente);
+
+
+
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dsprova.jsp");
 			dispatcher.forward(request, response);
 		}
-
-
-
-
-
-
 	}
 
-	
-	
-	//bisogna fare la stessa cosa con pagamento che al momento non è ancora stata gestita
-	public ArrayList<DatiSpedizione> cercaIndirizzi(String email) {
-		ArrayList<DatiSpedizione> indirizzi = new ArrayList<DatiSpedizione>(); //tutti gli indirizzi
-		ArrayList<DatiSpedizione> indirizziUtente = new ArrayList<DatiSpedizione>();
-		
-		try {
-			indirizzi = datiSpedModel.doRetrieveAll("email");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
-		for (int i=0; i<indirizzi.size(); i++) {
-			if(indirizzi.get(i).getEmail().equals(utente.getEmail())) {
-				indirizziUtente.add(indirizzi.get(i));
-				System.out.println("Questo è l'indirizzo dell'utente: " + indirizzi.get(i).toString());
-			}
-		}
-		
-	return indirizziUtente;
-	}
-	
-	
-	// metodo per datiPagamento
-	public ArrayList<DatiPagamento>cercaPagamento(String email){
-		ArrayList<DatiPagamento> tuttiPagamenti=new ArrayList<DatiPagamento>();//tutti i dati di pagamento di tutti gli utenti
-		ArrayList<DatiPagamento> pagamentoUtente=new ArrayList<DatiPagamento>();//dati pagametno di quell'utente
-		
-		try {
-			tuttiPagamenti=datiPagModel.doRetrieveAll("emailUtente");
-		}catch(SQLException e) {
-			
-			e.printStackTrace();
-		}
-		
-		for(int i=0;i<tuttiPagamenti.size();i++) {
-			
-			if(tuttiPagamenti.get(i).getEmail().equals(utente.getEmail())) {
-				pagamentoUtente.add(tuttiPagamenti.get(i));
-				System.out.println("Tutte le carte: "+tuttiPagamenti.get(i).toString());
-			}
-		}
-		return pagamentoUtente;
-	}
+
 }
+
+
+
+
+
 
 
 

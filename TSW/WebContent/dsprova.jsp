@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="bean.Utente"%>
-<%@page import="bean.DatiSpedizione"%>
-<%@page import="bean.DatiPagamento"%>
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -73,8 +71,7 @@
 
 
 	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");	
-		ArrayList<DatiPagamento> tuttiPagamenti=(ArrayList<DatiPagamento>) request.getSession().getAttribute("pagamentoSessione");
+	
 		%>
 <div id="area-profilo" >
 	<div class="item-a" >
@@ -127,17 +124,19 @@
 				<p class="titProfilo text-center">Dati Spedizione:</p>
 				<div class= "riga1" class="hr"></div>
 				<select>
+				<!-- 
 					<%
-						for (int i = 0; i < indirizzi.size(); i++) {
+						//for (int i = 0; i < indirizzi.size(); i++) {
 					%>
-					<option value="<%=i%>" selected>VIA:
-						<%=indirizzi.get(i).getVia()%> CAP:
-						<%=indirizzi.get(i).getCap()%> CITTA':
-						<%=indirizzi.get(i).getCitta()%> PROVINCIA:
-						<%=indirizzi.get(i).getProvincia()%></option>
-					<%
-						}
-					%>
+					<option value="<%//=i%>" selected>VIA:
+						//<%//=indirizzi.get(i).getVia()%> CAP:
+					//	<%//=indirizzi.get(i).getCap()%> CITTA':
+						//<%//=indirizzi.get(i).getCitta()%> PROVINCIA:
+						//<%//=indirizzi.get(i).getProvincia()%></option>
+			//		<%
+				//		}
+					//%>
+					 -->
 				</select>
 			</div>
 
@@ -146,19 +145,7 @@
 			<div class= "riga1" class="hr"></div>
 			
 			
-			<select>
-					<%
-						for (int i = 0; i < tuttiPagamenti.size(); i++) {
-					%>
-					<option value="<%=i%>" selected>NUMERO CARTA:
-						<%=tuttiPagamenti.get(i).getNumeroCarta()%> SCADENZA CARTA:
-						<%=tuttiPagamenti.get(i).getScadenzaCarta()%> CIRCUITO:
-						<%=tuttiPagamenti.get(i).getCircuito()%> CVV:
-						<%=tuttiPagamenti.get(i).getCVV()%></option>
-					<%
-						}
-					%>
-				</select>
+			
 		
 	</div>
 </div>

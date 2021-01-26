@@ -40,7 +40,7 @@ public class UtenteModelDS implements UtenteModel {
 		PreparedStatement preparedStatement=null;
 
 
-		String insertSQL="INSERT INTO "+UtenteModelDS.TABLE_NAME+"(email,password,nome,cognome,dataDiNascita)"+ "values(?,?,?,?,?)";
+		String insertSQL="INSERT INTO "+UtenteModelDS.TABLE_NAME+"(email,password,nome,cognome,dataDiNascita,datiSpedizione,datiPagamento)"+ "values(?,?,?,?,?,?,?)";
 
 		try {
 			connection=ds.getConnection();
@@ -50,6 +50,9 @@ public class UtenteModelDS implements UtenteModel {
 			preparedStatement.setString(3, utente.getNome());
 			preparedStatement.setString(4, utente.getCognome());
 			preparedStatement.setString(5, utente.getDataDiNascita());
+			preparedStatement.setString(6, utente.getDatiSpedizione());
+			preparedStatement.setString(7, utente.getDatiPagamento());
+
 
 			preparedStatement.executeUpdate();
 
@@ -89,6 +92,8 @@ public class UtenteModelDS implements UtenteModel {
 				utenteBean.setNome(rs.getString("nome"));
 				utenteBean.setCognome(rs.getString("cognome"));
 				utenteBean.setDataDiNascita(rs.getString("dataDiNascita"));
+				utenteBean.setDatiSpedizione(rs.getString("datiSpedizione"));
+				utenteBean.setDatiPagamento(rs.getString("datiPagamento"));
 			}
 
 		}finally {
@@ -139,6 +144,8 @@ public class UtenteModelDS implements UtenteModel {
 				utenteBean.setNome(rs.getString("nome"));
 				utenteBean.setCognome(rs.getString("cognome"));
 				utenteBean.setDataDiNascita("dataDiNascita");
+				utenteBean.setDatiSpedizione(rs.getString("datiSpedizione"));
+				utenteBean.setDatiPagamento(rs.getString("datiPagamento"));
 
 
 				users.add(utenteBean);
@@ -164,7 +171,7 @@ public class UtenteModelDS implements UtenteModel {
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE "+UtenteModelDS.TABLE_NAME+ " SET password=?, nome=?, cognome=?, dataDiNascita=?"+" where email=?";
+		String updateSQL="UPDATE "+UtenteModelDS.TABLE_NAME+ " SET password = ? , nome = ?, cognome = ?, dataDiNascita = ? , datiSpedizione = ? , datiPagamento = ? "+" where email = ?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
@@ -173,6 +180,10 @@ public class UtenteModelDS implements UtenteModel {
 			preparedStatement.setString(2,utente.getNome());
 			preparedStatement.setString(3,utente.getCognome());
 			preparedStatement.setString(4,utente.getDataDiNascita());
+			preparedStatement.setString(5,utente.getDatiSpedizione());
+			preparedStatement.setString(6,utente.getDatiPagamento());
+			preparedStatement.setString(7,utente.getEmail());
+			
 
 			result=preparedStatement.executeUpdate();
 
