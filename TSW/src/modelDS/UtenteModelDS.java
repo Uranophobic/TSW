@@ -171,7 +171,7 @@ public class UtenteModelDS implements UtenteModel {
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE "+UtenteModelDS.TABLE_NAME+ " SET password = ? , nome = ?, cognome = ?, dataDiNascita = ? , datiSpedizione = ? , datiPagamento = ? "+" where email = ?";
+		String updateSQL= "UPDATE "+UtenteModelDS.TABLE_NAME+ " SET password = ? , nome = ?, cognome = ?, dataDiNascita = ? , datiSpedizione = ? , datiPagamento = ? "+" WHERE email = ?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);

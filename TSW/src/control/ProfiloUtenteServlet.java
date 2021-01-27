@@ -83,16 +83,69 @@ public class ProfiloUtenteServlet extends HttpServlet {
 			System.out.println(azioneProfilo);
 
 			utente= (Utente)request.getSession().getAttribute("utenteSessione");
-
-
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/modificaDati.jsp");
 			dispatcher.forward(request, response);
 
 		}
 
-		//ho messo bottonemodifica che sarebbe il bottone verde a posto di modificaDatiIndirizzo
-		if(azioneProfilo.equals("bottoneModifica")) {
-
+		
+		if(azioneProfilo.equals("modificaDati")) {
+			try {
+				
+				utente= (Utente)request.getSession().getAttribute("utenteSessione");
+				
+				String viaModificata = request.getParameter("viaModificata");
+				System.out.println("via modificata " + viaModificata);
+				String cittaModificata = request.getParameter("cittaModificata");
+				System.out.println("citta modificata " + cittaModificata);
+				String capModificata = request.getParameter("capModificata");
+				System.out.println("cap modificata " + capModificata);
+				String provinciaModificata = request.getParameter("provinciaModificata");
+				System.out.println("provincia modificata " + provinciaModificata);
+				
+				String numeroModificato = request.getParameter("numeroModificato");
+				System.out.println("numero modificata " + numeroModificato);
+				String scadenzaModificata = request.getParameter("scadenzaModificata");
+				System.out.println("scadenza modificata " + scadenzaModificata);
+				String circuitoModificato = request.getParameter("circuitoModificato");
+				System.out.println("circuito modificata " + circuitoModificato);
+				String cvvModificata = request.getParameter("cvvModificata");
+				System.out.println("cvv modificata " + cvvModificata);
+				
+				String datiSped = viaModificata+"&"+cittaModificata+"&"+capModificata+"&"+provinciaModificata;
+				System.out.println("dati sped: " + datiSped);
+				utente.setDatiSpedizione(datiSped);
+				String datiPag =  numeroModificato+"&"+scadenzaModificata+"&"+circuitoModificato+"&"+cvvModificata;  
+				System.out.println("dati pag: " + datiPag);
+				utente.setDatiPagamento(datiPag);
+				
+				String nome = utente.getNome();
+				String cognome = utente.getCognome();
+				String dataDiNascita = utente.getDataDiNascita();
+				String password = utente.getPassword();
+				System.out.println("utente:" + nome + cognome + dataDiNascita + password);
+				
+				
+				utente.setNome(nome);
+				utente.setCognome(cognome);
+				utente.setDataDiNascita(dataDiNascita);
+				utente.setPassword(password);
+				//utente.setEmail(email);
+				
+				utenteModel.doUpdate(utente);
+				request.getSession().setAttribute("utenteSessione", utente);
+				RequestDispatcher view = request.getRequestDispatcher("HomePage.jsp");
+				view.forward(request,response);
+				if(utenteModel.doUpdate(utente)==1) {
+					System.out.println("risultato 1");
+				}else {
+					System.out.println("risultato 0");
+				}
+				
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 		}
 	}
 }

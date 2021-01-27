@@ -172,9 +172,9 @@ width: 27%;}
 					<label id="inputData"> Citta</label><input type="text" name="citta" id="citta" class="inputProfilo" value="<%=citta%>" readonly>
 					<label id="inputData"> Cap</label><input type="text" name="cap" id="cap" class="inputProfilo" value="<%=cap%>" readonly> 
 					<label id="inputData"> Provincia</label><input type="text" name="provincia" id="provincia" class="inputProfilo" value="<%=provincia%>" readonly> 
-				<div class="bottoneModifiche">
+				<a href="modificaDati.jsp" class="bottoneModifiche">
 					<button type="submit" class=" bottoni bottoni-colori ">Modifica Dati</button>
-				</div>
+				</a>
 			</div>
 			</div>
 			<div class="datiPersonali">

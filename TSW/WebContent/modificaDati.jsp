@@ -144,31 +144,73 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	</div>
 
 	<% Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-//		ArrayList<DatiSpedizione> indirizzi = (ArrayList<DatiSpedizione>) request.getSession().getAttribute("spedizioneSessione");
+	   String datiSped = utente.getDatiSpedizione();
+	   System.out.println("Sono i dati spedizione: " + datiSped);
+	   String datiPag = utente.getDatiPagamento();
+	   System.out.println("Sono i dati pagamento: " + datiPag);
+	   
+	   String via="", citta="", cap="", provincia=""; 
+	   
+	   if(utente.getDatiSpedizione()!=null){
+		   
+		   int uno = datiSped.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   via = datiSped.substring(0, uno);
+		   String runo = datiSped.substring(uno+1); //r sta per resto quindi resto uno =runo
+		   
+		   int due = runo.indexOf("&");
+		   citta = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   cap = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);
+		   
+		   int quattro = rtre.indexOf("&");
+		   provincia = rtre.substring(0);
+	   }
+	   
+	   String numeroCarta="", scadenza="", circuito="", CVV="";
+	   
+	   if(utente.getDatiPagamento()!=null){
+		   int uno = datiPag.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   numeroCarta = datiPag.substring(0, uno);
+		   String runo = datiPag.substring(uno+1); //r sta per resto quindi resto uno =runo
+				   
+		   int due = runo.indexOf("&");
+		   scadenza = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   circuito = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);	
+		   
+		   int quattro = rtre.indexOf("&");
+		   CVV = rtre.substring(0);
+	   }
+			
+	%>
+	<input name="nome" value=" <%=utente.getNome()%>" >
+	<input name="cognome" value="<%=utente.getCognome() %>" >
+	<input name="dataDiNascita" value="<%=utente.getDataDiNascita()%>" > 
+	<input name="password" value=" <%=utente.getPassword()%> " >
+	<input name="email" value=" <%=utente.getEmail()%> " >
+	
+	<input name="via" value=" <%=via%>" >
+	<input name="cap" value="<%=cap %>" >
+	<input name="citta" value="<%=citta%>" > 
+	<input name="provincia" value=" <%=provincia%> " >
 
-	//	if(indirizzi.size()!=0){
-	//		System.out.print("it's OK");
-		//}else{
-			//System.out.print("it's not OK");
-		//}
-		//ArrayList<DatiPagamento> tuttiPagamenti=(ArrayList<DatiPagamento>) request.getSession().getAttribute("pagamentoSessione");
-		//%>
+	<br>
+	<input name="numeroCarta" value=" <%=numeroCarta%>" >
+	<input name="scadenza" value="<%=scadenza %>" >
+	<input name="circuito" value="<%=circuito%>" > 
+	<input name="cvv" value=" <%=CVV%> " >
 
-	<%//for(int i=0;i<indirizzi.size();i++) {%>
 
-<!-- 	<input name="viaModifica" value=" <%=//indirizzi.get(i).getVia()%>" readonly>
-<input name="capModifica" value="<%=//indirizzi.get(i).getCap()%>" readonly>   
-	<input name="cittaModifica" value="<%=//indirizzi.get(i).getCitta()%>" readonly> 
-	<input name="provinciaModifica" value=" <%=//indirizzi.get(i).getProvincia()%> " readonly>
-	<input name="emailModifica" value="<%=//indirizzi.get(i).getEmail() %>"readonly>
-	 -->
-
-	 <button class="primo" name ="azioneProfilo" value="bottoneModifica" onclick="document.getElementById('modificaSped').style.display='block'"
-		style="width:auto;" >
+	 <button class="primo" name ="azioneProfilo" value="modificaDati" onclick="document.getElementById('modifica').style.display='block'" style="width:auto;" >
 	MODIFICA</button>
 
-
-<div id="modificaSped" class="modale">
+<div id="modifica" class="modale">
   <form class="animate" action="profilo" method="post">
   <div class="modificheSped">
   <div class="imgcontenitore">
@@ -176,18 +218,35 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
     </div>
 
     <div class="contenitore">
-    	<h1 class="titAccedi text-center"><b> Modifica</b></h1><br>
+    	<h1 class="titAccedi text-center"><b> Modifica Sped</b></h1><br>
+    	
       <label class="etichetteModifica"><b>Via</b></label>
       <input  class= "inputModifica" type="text" placeholder="via" name="viaModificata"  required >
+      
       <label class="etichetteModifica"><b>Citta'</b></label>
       <input  class= "inputModifica" type="text" placeholder="Citta"  name="cittaModificata" required> 
+      
        <label class="etichetteModifica"><b>Provincia</b></label>
-      <input  class= "inputModifica" type="text" placeholder="provincia"  name="provinciaModificata"  required> 
+      <input  class= "inputModifica" type="text" placeholder="provincia"  name="provinciaModificata" required>
+       
        <label class="etichetteModifica"><b>Cap</b></label>
       <input  class= "inputModifica" type="text" placeholder="CAP"  name="capModificata" required> 
-      <label class="etichetteModifica"><b>email</b></label>
-      <input  class= "inputModifica" type="text" placeholder="email"  name="emailModificata" required> 
-	 <font color="#009e0f"> <button class="secondo" type="submit" name ="azioneProfilo" value="bottoneModifica">MODIFICA</button></font>
+      
+   	 <label class="etichetteModifica"><b>Numero Carta</b></label>
+      <input  class= "inputModifica" type="text" placeholder="numero carta" name="numeroModificato"  required >
+      
+      <label class="etichetteModifica"><b>Scadenza</b></label>
+      <input  class= "inputModifica" type="text" placeholder="scadenza"  name="scadenzaModificata" required> 
+      
+       <label class="etichetteModifica"><b>Circuito</b></label>
+      <input  class= "inputModifica" type="text" placeholder="circutio"  name="circuitoModificato" required>
+       
+       <label class="etichetteModifica"><b>CVV</b></label>
+      <input  class= "inputModifica" type="text" placeholder="CVV"  name="cvvModificata" required> 
+
+       
+       
+	  <button class="secondo" type="submit" name ="azioneProfilo" value="modificaDati">MODIFICA</button>
        <div class="hr"></div>
        <!-- bottonemodifica sempre a posto di quello che stava prima nell if guarda servlet -->
     </div>
@@ -196,13 +255,17 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
   </div>
 		</form>
 </div>
-	
+
+
+    
+ 
+
 	<%@include file="footer.jsp"%>
 	
 	
 	<script>
 	// Get the modal
-	var modal = document.getElementById('modificaSped');
+	var modal = document.getElementById('modifica');
 
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
@@ -212,5 +275,6 @@ se elimina facciamo un'altro pop-up per confermare l'eliminazione e se è si most
 	}
 
 </script>
+
 </body>
 </html>
