@@ -52,8 +52,9 @@ public class ProdottoServlet extends HttpServlet {
 		}
 		
 		if(azioneP.equals("visualizzaProdotto")) {
-			System.out.println("sono in visualizzaProdotto\n");
+			System.out.println("sono in visualizzaProdotto");
 			String idProdotto= request.getParameter("idProdotto");
+			System.out.println("CODICE PRODOTTO CLICCATO: " + idProdotto );
 			try {
 				Prodotto prodottoBean=prodottoModel.doRetrieveByKey(idProdotto);
 				request.getSession().setAttribute("prodottoVisualizzato",prodottoBean);

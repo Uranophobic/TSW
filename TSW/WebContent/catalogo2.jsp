@@ -26,19 +26,22 @@
 <div class="grid-container">
 	<%for(int i=0; i<catalogo.size(); i++){ %>
     <div class="item1"> <!-- prodotto 1  -->
-    <div class="hovereffect">
-    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
-            <a href="visualizzaProdotto.jsp" class="overlay">
-				<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
-            </a>
-    </div>
+	    <div class="hovereffect">
+	    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
+	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>" class="overlay">
+					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
+	            </a>
+	    </div>
 		
 		<div class="addWishlist"><img  src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		<input id="idProdotto" value="<%= catalogo.get(i).getIdProdotto() %>">
-		 <% //System.out.println("Prodotto cercato: " + catalogo.get(i).getIdProdotto()); %>
-		 <p class="nomeProdotto"> <%= catalogo.get(i).getNome() %>  </p>
-		 <p class="nomeProdotto"> <%= catalogo.get(i).getPrezzo() %>  </p>
+		
+		
 	
+		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= catalogo.get(i).getIdProdotto() %>
+		 <p class="nomeProdotto"> <%= catalogo.get(i).getNome() %></p>
+		 <p class="nomeProdotto"> <%= catalogo.get(i).getPrezzo() %>  </p>
+		 <input type="hidden" id="prova" >
+		
 			<div class="bottoneAddCarrello">
 				<a class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
@@ -84,7 +87,7 @@
     		<p id="categ">Giardinaggio</p>
     		<ul class="sottoList">    	
 	        	<li><a  class="sottoCateg" href="">Attrezzi da potatura</a></li>
-	            <li><a class="sottoCateg"  href="">Attrecci per l'irrigazione</a></li>
+	            <li><a class="sottoCateg"  href="">Attrezzi per l'irrigazione</a></li>
 	            <li><a  class="sottoCateg" href="">Vasi e fioriere</a></li>
         	</ul>
     	</div>
@@ -119,11 +122,9 @@ function closeNav() {
 }
 </script>
 
-<script type="text/javascript">
-    document.getElementById("scopri").onclick = function () {
-        location.href = "visualizzaProdotto.jsp";
-    };
-</script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+
 
 
 <%@ include file="footer.jsp"%>

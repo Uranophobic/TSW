@@ -70,7 +70,7 @@ public class ProdottoModelDS implements ProdottoModel {
 
 		Prodotto prodottoBean=new Prodotto();
 
-		String selectSQL="SELECT * FROM"+ProdottoModelDS.TABLE_NAME+"where idProdotto=?";
+		String selectSQL="SELECT * FROM " +ProdottoModelDS.TABLE_NAME+ " WHERE idProdotto = ? ";
 
 		try {
 			connection=ds.getConnection();
@@ -162,7 +162,7 @@ public class ProdottoModelDS implements ProdottoModel {
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE"+ProdottoModelDS.TABLE_NAME+"SET idProdotto=?,immaginePath=?,nome=?, descrizione=?,categoria=?,prezzo=?,iva=?,sconto=?";
+		String updateSQL="UPDATE "+ProdottoModelDS.TABLE_NAME+"SET idProdotto = ?, immaginePath = ?, nome = ?, descrizione = ?, categoria = ?, prezzo = ?, iva = ?, sconto = ?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
@@ -196,7 +196,7 @@ public class ProdottoModelDS implements ProdottoModel {
 
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
-		String deleteSQL="DELETE FROM"+ProdottoModelDS.TABLE_NAME+"where idProdotto=?";
+		String deleteSQL="DELETE FROM "+ProdottoModelDS.TABLE_NAME+"WHERE idProdotto = ?";
 		try {
 			try {
 				connection=ds.getConnection();

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="bean.Utente"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +41,11 @@
 	
 		<ul class="listaNav">
 			<li class="iconNav"> <!-- elemento che contiene le icone -->
+			<%
+				if(session.getAttribute("utenteSessione") != null){
+					
+				
+			%>
 				<div class="iconeContenitore">
 				
 				  	<!-- profilo utente  -->
@@ -60,6 +66,9 @@
 						<a class="iconaTxt" href="carrello.jsp"> Carrello </a>
 					</div>
 				</div>
+			<% } else{ %>	
+				  <button class="primo">ACCEDI</button>
+			<% } %>
 			 </li>
 		
 			<!-- logo -->
