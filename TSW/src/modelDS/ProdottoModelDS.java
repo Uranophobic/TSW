@@ -128,13 +128,14 @@ public class ProdottoModelDS implements ProdottoModel {
 				Prodotto prodottoBean = new Prodotto();
 
 				prodottoBean.setIdProdotto(rs.getString("idProdotto"));
-				prodottoBean.setNome(rs.getString("Nome"));
-				prodottoBean.setDescrizione(rs.getString("sescrizione"));
+				prodottoBean.setImmaginePath(rs.getString("immaginePath"));
+				prodottoBean.setNome(rs.getString("nome"));
+				prodottoBean.setDescrizione(rs.getString("descrizione"));
 				prodottoBean.setCategoria(rs.getString("categoria"));
 				prodottoBean.setPrezzo(rs.getDouble("prezzo"));
 				prodottoBean.setIva(rs.getDouble("iva"));
 				prodottoBean.setSconto(rs.getDouble("sconto"));
-				prodottoBean.setImmaginePath(rs.getString("immaginePath"));
+		
 
 
 				prodott.add(prodottoBean);

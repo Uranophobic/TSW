@@ -90,7 +90,7 @@
 						<div class="col-sm-4 col-md-4 col-lg-12">
 							<ul class="bottoniNav">
 							<li class="item"> <a href="HomePage.jsp">  HOME PAGE </a></li>
-							    <li class="item"> <a href="catalogo.jsp">  CATALOGO </a></li>
+							    <li class="item"> <a href="prodotto?azioneP=visualizzaCatalogo">  CATALOGO </a></li>
 								<li class="item"> <a href=""> COME FUNZIONA </a></li>
 								<li class="item"> <a href="InformazioniServlet?informazioni=assistenza"> ASSISTENZA  </a></li>
 								<li class="item"> <a href="InformazioniServlet?informazioni=chisiamo"> CHI SIAMO  </a> </li>
