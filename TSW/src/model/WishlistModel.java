@@ -33,7 +33,7 @@ public interface WishlistModel {
 	/*
 	 * Firma di metodo che permette di aggiornare i prodotti all'interno della wishlist
 	 */
-	public void doDelete(String idWish) throws SQLException;
+	public void doDelete(String idWish, String email) throws SQLException;
 	/*
 	 * metodo che permette di eliminare un prodotto dalla wishlist
 	 */

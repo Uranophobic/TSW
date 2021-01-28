@@ -29,9 +29,6 @@ ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession(
 <div>
 <p  class="titoloPagine"> Carrello</p>
 </div>
-
-<%if(carrello.size()!=0){ %>
-	
 	
 
 <div class="container">                                                                                   
@@ -87,8 +84,7 @@ Ideale per delle finiture pulite e nette.
       </tr>
     </tbody>
   </table>
-<%  }else{//se invece è diverso da 0%>
-<%} %>
+
   </div>
 </div>
 <div class= "riga1" class="hr"></div>

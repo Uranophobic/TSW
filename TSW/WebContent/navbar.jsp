@@ -57,7 +57,7 @@
 					<!-- wish list -->  
 					<div  class="icona"> 
 					<a href="wishlist.jsp">	<img class="size" src="https://img.icons8.com/small/32/000000/like.png"/> </a>
-						<a class="iconaTxt" href="wishlist.jsp"> Lista dei Desideri </a>
+						<a class="iconaTxt" href="prodotto?azioneP=prova"> Lista dei Desideri </a>
 					</div>
 		
 					<!-- carrello -->
@@ -67,7 +67,7 @@
 					</div>
 				</div>
 			<% } else{ %>	
-				  <button class="primo">ACCEDI</button>
+				  <a href="login.jsp"><button>ACCEDI</button></a>
 			<% } %>
 			 </li>
 		

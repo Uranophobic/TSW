@@ -19,16 +19,7 @@ public class WishlistModelDS  implements WishlistModel{
 	private static DataSource ds;
 
 	static {
-		/*
-		 *try {
-			Context inizioContext=new InitialContext();
-			Context envContext=(Context) inizioContext.lookup("java:comp/env");
-			ds= (DataSource)envContext.lookup("jdbc/oltreilgiardino");
-		} catch (NamingException e) {
-			System.out.println("Errore: "+e.getMessage());
-			
-		} 
-		 */
+
 		try {
 			Context inizioContext=new InitialContext();
 			Context envContex= (Context) inizioContext.lookup("java:comp/env");
@@ -46,11 +37,11 @@ public class WishlistModelDS  implements WishlistModel{
 		PreparedStatement preparedStatement=null;
 		try {
 			connection=ds.getConnection();
-			String insertSQL="INSERT INTO "+ WishlistModelDS.TABLE_NAME+"(idWish,codiceProdotto)";
+			String insertSQL="INSERT INTO "+ WishlistModelDS.TABLE_NAME + "(idWish, codiceProdotto, email)";
 			preparedStatement=connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, wishlist.getIdWish());
 			preparedStatement.setString(2, wishlist.getCodiceProdotto());
-
+			preparedStatement.setString(3, wishlist.getEmail());
 			preparedStatement.executeUpdate();
 			
 		}finally {
@@ -74,7 +65,7 @@ public class WishlistModelDS  implements WishlistModel{
 
 		Wishlist wishBean=new Wishlist();
 
-		String selectSQL="SELECT * FROM"+WishlistModelDS.TABLE_NAME+"where idWish=?";
+		String selectSQL="SELECT * FROM " + WishlistModelDS.TABLE_NAME + "WHERE idWish=?";
 
 		try {
 			connection=ds.getConnection();
@@ -85,6 +76,7 @@ public class WishlistModelDS  implements WishlistModel{
 			{
 				wishBean.setIdWish(rs.getString("idWish"));
 				wishBean.setCodiceProdotto(rs.getString("codiceProdotto"));
+				wishBean.setEmail(rs.getString("email"));
 			}
 
 
@@ -96,8 +88,9 @@ public class WishlistModelDS  implements WishlistModel{
 				if(connection!=null)
 					connection.close();
 			}
-			return wishBean;
+			
 		}
+		return wishBean;
 	}
 
 
@@ -127,6 +120,7 @@ public class WishlistModelDS  implements WishlistModel{
 
 				wishlistBean.setIdWish(rs.getString("idWish"));
 				wishlistBean.setCodiceProdotto(rs.getString("codiceProdotto"));
+				wishlistBean.setEmail(rs.getString("email"));
 
 				wish.add(wishlistBean);
 			}
@@ -153,14 +147,14 @@ public class WishlistModelDS  implements WishlistModel{
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE"+WishlistModelDS.TABLE_NAME+"SET idWish=?,codiceProdotto=?";
+		String updateSQL="UPDATE " + WishlistModelDS.TABLE_NAME + "SET idWish = ?, codiceProdotto = ? WHERE email = ?";
 		try {
 
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
 			preparedStatement.setString(1, wishlist.getIdWish());
 			preparedStatement.setString(2, wishlist.getCodiceProdotto());
-
+			preparedStatement.setString(3, wishlist.getEmail());
 			result=preparedStatement.executeUpdate();
 
 		}finally {
@@ -177,15 +171,17 @@ public class WishlistModelDS  implements WishlistModel{
 		return result;
 	}
 
-	public void doDelete(String idWish) throws SQLException {
+	public void doDelete(String idWish, String email) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
-		String deleteSQL="DELETE FROM"+WishlistModelDS.TABLE_NAME+"where idWish=?";
+		String deleteSQL="DELETE FROM " + WishlistModelDS.TABLE_NAME + "WHERE idWish = ? and email = ?";
 		try {
 			try {
 				connection=ds.getConnection();
 				preparedStatement=connection.prepareStatement(deleteSQL);
 				preparedStatement.setString(1, idWish);
+				preparedStatement.setString(2, email);
+				
 			}catch(SQLException e) {
 				e.printStackTrace();
 

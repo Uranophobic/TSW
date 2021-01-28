@@ -18,7 +18,7 @@
 <p  class="titoloPagine"> Catalogo </p>
 </div>
 <%	ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
-	Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+
 %>
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIE</span>
@@ -28,13 +28,15 @@
     <div class="item1"> <!-- prodotto 1  -->
 	    <div class="hovereffect">
 	    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
-	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>" class="overlay">
+	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>&nome=<%= catalogo.get(i).getNome() %>" class="overlay">
 					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
 	            </a>
 	    </div>
-		
-		<div class="addWishlist"><img  src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		
+	    <% if(session.getAttribute("utenteSessione")!= null){ %>
+		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="prodotto?azioneP=prova %>" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		<%} else {%>
+		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="login.jsp" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		<%} %>
 		
 	
 		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= catalogo.get(i).getIdProdotto() %>
@@ -43,9 +45,15 @@
 		 <input type="hidden" id="prova" >
 		
 			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
+			<% if(session.getAttribute("utenteSessione")!= null){%>
+				<a href="carrello.jsp" class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
+			<%} else { %>
+			<a href="login.jsp" class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
+				</a>
+				<%} %>
 			</div>
 		  
   			
