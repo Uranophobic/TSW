@@ -33,7 +33,7 @@
 	            </a>
 	    </div>
 	    <% if(session.getAttribute("utenteSessione")!= null){ %>
-		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="prodotto?azioneP=prova %>" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a href="prodotto?azioneP=prova" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
 		<%} else {%>
 		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="login.jsp" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
 		<%} %>
@@ -46,7 +46,7 @@
 		
 			<div class="bottoneAddCarrello">
 			<% if(session.getAttribute("utenteSessione")!= null){%>
-				<a href="carrello.jsp" class=" bottoni bottoni-colori " >
+				<a href="carrello?azioneCarrello=addCarrello&idProdotto=<%= catalogo.get(i).getIdProdotto() %>" class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			<%} else { %>
@@ -55,6 +55,7 @@
 				</a>
 				<%} %>
 			</div>
+			
 		  
   			
   </div>

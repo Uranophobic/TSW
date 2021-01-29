@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -12,7 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import bean.Composizione;
+import bean.Ordine;
+import bean.Prodotto;
 import bean.Utente;
+import bean.Wishlist;
 import model.UtenteModel;
 import modelDS.UtenteModelDS;
 
@@ -59,6 +65,22 @@ public class LoginServlet extends HttpServlet {
 					if(utente.getPassword().equals(password)) {
 
 						request.getSession().setAttribute("utenteSessione", utente);
+						
+						//sessione del carrello
+						ArrayList<Composizione>carrello=new ArrayList<Composizione>();
+						request.getSession().setAttribute("carrelloSessione",carrello);
+						
+						//sessione dei prodotti nel carrello
+						ArrayList<Prodotto> prodottiCarrello=new ArrayList<Prodotto>();
+						request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
+						
+						//sessione degli ordini
+						ArrayList<Ordine> ordini=new ArrayList<Ordine>();
+						request.getSession().setAttribute("ordiniSessione", ordini);
+						
+						//sessione di wishlist
+						ArrayList<Wishlist> wishlist=new ArrayList<Wishlist>();
+						request.getSession().setAttribute("wishlistSessione", wishlist);
 
 						RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
 						view.forward(request, response);
@@ -135,9 +157,27 @@ public class LoginServlet extends HttpServlet {
 			}
 
 
-
+			//sessione dell'utente
 			HttpSession utenteSessione = request.getSession();
 			utenteSessione.setAttribute("utenteSessione", utente);
+
+			//sessione del carrello
+			ArrayList<Composizione>carrello=new ArrayList<Composizione>();
+			request.getSession().setAttribute("carrelloSessione",carrello);
+			
+			//sessione dei prodotti nel carrello
+			ArrayList<Prodotto> prodottiCarrello=new ArrayList<Prodotto>();
+			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
+			
+			//sessione degli ordini
+			ArrayList<Ordine> ordini=new ArrayList<Ordine>();
+			request.getSession().setAttribute("ordiniSessione", ordini);
+			
+			//sessione di wishlist
+			ArrayList<Wishlist> wishlist=new ArrayList<Wishlist>();
+			request.getSession().setAttribute("wishlistSessione", wishlist);
+			
+			
 
 
 

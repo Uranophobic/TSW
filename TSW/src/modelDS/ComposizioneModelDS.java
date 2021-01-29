@@ -25,7 +25,7 @@ public class ComposizioneModelDS implements ComposizioneModel {
 		try {
 			Context inizioContext=new InitialContext();
 
-			Context envContext=(Context) inizioContext.lookup("java: comp/env");
+			Context envContext=(Context) inizioContext.lookup("java:comp/env");
 
 			ds=(DataSource) envContext.lookup("jdbc/oltreilgiardino");
 

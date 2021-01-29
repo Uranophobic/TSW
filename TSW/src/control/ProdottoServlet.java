@@ -28,17 +28,18 @@ public class ProdottoServlet extends HttpServlet {
 	static WishlistModelDS wishlistModel=new WishlistModelDS();
 	Wishlist wish = new Wishlist();
 	Utente utente = new Utente();
+	Prodotto prodotto=new Prodotto();
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
 	}
-	
-	
-	
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String azioneP = request.getParameter("azioneP");
 		System.out.println("Azione selezionata: " + azioneP);
-		
+
 		if(azioneP.equals("visualizzaCatalogo")) {
 			System.out.println("sono in visualizzaCatalogo");
 			try {
@@ -49,44 +50,94 @@ public class ProdottoServlet extends HttpServlet {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
-		
+
 		}
-		
+
 		if(azioneP.equals("visualizzaProdotto")) {
 			System.out.println("sono in visualizzaProdotto");
 			String idProdotto= request.getParameter("idProdotto");
 			System.out.println("CODICE PRODOTTO CLICCATO: " + idProdotto );
 			try {
 				Prodotto prodottoVisualizzato=prodottoModel.doRetrieveByKey(idProdotto);
-				
+
 				request.getSession().setAttribute("prodottoVisualizzato", prodottoVisualizzato);
 				RequestDispatcher view=request.getRequestDispatcher("visualizzaProdotto.jsp");
 				view.forward(request, response);
-				
+
 			} catch (SQLException e) {
 
 				e.printStackTrace();
 			}
 		}
 
-		
+		//aggiungi prodotto a wishlist da catalogo
 		if(azioneP.equals("prova")) {
 			System.out.println("sono in wishlist");
-			wish= (Wishlist)request.getSession().getAttribute("wishlistSessione");
-			utente= (Utente)request.getSession().getAttribute("utenteSessione");
-			
-			ArrayList<Prodotto> wishlist=new ArrayList<Prodotto>();
 			try {
-				wishlist=prodottoModel.doRetrieveAll(utente.getEmail());
+				utente= (Utente)request.getSession().getAttribute("utenteSessione");
+				//wish= (Wishlist)request.getSession().getAttribute("wishlistSessione");
+
+
+				ArrayList<Prodotto> catalogo=new ArrayList<Prodotto>();
+				catalogo=(ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
+
+				ArrayList<Wishlist> prodottiWishlist=new ArrayList<Wishlist>();
+				prodottiWishlist=(ArrayList<Wishlist>) request.getSession().getAttribute("wishlistSessione");
+
+				int prodCat=catalogo.size();
+				System.out.println("PRODOTTI NEL CATALOGO:"+prodCat);
+				prodottiWishlist=wishlistModel.doRetrieveAll(utente.getEmail());
+				int prodWish=prodottiWishlist.size();
+				System.out.println("PRODOTTI NELLA WISHLIST"+prodWish);
+				for(int i=0;i<prodottiWishlist.size();i++) {
+					
+
+				}
+
+
 			} catch (SQLException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			request.getSession().setAttribute("prova", wishlist);
+		}
+
+
+
+		/*
+			try {
+				miaWish=wishlistModel.doRetrieveAll(utente.getEmail());
+				int numMia=miaWish.size();
+				System.out.println(numMia);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			/*
+
+			request.getSession().setAttribute("prova", listaProdotti);
 			RequestDispatcher view=request.getRequestDispatcher("wishlist.jsp");
 			view.forward(request, response); 
 		}
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		/*
 		if(azioneP.equals("ricerca")) {
 			String effettuaRicerca=request.getParameter("barraDiRicerca");
@@ -94,14 +145,14 @@ public class ProdottoServlet extends HttpServlet {
 				ArrayList<Prodotto> AllProdotti=prodottoModel.doRetrieveAll("nomeProdotto");//essere sicuri
 				ArrayList<Prodotto>risultatiRicerca=new ArrayList<Prodotto>();
 				/*
-				 * Creiamo un arrayList che contiene il bean di prodotto, cioè che contiene 
-				 * tutti i prodotti e questa cosa è possibile perchè definiamo un oggetto prodottoModel 
-				 * e utilizzando il metodo doRetriveAll recuperiamo tutti i prodotti. 
-				 * Dopo di che si crea un altro arrayList che dovrà contenere i prodotti che sono risultati
-				 * dalla ricerca del nostro utente.
-				 * Pertanto si prosegue facendo scorrere l'arraylist di prodotti per cercare il bean di prodotto
-				 * cioè si fa la corrispondenza cercando dentro all'arraylist il prodotto bean o i prodotti che l'utente ha ricercato
-				 *//*
+		 * Creiamo un arrayList che contiene il bean di prodotto, cioè che contiene 
+		 * tutti i prodotti e questa cosa è possibile perchè definiamo un oggetto prodottoModel 
+		 * e utilizzando il metodo doRetriveAll recuperiamo tutti i prodotti. 
+		 * Dopo di che si crea un altro arrayList che dovrà contenere i prodotti che sono risultati
+		 * dalla ricerca del nostro utente.
+		 * Pertanto si prosegue facendo scorrere l'arraylist di prodotti per cercare il bean di prodotto
+		 * cioè si fa la corrispondenza cercando dentro all'arraylist il prodotto bean o i prodotti che l'utente ha ricercato
+		 *//*
 				for(Prodotto prodottoBean: AllProdotti) {
 					//recuperiamo i dati del prodotto??
 					String idProdottto=request.getParameter("idProdotto");
@@ -115,12 +166,12 @@ public class ProdottoServlet extends HttpServlet {
 
 				if(risultatiRicerca.size()!=0) {
 					/*
-					 * Questo if va a controllare che l'array risultati ricerca non sia vuoto
-					 * Quindi in risultatiricerca ci sta il risultato o meglio i prodotti che l'utente ha ricercato
-					 * se è vuoto vuol dire che quel prodotto non è presente. 
-					 * Ma se così non fosse procediamo
-					 * 
-					 *//*
+		  * Questo if va a controllare che l'array risultati ricerca non sia vuoto
+		  * Quindi in risultatiricerca ci sta il risultato o meglio i prodotti che l'utente ha ricercato
+		  * se è vuoto vuol dire che quel prodotto non è presente. 
+		  * Ma se così non fosse procediamo
+		  * 
+		  *//*
 
 					request.getSession().setAttribute("risultatiRicerca",risultatiRicerca);
 					RequestDispatcher dispatcher=request.getRequestDispatcher("catalogo.jsp");//controlla nome jsp
@@ -134,7 +185,7 @@ public class ProdottoServlet extends HttpServlet {
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
-			
+
 			/*
 			if(azioneP.equals("aggiungiProdottoACarrello")) {
 				try {
@@ -147,8 +198,8 @@ public class ProdottoServlet extends HttpServlet {
 
 					//carrello vuoto
 					/*
-					 * aggiunta di un prodotto quando il carrello è vuoto
-				
+		   * aggiunta di un prodotto quando il carrello è vuoto
+
 
 					if(carrello.size()==0){
 
@@ -189,9 +240,9 @@ public class ProdottoServlet extends HttpServlet {
 
 
 			} */
-			
-		
-			/*
+
+
+		/*
 			//aggingi un prodotto da catalogo a wish 
 			if(azioneP.equals("addWish")) {
 				System.out.println("Sono nell'add wish.");
@@ -199,7 +250,7 @@ public class ProdottoServlet extends HttpServlet {
 				try {
 				String idProdotto = request.getParameter("idProdotto");
 				System.out.println("Id prodotto da aggiungere: " + idProdotto); 
-				
+
 				Prodotto prodottoWish =prodottoModel.doRetrieveByKey(idProdotto);
 				wish.setIdWish("acaso");
 				wish.setCodiceProdotto(prodottoWish.getIdProdotto());
@@ -211,13 +262,13 @@ public class ProdottoServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
-				
+
+
 				RequestDispatcher dispatcher=request.getRequestDispatcher("wishlist.jsp");
 				dispatcher.forward(request, response);
-				
+
 			}
-			
+
 			//aagiungi un prodotto da wish a carrello
 			if(azioneP.equals("aggiungiProdottoWishlist")) {
 				try {
@@ -237,9 +288,9 @@ public class ProdottoServlet extends HttpServlet {
 						composizione.setScontoAttuale(p.getSconto());
 						composizione.setQuantità(1);
 						con questi non so bene
-						 * 
-						 */
-/*
+		 * 
+		 */
+		/*
 						carrello.add(composizione);
 						quantitaCarrello++;
 
@@ -264,12 +315,12 @@ public class ProdottoServlet extends HttpServlet {
 							Composizione composizione = new Composizione();
 							composizione.setCodiceProdotto(w.getCodiceProdotto());
 							/*
-							 * 	composizione.setPrezzoUnitario(p.getPrezzo());
+		 * 	composizione.setPrezzoUnitario(p.getPrezzo());
 							composizione.setScontoAttuale(p.getSconto());
 							composizione.setQuantità(1);
-							 * 
-							 */
-/*
+		 * 
+		 */
+		/*
 							carrello.add(composizione);
 							quantitaCarrello ++;
 						}
@@ -285,8 +336,7 @@ public class ProdottoServlet extends HttpServlet {
 
 
 			}
-*/
+		 */
 
-		}
 	}
-
+}
