@@ -25,13 +25,10 @@ import modelDS.ProdottoModelDS;
 @WebServlet("/carrello")
 public class CarrelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Utente utente=new Utente();
-	ArrayList<Composizione> carrello=new ArrayList<Composizione>();
-	ArrayList<Prodotto> prodottiCarrello=new ArrayList<Prodotto>();
-	ProdottoModelDS prodottoModel=new ProdottoModelDS();
-	ProdottoModel prod=new ProdottoModelDS();
-	ComposizioneModel composizioneNuov= new ComposizioneModelDS();
-/**
+
+	static ProdottoModel prodModel=new ProdottoModelDS();
+	static ComposizioneModel composizioneNuov= new ComposizioneModelDS();
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,17 +51,133 @@ public class CarrelloServlet extends HttpServlet {
 		 */
 		if(azioneCarrello.equals("visualizzaCarrello")) {
 
-			utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-			prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+			ArrayList<Prodotto> prodottiCarrello = new ArrayList<Prodotto>();
+
+			Prodotto p = new Prodotto();
+			try {
+				for (int i=0; i<carrello.size(); i++) {
+
+					p = prodModel.doRetrieveByKey(carrello.get(i).getCodiceProdotto());
+					prodottiCarrello.add(p);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+			}
 
 			request.getSession().setAttribute("utenteSessione", utente);
 			request.getSession().setAttribute("carrelloSessione", carrello);
 			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher(" carrello2.jsp ");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
 			dispatcher.forward(request, response);
 		}
+
+		if(azioneCarrello.equals("addCarrello")) {
+
+			Utente utente =(Utente) request.getSession().getAttribute("utenteSessione");
+
+			try {
+				String idProdotto = request.getParameter("idProdotto");
+				Prodotto p = prodModel.doRetrieveByKey(idProdotto);
+				
+				ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+				int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
+				
+				if(carrello.size()==0) { //carrello vuoto
+					Composizione c = new Composizione();
+					c.setCodiceProdotto(p.getIdProdotto());
+					c.setPrezzoUnitario(p.getPrezzo());
+					c.setIva(p.getIva());
+					c.setScontoAttuale(p.getSconto());
+					c.setQuantità(1);
+					carrello.add(c);
+					quantitaCar++;
+					System.out.println("Quantita carrello: " + quantitaCar);
+				} else { //carrello non vuoto
+					int i;
+					for (i=0; i<carrello.size(); i++) {
+						if(carrello.get(i).getCodiceProdotto().equals(idProdotto)) {
+							carrello.get(i).setQuantità(carrello.get(i).getQuantità()+1);
+							quantitaCar++;
+							break;
+						}
+					}
+				
+					if(i==carrello.size()) {
+						Composizione c = new Composizione();
+						c.setCodiceProdotto(p.getIdProdotto());
+						c.setPrezzoUnitario(p.getPrezzo());
+						c.setIva(p.getIva());
+						c.setScontoAttuale(p.getSconto());
+						c.setQuantità(1);
+						carrello.add(c);
+						quantitaCar++;
+						System.out.println("prodotto aggiunto");
+					}
+					
+				}
+				
+			request.getSession().setAttribute("carrelloSessione", carrello);
+			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			response.sendRedirect("catalogo2.jsp");
+			//trovare un modo per non far aggiornare la pagina
+
+		}
+		
+		if(azioneCarrello.equals("incrementaQuantita")) {
+			System.out.println("Incremento!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+			for(int i=0;i<carrello.size();i++) {
+				String idProdotto=request.getParameter("idProdotto");
+				int quantita=Integer.parseInt(request.getParameter("quantitaCarrello"));
+				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
+					if(quantita==(carrello.get(i).getQuantità())) {
+						quantita=quantita+1;
+						carrello.get(i).setQuantità(quantita);
+						System.out.println("Incremento:" + quantita);
+					}
+
+				}
+			}
+			
+	
+		}
+
+		if(azioneCarrello.equals("decrementaQuantita")) {
+			System.out.println("decremento!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+			for(int i=0;i<=carrello.size();i++) {
+				String idProdotto=request.getParameter("idProdotto");
+				int quantita=Integer.parseInt(request.getParameter("quantitaCarrello"));
+				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
+					if(quantita==(carrello.get(i).getQuantità())) {
+						quantita=quantita-1;
+						carrello.get(i).setQuantità(quantita);
+						System.out.println("Decremento:" + quantita);
+					}
+
+				}
+
+			}
+
+		}
+
+		/*
 		if(azioneCarrello.equals("eliminaProdotto")) {
 			utente = (Utente) request.getSession().getAttribute("utenteSessione");
 			carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
@@ -80,93 +193,11 @@ public class CarrelloServlet extends HttpServlet {
 
 		}
 
-		if(azioneCarrello.equals("incrementaQuantita")) {
-			utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-			prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
-			for(int i=0;i<=carrello.size();i++) {
-				String idProdotto=request.getParameter("idProdotto");
-				int quantita=Integer.parseInt(request.getParameter("quantità"));
-				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
-					if(quantita==(carrello.get(i).getQuantità())) {
-						quantita=quantita+1;
-						carrello.get(i).setQuantità(quantita);
-					}
-
-				}
-			}
-		}
-
-		if(azioneCarrello.equals("decrementaQuantita")) {
-
-			utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-			prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
-			for(int i=0;i<=carrello.size();i++) {
-				String idProdotto=request.getParameter("idProdotto");
-				int quantita=Integer.parseInt(request.getParameter("quantità"));
-				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
-					if(quantita==(carrello.get(i).getQuantità())) {
-						quantita=quantita-1;
-						carrello.get(i).setQuantità(quantita);
-					}
-
-				}
-
-			}
-
-		}
 		
-		if(azioneCarrello.equals("addCarrello")) {
-			try {
-				ArrayList<Prodotto> catalogo = prodottoModel.doRetrieveAll("idProdotto");
-				//int quantitaCarrello =(int)(request.getSession().getAttribute("quantitaCarrello"));
-				ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-				String idProd=request.getParameter("idProdotto");
-				System.out.println("ID PRODOTTO: "+idProd);
-				Prodotto p = prodottoModel.doRetrieveByKey(idProd);
-				System.out.println("PRODOTTO CERCATO: "+p);
+		 */
 
+		/*
 
-				//carrello vuoto  aggiunta di un prodotto quando il carrello è vuoto
-
-				if(carrello.size()==0){
-					System.out.println("sono in carrello uguale a 0");
-					Composizione composizione=new Composizione();
-					composizione.setCodiceProdotto(p.getIdProdotto());
-					composizione.setPrezzoUnitario(p.getPrezzo());
-					composizione.setScontoAttuale(p.getSconto());
-					int quantita=composizione.getQuantità();
-					quantita++;
-					composizione.setQuantità(quantita);
-					carrello.add(composizione);
-					request.getSession().setAttribute("carrelloSessione", carrello);
-					int prodCar=carrello.size();
-					System.out.println(prodCar);
-					
-				}else {
-					System.out.println("sono in carrello diverso da 0");
-					for(int i = 0; i<carrello.size(); i++){
-						System.out.println("sto scorrendo il for");
-						System.out.println("INDICE 1: "+i);
-						int dim = carrello.size();
-						if(dim==i) {
-							Composizione composizione = new Composizione();
-							composizione.setCodiceProdotto(p.getIdProdotto());
-							composizione.setPrezzoUnitario(p.getPrezzo());
-							composizione.setScontoAttuale(p.getSconto());
-							int quantita=composizione.getQuantità();
-							
-								quantita++;
-								composizione.setQuantità(quantita);
-							
-							
-							carrello.add(composizione);
-							
-						}
-						
-						
-						
 						if((carrello.get(i).getCodiceProdotto())==idProd){
 							carrello.get(i).setQuantità((carrello.get(i).getQuantità()+1));
 							//quantitaCarrello ++;
@@ -185,7 +216,7 @@ public class CarrelloServlet extends HttpServlet {
 								int quantita=composizione.getQuantità();
 								quantita++;
 								composizione.setQuantità(quantita);
-								
+
 								carrello.add(composizione);
 								request.getSession().setAttribute("carrelloSessione", carrello);
 								int prodCar=carrello.size();
@@ -198,16 +229,14 @@ public class CarrelloServlet extends HttpServlet {
 						}
 					}
 				}
-			}catch(SQLException ex) {
-				ex.printStackTrace();
-			}
+					}
+				}
 
-			
-			
-			RequestDispatcher view=request.getRequestDispatcher("carrello2.jsp");
-			view.forward(request, response);
 
-		}
+
+		 */
+
+
 
 
 		/*

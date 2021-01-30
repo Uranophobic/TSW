@@ -18,6 +18,67 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title> Carrello - Oltre il Giardino</title>
+<style>
+form {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.value-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 11px 0;
+  background: #eee;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+form #decrease {
+  margin-right: -4px;
+  border-radius: 8px 0 0 8px;
+}
+
+form #increase {
+  margin-left: -4px;
+  border-radius: 0 8px 8px 0;
+}
+
+form #input-wrap {
+  margin: 0px;
+  padding: 0px;
+}
+
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+</style>
 </head>
 
 <body>
@@ -27,19 +88,7 @@
 ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
 ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
 
-for(int i=0;i<catalogo.size();i++){
-	for(int j=0; j<carrello.size();j++){
-		String codiceCarrello=carrello.get(j).getCodiceProdotto();
-		String codiceCatalogo=catalogo.get(i).getIdProdotto();
-		System.out.println(codiceCarrello);
-		//System.out.println(codiceCatalogo);
-		
-	if(codiceCarrello.equals(codiceCatalogo)){
-		
-		prodottiCarrello.add(catalogo.get(i));
-	}
-}
-}
+
 
 %>
 
@@ -63,17 +112,34 @@ for(int i=0;i<catalogo.size();i++){
       </tr>
     </thead>
     <tbody>
-    <% for(int i=0; i<prodottiCarrello.size();i++){    %>
+    <% for(int i=0; i<carrello.size();i++){    %>
     
       <tr>
-        <td>1</td>
+        <td><%=i %></td>
         <td><img src="<%=prodottiCarrello.get(i).getImmaginePath() %>" style="width: 80%;"></td>
         <td> <p id="titDescr" ><%=prodottiCarrello.get(i).getNome() %></p>
         <p id="testoDescr"> <%=prodottiCarrello.get(i).getDescrizione() %>
          </p> </td>
         <td><%=prodottiCarrello.get(i).getPrezzo()%></td>
+        <td>
         
-        <td>0</td>
+        
+        <form action="carrello" method="post">
+       Quantita: <input type="number" min="1" max="10" value="<%= carrello.get(i).getQuantità() %>" name="quantita" id="q">
+				 <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
+		</form>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </td>
+        <td> TOTALE </td>
       </tr>
      <%} %>
      
@@ -89,10 +155,29 @@ for(int i=0;i<catalogo.size();i++){
 		<a class=" bottoni bottoni-colori " >
 		    <span class="">Indietro</span>
 		</a>	
-		<a class=" bottoni bottoni-colori " >
+		
+		<input type="submit" name="azioneCarrello" value="incrementaQuantita" >
+		<a href="procediOrdine.jsp" class=" bottoni bottoni-colori " >
 		    <span class=""> Procedi all'ordine ></span>
 		</a>	
   	</div>
+  	
+  	<script>
+function increaseValue() {
+	  var value = parseInt(document.getElementById('number').value, 10);
+	  value = isNaN(value) ? 0 : value;
+	  value++;
+	  document.getElementById('number').value = value;
+	}
+
+	function decreaseValue() {
+	  var value = parseInt(document.getElementById('number').value, 10);
+	  value = isNaN(value) ? 0 : value;
+	  value < 1 ? value = 1 : '';
+	  value--;
+	  document.getElementById('number').value = value;
+	}
+</script>
 <%@ include file="footer.jsp"%>
 </body>
 </html>

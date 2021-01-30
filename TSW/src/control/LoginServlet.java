@@ -42,6 +42,10 @@ public class LoginServlet extends HttpServlet {
 		String azioneLogin = request.getParameter("azioneLogin");
 		System.out.println("Azione selezionata: " + azioneLogin);
 
+		//var per i prod nel carrello
+		int quantita=0; 
+		request.getSession().setAttribute("quantitaCarrello", quantita);
+		
 		if(azioneLogin.equals("loginUtente")) {
 			/*
 			 * 1 mail inserita corrisponde a quella dell'utente o meglio a una presente nel db 

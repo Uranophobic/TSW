@@ -46,7 +46,7 @@
 		
 			<div class="bottoneAddCarrello">
 			<% if(session.getAttribute("utenteSessione")!= null){%>
-				<a href="carrello?azioneCarrello=addCarrello&idProdotto=<%= catalogo.get(i).getIdProdotto() %>" class=" bottoni bottoni-colori " >
+				<a onclick="addProdotto()" href="carrello?azioneCarrello=addCarrello&idProdotto=<%= catalogo.get(i).getIdProdotto() %>" class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			<%} else { %>
@@ -133,7 +133,11 @@ function closeNav() {
 
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-
+<script>
+function addProdotto() {
+  alert("Hai aggiunto un prodotto al carrello!");
+}
+</script>
 
 
 <%@ include file="footer.jsp"%>
