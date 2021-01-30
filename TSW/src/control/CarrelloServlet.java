@@ -62,9 +62,8 @@ public class CarrelloServlet extends HttpServlet {
 			request.getSession().setAttribute("carrelloSessione", carrello);
 			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher(" carrello.jsp ");
+			RequestDispatcher dispatcher = request.getRequestDispatcher(" carrello2.jsp ");
 			dispatcher.forward(request, response);
-
 		}
 		if(azioneCarrello.equals("eliminaProdotto")) {
 			utente = (Utente) request.getSession().getAttribute("utenteSessione");
@@ -180,9 +179,10 @@ public class CarrelloServlet extends HttpServlet {
 			}
 
 			
+			/*
 			RequestDispatcher view=request.getRequestDispatcher("carrello2.jsp");
 			view.forward(request, response);
-
+*/
 		}
 
 

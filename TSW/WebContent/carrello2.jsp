@@ -41,13 +41,6 @@ for(int i=0;i<catalogo.size();i++){
 }
 }
 
-
-if(carrello.size()!=0){
-	
-	System.out.println("Ok");
-}else{
-	System.out.println(" NOT Ok");
-}
 %>
 
 <div>
@@ -56,7 +49,8 @@ if(carrello.size()!=0){
 	
 
 <div class="container">                                                                                   
-  <div class="table-responsive">          
+  <div class="table-responsive">
+  <%if(prodottiCarrello.size()>0){ %>          
   <table class="table">
     <thead>
       <tr>
@@ -85,7 +79,9 @@ if(carrello.size()!=0){
      
     </tbody>
   </table>
-
+<%}else{%>
+	<p> Non ci sono prodotti, registrati</p>
+	<%} %>
   </div>
 </div>
 <div class= "riga1" class="hr"></div>

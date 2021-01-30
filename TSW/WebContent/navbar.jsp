@@ -64,7 +64,7 @@
 					<!-- carrello -->
 					<div class="icona"> 
 					<a href="carrello.jsp">	<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> </a>
-						<a class="iconaTxt" href="carrello2.jsp"> Carrello </a>
+						<a class="iconaTxt" href="carrello?azioneCarrello=visualizzaCarrello"> Carrello </a>
 					</div>
 				</div>
 			<% } else{ %>	
