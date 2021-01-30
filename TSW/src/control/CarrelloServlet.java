@@ -125,12 +125,13 @@ public class CarrelloServlet extends HttpServlet {
 				String idProd=request.getParameter("idProdotto");
 				System.out.println("ID PRODOTTO: "+idProd);
 				Prodotto p = prodottoModel.doRetrieveByKey(idProd);
+				System.out.println("PRODOTTO CERCATO: "+p);
 
 
 				//carrello vuoto  aggiunta di un prodotto quando il carrello è vuoto
 
 				if(carrello.size()==0){
-
+					System.out.println("sono in carrello uguale a 0");
 					Composizione composizione=new Composizione();
 					composizione.setCodiceProdotto(p.getIdProdotto());
 					composizione.setPrezzoUnitario(p.getPrezzo());
@@ -144,16 +145,38 @@ public class CarrelloServlet extends HttpServlet {
 					System.out.println(prodCar);
 					
 				}else {
-					int i;
-					for(i = 0; i<carrello.size(); i++){
+					System.out.println("sono in carrello diverso da 0");
+					for(int i = 0; i<carrello.size(); i++){
+						System.out.println("sto scorrendo il for");
+						System.out.println("INDICE 1: "+i);
+						int dim = carrello.size();
+						if(dim==i) {
+							Composizione composizione = new Composizione();
+							composizione.setCodiceProdotto(p.getIdProdotto());
+							composizione.setPrezzoUnitario(p.getPrezzo());
+							composizione.setScontoAttuale(p.getSconto());
+							int quantita=composizione.getQuantità();
+							
+								quantita++;
+								composizione.setQuantità(quantita);
+							
+							
+							carrello.add(composizione);
+							
+						}
+						
+						
+						
 						if((carrello.get(i).getCodiceProdotto())==idProd){
 							carrello.get(i).setQuantità((carrello.get(i).getQuantità()+1));
 							//quantitaCarrello ++;
 							//System.out.println("Sono nel FOR, prodotto incrementato");
 							//break;
+						//	int j=i++;
 						}else {
 							//aggiungi un nuovo prodotto al carrello
 							//quindi una nuova Composizione, setta tutti gli attributi
+							System.out.println("INDICE 2: "+i); 
 							if(i==carrello.size()){
 								Composizione composizione = new Composizione();
 								composizione.setCodiceProdotto(p.getIdProdotto());
@@ -170,6 +193,7 @@ public class CarrelloServlet extends HttpServlet {
 							//	composizioneNuov.doSave(composizione);
 								//quantitaCarrello ++;
 								//	System.out.println("Nuovo prodotto");
+								composizioneNuov.doSave(composizione);
 							}
 						}
 					}
@@ -179,10 +203,10 @@ public class CarrelloServlet extends HttpServlet {
 			}
 
 			
-			/*
+			
 			RequestDispatcher view=request.getRequestDispatcher("carrello2.jsp");
 			view.forward(request, response);
-*/
+
 		}
 
 

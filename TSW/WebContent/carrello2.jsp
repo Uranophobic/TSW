@@ -32,7 +32,7 @@ for(int i=0;i<catalogo.size();i++){
 		String codiceCarrello=carrello.get(j).getCodiceProdotto();
 		String codiceCatalogo=catalogo.get(i).getIdProdotto();
 		System.out.println(codiceCarrello);
-		System.out.println(codiceCatalogo);
+		//System.out.println(codiceCatalogo);
 		
 	if(codiceCarrello.equals(codiceCatalogo)){
 		
@@ -72,7 +72,7 @@ for(int i=0;i<catalogo.size();i++){
         <p id="testoDescr"> <%=prodottiCarrello.get(i).getDescrizione() %>
          </p> </td>
         <td><%=prodottiCarrello.get(i).getPrezzo()%></td>
-        <td><%=carrello.get(i).getQuantità() %></td>
+        
         <td>0</td>
       </tr>
      <%} %>
