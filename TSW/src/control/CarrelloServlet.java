@@ -140,10 +140,14 @@ public class CarrelloServlet extends HttpServlet {
 			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+			int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
+			System.out.println("QUANTITA': "+quantita);
 			for(int i=0;i<carrello.size();i++) {
-				String idProdotto=request.getParameter("idProdotto");
-				int quantita=Integer.parseInt(request.getParameter("quantitaCarrello"));
-				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
+				String idProdotto=request.getParameter("idProd");
+				System.out.println("ID PRODOTTO: "+idProdotto);
+				String getIdProdotto=prodottiCarrello.get(i).getIdProdotto();
+				System.out.println("GET ID PRODOTTO: "+getIdProdotto);
+				if(idProdotto.equals(getIdProdotto)) {
 					if(quantita==(carrello.get(i).getQuantità())) {
 						quantita=quantita+1;
 						carrello.get(i).setQuantità(quantita);

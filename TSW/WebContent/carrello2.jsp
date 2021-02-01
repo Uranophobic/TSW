@@ -87,6 +87,7 @@ input[type=number]::-webkit-outer-spin-button {
 <%ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
 ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
+int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
 
 
 
@@ -127,6 +128,7 @@ ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttrib
         <form action="carrello" method="post">
        Quantita: <input type="number" min="1" max="10" value="<%= carrello.get(i).getQuantità() %>" name="quantita" id="q">
 				 <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
+				 <button type="submit" name="azioneCarrello" value="incrementaQuantita">Conferma</button>
 		</form>
         
         
@@ -155,11 +157,15 @@ ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttrib
 		<a class=" bottoni bottoni-colori " >
 		    <span class="">Indietro</span>
 		</a>	
-		
-		<input type="submit" name="azioneCarrello" value="incrementaQuantita" >
+		<form action="carrello" method="POST">
 		<a href="procediOrdine.jsp" class=" bottoni bottoni-colori " >
+		<button type="submit" name="azioneCarrello" value="incrementaQuantita" >
+		
 		    <span class=""> Procedi all'ordine ></span>
-		</a>	
+
+		</button>
+		</a>
+		</form>
   	</div>
   	
   	<script>
