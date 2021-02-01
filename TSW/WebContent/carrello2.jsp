@@ -97,7 +97,7 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
 <p  class="titoloPagine"> Carrello</p>
 </div>
 	
-
+<form action="carrello" method="post">
 <div class="container">                                                                                   
   <div class="table-responsive">
   <%if(prodottiCarrello.size()>0){ %>          
@@ -125,11 +125,11 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
         <td>
         
         
-        <form action="carrello" method="post">
+        
        Quantita: <input type="number" min="1" max="10" value="<%= carrello.get(i).getQuantità() %>" name="quantita" id="q">
 				 <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
-				 <button type="submit" name="azioneCarrello" value="incrementaQuantita">Conferma</button>
-		</form>
+			
+	
         
         
         
@@ -157,17 +157,17 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
 		<a class=" bottoni bottoni-colori " >
 		    <span class="">Indietro</span>
 		</a>	
-		<form action="carrello" method="POST">
+		
 		<a href="procediOrdine.jsp" class=" bottoni bottoni-colori " >
-		<button type="submit" name="azioneCarrello" value="incrementaQuantita" >
+		<button type="submit" name="azioneCarrello" value="modificaQuantita" >
 		
 		    <span class=""> Procedi all'ordine ></span>
 
 		</button>
 		</a>
-		</form>
+		
   	</div>
-  	
+	</form>	
   	<script>
 function increaseValue() {
 	  var value = parseInt(document.getElementById('number').value, 10);

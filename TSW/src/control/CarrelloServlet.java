@@ -135,12 +135,12 @@ public class CarrelloServlet extends HttpServlet {
 
 		}
 		
-		if(azioneCarrello.equals("incrementaQuantita")) {
-			System.out.println("Incremento!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+		if(azioneCarrello.equals("modificaQuantita")) {
 			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
-			int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
+			//int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
+			int quantita=Integer.parseInt(request.getParameter("quantita"));
 			System.out.println("QUANTITA': "+quantita);
 			for(int i=0;i<carrello.size();i++) {
 				String idProdotto=request.getParameter("idProd");
@@ -148,10 +148,11 @@ public class CarrelloServlet extends HttpServlet {
 				String getIdProdotto=prodottiCarrello.get(i).getIdProdotto();
 				System.out.println("GET ID PRODOTTO: "+getIdProdotto);
 				if(idProdotto.equals(getIdProdotto)) {
-					if(quantita==(carrello.get(i).getQuantità())) {
-						quantita=quantita+1;
+					if(quantita!=carrello.get(i).getQuantità()) {
+//se la quantita che vuole mettere l'utente è maggiore della quantita presente nel carrello,incremento
+						
 						carrello.get(i).setQuantità(quantita);
-						System.out.println("Incremento:" + quantita);
+						System.out.println("Quantita:" + quantita);
 					}
 
 				}
@@ -160,27 +161,7 @@ public class CarrelloServlet extends HttpServlet {
 	
 		}
 
-		if(azioneCarrello.equals("decrementaQuantita")) {
-			System.out.println("decremento!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
-			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
-			for(int i=0;i<=carrello.size();i++) {
-				String idProdotto=request.getParameter("idProdotto");
-				int quantita=Integer.parseInt(request.getParameter("quantitaCarrello"));
-				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
-					if(quantita==(carrello.get(i).getQuantità())) {
-						quantita=quantita-1;
-						carrello.get(i).setQuantità(quantita);
-						System.out.println("Decremento:" + quantita);
-					}
-
-				}
-
-			}
-
-		}
-
+	
 		/*
 		if(azioneCarrello.equals("eliminaProdotto")) {
 			utente = (Utente) request.getSession().getAttribute("utenteSessione");
@@ -243,27 +224,6 @@ public class CarrelloServlet extends HttpServlet {
 
 
 
-		/*
-		 * VISUALIZZA CARRELLO
-		 * mi prendo tutti i prodotti dalla sessione che l'utente ha aggiunto al carrello, li metto all'interno di un
-		 * Arraylist e lo passo alla jsp che provvederà a stampare tutti i prodotti all'interno dell'arraylist 
-		 * (vedi array list sopra)
-		 *
-		 * Se il carrello è vuoto possiamo mostrare il catalogo, dopo aver avvisato che il carrello è vuoto, con sopra scritto
-		 * Inizia adesso ad aggiungere i tuoi prodotti preferiti, fai questo sulla jsp carrello
-		 * secondo me questa si fa semplicemente con il fatto della sessione user na na na che abbiamo messo alle altre parti e 
-		 * poi mostrando il proprio carrello, cioè mostra il NOSTRO CARRELLO cioè i prodotti che NOI abbiamo messo nel carrello perciò
-		 * teniamo conto della sessione dell'utente che si logga. 
-		 * IO LA FAREI COSì MA AMMETTO DI AVER GUARDATO DA VALENTINA E LEI LA UN PO PIù LUNGA QUINDI BOH.
-		 */
-
-
-		/*
-		 * ELIMINA PRODOTTO DA CARRELLO
-		 * Questa si fa così, sempre secondo me come gli altri elimina, ci prendiamo scorriamo i prodotti nel carello, li scorriamo 
-		 * e ci prendiamo con doRetreiveAll quello con il nostro id. Abbiamo un array di prodotti che stanno nel carello e poi usiamo 
-		 * il doDelete del prodotto e andiamo successivamente a decrementare il prodotto dall'array di prodotti nel carello.
-		 */
-
+		
 	}
 }
