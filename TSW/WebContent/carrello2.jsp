@@ -19,65 +19,8 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title> Carrello - Oltre il Giardino</title>
 <style>
-form {
-  width: 300px;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 50px;
-}
 
-.value-button {
-  display: inline-block;
-  border: 1px solid #ddd;
-  margin: 0px;
-  width: 40px;
-  height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 11px 0;
-  background: #eee;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
-.value-button:hover {
-  cursor: pointer;
-}
-
-form #decrease {
-  margin-right: -4px;
-  border-radius: 8px 0 0 8px;
-}
-
-form #increase {
-  margin-left: -4px;
-  border-radius: 0 8px 8px 0;
-}
-
-form #input-wrap {
-  margin: 0px;
-  padding: 0px;
-}
-
-input#number {
-  text-align: center;
-  border: none;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  margin: 0px;
-  width: 40px;
-  height: 40px;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
 </style>
 </head>
 
@@ -122,24 +65,13 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
         <p id="testoDescr"> <%=prodottiCarrello.get(i).getDescrizione() %>
          </p> </td>
         <td><%=prodottiCarrello.get(i).getPrezzo()%></td>
-        <td>
-        
-        
-        
+        <td>     
        Quantita: <input type="number" min="1" max="10" value="<%= carrello.get(i).getQuantità() %>" name="quantita" id="q">
 				 <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
-			
-	
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        </td>
+        <td> <button name="azioneCarrello" value="eliminaProdotto"> Elimina </button>
+         <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
         </td>
         <td> TOTALE </td>
       </tr>

@@ -141,7 +141,6 @@ public class CarrelloServlet extends HttpServlet {
 			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
 			//int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
 			int quantita=Integer.parseInt(request.getParameter("quantita"));
-			System.out.println("QUANTITA': "+quantita);
 			for(int i=0;i<carrello.size();i++) {
 				String idProdotto=request.getParameter("idProd");
 				System.out.println("ID PRODOTTO: "+idProdotto);
@@ -149,37 +148,55 @@ public class CarrelloServlet extends HttpServlet {
 				System.out.println("GET ID PRODOTTO: "+getIdProdotto);
 				if(idProdotto.equals(getIdProdotto)) {
 					if(quantita!=carrello.get(i).getQuantità()) {
-//se la quantita che vuole mettere l'utente è maggiore della quantita presente nel carrello,incremento
-						
+			
 						carrello.get(i).setQuantità(quantita);
 						System.out.println("Quantita:" + quantita);
 					}
 
 				}
+				
+				//System.out.println("Quantita settata:" + carrello.get(i).getQuantità());
 			}
 			
-	
+			request.getSession().setAttribute("carrelloSessione", carrello);
+			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
 		}
 
 	
-		/*
+		
 		if(azioneCarrello.equals("eliminaProdotto")) {
-			utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-			prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
-			for(int i=0;i<=carrello.size();i++) {
-				String  idProdotto=request.getParameter("idProdotto");
-				if(idProdotto.equals(prodottiCarrello.get(i).getIdProdotto())) {
-					prodottiCarrello.remove(idProdotto);
-					carrello.remove(idProdotto);
-
+			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+			String  idProdotto=request.getParameter("idProd");
+			System.out.println("id prod da eliminare: " + idProdotto);
+			for(Composizione prod : carrello) { //prod è il prodotto da eliminare
+				if(prod.getCodiceProdotto().equals(idProdotto)) {
+					carrello.remove(prod);
+					System.out.println("Prodotto Eliminato da carrello");
+					break;
 				}
 			}
-
+			
+			System.out.println("carrelo DOPO ELIMINA: " + carrello);
+	
+			request.getSession().removeAttribute("carrelloSessione");
+			request.getSession().setAttribute("carrelloSessione", carrello);
+			request.getSession().removeAttribute("prodottiCarrello");
+			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
+			
+			if(carrello.size()==0) {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo2.jsp");
+				dispatcher.forward(request, response);
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+				dispatcher.forward(request, response);
+			}
+			
 		}
 
 		
-		 */
+		 
 
 		/*
 
