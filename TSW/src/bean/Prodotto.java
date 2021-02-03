@@ -7,11 +7,8 @@ public class Prodotto {
 	private String descrizione;
 	private String categoria;
 	private double prezzo;
-	/*
-	 * su prodotto e composizione o solo composizione
-	 */
 	private double iva;
-	private double sconto;//CAMBIA SU DATABASE DA VARCHAR A DOUBLE MA PIU LUNGO BISOGNA MODIFICARE I VALORI
+	private double sconto;
 
 
 

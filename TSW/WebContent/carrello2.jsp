@@ -70,10 +70,31 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
 				 <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
         
         </td>
-        <td> <button name="azioneCarrello" value="eliminaProdotto"> Elimina </button>
-         <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
+        <td> <a  href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%= prodottiCarrello.get(i).getIdProdotto() %>"> Elimina 
+        <!--  <input type="hidden" name="idProdDelete" value="<%= prodottiCarrello.get(i).getIdProdotto() %>"> -->
+         </a>
         </td>
-        <td> TOTALE </td>
+        <td> <% double sconto=0, prezzo=0, totSingProd=0;
+        if(prodottiCarrello.get(i).getSconto()!=0){
+        	
+        			sconto=prodottiCarrello.get(i).getSconto();
+        			//iva=prodottiCarrello.get(i).getIva();
+        			 prezzo=prodottiCarrello.get(i).getPrezzo();
+        			 totSingProd=0;//totale singolo prodotto prezzo*quantita
+        			
+        			totSingProd=prezzo-(prezzo*sconto/100);
+        			totSingProd=totSingProd*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+        			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+        	
+        }else{
+        	
+        	 prezzo=prodottiCarrello.get(i).getPrezzo();
+			 totSingProd=0;
+			totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+        }
+        	%><%=totSingProd %></td>
+    
       </tr>
      <%} %>
      
