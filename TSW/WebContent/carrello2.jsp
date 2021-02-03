@@ -31,6 +31,7 @@
 ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
 ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
 int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
+double totaleCarrello=0;
 
 
 
@@ -85,6 +86,7 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
         			totSingProd=prezzo-(prezzo*sconto/100);
         			totSingProd=totSingProd*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
         			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+        			totaleCarrello=totaleCarrello+totSingProd;
         	
         }else{
         	
@@ -92,18 +94,20 @@ int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
 			 totSingProd=0;
 			totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
 			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+			totaleCarrello=totaleCarrello+totSingProd;
         }
         	%><%=totSingProd %></td>
     
       </tr>
      <%} %>
-     
+    
     </tbody>
   </table>
 <%}else{%>
 	<p> Non ci sono prodotti, registrati</p>
 	<%} %>
   </div>
+   <tr>Totale complessivo <%=totaleCarrello %></tr>
 </div>
 <div class= "riga1" class="hr"></div>
 <div class="opBtn3">
