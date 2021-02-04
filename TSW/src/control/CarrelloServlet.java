@@ -161,6 +161,7 @@ public class CarrelloServlet extends HttpServlet {
 						carrello.get(i).setQuantità(quantita);
 						System.out.println("Quantita:" + quantita);
 						System.out.println("Quantita carrello: " + quantitaCar);
+						request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 					}
 
 
@@ -219,8 +220,8 @@ public class CarrelloServlet extends HttpServlet {
 			request.getSession().removeAttribute("quantitaCarrello");
 			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage.jsp");
-			dispatcher.forward(request, response);
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage.jsp");
+			//dispatcher.forward(request, response);
 		}
 
 

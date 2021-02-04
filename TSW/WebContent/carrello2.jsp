@@ -69,7 +69,7 @@ double totaleCarrello=0;
         <td>     
        Quantita: <input type="number" min="1" max="10" value="<%= carrello.get(i).getQuantità() %>" name="quantita" id="q">
 				 <input type="hidden" name="idProd" value="<%= prodottiCarrello.get(i).getIdProdotto() %>">
-        
+        		 <a  href="carrello?azioneCarrello=modificaQuantita&quantita=<%=quantita  %>"> Conferma </a>
         </td>
         <td> <a  href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%= prodottiCarrello.get(i).getIdProdotto() %>"> Elimina 
         <!--  <input type="hidden" name="idProdDelete" value="<%= prodottiCarrello.get(i).getIdProdotto() %>"> -->
@@ -122,13 +122,11 @@ double totaleCarrello=0;
 		    <span class="">Indietro</span>
 		</a>	
 		
-		<a href="HomePage.jsp" class=" bottoni bottoni-colori " >
-		<button type="submit" name="azioneCarrello" value="modificaQuantita" >
 		
-		    <span class=""> Procedi all'ordine ></span>
-
+		<button class=" bottoni bottoni-colori"  type="submit" name="azioneCarrello" value="modificaQuantita" >
+		<a href="procOrdine.jsp" > 	Procedi all'ordine ></a>
 		</button>
-		</a>
+		
 		
   	</div>
 	</form>	

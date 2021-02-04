@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    import="java.util.ArrayList, bean.Prodotto, java.text.*, bean.Composizione, bean.DatiSpedizione, bean.DatiPagamento"%>
+    import="java.util.ArrayList, bean.Prodotto, java.text.*, bean.Composizione"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +13,55 @@
 <body>
 <%@ include file="navbar.jsp"%>
 <%
-	ArrayList<Composizione> carrello = new ArrayList<Composizione>();
-	carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+
+	ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
     ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+    double totaleCarrello=0;
+    
+    Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+	   String datiSped = utente.getDatiSpedizione();
+	   System.out.println("Sono i dati spedizione: " + datiSped);
+	   String datiPag = utente.getDatiPagamento();
+	   System.out.println("Sono i dati pagamento: " + datiPag);
+	   
+	   String via="", citta="", cap="", provincia=""; 
+	   
+	   if(utente.getDatiSpedizione()!=null){
+		   
+		   int uno = datiSped.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   via = datiSped.substring(0, uno);
+		   String runo = datiSped.substring(uno+1); //r sta per resto quindi resto uno =runo
+		   
+		   int due = runo.indexOf("&");
+		   citta = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   cap = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);
+		   
+		   int quattro = rtre.indexOf("&");
+		   provincia = rtre.substring(0);
+	   }
+	   
+	   String numeroCarta="", scadenza="", circuito="", CVV="";
+	   
+	   if(utente.getDatiPagamento()!=null){
+		   int uno = datiPag.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   numeroCarta = datiPag.substring(0, uno);
+		   String runo = datiPag.substring(uno+1); //r sta per resto quindi resto uno =runo
+				   
+		   int due = runo.indexOf("&");
+		   scadenza = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   circuito = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);	
+		   
+		   int quattro = rtre.indexOf("&");
+		   CVV = rtre.substring(0);
+	   }
 %>
 <div>
 <p  class="titoloPagine"> Procedi all'acquisto </p>
@@ -40,7 +86,7 @@
 				  </tr>
 				  	
 		 		<% 		
-		 			double calcSconto = 0, costo = 0, prezzoTotProd = 0;
+		 			double calcSconto = 0, prezzo = 0, prezzoTotProd = 0;
 		 			int quantità = 0;
 		 			for(int i=0; i < carrello.size(); i++){
 		 		%>
@@ -50,53 +96,70 @@
 				    <td class="immagineProd"><img src="<%= prodottiCarrello.get(i).getImmaginePath() %>" alt="immagine-prod"/></td>
 				    <td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
 				    <td class="quantProd"><%= quantità = carrello.get(i).getQuantità() %></td>
-				    <td class="prezzoProd"> <%= costo = prodottiCarrello.get(i).getPrezzo()  %></td> 
-				    <td class="scontoProd">
-				    <% if (prodottiCarrello.get(i).getSconto() != 0 ){
-				    		calcSconto = prodottiCarrello.get(i).getPrezzo() * prodottiCarrello.get(i).getSconto() / 100;
-				    	}
+				    <td class="prezzoProd"> 
+				    <% prezzo = prodottiCarrello.get(i).getPrezzo(); 
+				    prezzo = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
 				    %>
-				    <%= calcSconto %>
-				    <% } %>
+				    <%= prezzo %>
 				    </td>
-				    
-				   <td class ="prezzoTot">
-				   <% if(calcSconto != 0 ){ 
-				   		costo = (costo - calcSconto) * quantità; //andiamo a togliere i soldi dello sconto dal prezzo del singolo prodotto
-				   		//andiamo a moltiplicare questo prezzo per la quantità di prodotti dello stesso articlo che l'utente sta acquistando 
-				   } else {
-					   costo = costo * quantità;
-				   }
-				   
-				   prezzoTotProd += prezzoTotProd + costo;
-				    %> </td> 
+					<td class="scontoProd">
+					<%= prodottiCarrello.get(i).getSconto() %>
+				</td>
+
+					<td class ="prezzoTot">
+				 		<% double sconto=0, prezzo=0, totSingProd=0;
+        if(prodottiCarrello.get(i).getSconto()!=0){
+        	
+        			sconto=prodottiCarrello.get(i).getSconto();
+        			//iva=prodottiCarrello.get(i).getIva();
+        			 prezzo=prodottiCarrello.get(i).getPrezzo();
+        			 totSingProd=0;//totale singolo prodotto prezzo*quantita
+        			
+        			totSingProd=prezzo-(prezzo*sconto/100);
+        			totSingProd=totSingProd*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+        			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+        			totaleCarrello=totaleCarrello+totSingProd;
+        	
+			        }else{
+			        	
+			        	prezzo=prodottiCarrello.get(i).getPrezzo();
+			        	System.out.println("\nPrezzo senzo niente: " + prezzo);
+			        	System.out.println("Calcolo l'iva");
+			        	totSingProd = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
+			        	System.out.println("Prezzo prod + iva : " + totSingProd);
+			        	totSingProd = totSingProd * carrello.get(i).getQuantità();
+			        	System.out.println("Prezzo prod(con iva) * quantità  : " + totSingProd);
+			        	totaleCarrello=totaleCarrello+totSingProd;
+			        	
+						//totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+						//totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+						//totaleCarrello=totaleCarrello+totSingProd;
+			        }
+        	%>
+        	<%=totSingProd %>
+					</td> 
 				   
 				  </tr>
 
 				</table>
-				
+				<%} %>
 			<div class="totaleCol">
-				<a> Totale prodotti: <%= prezzoTotProd %> </a> <br>
-				<a> Costi spedizione:    </a> <br>  <!-- INVENTIAMO UN COSTO FISSO TIPO 5,99 -->
-				<a> Totale complessivo: <%= prezzoTotProd + 5 %> </a>
+					<!-- <a> Totale prodotti: <%= totaleCarrello %> </a> <br>
+			 <a> Costi spedizione: 5,99   </a> <br>   INVENTIAMO UN COSTO FISSO TIPO 5,99 -->
+				<a> Totale complessivo: <%= totaleCarrello %> </a>
 			</div>	
 	</div>
 	
 	<div  class="colonnaDx1 ">
 		<p class="titColonne text-center" > Spedisci all'indirizzo: </p>
-			<label class="">
-		  		<input type="radio" checked="checked" name="radio">
-		  		<span class="checkmark"></span>
-		  		Aggiungi un nuovo indirizzo:
-			</label>
 			<div class="row justify-content-center">
 			<div class="col-6 form-goup">
 			<label class="cose">Via:</label>
-      		<input type="text" placeholder="Strada/Vicolo/Piazza"  name="via" id="via">
+      		<input type="text" placeholder="Strada/Vicolo/Piazza"  name="via" id="via" value="<%=via%>">
       		</div>
       		<div class="col-6 form-goup">
-			<label class="cose">Civico:</label>
-      		<input type="text" placeholder="Numero dell'abitazione" name="civico" id="civico">
+			<label class="cose">Citta:</label>
+      		<input type="text" placeholder="Numero dell'abitazione" name="citta" id="citta" value="<%=citta%>">
       		</div>
       		</div>
       		
@@ -104,7 +167,7 @@
       		<div class="row justify-content-center">
       		<div class="col-6 form-goup">
 			<label class="cose">Provincia:</label>
-      		<input type="text" placeholder="Provincia" name="provincia" id="provincia">
+      		<input type="text" placeholder="Provincia" name="provincia" id="provincia" >
       		</div>
       		<div class="col-6 form-goup">
 			<label class="cose">CAP:</label>
@@ -122,17 +185,7 @@
 				</label>
 				
 				<!-- praticamente qui sta facendo la combo box con tutti gli indirizzi utente che abbiamo trovato  -->
-				<select class="select"  name="indirizzi" id="indirizzi">
-				 <option>---</option> 
-				<%
-			//	if(datiSpedUtente.size()!=0){%>
-					<%// for(int i = 0; i < datiSpedUtente.size(); i++){ %>
-						<option value="ind"> <%=// datiSpedUtente.get(i).toString() %> </option>	<% // lo stampiamo tutti direttamente col to String %>
-			<!-- 		<%//}  -->
-				//} else {%>
-					<option> Amico non hai inserito/salvato nessun indirizzo precedentemente! :)  </option>				
-<!-- 			//} -->
- 				</select>
+	
  				
     	</div>			
 	</div>
