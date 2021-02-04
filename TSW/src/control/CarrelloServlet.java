@@ -202,8 +202,8 @@ public class CarrelloServlet extends HttpServlet {
 						request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 
 
-						RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo2.jsp");
-						dispatcher.forward(request, response);
+						//RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo2.jsp");
+						//dispatcher.forward(request, response);
 
 
 					}
@@ -218,6 +218,9 @@ public class CarrelloServlet extends HttpServlet {
 			request.getSession().setAttribute("carrelloSessione", carrello);
 			request.getSession().removeAttribute("quantitaCarrello");
 			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage.jsp");
+			dispatcher.forward(request, response);
 		}
 
 

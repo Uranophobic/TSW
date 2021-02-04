@@ -90,11 +90,18 @@ double totaleCarrello=0;
         	
         }else{
         	
-        	 prezzo=prodottiCarrello.get(i).getPrezzo();
-			 totSingProd=0;
-			totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
-			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
-			totaleCarrello=totaleCarrello+totSingProd;
+        	prezzo=prodottiCarrello.get(i).getPrezzo();
+        	System.out.println("\nPrezzo senzo niente: " + prezzo);
+        	System.out.println("Calcolo l'iva");
+        	totSingProd = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
+        	System.out.println("Prezzo prod + iva : " + totSingProd);
+        	totSingProd = totSingProd * carrello.get(i).getQuantità();
+        	System.out.println("Prezzo prod(con iva) * quantità  : " + totSingProd);
+        	totaleCarrello=totaleCarrello+totSingProd;
+        	
+			//totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+			//totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+			//totaleCarrello=totaleCarrello+totSingProd;
         }
         	%><%=totSingProd %></td>
     
@@ -115,7 +122,7 @@ double totaleCarrello=0;
 		    <span class="">Indietro</span>
 		</a>	
 		
-		<a href="procediOrdine.jsp" class=" bottoni bottoni-colori " >
+		<a href="HomePage.jsp" class=" bottoni bottoni-colori " >
 		<button type="submit" name="azioneCarrello" value="modificaQuantita" >
 		
 		    <span class=""> Procedi all'ordine ></span>
