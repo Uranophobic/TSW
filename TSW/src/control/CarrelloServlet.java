@@ -143,6 +143,7 @@ public class CarrelloServlet extends HttpServlet {
 		}
 
 		if(azioneCarrello.equals("modificaQuantita")) {
+			System.out.println("OOOOOOOOOOOOOOOOOH STO QUA");
 			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
@@ -162,6 +163,9 @@ public class CarrelloServlet extends HttpServlet {
 						System.out.println("Quantita:" + quantita);
 						System.out.println("Quantita carrello: " + quantitaCar);
 						request.getSession().setAttribute("quantitaCarrello", quantitaCar);
+						RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+						dispatcher.forward(request, response);
+
 					}
 
 
@@ -202,10 +206,10 @@ public class CarrelloServlet extends HttpServlet {
 						request.getSession().removeAttribute("quantitaCarrello");
 						request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 
+						RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+						dispatcher.forward(request, response);
 
-						//RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo2.jsp");
-						//dispatcher.forward(request, response);
-
+						
 
 					}
 				}
@@ -220,8 +224,9 @@ public class CarrelloServlet extends HttpServlet {
 			request.getSession().removeAttribute("quantitaCarrello");
 			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 			
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage.jsp");
-			//dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+			dispatcher.forward(request, response);
+
 		}
 
 
