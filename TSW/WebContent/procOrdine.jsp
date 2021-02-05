@@ -19,15 +19,21 @@ width: 50%;
 	ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
     ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
     int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
-    System.out.println("QUANTITA' NEL PROCEDI ORDINE: " + quantitaCar);
+    System.out.println("                    QUANTITA' NEL PROCEDI ORDINE: " + quantitaCar);
     double totaleCarrello=0;
+
+    for(int i =0; i<prodottiCarrello.size(); i++){
+    	System.out.println("PRODOTTO NUMERO " + i + ":" + prodottiCarrello.get(i).toString());
+    }
+    System.out.println("SECONDO FOR NEL PROCEDI ORDINE");
+    for(int i =0; i<carrello.size(); i++){
+    	System.out.println("CARRELLO NUMERO " + i + ":" + carrello.get(i).toString());
+    }
     
     Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 	   String datiSped = utente.getDatiSpedizione();
-	   System.out.println("Sono i dati spedizione: " + datiSped);
 	   String datiPag = utente.getDatiPagamento();
-	   System.out.println("Sono i dati pagamento: " + datiPag);
-	   
+	  
 	   String via="", citta="", cap="", provincia=""; 
 	   
 	   if(utente.getDatiSpedizione()!=null){
@@ -98,7 +104,7 @@ width: 50%;
 				  <tr id="specificheTab">
 				    <td class="immagineProd"><img style="width:50%;"src="<%= prodottiCarrello.get(i).getImmaginePath() %>" alt="immagine-prod"/></td>
 				    <td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
-				    <td class="quantProd"><%= quantità = carrello.get(i).getQuantità() %></td>
+				    <td class="quantProd"><%=carrello.get(i).getQuantità() %></td>
 				    <td class="prezzoProd"> 
 				    <% prezzo = prodottiCarrello.get(i).getPrezzo(); 
 				    prezzo = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
@@ -126,12 +132,12 @@ width: 50%;
 			        }else{
 			        	
 			        	prezzo=prodottiCarrello.get(i).getPrezzo();
-			        	System.out.println("\nPrezzo senzo niente: " + prezzo);
-			        	System.out.println("Calcolo l'iva");
+			        	//System.out.println("\nPrezzo senzo niente: " + prezzo);
+			        	//System.out.println("Calcolo l'iva");
 			        	totSingProd = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
-			        	System.out.println("Prezzo prod + iva : " + totSingProd);
+			        	//System.out.println("Prezzo prod + iva : " + totSingProd);
 			        	totSingProd = totSingProd * carrello.get(i).getQuantità();
-			        	System.out.println("Prezzo prod(con iva) * quantità  : " + totSingProd);
+			        	//System.out.println("Prezzo prod(con iva) * quantità  : " + totSingProd);
 			        	totaleCarrello=totaleCarrello+totSingProd;
 			        	
 						//totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();

@@ -43,8 +43,8 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("Azione selezionata: " + azioneLogin);
 
 		//var per i prod nel carrello
-		int quantita=0; 
-		request.getSession().setAttribute("quantitaCarrello", quantita);
+		int quantitaCar=0; 
+		request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 		
 		if(azioneLogin.equals("loginUtente")) {
 			/*

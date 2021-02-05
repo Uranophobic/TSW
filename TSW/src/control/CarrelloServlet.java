@@ -143,9 +143,66 @@ public class CarrelloServlet extends HttpServlet {
 		}
 
 		if(azioneCarrello.equals("modificaQuantita")) {
-			System.out.println("OOOOOOOOOOOOOOOOOH STO QUA");
-			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+			 
+			
+			
+			try {
+				String idProd = request.getParameter("idProd");
+				Prodotto p = prodModel.doRetrieveByKey(idProd);
+				
+				int quantita = Integer.parseInt(request.getParameter("quantita"));
+				ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+				int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
+				
+			
+					int i;
+					for(i = 0; i<carrello.size(); i++){
+						System.out.println("\n SONO NEL FOR \n ");
+						System.out.println("carrello get i get codice prod" + carrello.get(i).getCodiceProdotto() + " | idProd: " + idProd);
+
+						//incrementa quantità di prodotto già presente
+						if((carrello.get(i).getCodiceProdotto()).equals(idProd)){
+							System.out.println("\n SONO NELL' IFFFFFFFFFFFFFFF \n: ");
+							System.out.println("carrello get i get codice prod" + carrello.get(i).getCodiceProdotto() + " | idProd: " + idProd);
+							carrello.get(i).setCodiceProdotto(p.getIdProdotto());
+							System.out.println("codice prod: "+ carrello.get(i).getCodiceProdotto());
+							carrello.get(i).setIva(p.getIva());
+							System.out.println("iva: "+ carrello.get(i).getIva());
+							carrello.get(i).setPrezzoUnitario(p.getPrezzo());
+							System.out.println("prezzo: "+ carrello.get(i).getPrezzoUnitario());
+							carrello.get(i).setScontoAttuale(p.getSconto());
+							System.out.println("sconto: "+ carrello.get(i).getScontoAttuale());
+							carrello.get(i).setQuantità(quantita);
+							quantitaCar = quantita;
+							System.out.println("QUANTITA DEL PRODOTTO CHE HO AGGIUNTO: "+ quantita);
+							System.out.println("nome: "+ p.getNome());
+							break;
+						}
+					}
+
+				
+				
+
+				
+				
+				
+				request.getSession().removeAttribute("carrelloSessione");
+				request.getSession().setAttribute("carrelloSessione", carrello);
+				request.getSession().removeAttribute("quantitaCarrello");
+				request.getSession().setAttribute("quantitaCarrello", quantitaCar);
+				System.out.println(quantita + "questa è la quantità di chi ti è biecchio");
+				RequestDispatcher view = request.getRequestDispatcher("catalogo2.jsp");
+				view.forward(request, response);
+				
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			/*
+			 * ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 			ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
 			int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
 			//int quantita=(int) request.getSession().getAttribute("quantitaCarrello");
@@ -163,55 +220,10 @@ public class CarrelloServlet extends HttpServlet {
 						System.out.println("Quantita:" + quantita);
 						System.out.println("Quantita carrello: " + quantitaCar);
 						request.getSession().setAttribute("quantitaCarrello", quantitaCar);
-						RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
-						dispatcher.forward(request, response);
-
 					}
 
 
-					if(quantita==0) {
-						quantitaCar=0;
-						Prodotto prodottoDelete=new Prodotto();
-
-						prodottoDelete.setIdProdotto(prodottiCarrello.get(i).getIdProdotto());
-						prodottoDelete.setNome(prodottiCarrello.get(i).getNome());
-						prodottoDelete.setDescrizione(prodottiCarrello.get(i).getDescrizione());
-						prodottoDelete.setCategoria(prodottiCarrello.get(i).getCategoria());
-						prodottoDelete.setImmaginePath(prodottiCarrello.get(i).getImmaginePath());
-						prodottoDelete.setPrezzo(prodottiCarrello.get(i).getPrezzo());
-						prodottoDelete.setSconto(prodottiCarrello.get(i).getSconto());
-						prodottoDelete.setIva(prodottiCarrello.get(i).getIva());
-
-						System.out.println("prodotto "+prodottoDelete);
-
-						Composizione compDelete= new Composizione();
-						compDelete.setCodiceProdotto(carrello.get(i).getCodiceProdotto());
-						compDelete.setPrezzoUnitario(carrello.get(i).getPrezzoUnitario());
-						compDelete.setScontoAttuale(carrello.get(i).getScontoAttuale());
-						compDelete.setIva(carrello.get(i).getIva());
-						compDelete.setQuantità(carrello.get(i).getQuantità());
-
-
-
-						prodottiCarrello.remove(prodottoDelete);
-						carrello.remove(compDelete);
-						System.out.println("Prodotto eliminato da prodottiCarrello: "+prodottoDelete.toString());
-						System.out.println(" prodotti nel carrello "+prodottiCarrello.toString());
-						System.out.println("composizione da eliminare: "+compDelete.toString());
-
-						request.getSession().removeAttribute("prodottiCarrello");
-						request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
-						request.getSession().removeAttribute("carrello");
-						request.getSession().setAttribute("carrelloSessione", carrello);
-						request.getSession().removeAttribute("quantitaCarrello");
-						request.getSession().setAttribute("quantitaCarrello", quantitaCar);
-
-						RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
-						dispatcher.forward(request, response);
-
-						
-
-					}
+					
 				}
 
 			}
@@ -219,14 +231,16 @@ public class CarrelloServlet extends HttpServlet {
 
 			request.getSession().removeAttribute("prodottiCarrello");
 			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
-			request.getSession().removeAttribute("carrello");
+			request.getSession().removeAttribute("carrelloSessione");
 			request.getSession().setAttribute("carrelloSessione", carrello);
 			request.getSession().removeAttribute("quantitaCarrello");
 			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("HomePage.jsp");
 			dispatcher.forward(request, response);
-
+			 * 
+			 */
+			
 		}
 
 
@@ -270,22 +284,7 @@ public class CarrelloServlet extends HttpServlet {
 
 		}
 		
-		if(azioneCarrello.equals("totale")) {
-			
-			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-			ArrayList<Prodotto> prodottiCarrello = new ArrayList<Prodotto>();
-			int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
-			double totale=0;
-			String idProdTotale=request.getParameter("idProdTotale");//il prodotto singole del quale vogliamo fare il totale=prezzo*quanita
-			System.out.println("id prodotto totale: "+idProdTotale);
-			
-			for(int i=0;i<carrello.size();i++) {
-				
-			}
 
-			
-		}
 
 	}
 }
