@@ -43,10 +43,11 @@ public class ComposizioneModelDS implements ComposizioneModel {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 
-		String insertSQL="INSERT INTO "+ComposizioneModelDS.TABLE_NAME+("codiceOrdine,codiceProdotto,quantità,prezzoUnitario,scontoAttuale,iva")+
+		String insertSQL="INSERT INTO "+ComposizioneModelDS.TABLE_NAME+"(codiceOrdine,codiceProdotto,quantita,prezzoUnitario,scontoAttuale,iva)"+
 				"values(?,?,?,?,?,?)";
 		try {
 			connection=ds.getConnection();
+			preparedStatement=connection.prepareStatement(insertSQL);
 			preparedStatement.setString(1, composizione.getCodiceOrdine());
 			preparedStatement.setString(2, composizione.getCodiceProdotto());
 			preparedStatement.setInt(3, composizione.getQuantità());

@@ -4,7 +4,7 @@ public class Composizione {
 	
 	private String codiceOrdine; 
 	private String codiceProdotto;
-	private int quantità;
+	private int quantita;
 	private double prezzoUnitario;
 	private double scontoAttuale; // cambia su workbench 
 	private double iva;
@@ -12,17 +12,17 @@ public class Composizione {
 	public Composizione() {
 		this.codiceOrdine = codiceOrdine;
 		this.codiceProdotto = codiceProdotto;
-		this.quantità=quantità;
+		this.quantita=quantita;
 		this.prezzoUnitario=prezzoUnitario;
 		this.scontoAttuale=scontoAttuale;
 		this.iva=iva;
 	}
 
 	
-	public Composizione(String codiceOrdine, String codiceProd, int quantità,double prezzoUnitario,double scontoAttuale,double iva) {
+	public Composizione(String codiceOrdine, String codiceProd, int quantita,double prezzoUnitario,double scontoAttuale,double iva) {
 		this.codiceOrdine = codiceOrdine;
 		this.codiceProdotto = codiceProdotto;
-		this.quantità=quantità;
+		this.quantita=quantita;
 		this.prezzoUnitario=prezzoUnitario;
 		this.scontoAttuale=scontoAttuale;
 		this.iva=iva;
@@ -50,12 +50,12 @@ public class Composizione {
 
 
 	public int getQuantità() {
-		return quantità;
+		return quantita;
 	}
 
 
-	public void setQuantità(int quantità) {
-		this.quantità = quantità;
+	public void setQuantità(int quantita) {
+		this.quantita = quantita;
 	}
 
 
@@ -92,7 +92,7 @@ public class Composizione {
 	@Override
 	public String toString() {
 		return "Composizione [codiceOrdine=" + codiceOrdine + ", codiceProdotto=" + codiceProdotto + ", quantità="
-				+ quantità + ", prezzoUnitario=" + prezzoUnitario + ", scontoAttuale=" + scontoAttuale + ", iva=" + iva
+				+ quantita + ", prezzoUnitario=" + prezzoUnitario + ", scontoAttuale=" + scontoAttuale + ", iva=" + iva
 				+ "]";
 	}
 

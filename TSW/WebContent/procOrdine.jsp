@@ -178,8 +178,8 @@ width: 50%;
 </div> <!-- chiusura div procedi ordine -->
 
 <div class="opBtn2">
-		<a class=" bottoni bottoni-colori " >
-		    <span class="">Procedi all'acquisto ></span>
+		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista
+	
 		</a>	
   	</div>
   				
