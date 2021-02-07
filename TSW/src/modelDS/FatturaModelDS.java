@@ -41,6 +41,7 @@ public class FatturaModelDS implements FatturaModel {
 		try {
 
 			connection=ds.getConnection();
+			preparedStatement=connection.prepareStatement(insertSQl);
 			preparedStatement.setString(1, fattura.getIdFattura());
 			preparedStatement.setString(2, fattura.getCodiceOrdine());
 

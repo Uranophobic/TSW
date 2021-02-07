@@ -67,7 +67,7 @@ public class OrdineModelDS implements OrdineModel{
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		Ordine OrdineBean=new Ordine();
-		String selectSQL="SELECT*FROM "+OrdineModelDS.TABLE_NAME+"where codiceOrdine=?";
+		String selectSQL="SELECT * FROM "+OrdineModelDS.TABLE_NAME+ "where codiceOrdine=?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
@@ -149,7 +149,7 @@ public class OrdineModelDS implements OrdineModel{
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE"+OrdineModelDS.TABLE_NAME+"SET idOrdine=?,emailUtente=?,dataOrdine=?,importoTotale=?";
+		String updateSQL="UPDATE "+OrdineModelDS.TABLE_NAME + "SET idOrdine=?,emailUtente=?,dataOrdine=?,importoTotale=?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
