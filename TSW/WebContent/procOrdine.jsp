@@ -8,7 +8,12 @@
 <title>Procedi Ordine </title>
 <style>
 .immagineProd{
-width: 50%;
+width: 25%;
+}
+
+#specificheTab {
+	text-align: left;
+	border-bottom: 1px solid #dddd;
 }
 </style>
 </head>
@@ -81,14 +86,14 @@ width: 50%;
 	<div  class="colonnaSx ">
 		<p class="titColonne text-center"> Stai acquistando: </p>
 				<table id="carrelloOrdine">
-					  <tr style="text-align: left;">
+					  <tr id="specificheTab" style="text-align: left;">
 						    <th id="colonna1">Immagine</th>
 						    <th id="colonna2">Nome</th>
 						    <th id="colonna3">Quantità</th>
 						    <th id="colonna4">Prezzo</th>
 						    <th id="colonna5">Sconto</th>
-						    <th id="colonna6">Prezzo Totale</th>
-				  	</tr>
+						    <th id="colonna6">Totale</th>
+				  	 </tr>
 				<% 		
 				double prezzo=0, totSingProd=0, sconto=0; 
 		 			int quantità = 0;
@@ -101,7 +106,7 @@ width: 50%;
 		 		
 		 		
 		 		<!-- ELEMENTI -->
-				  <tr id="specificheTab">
+				  <tr id="specificheTab" >
 				    <td class="immagineProd"><img style="width:50%;"src="<%= prodottiCarrello.get(i).getImmaginePath() %>" alt="immagine-prod"/></td>
 				    <td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
 				    <td class="quantProd"><%=carrello.get(i).getQuantità() %></td>
@@ -182,6 +187,6 @@ width: 50%;
 	
 		</a>	
   	</div>
-  				
+  			<%@include file="footer.jsp"%>		
 </body>
 </html>

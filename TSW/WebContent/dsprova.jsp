@@ -7,6 +7,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 <style>
 .inputProfilo {
 	width: 100%;
@@ -41,7 +42,7 @@
 	color: ghostwhite;
 	/* float: right; */
 	/* margin-top: 70px; */
-	margin-top: 39px;
+	margin-top: 35px;
 }
 .titProfilo {
 	font-size: 28px;
@@ -172,9 +173,12 @@ width: 27%;}
 					<label id="inputData"> Citta</label><input type="text" name="citta" id="citta" class="inputProfilo" value="<%=citta%>" readonly>
 					<label id="inputData"> Cap</label><input type="text" name="cap" id="cap" class="inputProfilo" value="<%=cap%>" readonly> 
 					<label id="inputData"> Provincia</label><input type="text" name="provincia" id="provincia" class="inputProfilo" value="<%=provincia%>" readonly> 
-				<a href="modificaDati.jsp" class="bottoneModifiche">
-					<button type="submit" class=" bottoni bottoni-colori ">Modifica Dati</button>
-				</a>
+				
+			
+					<button class="bottoni bottoni-colori" name ="azioneProfilo" value="modificaDati" onclick="document.getElementById('modifica').style.display='block'" style="width:auto;" >
+					Modifica Dati</button>
+				
+				
 			</div>
 			</div>
 			<div class="datiPersonali">
@@ -216,6 +220,65 @@ width: 27%;}
 		<button type="submit" class=" bottoni bottoni-colori ">
 			Indietro</button>
 	</div>
+	
+	<!-- POP UP -->
+	<div id="modifica" class="modale">
+  <form class="animate" action="profilo" method="post">
+  <div class="modificheSped">
+  <div class="imgcontenitore">
+      <span onclick="document.getElementById('modificaSped').style.display='none'" class="close">&times;</span>
+    </div>
+
+    <div class="contenitore">
+    	<h1 class="titAccedi text-center"><b> Modifica Sped</b></h1><br>
+    	
+      <label class="etichetteModifica"><b>Via</b></label>
+      <input  class= "inputModifica" type="text" placeholder="via" name="viaModificata"  required >
+      
+      <label class="etichetteModifica"><b>Citta'</b></label>
+      <input  class= "inputModifica" type="text" placeholder="Citta"  name="cittaModificata" required> 
+      
+       <label class="etichetteModifica"><b>Provincia</b></label>
+      <input  class= "inputModifica" type="text" placeholder="provincia"  name="provinciaModificata" required>
+       
+       <label class="etichetteModifica"><b>Cap</b></label>
+      <input  class= "inputModifica" type="text" placeholder="CAP"  name="capModificata" required> 
+      
+   	 <label class="etichetteModifica"><b>Numero Carta</b></label>
+      <input  class= "inputModifica" type="text" placeholder="numero carta" name="numeroModificato"  required >
+      
+      <label class="etichetteModifica"><b>Scadenza</b></label>
+      <input  class= "inputModifica" type="text" placeholder="scadenza"  name="scadenzaModificata" required> 
+      
+       <label class="etichetteModifica"><b>Circuito</b></label>
+      <input  class= "inputModifica" type="text" placeholder="circutio"  name="circuitoModificato" required>
+       
+       <label class="etichetteModifica"><b>CVV</b></label>
+      <input  class= "inputModifica" type="text" placeholder="CVV"  name="cvvModificata" required> 
+
+       
+       
+	  <button class="secondo" type="submit" name ="azioneProfilo" value="modificaDati">MODIFICA</button>
+       <div class="hr"></div>
+       <!-- bottonemodifica sempre a posto di quello che stava prima nell if guarda servlet -->
+    </div>
+
+    
+  </div>
+		</form>
+</div>
 	<%@ include file="footer.jsp"%>
+	<script>
+	// Get the modal
+	var modal = document.getElementById('modifica');
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+
+</script>
 </body>
 </html>
