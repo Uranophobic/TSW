@@ -63,12 +63,12 @@
 		
 					<!-- carrello -->
 					<div class="icona"> 
-					<a href="carrello.jsp">	<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> </a>
+					<a href="carrello?azioneCarrello=visualizzaCarrello">	<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> </a>
 						<a class="iconaTxt" href="carrello?azioneCarrello=visualizzaCarrello"> Carrello </a>
 					</div>
 				</div>
 			<% } else{ %>	
-				  <a href="login.jsp"><button>ACCEDI</button></a>
+				  <a href="login.jsp"><button class=" bottoni bottoni-colori ">ACCEDI</button></a>
 			<% } %>
 			 </li>
 		

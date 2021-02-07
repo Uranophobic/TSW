@@ -43,7 +43,7 @@
 </div>
 
 <div  id="botReg">
-	<a  class=" bottoni bottoni-colori " href= "registrazione2.jsp"  >
+	<a  class=" bottoni bottoni-colori " href= "registrazione.jsp"  >
 			Registrati
 	</a>
 </div>

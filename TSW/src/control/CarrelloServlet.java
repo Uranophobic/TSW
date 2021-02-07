@@ -74,7 +74,7 @@ public class CarrelloServlet extends HttpServlet {
 			request.getSession().setAttribute("carrelloSessione", carrello);
 			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
 
-			RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("carrello.jsp");
 			dispatcher.forward(request, response);
 		}
 
@@ -137,7 +137,7 @@ public class CarrelloServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			response.sendRedirect("catalogo2.jsp");
+			response.sendRedirect("catalogo.jsp");
 			//trovare un modo per non far aggiornare la pagina
 
 		}
@@ -191,7 +191,7 @@ public class CarrelloServlet extends HttpServlet {
 				request.getSession().removeAttribute("quantitaCarrello");
 				request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 				System.out.println(quantita + "questa è la quantità di chi ti è biecchio");
-				RequestDispatcher view = request.getRequestDispatcher("catalogo2.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("catalogo.jsp");
 				view.forward(request, response);
 				
 				
@@ -275,10 +275,10 @@ public class CarrelloServlet extends HttpServlet {
 			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 
 			if(carrello.size()==0) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo2.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("carrello2.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("carrello.jsp");
 				dispatcher.forward(request, response);
 			}
 

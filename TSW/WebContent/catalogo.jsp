@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList, bean.Prodotto, bean.Utente"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,6 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
 <title> Catalogo - Oltre il Giardino</title>
-<style>
-
-</style>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
@@ -19,123 +17,51 @@
 <div>
 <p  class="titoloPagine"> Catalogo </p>
 </div>
+<%	ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
 
+%>
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIE</span>
 
 <div class="grid-container">
-
+	<%for(int i=0; i<catalogo.size(); i++){ %>
     <div class="item1"> <!-- prodotto 1  -->
-    <div class="hovereffect">
-		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRSFC085PRO.jpg" alt="forbice">
-            <div class="overlay">
-				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
-            </div>
-    </div>
+	    <div class="hovereffect">
+	    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
+	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>&nome=<%= catalogo.get(i).getNome() %>" class="overlay">
+					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
+	            </a>
+	    </div>
+	    <% if(session.getAttribute("utenteSessione")!= null){ %>
+		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a href="prodotto?azioneP=prova" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		<%} else {%>
+		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="login.jsp" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
+		<%} %>
 		
-		<div class="addWishlist"><img  src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		 <p class="nomeProdotto"> FORBICE DA POTATURA  </p>
-		 <p class="nomeProdotto"> Prezzo: 17,50 euro   </p>
 	
+		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= catalogo.get(i).getIdProdotto() %>
+		 <p class="nomeProdotto"> <%= catalogo.get(i).getNome() %></p>
+		 <p class="nomeProdotto"> <%= catalogo.get(i).getPrezzo() %>  </p>
+		 <input type="hidden" id="prova" >
+		
 			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
+			<% if(session.getAttribute("utenteSessione")!= null){%>
+				<a onclick="addProdotto()" href="carrello?azioneCarrello=addCarrello&idProdotto=<%= catalogo.get(i).getIdProdotto() %>" class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
+			<%} else { %>
+			<a href="login.jsp" class=" bottoni bottoni-colori " >
+					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
+				</a>
+				<%} %>
 			</div>
+			
 		  
   			
   </div>
   
   
-    <div class="item2"> <!-- prodotto 2  -->
-    <div class="hovereffect">
-		 <img class="imgProdotto" src="https://www.verdemax.it/prodotti/catalogo/4224.jpg" alt="forbice">
-            <div class="overlay">
-				<button  id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
-            </div>
-    </div>
-		<div class="addWishlist"><img src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		 <p class="nomeProdotto">FORBICE IN ALLUMINIO DA POTATURA   </p>
-		 <p class="nomeProdotto"> Prezzo: 26,70 euro  </p>
-			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-		  
-  			
-  </div>
-  
-  
-  
-    <div class="item3"> <!-- prodotto 3  -->
-    <div class="hovereffect">
-		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRPSEC.jpg" alt="forbice">
-            <div class="overlay">
-				<button  id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
-            </div>
-    </div>
-		<div class="addWishlist"><img  src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		 <p class="nomeProdotto">TASCA PORTA FORBICE  </p>
-		 <p class="nomeProdotto"> Prezzo: 5,20 euro   </p>
-			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-  </div>
-  
-      <div class="item4"> <!-- prodotto 4  -->
-    <div class="hovereffect">
-		 <img class="imgProdotto" src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/p/r/prcbc75_new.jpg" alt="forbice">
-            <div class="overlay">
-				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
-            </div>
-    </div>
-		<div class="addWishlist"><img  src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		 <p class="nomeProdotto">TRONCARAMI A DEMOLTIPLICAZIONE </p>
-		 <p class="nomeProdotto"> Prezzo: 55,20 euro    </p>
-			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-  </div>
-  
-   <div class="item5"> <!-- prodotto 5  -->
-    <div class="hovereffect">
-		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/p/r/prcbt98_new.jpg" alt="forbice">
-            <div class="overlay">
-				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
-            </div>
-    </div>
-		<div class="addWishlist"><img  src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		 <p class="nomeProdotto">TRONCARAMI CON CONTROLAMA DENTATA </p>
-		 <p class="nomeProdotto"> Prezzo: 65,10 euro  </p>
-			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-  </div>
-  
-   <div class="item6"> <!-- prodotto 6 -->
-    <div class="hovereffect">
-		 <img class="imgProdotto"  src="https://www.ribimex.it/media/catalog/product/cache/3/thumbnail/1000x1000/9df78eab33525d08d6e5fb8d27136e95/P/R/PRCH43.jpg" alt="forbice">
-            <div class="overlay">
-				<button id="scopri" class="  bottoni bottoni-colori"> Scopri di più</button>
-            </div>
-    </div>
-		<div class="addWishlist"><img src="https://img.icons8.com/small/20/000000/like.png"/> <a style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		 <p class="nomeProdotto">CESOIA DA RIFINITURA </p>
-		 <p class="nomeProdotto"> Prezzo: 27,90 euro  </p>
-			<div class="bottoneAddCarrello">
-				<a class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="../images/icons8-add-shopping-cart-16.png"> </span>
-				</a>	
-			</div>
-  </div>
-  
+  <%} %>
   
   
   
@@ -170,7 +96,7 @@
     		<p id="categ">Giardinaggio</p>
     		<ul class="sottoList">    	
 	        	<li><a  class="sottoCateg" href="">Attrezzi da potatura</a></li>
-	            <li><a class="sottoCateg"  href="">Attrecci per l'irrigazione</a></li>
+	            <li><a class="sottoCateg"  href="">Attrezzi per l'irrigazione</a></li>
 	            <li><a  class="sottoCateg" href="">Vasi e fioriere</a></li>
         	</ul>
     	</div>
@@ -205,7 +131,13 @@ function closeNav() {
 }
 </script>
 
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+<script>
+function addProdotto() {
+  alert("Hai aggiunto un prodotto al carrello!");
+}
+</script>
 
 
 <%@ include file="footer.jsp"%>

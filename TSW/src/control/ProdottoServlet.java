@@ -46,7 +46,7 @@ public class ProdottoServlet extends HttpServlet {
 				ArrayList<Prodotto> catalogo=new ArrayList<Prodotto>();
 				catalogo=prodottoModel.doRetrieveAll("idProdotto");
 				request.getSession().setAttribute("catalogoSessione", catalogo);
-				getServletContext().getRequestDispatcher("/catalogo2.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/catalogo.jsp").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}	
