@@ -14,7 +14,7 @@
 <%@ include file="navbar.jsp"%>
 <br>
 <br>
-<div class="container-fluid mt-5 ">
+<div class="container-fluid">
 	<div class="row justify-content-center ">
 
 		

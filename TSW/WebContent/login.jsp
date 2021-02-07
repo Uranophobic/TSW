@@ -10,7 +10,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <title>Login form</title>
-
+<style>
+#botReg {
+	width: 50%;
+	margin: auto;
+	margin-left: 600px;
+	margin-top: 15px;
+}
+</style>
 </head>
 <body>
 	<%@include file="navbar.jsp"%>
@@ -27,7 +34,7 @@
 			<input type="text" id="email" placeholder="Email" name="email" required>
 			<input type="password" id="password" placeholder="Password" name ="password" required>
 			<br>
-			<button type="submit" name ="azioneLogin" value="loginUtente" id="login-button" >
+			<button  class=" bottoni bottoni-colori " type="submit" name ="azioneLogin" value="loginUtente" id="login-button" >
 			Login
 			</button>
 		</form>	
@@ -35,10 +42,11 @@
 </div>
 </div>
 
-	<a href= "registrazione2.jsp"  >
+<div  id="botReg">
+	<a  class=" bottoni bottoni-colori " href= "registrazione2.jsp"  >
 			Registrati
 	</a>
-
+</div>
 
 
 	<%@include file="footer.jsp"%>
