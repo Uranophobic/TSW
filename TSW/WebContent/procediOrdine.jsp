@@ -1,225 +1,214 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"
+    import="java.util.ArrayList, bean.Prodotto, java.text.*, bean.Composizione"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<title>Visualizza prodotto - Oltre il Giardino </title>
+<title>Procedi Ordine </title>
+<style>
+.immagineProd{
+width: 25%;
+}
 
+#specificheTab {
+	text-align: left;
+	border-bottom: 1px solid #dddd;
+}
+
+.datiUt {
+	margin: auto;
+	width: 80%;
+}
+
+#datiIn{
+	border: none; 
+	border-bottom: 1px solid #dddd;
+}
+
+#datiLab{
+	font-weight: bold;
+	font-size: 18px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+</style>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
+<%
 
+	ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
+    ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
+    int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
+    System.out.println("                    QUANTITA' NEL PROCEDI ORDINE: " + quantitaCar);
+    double totaleCarrello=0;
+
+    for(int i =0; i<prodottiCarrello.size(); i++){
+    	System.out.println("PRODOTTO NUMERO " + i + ":" + prodottiCarrello.get(i).toString());
+    }
+    System.out.println("SECONDO FOR NEL PROCEDI ORDINE");
+    for(int i =0; i<carrello.size(); i++){
+    	System.out.println("CARRELLO NUMERO " + i + ":" + carrello.get(i).toString());
+    }
+    
+    Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
+	   String datiSped = utente.getDatiSpedizione();
+	   String datiPag = utente.getDatiPagamento();
+	  
+	   String via="", citta="", cap="", provincia=""; 
+	   
+	   if(utente.getDatiSpedizione()!=null){
+		   
+		   int uno = datiSped.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   via = datiSped.substring(0, uno);
+		   String runo = datiSped.substring(uno+1); //r sta per resto quindi resto uno =runo
+		   
+		   int due = runo.indexOf("&");
+		   citta = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   cap = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);
+		   
+		   int quattro = rtre.indexOf("&");
+		   provincia = rtre.substring(0);
+	   }
+	   
+	   String numeroCarta="", scadenza="", circuito="", CVV="";
+	   
+	   if(utente.getDatiPagamento()!=null){
+		   int uno = datiPag.indexOf("&"); //uno inteso come prima divisione della stringa(via)
+		   numeroCarta = datiPag.substring(0, uno);
+		   String runo = datiPag.substring(uno+1); //r sta per resto quindi resto uno =runo
+				   
+		   int due = runo.indexOf("&");
+		   scadenza = runo.substring(0, due);
+		   String rdue = runo.substring(due+1);
+		   
+		   int tre = rdue.indexOf("&");
+		   circuito = rdue.substring(0, tre);
+		   String rtre = rdue.substring(tre+1);	
+		   
+		   int quattro = rtre.indexOf("&");
+		   CVV = rtre.substring(0);
+	   }
+%>
 <div>
 <p  class="titoloPagine"> Procedi all'acquisto </p>
 </div>
 
-
-
-
 <div class="procediOrdine" >
 	<div  class="colonnaSx ">
- 		<p class="titColonne text-center"> Stai acquistando: </p>
+		<p class="titColonne text-center"> Stai acquistando: </p>
 				<table id="carrelloOrdine">
-				  <tr style="text-align: left;">
-				    <th id="colonna1">Immagine</th>
-				    <th id="colonna2">Nome</th>
-				    <th id="colonna3">Quantità</th>
-				    <th id="colonna4">Prezzo</th>
-				    <th id="colonna5">Sconto</th>
-				    <th id="colonna6">Prezzo Totale</th>
+					  <tr id="specificheTab" style="text-align: left;">
+						    <th id="colonna1">Immagine</th>
+						    <th id="colonna2">Nome</th>
+						    <th id="colonna3">Quantità</th>
+						    <th id="colonna4">Prezzo</th>
+						    <th id="colonna5">Sconto</th>
+						    <th id="colonna6">Totale</th>
+				  	 </tr>
+				<% 		
+				double prezzo=0, totSingProd=0, sconto=0; 
+		 			int quantità = 0;
+		 			
+		 			
+		 			for(int i=0; i < carrello.size(); i++){
+		 				int prova = carrello.get(i).getQuantità();
+		 				System.out.println("\n Quantita che mi prendo dal carrello:  " + prova);
+		 		%>
+		 		
+		 		
+		 		<!-- ELEMENTI -->
+				  <tr id="specificheTab" >
+				    <td class="immagineProd"><img style="width:50%;"src="<%= prodottiCarrello.get(i).getImmaginePath() %>" alt="immagine-prod"/></td>
+				    <td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
+				    <td class="quantProd"><%=carrello.get(i).getQuantità() %></td>
+				    <td class="prezzoProd"> 
+				    <% prezzo = prodottiCarrello.get(i).getPrezzo(); 
+				    prezzo = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
+				    %>
+				    <%= prezzo %>
+				    </td>
+					<td class="scontoProd">
+					<%= prodottiCarrello.get(i).getSconto() %>
+				</td>
+
+					<td class ="prezzoTot">
+			
+     				<%if(prodottiCarrello.get(i).getSconto()!=0){
+        	
+        			sconto=prodottiCarrello.get(i).getSconto();
+        			//iva=prodottiCarrello.get(i).getIva();
+        			 prezzo=prodottiCarrello.get(i).getPrezzo();
+        			 totSingProd=0;//totale singolo prodotto prezzo*quantita
+        			
+        			totSingProd=prezzo-(prezzo*sconto/100);
+        			totSingProd=totSingProd*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+        			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+        			totaleCarrello=totaleCarrello+totSingProd;
+        	
+			        }else{
+			        	
+			        	prezzo=prodottiCarrello.get(i).getPrezzo();
+			        	//System.out.println("\nPrezzo senzo niente: " + prezzo);
+			        	//System.out.println("Calcolo l'iva");
+			        	totSingProd = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
+			        	//System.out.println("Prezzo prod + iva : " + totSingProd);
+			        	totSingProd = totSingProd * carrello.get(i).getQuantità();
+			        	//System.out.println("Prezzo prod(con iva) * quantità  : " + totSingProd);
+			        	totaleCarrello=totaleCarrello+totSingProd;
+			        	
+						//totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
+						//totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
+						//totaleCarrello=totaleCarrello+totSingProd;
+			        }
+        	%>
+        	<%=totSingProd %>
+					</td> 
+				   
 				  </tr>
-				  <tr id="specificheTab">
-				    <td class="immagineProd">Peter a</td>
-				    <td class="nomeProd">Griffin</td>
-				    <td class="quantProd">$100</td>
-				    <td class="prezzoProd">Griffin</td>
-				    <td class="scontoProd">$100</td>
-				    <td class="prezzoTot">$100</td>
-				    
-				  </tr>
-				  <tr id="specificheTab">
-				  <td class="immagineProd">Peter</td>
-				    <td class="nomeProd">Griffin</td>
-				    <td class="quantProd">$100</td>
-				    <td class="prezzoProd">Griffin</td>
-				    <td class="scontoProd">$100</td>
-				  </tr>
-				  <tr id="specificheTab">
-				 <td class="immagineProd">Peter</td>
-				    <td class="nomeProd">Griffin</td>
-				    <td class="quantProd">$100</td>
-				    <td class="prezzoProd">Griffin</td>
-				    <td class="scontoProd">$100</td>
-				  </tr>
-				  <tr id="specificheTab">
-				    <td class="immagineProd">Peter</td>
-				    <td class="nomeProd">Griffin</td>
-				    <td class="quantProd">$100</td>
-				    <td class="prezzoProd">Griffin</td>
-				    <td class="scontoProd">$100</td>
-				  </tr>
-				</table>
+		 		
+				<% } %> <!--  chiusura for -->
+				</table><!-- chiusura tabella -->
 				
-			<div class="totaleCol">
-				<a> Totale prodotti: xxx </a> <br>
-				<a> Costi spedizione: xxx </a> <br>
-				<a> Totale complessivo: xxx </a>
-			</div>	
-	</div>
+				<div class="totaleCol">
+				<a> Totale complessivo: <%= totaleCarrello %> </a>
+				</div>	
+				
+	</div> <!-- chiusura div colonna sx -->
 	
 	<div  class="colonnaDx1 ">
 		<p class="titColonne text-center" > Spedisci all'indirizzo: </p>
-				<label class="">
-		  <input type="radio" checked="checked" name="radio">
-		  <span class="checkmark"></span>
-		  Aggiungi un nuovo indirizzo:
-		</label>
-			<div class="row justify-content-center">
-			<div class="col-6 form-goup">
-			<label class="cose">Via:</label>
-      		<input type="text" placeholder="Strada/Vicolo/Piazza"  name="via" id="via">
-      		</div>
-      		<div class="col-6 form-goup">
-			<label class="cose">Civico:</label>
-      		<input type="text" placeholder="Numero dell'abitazione" name="civico" id="civico">
-      		</div>
-      		</div>
-      		
-      		
-      		<div class="row justify-content-center">
-      		<div class="col-6 form-goup">
-			<label class="cose">Provincia:</label>
-      		<input type="text" placeholder="Provincia" name="provincia" id="provincia">
-      		</div>
-      		<div class="col-6 form-goup">
-			<label class="cose">CAP:</label>
-      		<input type="text" placeholder="Codice postale" name="cap" id="cap">
-      		</div>
-      		</div>
-      		
-      		
-			<div class="oppure text-center"><div class= "rigaSx" class="hr"></div><a id="oppure"> oppure </a><div class= "rigaDx" class="hr"></div></div>
-			
-			<div class="col-12 form-group">
-			
-	<label class="">
-  <input type="radio" checked="checked" name="radio">
-  <span class="checkmark"></span>
-  Scegli un indirizzo già salvati
-</label>
-			
-     						
- 							 <select class="select"  name="indirizzi" id="indirizzi"> 
-  								 <option>---</option>
-    						     <option value="ind1">Indirizzo 1</option>
-   							     <option value="ind2">Indirizzo 2</option>
- 							 </select>
-    	</div>			
-	</div>
-	
+			<div class="datiUt">
+					<label id="datiLab"> Via </label> <input type="text" name="via" id="datiIn" value="<%=via%>" readonly><br>
+					<label id="datiLab"> Citta </label> <input type="text" name="citta" id="datiIn" value="<%=citta%>" readonly><br>
+					<label id="datiLab"> Cap </label> <input type="text" name="cap" id="datiIn" value="<%=cap%>" readonly><br> 
+					<label id="datiLab"> Provincia </label> <input type="text" name="provincia" id="datiIn"  value="<%=provincia%>" readonly><br> 
+			</div>
+	</div> <!-- chiusura div colonna dx -->
+
 	<div  class="colonnaDx2 ">
 		<p class="titColonne text-center"> Paghi con: </p>
-		
-		<fieldset>
-				<label class="">
-		  <input type="radio" checked="checked" name="radio" onClick="clickYes()" id="contrassegno">
-		  <span class="checkmark"></span>
-		 	Contrassegno
-		</label><br>
-				<label class="">
-		  <input type="radio" checked="checked" name="radio" onClick="clickNo()" id="carta">
-		  <span class="checkmark"></span>
-		  	Aggiungi una nuova carta:
-		</label>
-		
-		<div id="cartaUtente">
-		<div class="row justify-content-center">
-			<div class="col-6 form-goup">
-			<label class="cose">Nome:</label>
-      		<input type="text" placeholder="Nome"  name="nome" id="nome">
-      		</div>
-      		<div class="col-6 form-goup">
-			<label class="cose">Cognome:</label>
-      		<input type="text" placeholder="Cognome" name="cognome" id="cognome">
-      		</div>
-      		</div>
-      		
-      		
-      		<div class="row justify-content-center">
-      		<div class="col-12 form-goup">
-						<label class="cose">Numero carta:</label>
-			      		<input type="text" placeholder="8 - 16 cifre " name="numeroCarta" id="numCarta">
-      		</div>
-      	
-      		</div>
-      		
-      		<div class="row justify-content-center">
-					    <div class="col-6">
-					   	 <label class="cose">Scadenza</label>
-    						<input type="date" placeholder="dd mm yyyy" name="scadenza" id="scadenza" data-date-format="DD MM YYYY">
-    					</div>
-    					<div class="col-6 form-goup">
-							<label class="cose">Cvv:</label>
-				      		<input type="text" placeholder="3 cifre" name="cvv" id="cvv">
-      					</div>
-      		</div>
-      		</div>
-      		
-      		
-      		
-			
-			<div class="oppure text-center"><div class= "rigaSx" class="hr"></div><a id="oppure"> oppure </a><div class= "rigaDx" class="hr"></div></div>
-			
-			<div class="col-12 form-group">
-			     	<label >
-					    <input type="radio" checked="checked" name="radio">
-					    <span class="checkmark"></span>
-					    Scegli una carta già salvata:
-					</label>	
- 					<select class="select"  name="indirizzi" id="indirizzi"> 
-  						<option>---</option>
-    					<option value="ind1">Indirizzo 1</option>
-   						<option value="ind2">Indirizzo 2</option>
- 					</select>
-    	</div>					 
-		</fieldset>	
-	</div>
+		<div class="datiUt">
+					<label id="datiLab"> Numero</label> <input type="text" name="numeroCarta" id="datiIn" value="<%=numeroCarta%>" readonly><br> 
+					<label id="datiLab">Scadenza</label> <input type="text" name="scadenza"  id="datiIn" value="<%=scadenza%>" readonly><br> 
+					<label id="datiLab"> Circuito</label> <input type="text" name="circuito"  id="datiIn"  value="<%=circuito%>" readonly> <br> 
+					<label id="datiLab"> CVV</label> <input type="text" name="CVV"  id="datiIn" value="<%=CVV%>" readonly> <br> 
+		</div>
+	</div> <!-- chiusura div colonna dx2 -->
+
+</div> <!-- chiusura div procedi ordine -->
+
+<div class="opBtn2">
+		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista
 	
-</div>
-
-
-	<div class="opBtn2">
-		<a class=" bottoni bottoni-colori " >
-		    <span class="">Procedi all'acquisto ></span>
 		</a>	
   	</div>
-  				
-  				
-
-<script>
-  
-  function clickYes() {
-		if (document.getElementById("contrassegno").checked) {
-			$("#cartaUtente").addClass("disabledbutton");
-			
-		}
-	}
-
-	function clickNo() {
-		if (document.getElementById("carta").checked) {
-			$("#cartaUtente").addClass("abledbutton");
-			
-		}
-	}
-
-
-
-  </script>
-
-       
-       
-<%@ include file="footer.jsp"%>
+  			<%@include file="footer.jsp"%>		
 </body>
 </html>

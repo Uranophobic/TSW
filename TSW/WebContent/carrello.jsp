@@ -132,7 +132,7 @@
 		</div>
 		
 	<div class="botAcquisto">
-		<a href="procOrdine.jsp">
+		<a href="procediOrdine.jsp">
 			<button class=" bottoni bottoni-colori " type="submit" id="ac">Procedi all'acquisto</button>
 		</a>
 		</div>
