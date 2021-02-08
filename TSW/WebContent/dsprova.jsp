@@ -200,7 +200,7 @@ width: 27%;}
 				<div class="immagineOp">
 					<img src="https://img.icons8.com/plasticine/150/000000/box.png" />
 				</div>
-						<h4 class="text-center"><a id="nomeOperazione" class="text-center" href="">I miei Ordini</a></h4>
+						<h4 class="text-center"><a  id="nomeOperazione" class="text-center" href="profilo?azioneProfilo=visualizzaOrdini&email=<%=utente.getEmail()%>">I miei Ordini</a></h4>
 						<p class="text-center" >Visualizza qui gli ordini effettuati in precedenza e gli ordini in arrivo!</p>
 				</div>
 				

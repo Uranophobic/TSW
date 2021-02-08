@@ -63,15 +63,15 @@ public class OrdineModelDS implements OrdineModel{
 	}
 
 	@Override
-	public Ordine doRetrieveByKey(String codiceOrdine) throws SQLException {
+	public Ordine doRetrieveByKey(String idOrdine) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		Ordine OrdineBean=new Ordine();
-		String selectSQL="SELECT * FROM "+OrdineModelDS.TABLE_NAME+ "where codiceOrdine=?";
+		String selectSQL="SELECT * FROM "+OrdineModelDS.TABLE_NAME+ "where idOrdine=?";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(selectSQL);
-			preparedStatement.setString(1, codiceOrdine);
+			preparedStatement.setString(1, idOrdine);
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next()) {
 				OrdineBean.setIdOrdine(rs.getString("idOrdine"));

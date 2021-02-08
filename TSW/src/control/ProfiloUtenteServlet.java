@@ -147,7 +147,52 @@ public class ProfiloUtenteServlet extends HttpServlet {
 					e.printStackTrace();
 				}
 		}
+		
+		if(azioneProfilo.equals("visualizzaOrdini")) {
+			System.out.println("sono in visualizzaOrdini\n");
+			
+			Utente utente=(Utente) request.getSession().getAttribute("utenteSessione");
+			ArrayList<Ordine>ordiniUtente=new ArrayList<Ordine>();
+			try {
+				
+				ArrayList<Ordine> ordiniAll=ordineModel.doRetrieveAll("emailUtente");
+				//System.out.println("tutti gli ordini\n : "+ordiniAll);
+				for(int i=0;i<ordiniAll.size();i++) {
+					
+					if(ordiniAll.get(i).getEmailUtente().equals(utente.getEmail())) {
+						System.out.println("le mail combaciano");
+						//System.out.println("sono nel do retrive by key");
+						
+						Ordine ordine=new Ordine();
+						ordine.setEmailUtente(utente.getEmail());
+						ordine.setIdOrdine(ordiniAll.get(i).getIdOrdine());
+						ordine.setDataOrdine(ordiniAll.get(i).getDataOrdine());
+						ordine.setImportoTot(ordiniAll.get(i).getImportoTot());
+						
+						System.out.println("ordine del mio utente : "+ordine);
+						ordiniUtente.add(ordine);
+						
+						
+						
+	
+					}
+					
+				}
+				System.out.println(" tutti gli ordini del mio utente : "+ordiniUtente);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			request.getSession().setAttribute("ordiniSessione", ordiniUtente);
+			RequestDispatcher view = request.getRequestDispatcher("visualizzaOrdiniUtente.jsp");
+			view.forward(request,response);
+			
+			
+			
+			
+			}
 	}
+	
 }
 
 
