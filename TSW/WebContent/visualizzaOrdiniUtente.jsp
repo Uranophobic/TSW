@@ -30,11 +30,7 @@ System.out.println("sto prendendo la sessione degli ordini"+ordini);
 %>
 <div class="w3-container"> <!-- PER FARE STA COSA SUPER FAIGA ABBIAMO UTILIZZATO UNA TABBED NAVIGATION o NAVIGATION TABS (W3S) -->
  
-  <div class="w3-bar w3-black">
 
-  <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Left')">Ordini in arrivo</button>
-  <button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Right')">Ordini acquistati in precedenza</button>
-  </div>
   <div style="margin-left:200px">
 
 <%System.out.println("sono prima del for");
@@ -64,29 +60,12 @@ for(int i=0;i<ordini.size();i++){
 
 
   <div id="Left" class="w3-container city w3-animate-left" style="display:block">
-    <h2>Slide in from left</h2>
-    <p>Paris is the capital of France.</p> 
-    <p>ESEMPIO</p>
-    <p>ESEMPIO</p>
-    <p>ESEMPIO</p>
-    <p>ESEMPIO</p>
-    <p>ESEMPIO</p>
+    
+    <p >ID ORDINE: <%=ordini.get(i).getIdOrdine() %></p> 
+    <p>DATA ORDINE<%=ordini.get(i).getDataOrdine() %></p>
+    <p>IMPORTO TOTALE<%=ordini.get(i).getImportoTot() %></p>
+   
   </div>
-
- 
-
-  <div id="Right" class="w3-container city w3-animate-right" style="display:none">
-    <h2>Slide in from right</h2>
-    <p>London is the capital city of England.</p>
-   <p>ESEMPIO</p>
-   <p>ESEMPIO</p>
-   <p>ESEMPIO</p>
-   <p>ESEMPIO</p>
-   <p>ESEMPIO</p>
-   <p>ESEMPIO</p>
-  </div>
-
- 
 
 </div>
 <%} %>
