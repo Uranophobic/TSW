@@ -50,7 +50,7 @@
 				
 				  	<!-- profilo utente  -->
 					<div class="icona"> 
-						 <a href="dsProva.jsp"><img  class="size" src="https://img.icons8.com/small/32/000000/home.png" /></a><!-- cambia immagine -->
+						 <a href="dsProva.jsp"><img src="https://img.icons8.com/fluent-systems-regular/24/000000/user.png"/></a><!-- cambia immagine -->
 						 <a class="iconaTxt" href="dsprova.jsp"> Profilo Utente </a>
 					</div>
 

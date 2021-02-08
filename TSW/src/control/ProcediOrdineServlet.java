@@ -128,10 +128,13 @@ public class ProcediOrdineServlet extends HttpServlet {
 				
 				
 				request.getSession().setAttribute("ordiniSessione", ordini);
+				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher(" fatturajsp.jsp ");  
+			dispatcher.forward(request, response);
 
 
 
@@ -143,20 +146,18 @@ public class ProcediOrdineServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 
-
+*/
 		if(azioneOrdine.equals("visualizzaFattura")) {
 			//passo tutto alla jsp con la sessione
-			utente = (Utente) request.getSession().getAttribute("utenteSessione"); 
-			//datiSped = (DatiSpedizione) request.getSession().getAttribute("datiSpedSessione");
-			//	datiPag = (DatiPagamento) request.getSession().getAttribute("datiPagSessione");
+			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione"); 
+			
+			
 
-			prezzoTot =  (double) request.getSession().getAttribute("prezzoTot");  //prezzo totale dell'ordine 
-
-			dispatcher = request.getRequestDispatcher(" fattura.jsp ");  
+			RequestDispatcher dispatcher = request.getRequestDispatcher(" fatturajsp.jsp ");  
 			dispatcher.forward(request, response);
 		}
 
-		 */
+		 
 
 	}
 
@@ -186,7 +187,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 					if(i==all.size()-1) {
 						System.out.println("sono nell if che cerco l'ultimo elemento\n");
 						String ultimoid=all.get(i).getIdOrdine();
-						
+						/*
 						String k="",numero="";
 						int valentina=0;
 
@@ -202,7 +203,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 						valentina=valentina+1;
 						idCorrente="K"+(valentina);
 						System.out.println("idCorrente: "+idCorrente);
-
+*/
 
 					}
 				}
