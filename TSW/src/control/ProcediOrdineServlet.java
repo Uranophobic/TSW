@@ -45,11 +45,6 @@ public class ProcediOrdineServlet extends HttpServlet {
 	static OrdineModel ordineModel = new OrdineModelDS();
 	static FatturaModel fatturaModel = new FatturaModelDS();
 	static ComposizioneModel composizioneModel = new ComposizioneModelDS();
-
-	//Utente utente = new Utente();
-	//Ordine ordine = new Ordine();
-	Prodotto prod = new Prodotto();
-
 	double prezzoTot = 0;
 
 
@@ -65,12 +60,6 @@ public class ProcediOrdineServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String azioneOrdine = request.getParameter("azioneOrdine");
 		System.out.println("Azione selezionata procedi ordine: "+ azioneOrdine);
-
-
-
-
-
-
 
 		if(azioneOrdine.equals("compra")) {
 			System.out.println("sono in compra");
@@ -92,13 +81,13 @@ public class ProcediOrdineServlet extends HttpServlet {
 						prezzoTot = prezzoTot + carrello.get(i).getPrezzoUnitario() * carrello.get(i).getQuantità();
 					}
 				}
-				
-				
-					allOrdini=ordineModel.doRetrieveAll("idOrdine");
-					System.out.println("tutti gli ordini della tabella ordine: \n"+allOrdini);
-					
 
-//set attributi ORDINE
+
+				allOrdini=ordineModel.doRetrieveAll("idOrdine");
+				System.out.println("tutti gli ordini della tabella ordine: \n"+allOrdini);
+
+
+				//set attributi ORDINE
 				String data = dataOggi();
 				ordine.setDataOrdine(data);
 				ordine.setEmailUtente(utente.getEmail());
@@ -106,9 +95,9 @@ public class ProcediOrdineServlet extends HttpServlet {
 				String idOrdineTemp = newId(allOrdini);
 				System.out.println("idOrdineTemp: "+idOrdineTemp);
 				ordine.setIdOrdine(idOrdineTemp);
-				
+
 				System.out.println(ordine.toString());	
-//set attributi composizione
+				//set attributi composizione
 				for(int i=0;i<prodottiCarrello.size();i++) {
 					compo.setCodiceOrdine(idOrdineTemp);
 					compo.setCodiceProdotto(prodottiCarrello.get(i).getIdProdotto());
@@ -116,49 +105,25 @@ public class ProcediOrdineServlet extends HttpServlet {
 					compo.setIva(prodottiCarrello.get(i).getIva());
 					compo.setScontoAttuale(prodottiCarrello.get(i).getSconto());
 					compo.setQuantità(carrello.get(i).getQuantità());
-				System.out.println("composizione: "+compo.toString());
-				carrello.add(compo);
-				composizioneModel.doSave(compo);
+					//System.out.println("composizione: "+compo.toString());
+					carrello.add(compo);
+					composizioneModel.doSave(compo);
 				}
-				
-				
-				
+
+
+
 				ordini.add(ordine);
 				ordineModel.doSave(ordine);
-				
-				
+
+
 				request.getSession().setAttribute("ordiniSessione", ordini);
-				
+				RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
+				view.forward(request, response);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			RequestDispatcher dispatcher = request.getRequestDispatcher(" fatturajsp.jsp ");  
-			dispatcher.forward(request, response);
-
-
-
 		}
-
-		/*
-			//una volta finito di settare l'ordine bisogna visualizzare fattura 
-			dispatcher = request.getRequestDispatcher("fattura.jsp");
-			dispatcher.forward(request, response);
-		}
-
-*/
-		if(azioneOrdine.equals("visualizzaFattura")) {
-			//passo tutto alla jsp con la sessione
-			Utente utente = (Utente) request.getSession().getAttribute("utenteSessione"); 
-			
-			
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher(" fatturajsp.jsp ");  
-			dispatcher.forward(request, response);
-		}
-
-		 
-
 	}
 
 
@@ -176,44 +141,72 @@ public class ProcediOrdineServlet extends HttpServlet {
 
 	public String newId(ArrayList<Ordine>allOrdini) {
 		String idCorrente="";
-			ArrayList<Ordine> all=allOrdini;
-			
-			System.out.println("Array list ALL: \n"+all);
-			
-			if(all.size()!=0) {
-				System.out.println("sono nell'if di new id\n");
-				for(int i=0; i<all.size();i++) {
-					System.out.println("sono nel for di new id\n");
-					if(i==all.size()-1) {
-						System.out.println("sono nell if che cerco l'ultimo elemento\n");
-						String ultimoid=all.get(i).getIdOrdine();
-						/*
-						String k="",numero="";
-						int valentina=0;
+		int size = allOrdini.size();
+		int[] idNoK = new int[size];
+		System.out.println("Array list ALL: \n"+allOrdini);
 
-						int uno=ultimoid.indexOf("K");
-						k=ultimoid.substring(0,uno);
-						String runo=ultimoid.substring(uno+1);
-						//abbiamo solo diviso la k
-						numero=runo.substring(0);
-						//abbiamo preso il numero
-						System.out.println("k: "+k);
-						System.out.println("numero: "+numero);
-						valentina=Integer.parseInt(numero);
-						valentina=valentina+1;
-						idCorrente="K"+(valentina);
-						System.out.println("idCorrente: "+idCorrente);
-*/
+		if(allOrdini.size()!=0) {
+			//System.out.println("sono nell'if di new id\n");
+			for(int i=0; i<allOrdini.size();i++) {
 
-					}
-				}
-			}else {
+				/*
+				if(i==allOrdini.size()-1) {
+					System.out.println("sono nell if che cerco l'ultimo elemento\n");
+					String ultimoId=allOrdini.get(i).getIdOrdine();
 
-				idCorrente="K1";
+					String k2="", numero2="";
+					k2 = ultimoId.substring(0,1);
+					System.out.println(" K2 " + k2);
+
+
+					numero2 = ultimoId.substring(1);
+					int n = Integer.parseInt(numero2);
+					idNoK[i]=n;
+					n = n+1;
+					System.out.println("numero2 : " + numero2);
+					String risultatoId; 
+					risultatoId = k2 + n;
+					idCorrente = risultatoId;
+					System.out.println("RISULTATO ID "+ risultatoId);
+				}*/
+
+				String id = allOrdini.get(i).getIdOrdine();
+				System.out.println("INDICE " +  i +"ID TUTTI: "+ id);
+
+				String k2="", numero2="";
+
+				k2 = id.substring(0,1);
+				//System.out.println(" K2: " + k2); //mi separo la k
+
+				numero2 = id.substring(1); //mi separo il numero
+			//	System.out.println("numero2 : " + numero2);
+				int n = Integer.parseInt(numero2);
+
+
+				idNoK[i]=n;
+				System.out.println("che cazzo"+idNoK[i]);
+
 			}
-		
+
+			int max = idNoK[0];
+			for ( int i=0; i<idNoK.length; i++) {
+				if(idNoK[i]>max) {
+					max = idNoK[i];
+				}
+			}
+			 System.out.println("max"+ max);
+
+			 int id = max + 1;
+			 
+			 idCorrente ="K"+id;
+			 System.out.println("id cazzooooooo:" + idCorrente);
+		}else {
+
+			idCorrente="K1";
+		}
+
 		return idCorrente;
-	
+
 
 
 	}
