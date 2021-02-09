@@ -41,9 +41,12 @@
 	
 		<ul class="listaNav">
 			<li class="iconNav"> <!-- elemento che contiene le icone -->
+			<% if(session.getAttribute("capoSessione") != null ){ %>
+				<a href="amministratore.jsp"><button> GESTIONE AMMINISTRATORE </button></a>
+			<% } %>
+			
 			<%
 				if(session.getAttribute("utenteSessione") != null){
-					
 				
 			%>
 				<div class="iconeContenitore">
@@ -84,11 +87,11 @@
 		 	<!-- barra di ricerca -->
 			<li class="barraRicercaNav">  
 				<div class="barraRicerca">
-					 <form class="navbar-form " action="/action_page.php">
+					 <form class="navbar-form " action="prodotto" method="post">
 					      <div class="input-group">
-					        <input type="text" class="form-control" placeholder="Search" name="search">
+					        <input type="text" class="form-control" placeholder="Search" name="insProd">
 					        <div class="input-group-btn">
-					         <button class="btnRicerca" type="submit"><i class="fa fa-search"></i></button>
+					        <a href="prodotto?azioneP=ricerca"> <button class="btnRicerca" type="submit" name="azioneP" value="ricerca"><i class="fa fa-search"></i></button></a>
 					        </div>
 					      </div>
 					    </form>

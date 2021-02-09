@@ -64,6 +64,12 @@ public class LoginServlet extends HttpServlet {
 				utente=utenteModel.doRetrieveByKey(email);
 				System.out.println(utente);
 
+				if(utente.getEmail().equals("admin")) {
+					System.out.println("admin entrato");
+					request.getSession().setAttribute("capoSessione", utente);
+				}
+				
+				
 				//if controllo mail, se la mail esiste nel db 
 				if(utente.getEmail().equals(email)) {
 					if(utente.getPassword().equals(password)) {
@@ -86,6 +92,10 @@ public class LoginServlet extends HttpServlet {
 						ArrayList<Wishlist> wishlist=new ArrayList<Wishlist>();
 						request.getSession().setAttribute("wishlistSessione", wishlist);
 
+						//sessione ricerca
+						ArrayList<Prodotto> risultatiRicerca = new ArrayList<Prodotto>();
+						request.getSession().setAttribute("risultatiRicerca", risultatiRicerca);
+						
 						RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
 						view.forward(request, response);
 					}else {
@@ -182,8 +192,9 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("wishlistSessione", wishlist);
 			
 			
-
-
+			//sessione ricerca
+			ArrayList<Prodotto> risultatiRicerca = new ArrayList<Prodotto>();
+			request.getSession().setAttribute("risultatiRicerca", risultatiRicerca);
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
 			dispatcher.forward(request, response);
@@ -212,6 +223,12 @@ public class LoginServlet extends HttpServlet {
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dsprova.jsp");
 			dispatcher.forward(request, response);
 		}
+		
+		
+		if(azioneLogin.equals("loginAmministratore")) {
+			
+		}
+		
 	}
 
 

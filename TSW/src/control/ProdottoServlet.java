@@ -90,7 +90,7 @@ public class ProdottoServlet extends HttpServlet {
 				int prodWish=prodottiWishlist.size();
 				System.out.println("PRODOTTI NELLA WISHLIST"+prodWish);
 				for(int i=0;i<prodottiWishlist.size();i++) {
-					
+
 
 				}
 
@@ -112,81 +112,69 @@ public class ProdottoServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			/*
+
 
 			request.getSession().setAttribute("prova", listaProdotti);
 			RequestDispatcher view=request.getRequestDispatcher("wishlist.jsp");
 			view.forward(request, response); 
 		}
 
+		 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		/*
 		if(azioneP.equals("ricerca")) {
-			String effettuaRicerca=request.getParameter("barraDiRicerca");
+			String insProd=request.getParameter("insProd");
+			System.out.println("prodotto inserito: " + insProd);
 			try {
-				ArrayList<Prodotto> AllProdotti=prodottoModel.doRetrieveAll("nomeProdotto");//essere sicuri
+				ArrayList<Prodotto> AllProdotti=prodottoModel.doRetrieveAll("nome");//essere sicuri
 				ArrayList<Prodotto>risultatiRicerca=new ArrayList<Prodotto>();
-				/*
-		 * Creiamo un arrayList che contiene il bean di prodotto, cioè che contiene 
-		 * tutti i prodotti e questa cosa è possibile perchè definiamo un oggetto prodottoModel 
-		 * e utilizzando il metodo doRetriveAll recuperiamo tutti i prodotti. 
-		 * Dopo di che si crea un altro arrayList che dovrà contenere i prodotti che sono risultati
-		 * dalla ricerca del nostro utente.
-		 * Pertanto si prosegue facendo scorrere l'arraylist di prodotti per cercare il bean di prodotto
-		 * cioè si fa la corrispondenza cercando dentro all'arraylist il prodotto bean o i prodotti che l'utente ha ricercato
-		 *//*
-				for(Prodotto prodottoBean: AllProdotti) {
-					//recuperiamo i dati del prodotto??
-					String idProdottto=request.getParameter("idProdotto");
-					String immaginePathProdotto=request.getParameter("immaginePath");
-					String nomeProdotto=request.getParameter("nomeProdotto");
-					String descrizioneProdotto=request.getParameter("descrizioneProdotto");
-					String categoriaProdotto=request.getParameter("categoriaProdotto");
-					double prezzoProdotto=Double.parseDouble(request.getParameter("prezzoProdotto"));
+
+				for(Prodotto prodotto: AllProdotti) {
+					if(prodotto.getNome().equals(insProd)) {
+						Prodotto p = new Prodotto();
+						p.setCategoria(prodotto.getCategoria());
+						p.setDescrizione(prodotto.getDescrizione());
+						p.setIdProdotto(prodotto.getIdProdotto());
+						p.setImmaginePath(prodotto.getImmaginePath());
+						p.setNome(prodotto.getNome());
+						p.setPrezzo(prodotto.getPrezzo());
+						p.setSconto(prodotto.getSconto());
+						p.setIva(prodotto.getIva());
+						System.out.println("PRODOTTO CHE ABBIAMO SETTATO "+ p);
+						AllProdotti.add(p);
+
+					}
 
 				}
 
 				if(risultatiRicerca.size()!=0) {
-					/*
-		  * Questo if va a controllare che l'array risultati ricerca non sia vuoto
-		  * Quindi in risultatiricerca ci sta il risultato o meglio i prodotti che l'utente ha ricercato
-		  * se è vuoto vuol dire che quel prodotto non è presente. 
-		  * Ma se così non fosse procediamo
-		  * 
-		  *//*
-
+					/*	
+					 * Questo if va a controllare che l'array risultati ricerca non sia vuoto
+					 * Quindi in risultatiricerca ci sta il risultato o meglio i prodotti che l'utente ha ricercato
+					 * se è vuoto vuol dire che quel prodotto non è presente. 
+					 * Ma se così non fosse procediamo
+					 * 
+					 */
+					System.out.println("prodotto trovato");
 					request.getSession().setAttribute("risultatiRicerca",risultatiRicerca);
+					System.out.println("risultati ricerca : " + risultatiRicerca);
 					RequestDispatcher dispatcher=request.getRequestDispatcher("catalogo.jsp");//controlla nome jsp
 					dispatcher.forward(request, response);
 
 				}else {//se cosi non fosse..., cioè se risultatiRicerca è vuoto 
-
-					RequestDispatcher dispatcher=request.getRequestDispatcher("404Error.jsp");//controllare nome jsp
-					dispatcher.forward(request, response);
+					System.out.println("prodotto non trovato");
+					//RequestDispatcher dispatcher=request.getRequestDispatcher("404Error.jsp");//controllare nome jsp
+					//dispatcher.forward(request, response);
 				}
 			}catch(SQLException e) {
 				e.printStackTrace();
 			}
 
-			/*
+		}
+
+
+
+		/*
 			if(azioneP.equals("aggiungiProdottoACarrello")) {
 				try {
 					ArrayList<Prodotto> catalogo = prodottoModel.doRetrieveAll("idProdotto");
@@ -198,7 +186,7 @@ public class ProdottoServlet extends HttpServlet {
 
 					//carrello vuoto
 					/*
-		   * aggiunta di un prodotto quando il carrello è vuoto
+		 * aggiunta di un prodotto quando il carrello è vuoto
 
 
 					if(carrello.size()==0){
@@ -337,6 +325,7 @@ public class ProdottoServlet extends HttpServlet {
 
 			}
 		 */
+
 
 	}
 }

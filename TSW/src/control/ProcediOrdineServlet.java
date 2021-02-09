@@ -106,7 +106,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 					compo.setScontoAttuale(prodottiCarrello.get(i).getSconto());
 					compo.setQuantità(carrello.get(i).getQuantità());
 					//System.out.println("composizione: "+compo.toString());
-					carrello.add(compo);
+					//carrello.add(compo);
 					composizioneModel.doSave(compo);
 				}
 
@@ -115,16 +115,47 @@ public class ProcediOrdineServlet extends HttpServlet {
 				ordini.add(ordine);
 				ordineModel.doSave(ordine);
 
+/*
+				for(int i=0; i<prodottiCarrello.size(); i++) {
+					if(prodottiCarrello.size() >=1){
+						prodottiCarrello.remove(prodottiCarrello.get(i));
+					}
+					//ordini.remove(i);
+				}
+ 
+				for(int y=0; y<carrello.size(); y++) {
+					if(carrello.size() >=1){
+						carrello.remove(carrello.get(y));
+				}
+				}
+*/
+					prodottiCarrello.clear();
+					prodottiCarrello.removeAll(prodottiCarrello);
+					
+					carrello.clear();
+					carrello.removeAll(carrello);
+					
+					System.out.println("arraylist PRODOTTI dopo la remove: "+ prodottiCarrello);
+					System.out.println("arraylist CARRELLO dopo la remove: "+ carrello);
 
-				request.getSession().setAttribute("ordiniSessione", ordini);
-				RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
-				view.forward(request, response);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+					request.getSession().removeAttribute("quantitaCarrello");
+					request.getSession().removeAttribute("carrelloSessione");
+					request.getSession().removeAttribute("prodottiCarrello");
+					request.getSession().removeAttribute("ordiniSessione");
+					request.getSession().setAttribute("quantitaCarrello", 0);
+					request.getSession().setAttribute("carrelloSessione", carrello);
+					request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
+					request.getSession().setAttribute("ordiniSessione", ordini);
+					System.out.println("ho azzerato il carrello");
+					request.getSession().setAttribute("ordiniSessione", ordini);
+					RequestDispatcher view = request.getRequestDispatcher("/fattura.jsp");
+					view.forward(request, response);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
-	}
 
 
 
@@ -132,24 +163,24 @@ public class ProcediOrdineServlet extends HttpServlet {
 
 
 
-	private String dataOggi(){
-		Date oggi = new Date(); // Data di oggi
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // Qui decido il formato di visualizzazione
-		String dataOggi = sdf.format( oggi );
-		return dataOggi;		
-	} 
+		private String dataOggi(){
+			Date oggi = new Date(); // Data di oggi
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // Qui decido il formato di visualizzazione
+			String dataOggi = sdf.format( oggi );
+			return dataOggi;		
+		} 
 
-	public String newId(ArrayList<Ordine>allOrdini) {
-		String idCorrente="";
-		int size = allOrdini.size();
-		int[] idNoK = new int[size];
-		System.out.println("Array list ALL: \n"+allOrdini);
+		public String newId(ArrayList<Ordine>allOrdini) {
+			String idCorrente="";
+			int size = allOrdini.size();
+			int[] idNoK = new int[size];
+			System.out.println("Array list ALL: \n"+allOrdini);
 
-		if(allOrdini.size()!=0) {
-			//System.out.println("sono nell'if di new id\n");
-			for(int i=0; i<allOrdini.size();i++) {
+			if(allOrdini.size()!=0) {
+				//System.out.println("sono nell'if di new id\n");
+				for(int i=0; i<allOrdini.size();i++) {
 
-				/*
+					/*
 				if(i==allOrdini.size()-1) {
 					System.out.println("sono nell if che cerco l'ultimo elemento\n");
 					String ultimoId=allOrdini.get(i).getIdOrdine();
@@ -170,47 +201,47 @@ public class ProcediOrdineServlet extends HttpServlet {
 					System.out.println("RISULTATO ID "+ risultatoId);
 				}*/
 
-				String id = allOrdini.get(i).getIdOrdine();
-				System.out.println("INDICE " +  i +"ID TUTTI: "+ id);
+					String id = allOrdini.get(i).getIdOrdine();
+					System.out.println("INDICE " +  i +"ID TUTTI: "+ id);
 
-				String k2="", numero2="";
+					String k2="", numero2="";
 
-				k2 = id.substring(0,1);
-				//System.out.println(" K2: " + k2); //mi separo la k
+					k2 = id.substring(0,1);
+					//System.out.println(" K2: " + k2); //mi separo la k
 
-				numero2 = id.substring(1); //mi separo il numero
-			//	System.out.println("numero2 : " + numero2);
-				int n = Integer.parseInt(numero2);
+					numero2 = id.substring(1); //mi separo il numero
+					//	System.out.println("numero2 : " + numero2);
+					int n = Integer.parseInt(numero2);
 
 
-				idNoK[i]=n;
-				System.out.println("che cazzo"+idNoK[i]);
+					idNoK[i]=n;
+					System.out.println("che cazzo"+idNoK[i]);
 
-			}
-
-			int max = idNoK[0];
-			for ( int i=0; i<idNoK.length; i++) {
-				if(idNoK[i]>max) {
-					max = idNoK[i];
 				}
+
+				int max = idNoK[0];
+				for ( int i=0; i<idNoK.length; i++) {
+					if(idNoK[i]>max) {
+						max = idNoK[i];
+					}
+				}
+				System.out.println("max"+ max);
+
+				int id = max + 1;
+
+				idCorrente ="K"+id;
+				System.out.println("id cazzooooooo:" + idCorrente);
+			}else {
+
+				idCorrente="K1";
 			}
-			 System.out.println("max"+ max);
 
-			 int id = max + 1;
-			 
-			 idCorrente ="K"+id;
-			 System.out.println("id cazzooooooo:" + idCorrente);
-		}else {
+			return idCorrente;
 
-			idCorrente="K1";
+
+
 		}
-
-		return idCorrente;
 
 
 
 	}
-
-
-
-}

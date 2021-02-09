@@ -205,9 +205,7 @@ width: 25%;
 </div> <!-- chiusura div procedi ordine -->
 
 <div class="opBtn2">
-		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista
-	
-		</a>	
+		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista</a>	
   	</div>
   			<%@include file="footer.jsp"%>		
 </body>

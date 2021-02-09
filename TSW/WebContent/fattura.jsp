@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page import=java.util.ArrayList %>
-<%@page import=bean.Ordine %>
+<%@page import="java.util.ArrayList, bean.Composizione, bean.Ordine, bean.Prodotto, bean.Utente"%>
 	
 <!DOCTYPE html>
 <html>
