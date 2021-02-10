@@ -70,28 +70,99 @@ public class amministratoreServlet extends HttpServlet {
 			
 		}
 	
-		if(azioneCapo.equals("modificaProd")) {
+		if(azioneCapo.equals("prendiProd")) {
 			System.out.println("sono in modifica prodotto");
 			
 			ArrayList<Prodotto> catalogo= (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
 			String idProdCapo=request.getParameter("idProdCapo");
 			System.out.println("id del prodotto passato: "+idProdCapo);
+		
+			
+			try {
+				Prodotto prodotto=prodModel.doRetrieveByKey(idProdCapo);
+				System.out.println("prodotto cercato: "+prodotto);
+			
+				request.getSession().setAttribute("prodDaMod", prodotto);
+					/*
+					String idProdotto=request.getParameter("idProdotto");
+					String immaginePath=request.getParameter("imgProd");
+					String nome=request.getParameter("nome");
+					String descrizione=request.getParameter("descrizione");
+					String categoria=request.getParameter("categoria");
+					double prezzo=Double.parseDouble(request.getParameter("prezzo"));
+					double iva=Double.parseDouble(request.getParameter("iva"));
+					double sconto=Double.parseDouble(request.getParameter("sconto"));
+					
+					System.out.println("prodotto e nome: "+idProdotto+nome);
+					
+					
+					Prodotto p=new Prodotto();
+					p.setIdProdotto(idProdotto);
+					p.setImmaginePath(immaginePath);
+					p.setNome(nome);
+					p.setDescrizione(descrizione);
+					p.setCategoria(categoria);
+					p.setPrezzo(prezzo);
+					p.setSconto(sconto);
+					p.setIva(iva);
+					
+					System.out.println("prodottoModificato: "+p);
+						prodModel.doUpdate(p);
+				
+			*/
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			RequestDispatcher dispatcher=request.getRequestDispatcher("modificaProdAmm.jsp");
+			dispatcher.forward(request, response);
 			
 			
-			for(int i=0;i<catalogo.size();i++) {
-				if(catalogo.get(i).getIdProdotto().equals(idProdCapo)) {
-					System.out.println("gli id combaciano");
-					
-					
-					
-
-					
-					
-				}
+			}
+		if(azioneCapo.equals("modificaProd")) {
+			
+			Prodotto prodDaMod=(Prodotto)request.getSession().getAttribute("prodDaMod");
+			try {
+			Prodotto p=prodModel.doRetrieveByKey(prodDaMod.getIdProdotto());
+			//String idProdotto=request.getParameter("idProdotto");
+			String immaginePath=request.getParameter("imgProd");
+			String nome=request.getParameter("nome");
+			String descrizione=request.getParameter("descrizione");
+			String categoria=request.getParameter("categoria");
+			double prezzo=Double.parseDouble(request.getParameter("prezzo"));
+			double iva=Double.parseDouble(request.getParameter("iva"));
+			double sconto=Double.parseDouble(request.getParameter("sconto"));
+			
+			System.out.println("prodotto e nome: "+nome);
+			
+			
+			
+			//p.setIdProdotto(idProdotto);
+			p.setImmaginePath(immaginePath);
+			p.setNome(nome);
+			p.setDescrizione(descrizione);
+			p.setCategoria(categoria);
+			p.setPrezzo(prezzo);
+			p.setSconto(sconto);
+			p.setIva(iva);
+			
+			System.out.println("prodottoModificato: "+p);
+				prodModel.doUpdate(p);
+		
+	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
-			
+			getServletContext().getRequestDispatcher("/amministratore.jsp").forward(request, response);
 		}
+					
+				
+			
+			
+			
+
 		
 		if(azioneCapo.equals("eliminaProd")) {
 			

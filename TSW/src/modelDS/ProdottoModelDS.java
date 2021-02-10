@@ -162,20 +162,22 @@ public class ProdottoModelDS implements ProdottoModel {
 		PreparedStatement preparedStatement=null;
 		int result=0;
 
-		String updateSQL="UPDATE "+ProdottoModelDS.TABLE_NAME+"SET idProdotto = ?, immaginePath = ?, nome = ?, descrizione = ?, categoria = ?, prezzo = ?, iva = ?, sconto = ?";
+		String updateSQL="UPDATE "+ProdottoModelDS.TABLE_NAME+ " SET immaginePath = ?, nome = ?, descrizione = ?, categoria = ?, prezzo = ?, iva = ?, sconto = ?"+"WHERE idProdotto = ? ";
 		try {
 			connection=ds.getConnection();
 			preparedStatement=connection.prepareStatement(updateSQL);
-			preparedStatement.setString(1, prodotto.getIdProdotto());
-			preparedStatement.setString(2, prodotto.getImmaginePath());
-			preparedStatement.setString(3, prodotto.getNome());
-			preparedStatement.setString(4, prodotto.getDescrizione());
-			preparedStatement.setString(5,prodotto.getCategoria());
-			preparedStatement.setDouble(6, prodotto.getPrezzo());
-			preparedStatement.setDouble(7, prodotto.getIva());
-			preparedStatement.setDouble(8, prodotto.getSconto());
+			
+			preparedStatement.setString(1, prodotto.getImmaginePath());
+			preparedStatement.setString(2, prodotto.getNome());
+			preparedStatement.setString(3, prodotto.getDescrizione());
+			preparedStatement.setString(4,prodotto.getCategoria());
+			preparedStatement.setDouble(5, prodotto.getPrezzo());
+			preparedStatement.setDouble(6, prodotto.getIva());
+			preparedStatement.setDouble(7, prodotto.getSconto());
+			preparedStatement.setString(8, prodotto.getIdProdotto());
 
 			result=preparedStatement.executeUpdate();
+			
 
 		}finally {
 

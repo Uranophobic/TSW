@@ -28,6 +28,7 @@
 <h1> SONO IN GESTIONE AMMINISTRATORE </h1>
 
 <h1>I prodotti del catalogo: </h1>
+<form action="amministratore" method="POST">
 <%for(int i=0;i<catalogo.size();i++){%>
 
 <p >ID PRODOTTO:<%=catalogo.get(i).getIdProdotto() %> </p>
@@ -39,9 +40,14 @@
 <p>IVA: <%=catalogo.get(i).getIva() %></p>
 <p>SCONTO: <%=catalogo.get(i).getSconto() %></p>
 
-<a href="amministratore?azioneCapo=modificaProd&idProdCapo=<%=catalogo.get(i).getIdProdotto() %>"><button type="submit" class=" bottoni bottoni-colori " name="azioneCapo" value="modificaProd">Modifica</button></a>
+
+
+<button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Modifica</button>
+
+<input type="hidden" name="idProdCapo" value="<%=catalogo.get(i).getIdProdotto() %>">
 <button type="submit" class=" bottoni bottoni-colori ">Elimina</button>
 <%} %>
+</form>
 <%@include file = "footer.jsp" %>
 </body>
 </html>
