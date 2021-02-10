@@ -42,7 +42,7 @@
 		<ul class="listaNav">
 			<li class="iconNav"> <!-- elemento che contiene le icone -->
 			<% if(session.getAttribute("capoSessione") != null ){ %>
-				<a href="amministratore.jsp"><button> GESTIONE AMMINISTRATORE </button></a>
+				<button> <a href="amministratore?azioneCapo=visualizzaProd">GESTIONE AMMINISTRATORE</a> </button>
 			<% } %>
 			
 			<%
