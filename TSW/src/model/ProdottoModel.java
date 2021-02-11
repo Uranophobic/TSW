@@ -22,6 +22,6 @@ public interface ProdottoModel {
 
 
 
-	public void doDelete(String codiceProdotto) throws SQLException;
+	public void doDelete(String idProdotto) throws SQLException;
 
 }

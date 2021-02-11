@@ -114,14 +114,16 @@ public class amministratoreServlet extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+			
 			RequestDispatcher dispatcher=request.getRequestDispatcher("modificaProdAmm.jsp");
 			dispatcher.forward(request, response);
 			
 			
 			}
 		if(azioneCapo.equals("modificaProd")) {
-			
+			ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
 			Prodotto prodDaMod=(Prodotto)request.getSession().getAttribute("prodDaMod");
+			System.out.println("id del prodotto da cercare e che poi e quello che andrà modificato: "+prodDaMod.getIdProdotto());
 			try {
 			Prodotto p=prodModel.doRetrieveByKey(prodDaMod.getIdProdotto());
 			//String idProdotto=request.getParameter("idProdotto");
@@ -148,13 +150,17 @@ public class amministratoreServlet extends HttpServlet {
 			
 			System.out.println("prodottoModificato: "+p);
 				prodModel.doUpdate(p);
+				request.getSession().setAttribute("prodDaMod", p);
+			ArrayList<Prodotto>catalogoPostModifica=prodModel.doRetrieveAll("idProdotto");
+			System.out.println("catalogoPostModifica:\n "+catalogoPostModifica);
+			request.getSession().setAttribute("catalogoSessione", catalogoPostModifica);
 		
 	
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+	
 			getServletContext().getRequestDispatcher("/amministratore.jsp").forward(request, response);
 		}
 					
@@ -164,9 +170,65 @@ public class amministratoreServlet extends HttpServlet {
 			
 
 		
+		
 		if(azioneCapo.equals("eliminaProd")) {
 			
-		}
+			ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
+			//Prodotto prodDaEl=(Prodotto)request.getSession().getAttribute("prodDaEl");
+			//String idProdDelete=request.getParameter("idProdCapo");
+			String id=request.getParameter("id");
+			System.out.println("id del prod da eliminare: "+id);
+			try {
+				//Prodotto p=prodModel.doRetrieveByKey(prodDaEl.getIdProdotto());
+				//String idProdotto=request.getParameter("idProdotto");
+				
+				prodModel.doDelete(id);
+				
+				/*
+				//p.setIdProdotto(idProdotto);
+				p.setImmaginePath(prodDaEl.getImmaginePath());
+				p.setNome(prodDaEl.getNome());
+				p.setDescrizione(prodDaEl.getDescrizione());
+				p.setCategoria(prodDaEl.getCategoria());
+				p.setPrezzo(prodDaEl.getPrezzo());
+				p.setSconto(prodDaEl.getSconto());
+				p.setIva(prodDaEl.getIva());
+				*/
+				for(int i=0;i<catalogo.size();i++) {
+					
+					if(catalogo.get(i).getIdProdotto().equals(id)) {
+						System.out.println("sono nell if\n");
+						
+						catalogo.remove(i);
+						
+						System.out.println("sono dopo il dodedete");
+					}
+				}
+				
+				
+					
+					
+				
+				
+				request.getSession().removeAttribute("catalogoSessione");
+				request.getSession().setAttribute("catalogoSessione", catalogo);
+				System.out.println("catalogo dopo eliminazione: "+catalogo);
+			
+		
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+				getServletContext().getRequestDispatcher("/amministratore.jsp").forward(request, response);
+			}
+						
+					
+				
+
+			
+			
+		
 		
 		if(azioneCapo.equals("visualizzaOrdini")) {
 			

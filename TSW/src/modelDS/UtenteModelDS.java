@@ -111,11 +111,7 @@ public class UtenteModelDS implements UtenteModel {
 	}
 
 	@Override
-	/*
-	 * Questo metodo ritorna un array list di oggetti in questo caso di utente in pratica ritorna tutti gli utenti in modo ordinato, 
-	 * per ordinato si intende in modo ascedente, infatti questa cosa è specificata dalla clausola order by di sql che si occupa di ritornare
-	 * tutti gli oggetti in modo ascendente. E' un metodo "standard"nei model ds ma non so bene dove va usato.
-	 */
+	
 	public ArrayList<Utente> doRetrieveAll(String order) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;

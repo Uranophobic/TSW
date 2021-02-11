@@ -28,9 +28,9 @@
 <h1> SONO IN GESTIONE AMMINISTRATORE </h1>
 
 <h1>I prodotti del catalogo: </h1>
-<form action="amministratore" method="POST">
-<%for(int i=0;i<catalogo.size();i++){%>
 
+<%for(int i=0;i<catalogo.size();i++){%>
+<% System.out.println("sono alla posizione numero:  "+i); %>
 <p >ID PRODOTTO:<%=catalogo.get(i).getIdProdotto() %> </p>
 <p>IMMAGINE:<img src="<%=catalogo.get(i).getImmaginePath() %>" style="width:30%"> </p>
 <p>NOME: <%=catalogo.get(i).getNome() %></p>
@@ -42,12 +42,12 @@
 
 
 
-<button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Modifica</button>
+<a href="amministratore?azioneCapo=prendiProd&idProdCapo=<%=catalogo.get(i).getIdProdotto()%>"><button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Modifica</button></a>
 
-<input type="hidden" name="idProdCapo" value="<%=catalogo.get(i).getIdProdotto() %>">
-<button type="submit" class=" bottoni bottoni-colori ">Elimina</button>
+
+<a href="amministratore?azioneCapo=eliminaProd&id=<%=catalogo.get(i).getIdProdotto()%>"><button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Elimina</button></a>
 <%} %>
-</form>
+
 <%@include file = "footer.jsp" %>
 </body>
 </html>
