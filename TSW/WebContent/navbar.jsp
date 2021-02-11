@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -16,33 +15,67 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-
-
-<title>OLTRE IL GIARDINO</title>
 <style>
-/*
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
+
+.topnav {
+	overflow: hidden;
+	width: 95%;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: #394a3e;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.sticky + .content {
-  padding-top: 60px;
-}*/
+.topnav a:hover {
+
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
 </style>
-	
 </head>
-
 <body>
-
 <nav>
-	<div class="contenutoNav">
-	
-		<ul class="listaNav">
+<div class="contenutoNav">
+
+
+	<ul class="listaNav">
 			<li class="iconNav"> <!-- elemento che contiene le icone -->
 			<% if(session.getAttribute("capoSessione") != null ){ %>
-				<button> <a href="amministratore?azioneCapo=visualizzaProd">GESTIONE AMMINISTRATORE</a> </button>
+				 <a href="amministratore?azioneCapo=visualizzaProd"><button>GESTIONE AMMINISTRATORE</button></a> 
 			<% } %>
 			
 			<%
@@ -53,7 +86,7 @@
 				
 				  	<!-- profilo utente  -->
 					<div class="icona"> 
-						 <a href="dsProva.jsp"><img src="https://img.icons8.com/fluent-systems-regular/24/000000/user.png"/></a><!-- cambia immagine -->
+						  <a href="dsProva.jsp"><img class="size"  src="https://img.icons8.com/fluent-systems-regular/32/000000/user.png"/></a><!-- cambia immagine -->
 						 <a class="iconaTxt" href="dsprova.jsp"> Profilo Utente </a>
 					</div>
 
@@ -69,9 +102,15 @@
 					<a href="carrello?azioneCarrello=visualizzaCarrello">	<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> </a>
 						<a class="iconaTxt" href="carrello?azioneCarrello=visualizzaCarrello"> Carrello </a>
 					</div>
+					
+					<!-- logout -->
+					<div class="icona"> 
+					<a href="login?azioneLogin=logout"><img  class="size" src="https://img.icons8.com/fluent-systems-regular/32/000000/exit.png"/></a>
+						<a class="iconaTxt" href="login?azioneLogin=logout"> Logout </a>
+					</div>
 				</div>
-			<% } else{ %>	
-				  <a href="login.jsp"><button class=" bottoni bottoni-colori ">ACCEDI</button></a>
+				<% } else{ %>	
+				 <a href="login.jsp"><button class=" bottoni bottoni-colori ">ACCEDI</button></a>
 			<% } %>
 			 </li>
 		
@@ -98,41 +137,36 @@
 				 </div>
 			</li>
 			
-			<!-- navbar verde -->
-			<li id="navbarVerde"> 
-						<div class="col-sm-4 col-md-4 col-lg-12">
-							<ul class="bottoniNav">
-							<li class="item"> <a href="HomePage.jsp">  HOME PAGE </a></li>
-							    <li class="item"> <a href="prodotto?azioneP=visualizzaCatalogo">  CATALOGO </a></li>
-								<li class="item"> <a href=""> COME FUNZIONA </a></li>
-								<li class="item"> <a href="InformazioniServlet?informazioni=assistenza"> ASSISTENZA  </a></li>
-								<li class="item"> <a href="InformazioniServlet?informazioni=chisiamo"> CHI SIAMO  </a> </li>
-							</ul>
-						</div>
-		</li>
+			<li  id="navbarVerde">
+					<div class="topnav" id="myTopnav">
+		  				<a href="HomePage.jsp" class="item">HOMEPAGE</a>
+						  <a href="prodotto?azioneP=visualizzaCatalogo" class="item">CATALOGO</a>
+						  <a href="#contact" class="item"> ASSISTENZA</a>
+						  <a  href="InformazioniServlet?informazioni=assistenza" class="item"> CHI SIAMO</a>
+						 <a href="InformazioniServlet?informazioni=chisiamo" class="item"> COME FUNZIONA</a>
+						 
+							  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+							    <i class="fa fa-bars"></i>
+							  </a>
+</div>
+	 
+			</li>
+			
+	 
 		
 	</ul>
 </div>
-
 </nav>
-<!-- 
 <script>
-window.onscroll = function() {myFunction()};
-
-var navbar = document.getElementById("navbarVerde");
-var sticky = navbar.offsetTop;
-
 function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
   } else {
-    navbar.classList.remove("sticky");
+    x.className = "topnav";
   }
 }
 </script>
- -->
-
-
 
 </body>
 </html>

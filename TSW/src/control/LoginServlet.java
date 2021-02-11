@@ -206,7 +206,7 @@ public class LoginServlet extends HttpServlet {
 			utenteSessione = request.getSession();
 			utenteSessione.invalidate();
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
 			dispatcher.forward(request, response);
 		} //chiusura dell'if di loguout
 

@@ -17,12 +17,12 @@
 <div class="container-fluid">
 	<div class="row justify-content-center ">
 
-		
+		<!-- 
 			<div class="col-lg-12 text-center ">
 			<p id="sottotitolo" style="font-size: 34px;"> Tutto ciò che desideri, 
 			<br>dal <a style="color: #a6ec84;"> giardinaggio </a> all'<a style="color: #a6ec84;" > agricoltura</a>, 
 			<br> a portata di un click! </p>
-		</div>
+		</div> -->
 </div>
 
 </div>

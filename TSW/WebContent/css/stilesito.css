@@ -179,6 +179,7 @@ display: inline-block;
 	width: 250px;
 	margin-bottom: 15px;
 	margin-top: 15px;
+	margin-right: 20px;
 }
 
 .logoContenitore{
@@ -204,8 +205,11 @@ display: block-ruby;
 }
 
 #navbarVerde {
-
+	background-color: #a6ec84;
+	border-radius: 5px;
+	color: #394a3e;
 	list-style-type: none;
+	width: 97%;
 }
 
 .sticky {
@@ -434,9 +438,8 @@ margin-left: 5px;
 .funzionalita {
 	grid-template-columns: 40% 40%;
 	grid-template-rows: 95px;
-	height: 250px;
+	height: 280px;
 }
-
  }
  
 /*small devices*/
