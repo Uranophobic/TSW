@@ -2,7 +2,9 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -319,6 +321,68 @@ public class amministratoreServlet extends HttpServlet {
 			
 			RequestDispatcher dispatcher=request.getRequestDispatcher("risultatiRicerca.jsp");
 			dispatcher.forward(request, response);
+		}
+		
+		if(azioneCapo.equals("cercaPerData")) {
+			String dataInizio = request.getParameter("dataInizio");
+			String dataFine = request.getParameter("dataFine");
+			
+			System.out.println("data inizio prima di conversione" + dataInizio);
+			System.out.println("data fine" + dataFine);
+			
+			Date dataIn = new Date(); // Data di oggi
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			dataInizio = sdf.format( dataIn );
+			System.out.println("data inizio dopo di conversione" + dataIn);
+			
+			Date dataEnd = new Date(); // Data di oggi
+			SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy");
+			dataFine = sdf2.format( dataEnd );
+			System.out.println("data inizio dopo di conversione" + dataEnd);
+			
+			try {
+				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("emailUtente");
+				ArrayList<Ordine> ordiniData = new ArrayList<Ordine>();
+				
+				for(int i=0; i<allOrdini.size(); i++) {
+					
+					Date dataOrd = new Date(); // Data di oggi
+					SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy");
+					String dataOrdine = sdf3.format( dataOrd );
+					System.out.println("data di ogni ordine" + dataOrd);
+					
+					// 0 se sono uguali
+					// <0 se la data è precedente all'argomento date 
+					// >0 se è successiva
+					
+					if(dataOrd.compareTo(dataIn)>= 0 || dataOrd.compareTo(dataEnd)<=0) {
+						System.out.println("DATA inizio:" + dataOrd.compareTo(dataIn));
+						System.out.println("DATA FINE:" + dataOrd.compareTo(dataEnd));
+						System.out.println("sono nell'if della data uguale alla data di inizio");
+	
+							Ordine o = new Ordine(); //setto l'ordine dell'utente
+							System.out.println("setto l'ordine");
+							o.setDataOrdine(allOrdini.get(i).getDataOrdine());
+							o.setEmailUtente(allOrdini.get(i).getEmailUtente());
+							o.setIdOrdine(allOrdini.get(i).getIdOrdine());
+							o.setImportoTot(allOrdini.get(i).getImportoTot());
+							ordiniData.add(o);
+							System.out.println("ordine settato");
+						
+					}
+					
+				}
+				
+				request.getSession().setAttribute("ordiniCercati", ordiniData);	
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("risultatiRicerca2.jsp");
+			dispatcher.forward(request, response);
+			
 		}
 	
 	}

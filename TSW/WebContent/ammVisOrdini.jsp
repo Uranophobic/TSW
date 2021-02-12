@@ -26,6 +26,11 @@
 <input type="search" name="emailCercata" placeholder="cerca un utente per email"> 
 <button name="azioneCapo" value="cercaPerEmail"> cerca </button>
 </form>
+<form action="amministratore" method="post">
+<p> Cerca ordini da data: </p> <input type="date" name="dataInizio">
+<p> a data: </p> <input type="date" name="dataFine">
+<button name="azioneCapo" value="cercaPerData"> cerca </button>
+</form>
 <% for(int i=0; i<allOrdini.size(); i++){%>
 	<div class="ordini">
 	<p> ID ORDINE <%=allOrdini.get(i).getIdOrdine() %> </p>
