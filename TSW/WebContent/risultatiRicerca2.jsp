@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<%ArrayList<Ordine> ordiniData = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniData");
+<%ArrayList<Ordine> ordiniData = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniCercati");
 System.out.println("ORDINI DATA NELLA JSPPPPPPPPPPP" + ordiniData);%>
 
 <% for(int i=0; i<ordiniData.size(); i++){%>

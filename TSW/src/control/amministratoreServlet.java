@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -348,14 +349,19 @@ public class amministratoreServlet extends HttpServlet {
 					
 					Date dataOrd = new Date(); // Data di oggi
 					SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy");
-					String dataOrdine = sdf3.format( dataOrd );
-					System.out.println("data di ogni ordine" + dataOrd);
-					
+				
+					try {
+						dataOrd = sdf3.parse(allOrdini.get(i).getDataOrdine());
+						System.out.println("DATA FORMATTATA !!!!!!!!11" + dataOrd);
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					// 0 se sono uguali
 					// <0 se la data è precedente all'argomento date 
 					// >0 se è successiva
 					
-					if(dataOrd.compareTo(dataIn)>= 0 || dataOrd.compareTo(dataEnd)<=0) {
+					if(( dataOrd.compareTo(dataIn)>=0 )&&( dataEnd.compareTo(dataOrd)>=0)) {
 						System.out.println("DATA inizio:" + dataOrd.compareTo(dataIn));
 						System.out.println("DATA FINE:" + dataOrd.compareTo(dataEnd));
 						System.out.println("sono nell'if della data uguale alla data di inizio");
