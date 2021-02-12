@@ -66,8 +66,43 @@ public class amministratoreServlet extends HttpServlet {
 		}
 		
 		if(azioneCapo.equals("aggiungiProd")) {
+			try {
+			String idProdotto = request.getParameter("idProdotto");
+			String immaginePath = request.getParameter("immaginePath");
+			String nome = request.getParameter("nome");
+			String descrizione = request.getParameter("descrizione");
+			String categoria = request.getParameter("categoria");
+			double prezzo = Double.parseDouble(request.getParameter("prezzo"));
+			double sconto = Double.parseDouble(request.getParameter("sconto"));
+			double iva = Double.parseDouble(request.getParameter("iva"));
+			
+			Prodotto p = new Prodotto();
+			p.setCategoria(categoria);
+			p.setDescrizione(descrizione);
+			p.setIdProdotto(idProdotto);
+			p.setImmaginePath(immaginePath);
+			p.setIva(iva);
+			p.setNome(nome);
+			p.setIdProdotto(idProdotto);
+			p.setPrezzo(prezzo);
+			p.setSconto(sconto);
+		
+			
+			prodModel.doSave(p);
+			System.out.println("prod aggiunto " + p );
+			
+			ArrayList<Prodotto>catalogoPostAdd=prodModel.doRetrieveAll("idProdotto");
+			System.out.println("catalogoPostModifica:\n "+catalogoPostAdd);
+			request.getSession().setAttribute("catalogoSessione", catalogoPostAdd);
+			
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("amministratore.jsp");
+			dispatcher.forward(request, response);
 		}
 	
 		if(azioneCapo.equals("prendiProd")) {

@@ -26,7 +26,7 @@
 		  dobbiamo visualizzarli pr utente A-Z
 	 -->
 <h1> SONO IN GESTIONE AMMINISTRATORE </h1>
-
+<a href="ammAddProd.jsp"><button> AGGIUNGI UN PRODOTTO </button></a>
 <h1>I prodotti del catalogo: </h1>
 
 <%for(int i=0;i<catalogo.size();i++){%>
