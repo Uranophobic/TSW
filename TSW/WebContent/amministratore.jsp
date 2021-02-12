@@ -27,10 +27,10 @@
 	 -->
 <h1> SONO IN GESTIONE AMMINISTRATORE </h1>
 <a href="ammAddProd.jsp"><button> AGGIUNGI UN PRODOTTO </button></a>
+<a href="amministratore?azioneCapo=visualizzaOrdini"><button> VISUALIZZA LISTA DEGLI ORDINI </button></a>
 <h1>I prodotti del catalogo: </h1>
 
 <%for(int i=0;i<catalogo.size();i++){%>
-<% System.out.println("sono alla posizione numero:  "+i); %>
 <p >ID PRODOTTO:<%=catalogo.get(i).getIdProdotto() %> </p>
 <p>IMMAGINE:<img src="<%=catalogo.get(i).getImmaginePath() %>" style="width:30%"> </p>
 <p>NOME: <%=catalogo.get(i).getNome() %></p>

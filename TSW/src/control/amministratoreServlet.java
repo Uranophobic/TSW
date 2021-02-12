@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.Ordine;
 import bean.Prodotto;
+import model.OrdineModel;
 import model.ProdottoModel;
+import modelDS.OrdineModelDS;
 import modelDS.ProdottoModelDS;
 
 /**
@@ -23,6 +26,7 @@ public class amministratoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	ProdottoModel prodModel=new ProdottoModelDS();
+	OrdineModel ordiniModel = new OrdineModelDS();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -267,6 +271,54 @@ public class amministratoreServlet extends HttpServlet {
 		
 		if(azioneCapo.equals("visualizzaOrdini")) {
 			
+			try {
+				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("idOrdine");
+				
+				request.getSession().setAttribute("ordiniSessione", allOrdini);
+				
+				System.out.println("ordini nella servlet: " + allOrdini);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("ammVisOrdini.jsp");
+			dispatcher.forward(request, response);
+		}
+		
+		if(azioneCapo.equals("cercaPerEmail")) {
+			String emailCercata = request.getParameter("emailCercata");
+			System.out.println("email che ho cercato: " + emailCercata);
+			try {
+				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("emailUtente");
+				ArrayList<Ordine> ordiniUtente = new ArrayList<Ordine>();
+				
+				for(int i=0; i<allOrdini.size(); i++) {
+					if(allOrdini.get(i).getEmailUtente().equals(emailCercata)) {
+						System.out.println("le email combaciano");
+						
+						Ordine o = new Ordine(); //setto l'ordine dell'utente
+						
+						o.setDataOrdine(allOrdini.get(i).getDataOrdine());
+						o.setEmailUtente(allOrdini.get(i).getEmailUtente());
+						o.setIdOrdine(allOrdini.get(i).getIdOrdine());
+						o.setImportoTot(allOrdini.get(i).getImportoTot());
+						
+						ordiniUtente.add(o);
+						System.out.println("ordine aggiunto" + o);
+					}
+				
+				
+				}
+				request.getSession().setAttribute("ordiniCercati", ordiniUtente);	
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("risultatiRicerca.jsp");
+			dispatcher.forward(request, response);
 		}
 	
 	}
