@@ -403,8 +403,13 @@ public class amministratoreServlet extends HttpServlet {
 					// >0 se è successiva
 					int resultDataInd=dataIn.compareTo(dataOrd);
 					int resutlDataEnd=dataOrd.compareTo(dataEnd);
-					if(( dataIn.compareTo(dataOrd)>=0 )||( dataOrd.compareTo(dataEnd)>=0)) {
-						
+					
+					//  data ord  deve essere uguale data inizio oppure DOPO (after)
+					//data ord uguale a data fine oppure  prima (BEFORE)
+					
+					if((dataOrd.equals(dataIn)) || (dataOrd.after(dataIn))) {
+						if((dataOrd.equals(dataEnd)) || (dataOrd.before(dataEnd))) {	
+					
 						if(resultDataInd<0) {
 							
 							System.out.println("la data trovata e precendente alla data di inizio");
@@ -425,7 +430,7 @@ public class amministratoreServlet extends HttpServlet {
 							o.setImportoTot(allOrdini.get(i).getImportoTot());
 							ordiniData.add(o);
 							System.out.println("ordine settato");
-						
+						}
 					}
 					
 				}
