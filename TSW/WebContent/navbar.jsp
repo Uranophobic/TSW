@@ -44,15 +44,25 @@
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+.topnav {
+	overflow: hidden;
+	/* width: 95%; */
+}
+
+@media screen and (max-width: 768px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
   }
+  
+  .topnav.responsive {
+	position: relative;
+	z-index: 9999999999;
+}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -75,7 +85,7 @@
 	<ul class="listaNav">
 			<li class="iconNav"> <!-- elemento che contiene le icone -->
 			<% if(session.getAttribute("capoSessione") != null ){ %>
-				 <a href="amministratore?azioneCapo=visualizzaProd"><button>GESTIONE AMMINISTRATORE</button></a> 
+				 <a href="amministratore?azioneCapo=visualizzaProd"><button class="bottoni bottoni-colori">GESTIONE AMMINISTRATORE</button></a> 
 			<% } %>
 			
 			<%
@@ -106,7 +116,7 @@
 					<!-- logout -->
 					<div class="icona"> 
 					<a href="login?azioneLogin=logout"><img  class="size" src="https://img.icons8.com/fluent-systems-regular/32/000000/exit.png"/></a>
-						<a class="iconaTxt" href="login?azioneLogin=logout"> Logout </a>
+						<a class="iconaTxt" href="login?azioneLogin=logoutUtente"> Logout </a>
 					</div>
 				</div>
 				<% } else{ %>	
@@ -117,7 +127,7 @@
 			<!-- logo -->
 			<li class="logoNav"> 
 				<div class= "logoContenitore">
-					<a  href="">
+					<a  href="HomePage.jsp">
 				  		<img  class="logo" alt="logo.png" src="logo/logo_small.png">
 				  	</a> 
 			  	</div>

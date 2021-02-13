@@ -11,42 +11,36 @@
 
 <title>Login form</title>
 <style>
-#botReg {
-	width: 50%;
-	margin: auto;
-	margin-left: 600px;
-	margin-top: 15px;
-}
+
 </style>
 </head>
 <body>
 	<%@include file="navbar.jsp"%>
 	<h1 class="titoloPagine ">Login</h1>
-	<div class="contenitore">
-		<div class="datiAccesso">
-
-			<div class="immagineLog" align="center">
-				<img src="images/log.png">
+	<div class="loginBox">
+		<div class="">
+			<div class="boxImg" align="center">
+				<img class="imgLog"  src="images/log.png">
 			</div>
-			<div class="riga" class="hr"></div>
-			
  		<form action="login" method="POST">
-			<input type="text" id="email" placeholder="Email" name="email" required>
-			<input type="password" id="password" placeholder="Password" name ="password" required>
-			<br>
-			<button  class=" bottoni bottoni-colori " type="submit" name ="azioneLogin" value="loginUtente" id="login-button" >
+ 			<label class="eticLog"> Email:</label> <br>
+			<input class="inLog" type="text" id="email" placeholder="Email" name="email" required> <br>
+			<label class="eticLog"> Password:</label> <br>
+			<input  class="inLog" type="password" id="password" placeholder="Password" name ="password" required> <br>
+			<div  id="botReg">
+			<button  class=" bottoni bottoni-colori " type="submit" name ="azioneLogin" value="loginUtente" id="login-button">
 			Login
 			</button>
-		</form>	
-			
-</div>
-</div>
-
-<div  id="botReg">
-	<a  class=" bottoni bottoni-colori " href= "registrazione.jsp"  >
-			Registrati
-	</a>
-</div>
+			</div>
+		</form>				
+		</div>
+		
+		<div class="rigaSx" class="hr"></div><a style="font-family:janda;"> oppure</a>  <div class="rigaDx" class="hr"></div> 
+		<div  id="botReg">
+			<a>Clicca qui per </a><a  href= "registrazione.jsp" style=" font-family: janda;" >Registrati</a>
+		</div>
+	</div>
+	
 
 
 	<%@include file="footer.jsp"%>

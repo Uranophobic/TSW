@@ -12,16 +12,11 @@
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
-<br>
-<br>
 <div class="container-fluid">
 	<div class="row justify-content-center ">
-
-		<div class="col-lg-12 text-center ">
-			<p id="sottotitolo" style="font-size: 34px;"> Tutto ciò che desideri, 
+			<p id="sottotitolo"> Tutto ciò che desideri, 
 			<br>dal <a style="color: #a6ec84;"> giardinaggio </a> all'<a style="color: #a6ec84;" > agricoltura</a>, 
-			<br> a portata di un click! </p>
-		</div> 
+			<br> a portata di un click! </p>	   
 </div>
 
 </div>
@@ -62,8 +57,13 @@
   
 <div class="funzionalita" >
 		<div class="descrFunz">
+		<% if(session.getAttribute("utenteSessione") == null){ %>
   		 	<a class="link"  href="login.jsp"> <h4 class="titoloParagrafo2"> ACCEDI o REGISTRATI</h4></a>
   		  	<p id="descrFunz">Effettua l'accesso per poter usufruire del nostro shop online! </p>
+  		<%}else{%>
+  		    <a class="link"  href="dsprova.jsp"> <h4 class="titoloParagrafo2"> VISUALIZZA PROFILO</h4></a>
+  		  	<p id="descrFunz">Clicca qui per visualizzare le tue informazioni personali!</p>
+  		<%} %>
 		</div>
 
 		<div class="descrFunz">
