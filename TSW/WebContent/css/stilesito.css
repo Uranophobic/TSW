@@ -60,6 +60,25 @@ body {
 	font-family: "janda";
 	letter-spacing: 3px;
 }
+
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+	.titoloPagine {
+
+	margin-top: 125px;
+
+}
+}
 /***************************************************   STILI BOTTONI  ****************************************************/
 .bottoni-colori {
 	background-color: #81bb65;
@@ -560,9 +579,6 @@ font-family: janda;
 
 /*extra-small devices*/
 @media all and (max-width: 600px) {
-	.titoloPagine {
-	margin-top: 125px;
-}
 .loginBox{
 	width: 80%;
 	height: auto;	
@@ -682,16 +698,6 @@ font-family: janda;
 }
 
 /*************************************************   PROFILO UTENTE   ****************************************************/
-#area-utente {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 35% 35%;
-	grid-template-rows: 65% 5% 25%;
-	height: 500px;
-	justify-content: center;
-	grid-column-gap: 2%;
-}
-
 .item-a {
 	grid-row-start: 1;
 	grid-row-end: 4;
@@ -716,81 +722,6 @@ font-family: janda;
 	border-radius: 5px;
 	margin-top: 15px;
 }
-
-#righe2 {
-	font-size: 20px;
-	line-height: 5px;
-	padding-left: 25px;
-}
-
-#caselle {
-	border-bottom: 1px solid rgba(40, 150, 5, 0.9);
-}
-
-#titoloCaselle {
-	font-size: 35px;
-	color: #4CAF50;
-	margin-top: 55px;
-	font-weight: bold;
-	margin: auto;
-	text-align: center;
-	font-weight: bold;
-}
-
-.riga {
-	height: 1px;
-	background: rgba(0, 0, 0, .2);
-	width: 100%;
-	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-#informazioni {
-	border-bottom: 1px solid #00000059;
-	padding: 5px;
-	margin-left: 5px;
-}
-
-.etichette {
-	font-size: 18px;
-	font-weight: bold;
-	margin-left: 15px;
-}
-
-.datiPersona {
-	margin: auto;
-	width: 80%;
-}
-
-.pulsanti {
-	position: relative;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-direction: column;
-	/* flex-direction: column; */
-	min-width: 0;
-	word-wrap: break-word;
-	background-color: #fff;
-	background-clip: border-box;
-	border: 1px solid rgba(0, 0, 0, .125);
-	border-radius: .25rem;
-	margin: 5px;
-}
-
-.pulsanti:hover {
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.descrOp {
-	padding: 2px 16px;
-	width: 100%;
-}
-
-.operazioni {
-	margin-top: 20px;
-}
-
 .riga1 {
 	height: 1px;
 	background: rgba(0, 0, 0, .2);
@@ -798,6 +729,96 @@ font-family: janda;
 	margin: auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.inputProfilo {
+	width: 100%;
+	display: inline-block;
+	border: none;
+	box-sizing: border-box;
+	background: transparent;
+	border-bottom: 1px solid #b5afaf;
+	margin: -5px;
+}
+#area-profilo {
+	width: 95%;
+	height: 900px;
+	margin: auto;
+}
+.bottoneProfilo {
+	margin: auto;
+	width: 10%;
+	color: ghostwhite;
+}
+
+
+.titProfilo {
+	font-size: 28px;
+	font-family: 'janda';
+	margin-top: 25px;
+}
+
+
+#nomeOperazione {
+	text-decoration: none;
+	color: black;
+	font-family: "janda";
+}
+
+.operazioniBox {
+	width: 100%;
+	height: 355px;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-top: 20px;
+}
+.datiBox {
+	width: 100%;
+	height: 500px;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	border-radius: 5px;
+	display: grid;
+	grid-template-columns: 35% 35% 35%;
+}
+.datiPersonali {
+	grid-row-start: 1;
+	grid-row-end: 4;
+	width: 85%;
+	margin: auto;
+	height: 445px;
+}
+
+.prova{ width: 80%;}
+.immagineOp{margin: auto;
+width: 27%;}
+
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+	.datiBox {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+.datiPersonali {
+
+	width: 85%;
+	margin: auto;
+	height: auto;
+}
+
 }
 
 /************************************************** MODIFICA DATI UTENTE ******************************************************/
