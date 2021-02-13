@@ -5,12 +5,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Risultati Ricerca due</title>
 </head>
 <body>
 
-<%ArrayList<Ordine> ordiniData = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniCercati");
-System.out.println("ORDINI DATA NELLA JSPPPPPPPPPPP" + ordiniData);%>
+<%ArrayList<Ordine> ordiniData = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniCercatiData");
+System.out.println("ORDINI DATA NELLA JSP\n" + ordiniData);%>
 
 <% for(int i=0; i<ordiniData.size(); i++){%>
 	<div class="ordini">

@@ -328,26 +328,67 @@ public class amministratoreServlet extends HttpServlet {
 			String dataInizio = request.getParameter("dataInizio");
 			String dataFine = request.getParameter("dataFine");
 			
-			System.out.println("data inizio prima di conversione" + dataInizio);
+			String giorno="",mese="",anno="";
+			int uno=dataInizio.indexOf("-");
+			anno=dataInizio.substring(0,uno);
+			String runo=dataInizio.substring(uno+1);
+			
+			int due=runo.indexOf("-");
+			mese=runo.substring(0,due);
+			String rdue=runo.substring(due+1);
+			
+			int tre=rdue.indexOf("-");
+			giorno=rdue.substring(0);
+			
+			String data1=giorno+"-"+mese+"-"+anno;
+			System.out.println("data inizio: giorno-mese-anno (substring)"+giorno+mese+anno);
+			
+			String giorno2="",mese2="",anno2="";
+			int uno2=dataFine.indexOf("-");
+			anno2=dataFine.substring(0,uno2);
+			String runo2=dataFine.substring(uno2+1);
+			
+			int due2=runo2.indexOf("-");
+			mese2=runo2.substring(0,due2);
+			String rdue2=runo2.substring(due2+1);
+			
+			int tre2=rdue2.indexOf("-");
+			giorno2=rdue2.substring(0);
+			
+			String data2=giorno2+"-"+mese2+"-"+anno2;
+			System.out.println("data fine: giorno-mese-anno (substring)"+giorno2+mese2+anno);
+			
+			System.out.println("data inizio " + dataInizio);
 			System.out.println("data fine" + dataFine);
 			
 			Date dataIn = new Date(); // Data di oggi
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-			dataInizio = sdf.format( dataIn );
-			System.out.println("data inizio dopo di conversione" + dataIn);
 			
-			Date dataEnd = new Date(); // Data di oggi
+			Date dataEnd = new Date();
+			
 			SimpleDateFormat sdf2 = new SimpleDateFormat("dd-MM-yyyy");
-			dataFine = sdf2.format( dataEnd );
-			System.out.println("data inizio dopo di conversione" + dataEnd);
-			
 			try {
-				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("emailUtente");
+				dataIn=sdf.parse(data1);
+				dataEnd=sdf2.parse(data2);
+				
+			
+			} catch (ParseException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		//	dataInizio = sdf.format( dataIn );
+			System.out.println("data inizio dopo di conversione (dataIn)" + dataIn);
+			System.out.println("data inizio dopo di conversione (dataFine)" + dataEnd);
+			
+		
+			try {
+				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("dataOrdine");
+				System.out.println("\n\nallOrdini per data:\n "+allOrdini);
 				ArrayList<Ordine> ordiniData = new ArrayList<Ordine>();
 				
 				for(int i=0; i<allOrdini.size(); i++) {
 					
-					Date dataOrd = new Date(); // Data di oggi
+					Date dataOrd = new Date(); 
 					SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy");
 				
 					try {
@@ -360,11 +401,21 @@ public class amministratoreServlet extends HttpServlet {
 					// 0 se sono uguali
 					// <0 se la data è precedente all'argomento date 
 					// >0 se è successiva
-					
-					if(( dataOrd.compareTo(dataIn)>=0 )&&( dataEnd.compareTo(dataOrd)>=0)) {
+					int resultDataInd=dataIn.compareTo(dataOrd);
+					int resutlDataEnd=dataOrd.compareTo(dataEnd);
+					if(( dataIn.compareTo(dataOrd)>=0 )||( dataOrd.compareTo(dataEnd)>=0)) {
+						
+						if(resultDataInd<0) {
+							
+							System.out.println("la data trovata e precendente alla data di inizio");
+							
+						}else if(resutlDataEnd>0) {
+							System.out.println("la data trovata e successiva alla data di fine");
+							
+						}
 						System.out.println("DATA inizio:" + dataOrd.compareTo(dataIn));
 						System.out.println("DATA FINE:" + dataOrd.compareTo(dataEnd));
-						System.out.println("sono nell'if della data uguale alla data di inizio");
+						System.out.println("sono nell'if della data");
 	
 							Ordine o = new Ordine(); //setto l'ordine dell'utente
 							System.out.println("setto l'ordine");
@@ -379,7 +430,7 @@ public class amministratoreServlet extends HttpServlet {
 					
 				}
 				
-				request.getSession().setAttribute("ordiniCercati", ordiniData);	
+				request.getSession().setAttribute("ordiniCercatiData", ordiniData);	
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
