@@ -22,8 +22,8 @@
 <% ArrayList<Ordine> allOrdini = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniSessione");
  System.out.println("\n\n ordini nella jsp: "+ allOrdini);
 %>
-<form action="amministratore" method="post">
-<input type="search" name="emailCercata" placeholder="cerca un utente per email"> 
+<form action="amministratore" method="post" onsubmit="return validateEmail();">
+<input type="search" name="emailCercata"  id="email" placeholder="cerca un utente per email"> 
 <button name="azioneCapo" value="cercaPerEmail"> cerca </button>
 </form>
 <form action="amministratore" method="post">
@@ -40,5 +40,19 @@
 	</div>
 <%} %>
 <%@include file = "footer.jsp" %>
+
+<script>
+function validateEmail() {
+	var emailUtente = document.getElementById("email");
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
+	if (email.value.match(mailformat)) {
+		return true;
+	} else {
+		alert("Assicurati di aver inserito correttamente l'email nel campo 'email' in questo modo: example@gmail.com");
+		email.focus();
+		return false;
+	}
+}
+</script>
 </body>
 </html>

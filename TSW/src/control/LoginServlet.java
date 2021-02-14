@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 				utente=utenteModel.doRetrieveByKey(email);
 				System.out.println(utente);
 
-				if(utente.getEmail().equals("admin")) {
+				if(utente.getEmail().equals("admin@gmail.com")) {
 					System.out.println("admin entrato");
 					request.getSession().setAttribute("capoSessione", utente);
 				}
@@ -152,10 +152,11 @@ public class LoginServlet extends HttpServlet {
 				utente.setPassword(password);
 				utente.setDataDiNascita(dataDiNascita);
 
-				String datiSpedizione=via+","+citta+","+cap+","+provincia;				
-				String datiPagamento=numeroCarta+","+scadenzaCarta+","+circuito+","+CVV;
+				String datiSpedizione=via+"&"+citta+"&"+cap+"&"+provincia;				
+				String datiPagamento=numeroCarta+"&"+scadenzaCarta+"&"+circuito+"&"+CVV;
 
-
+				utente.setDatiPagamento(datiPagamento);
+				utente.setDatiSpedizione(datiSpedizione);
 
 
 				utenteModel.doSave(utente);
@@ -164,7 +165,7 @@ public class LoginServlet extends HttpServlet {
 				System.out.println("SPED: "+datiSpedizione);
 				System.out.println("PAG: "+datiPagamento);
 
-
+			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -196,7 +197,7 @@ public class LoginServlet extends HttpServlet {
 			ArrayList<Prodotto> risultatiRicerca = new ArrayList<Prodotto>();
 			request.getSession().setAttribute("risultatiRicerca", risultatiRicerca);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
 			dispatcher.forward(request, response);
 		} //chiusura dell'if di registrazione 
 

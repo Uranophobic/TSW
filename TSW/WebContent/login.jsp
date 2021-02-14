@@ -22,9 +22,9 @@
 			<div class="boxImg" align="center">
 				<img class="imgLog"  src="images/log.png">
 			</div>
- 		<form action="login" method="POST">
+ 		<form action="login" method="POST" onsubmit="return validateEmail();">
  			<label class="eticLog"> Email:</label> <br>
-			<input class="inLog" type="text" id="email" placeholder="Email" name="email" required> <br>
+			<input class="inLog" type="text" id="email" placeholder="Email" name="email"  required> <br>
 			<label class="eticLog"> Password:</label> <br>
 			<input  class="inLog" type="password" id="password" placeholder="Password" name ="password" required> <br>
 			<div  id="botReg">
@@ -45,27 +45,20 @@
 
 	<%@include file="footer.jsp"%>
 
-<!-- 
 <script>
-$(document).ready(function(){
-	$("#login-button").click(function(){
-		
-		$.post("/TSW/login",
-				{
-					"azioneLogin" : "loginUtente",
-				},
-				function(responseTxt, statusTxt, xhr){
-					if(responseTxt=="successo")
-						alert("Benvenuto");
-					if(responseTxt=="passwordFailed")
-						alert("Password non corretta!");
-					if(responseTxt=="notExists")
-						alert("Devi prima registrarti per accedere!");
-			});
-	});
-});
- 
+
+	function validateEmail() {
+		var emailUtente = document.getElementById("email");
+		var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
+		if (email.value.match(mailformat)) {
+			return true;
+		} else {
+			alert("Controlla di aver inserito correttamente l'email.");
+			email.focus();
+			return false;
+		}
+	}
 </script>
--->
+
 </body>
 </html>

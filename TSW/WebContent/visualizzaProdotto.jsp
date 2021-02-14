@@ -35,27 +35,24 @@
 		
 					<div class="row justify-content">
     					<div class="col-10 form-group">
-    						<label class="etichette">NOME:</label> 
-    						<a id="informazioni"> <%= prodotto.getNome() %></a> <br>
-    						<label class="etichette">CODICE:</label>
-      				<a id="informazioni"> <%= prodotto.getIdProdotto() %></a><br>
-      				<label class="etichette">DESCRIZIONE:</label>
-      				<a id="informazioni"> <%= prodotto.getDescrizione() %></a><br>
-      				<label class="etichette">	CATEGORIA :</label>
-      				<a id="informazioni"> <%= prodotto.getCategoria() %></a><br>
-      				<label class="etichette">PREZZO:</label>
-      				<a id="informazioni"> <%= prodotto.getPrezzo() %></a><br>
-      					<label class="etichette">IVA:</label>
-      				<a id="informazioni"> <%= prodotto.getIva() %></a><br>
-      				<% if(prodotto.getSconto() ==0 ){ %>
-      					<label class="etichette">SCONTO: No</label><br>
-      				<%} else { %>
-      					<label class="etichette">SCONTO:</label>
-      				<a id="informazioni"> <%= prodotto.getSconto() %></a><br>
-      				<%} %>
-      		
-      				<label class="etichette">COSTI SPEDIZIONE:</label>
-      				<a id="informazioni"> 5,99</a><br>
+		    				<label class="etichette">NOME:</label> 
+		    				<a id="informazioni"> <%= prodotto.getNome() %></a> <br>
+		    				<label class="etichette">CODICE:</label>
+		      				<a id="informazioni"> <%= prodotto.getIdProdotto() %></a><br>
+		      				<label class="etichette">DESCRIZIONE:</label>
+		      				<a id="informazioni"> <%= prodotto.getDescrizione() %></a><br>
+		      				<label class="etichette">	CATEGORIA :</label>
+		      				<a id="informazioni"> <%= prodotto.getCategoria() %></a><br>
+		      				<label class="etichette">PREZZO:</label>
+		      				<a id="informazioni"> <%= prodotto.getPrezzo() %></a><br>
+		      					<label class="etichette">IVA:</label>
+		      				<a id="informazioni"> <%= prodotto.getIva() %></a><br>
+		      				<% if(prodotto.getSconto() ==0 ){ %>
+		      					<label class="etichette">SCONTO: No</label><br>
+		      				<%} else { %>
+		      					<label class="etichette">SCONTO:</label>
+		      				<a id="informazioni"> <%= prodotto.getSconto() %></a><br>
+		      				<%} %>
     					</div>
   					</div>
 	</div>
@@ -64,15 +61,12 @@
 
 </div>
 <div class="opBtn4">
-		<a class=" bottoni bottoni-colori " >
-		    <span class="">Indietro</span>
-		</a>	
-		<a class=" bottoni bottoni-colori " >
-		    <span class=""> Aggiungi al carrello ></span>
-		</a>	
-  	</div>
+ 				<a onclick="addProdotto()" href="carrello?azioneCarrello=addCarrello&idProdotto=<%= prodotto.getIdProdotto() %>" class=" bottoni bottoni-colori " >
+					Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png">
+				</a>		
+</div>
 <%@ include file="footer.jsp"%>
-<button id="modificaBtn"> Indietro</button>
-<button id="modificaBtn"> Aggiungi al carello </button>
+
+
 </body>
 </html>
