@@ -113,7 +113,7 @@
 			</form>
 			</td>
 			<td class = "remove">
-			<a href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%=prodottiCarrello.get(i).getIdProdotto()%>">
+			<a onclick="deleteProdotto()" href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%=prodottiCarrello.get(i).getIdProdotto()%>">
 					<img src="images/cestino.png" style="width: 40%"alt="rimuovi"/>
 			</a></td>
 			<td>
@@ -145,6 +145,12 @@
 <br>
 <br>
 <br>	
+
+<script>
+function deleteProdotto() {
+  alert("Hai eliminato un prodotto dal carrello!");
+}
+</script>
 <%@include file = "footer.jsp" %>
 </body>
 </html>

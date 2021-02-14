@@ -278,7 +278,7 @@ public class CarrelloServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("catalogo.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("carrello.jsp");
 				dispatcher.forward(request, response);
 			}
 
