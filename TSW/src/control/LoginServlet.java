@@ -96,6 +96,9 @@ public class LoginServlet extends HttpServlet {
 						ArrayList<Prodotto> risultatiRicerca = new ArrayList<Prodotto>();
 						request.getSession().setAttribute("risultatiRicerca", risultatiRicerca);
 						
+						
+						
+						
 						RequestDispatcher view = request.getRequestDispatcher("/HomePage.jsp");
 						view.forward(request, response);
 					}else {

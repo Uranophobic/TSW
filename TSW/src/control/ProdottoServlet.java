@@ -171,161 +171,151 @@ public class ProdottoServlet extends HttpServlet {
 			}
 
 		}
-
-
-
-		/*
-			if(azioneP.equals("aggiungiProdottoACarrello")) {
-				try {
-					ArrayList<Prodotto> catalogo = prodottoModel.doRetrieveAll("idProdotto");
-					int quantitaCarrello =(int)(request.getSession().getAttribute("quantitaCarrello"));
-					ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-					String idProd=request.getParameter("idProdotto");
-					Prodotto p = prodottoModel.doRetrieveByKey(idProd);
-
-
-					//carrello vuoto
-					/*
-		 * aggiunta di un prodotto quando il carrello è vuoto
-
-
-					if(carrello.size()==0){
-
-						Composizione composizione=new Composizione();
-						composizione.setCodiceProdotto(p.getIdProdotto());
-						composizione.setPrezzoUnitario(p.getPrezzo());
-						composizione.setScontoAttuale(p.getSconto());
-						composizione.setQuantità(1);
-						carrello.add(composizione);
-						quantitaCarrello++;
-					}else {
-						int i;
-						for(i = 0; i<carrello.size(); i++){
-							if((carrello.get(i).getCodiceProdotto())==idProd){
-								carrello.get(i).setQuantità((carrello.get(i).getQuantità()+1));
-								quantitaCarrello ++;
-								//System.out.println("Sono nel FOR, prodotto incrementato");
-								break;
-							}else {
-								//aggiungi un nuovo prodotto al carrello
-								//quindi una nuova Composizione, setta tutti gli attributi
-								if(i==carrello.size()){
-									Composizione composizione = new Composizione();
-									composizione.setCodiceProdotto(p.getIdProdotto());
-									composizione.setPrezzoUnitario(p.getPrezzo());
-									composizione.setScontoAttuale(p.getSconto());
-									composizione.setQuantità(1);
-									carrello.add(composizione);
-									quantitaCarrello ++;
-									//	System.out.println("Nuovo prodotto");
-								}
-							}
-						}
-					}
-				}catch(SQLException ex) {
-					ex.printStackTrace();
+	
+	
+	if(azioneP.equals("agricoltura")) {
+		
+		System.out.println("sono in agricoltura");
+		try {
+		//String categoria=request.getParameter("categoria");
+		ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+		ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
+		
+		
+			allCategoria=prodottoModel.doRetrieveAll("categoria");
+			for(int i=0;i<allCategoria.size();i++) {
+				
+				if(allCategoria.get(i).getCategoria().equals("Agricoltura")) {
+					
+					
+					
+					Prodotto prod=new Prodotto();
+					prod.setCategoria(allCategoria.get(i).getCategoria());
+					prod.setDescrizione(allCategoria.get(i).getDescrizione());
+					prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+					prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+					prod.setIva(allCategoria.get(i).getIva());
+					prod.setNome(allCategoria.get(i).getNome());
+					prod.setPrezzo(allCategoria.get(i).getPrezzo());
+					prod.setSconto(allCategoria.get(i).getSconto());
+					
+					prodottiCategoria.add(prod);
 				}
-
-
-			} */
-
-
-		/*
-			//aggingi un prodotto da catalogo a wish 
-			if(azioneP.equals("addWish")) {
-				System.out.println("Sono nell'add wish.");
-				utente= (Utente)request.getSession().getAttribute("utenteSessione");
-				try {
-				String idProdotto = request.getParameter("idProdotto");
-				System.out.println("Id prodotto da aggiungere: " + idProdotto); 
-
-				Prodotto prodottoWish =prodottoModel.doRetrieveByKey(idProdotto);
-				wish.setIdWish("acaso");
-				wish.setCodiceProdotto(prodottoWish.getIdProdotto());
-				wish.setEmail(utente.getEmail());
-				System.out.println("WISHLIST: " + wish.toString());
-				request.getSession().setAttribute("wishlistSessione", wish);
-				wishlistModel.doSave(wish);
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-
-				RequestDispatcher dispatcher=request.getRequestDispatcher("wishlist.jsp");
-				dispatcher.forward(request, response);
-
+				
+				
 			}
+			System.out.println("prodotti categoria servlet"+prodottiCategoria);
+			
+			request.getSession().setAttribute("menuSessione", prodottiCategoria);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+		view.forward(request, response);
+	}
 
-			//aagiungi un prodotto da wish a carrello
-			if(azioneP.equals("aggiungiProdottoWishlist")) {
-				try {
-
-					ArrayList<Prodotto> Catalogo = prodottoModel.doRetrieveAll("idProdotto");
-					ArrayList<Wishlist> wishlist = (ArrayList<Wishlist>) request.getSession().getAttribute("wishlistSessione");
-					ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
-					String idWish=request.getParameter("idWish");
-					int quantitaCarrello =(int)(request.getSession().getAttribute("quantitaCarrello"));
-					Wishlist w=wishlistModel.doRetrieveByKey(idWish);
-					//carrello vuoto
-					if(carrello.size()==0){
-
-						Composizione composizione=new Composizione();
-						composizione.setCodiceProdotto(w.getCodiceProdotto());
-						/*composizione.setPrezzoUnitario(p.getPrezzo());
-						composizione.setScontoAttuale(p.getSconto());
-						composizione.setQuantità(1);
-						con questi non so bene
-		 * 
-		 */
-		/*
-						carrello.add(composizione);
-						quantitaCarrello++;
-
-					}
-					else{
-						int i;
-
-						for(i = 0; i<carrello.size(); i++){
-							//incrementa quantità di prodotto già presente
-							if((carrello.get(i).getCodiceProdotto())==idWish){
-								carrello.get(i).setQuantità((carrello.get(i).getQuantità()+1));
-								quantitaCarrello ++;
-								break;
-							}else {
-
-							}
-
-						}
-						//aggiungi un nuovo prodotto al carrello
-						//quindi una nuova Composizione, setta tutti gli attributi
-						if(i==carrello.size()){
-							Composizione composizione = new Composizione();
-							composizione.setCodiceProdotto(w.getCodiceProdotto());
-							/*
-		 * 	composizione.setPrezzoUnitario(p.getPrezzo());
-							composizione.setScontoAttuale(p.getSconto());
-							composizione.setQuantità(1);
-		 * 
-		 */
-		/*
-							carrello.add(composizione);
-							quantitaCarrello ++;
-						}
-					}
-
-
-
-				}catch(Exception e) {
-					e.printStackTrace();
+//cura
+if(azioneP.equals("cura")) {
+		
+		System.out.println("sono in cura");
+		try {
+		//String categoria=request.getParameter("categoria");
+		ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+		ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
+		
+		
+			allCategoria=prodottoModel.doRetrieveAll("categoria");
+			for(int i=0;i<allCategoria.size();i++) {
+				
+				if(allCategoria.get(i).getCategoria().equals("Cura")) {
+					
+					
+					
+					Prodotto prod=new Prodotto();
+					prod.setCategoria(allCategoria.get(i).getCategoria());
+					prod.setDescrizione(allCategoria.get(i).getDescrizione());
+					prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+					prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+					prod.setIva(allCategoria.get(i).getIva());
+					prod.setNome(allCategoria.get(i).getNome());
+					prod.setPrezzo(allCategoria.get(i).getPrezzo());
+					prod.setSconto(allCategoria.get(i).getSconto());
+					
+					prodottiCategoria.add(prod);
 				}
-
-
-
-
+				
+				
 			}
-		 */
+			System.out.println("prodotti categoria servlet"+prodottiCategoria);
+			
+			request.getSession().setAttribute("menuSessione", prodottiCategoria);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+		view.forward(request, response);
+	}
 
 
+		
+				//giardinaggio
+if(azioneP.equals("giardinaggio")) {
+	
+	System.out.println("sono in giardinaggio");
+	try {
+	//String categoria=request.getParameter("categoria");
+	ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+	ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
+	
+	
+		allCategoria=prodottoModel.doRetrieveAll("categoria");
+		for(int i=0;i<allCategoria.size();i++) {
+			
+			if(allCategoria.get(i).getCategoria().equals("Giardinaggio")) {
+				
+				
+				
+				Prodotto prod=new Prodotto();
+				prod.setCategoria(allCategoria.get(i).getCategoria());
+				prod.setDescrizione(allCategoria.get(i).getDescrizione());
+				prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+				prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+				prod.setIva(allCategoria.get(i).getIva());
+				prod.setNome(allCategoria.get(i).getNome());
+				prod.setPrezzo(allCategoria.get(i).getPrezzo());
+				prod.setSconto(allCategoria.get(i).getSconto());
+				
+				prodottiCategoria.add(prod);
+			}
+			
+			
+		}
+		System.out.println("prodotti categoria servlet"+prodottiCategoria);
+		
+		request.getSession().setAttribute("menuSessione", prodottiCategoria);
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	
+	RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+	view.forward(request, response);
+}
+
+
+
+		
+		
+		
 	}
 }

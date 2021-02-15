@@ -9,16 +9,17 @@
 <script src="menu.js"></script>
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
-<title> Catalogo - Oltre il Giardino</title>
+<title> prodottiCategoria - Oltre il Giardino</title>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
 
 <div>
-<p  class="titoloPagine"> Catalogo </p>
+<p  class="titoloPagine"> prodottiCategoria </p>
 </div>
-<%	ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
-
+<% 
+ArrayList<Prodotto> prodottiCategoria= (ArrayList<Prodotto>) request.getSession().getAttribute("menuSessione");
+System.out.println("prodotti categoria: "+prodottiCategoria);
 
 %>
 <div id="main">
@@ -30,11 +31,11 @@
 
 	
 
-	<%for(int i=0; i<catalogo.size(); i++){ %>
+	<%for(int i=0; i<prodottiCategoria.size(); i++){ %>
     <div class="item1"> <!-- prodotto 1  -->
 	    <div class="hovereffect">
-	    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
-	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>&nome=<%= catalogo.get(i).getNome() %>" class="overlay">
+	    	<img class="imgProdotto" src="<%= prodottiCategoria.get(i).getImmaginePath() %>" alt="forbice">
+	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=prodottiCategoria.get(i).getIdProdotto() %>&nome=<%= prodottiCategoria.get(i).getNome() %>" class="overlay">
 					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
 	            </a>
 	    </div>
@@ -45,14 +46,14 @@
 		<%} %>
 		
 	
-		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= catalogo.get(i).getIdProdotto() %>
-		 <p class="nomeProdotto"> <%= catalogo.get(i).getNome() %></p>
-		 <p class="nomeProdotto"> <%= catalogo.get(i).getPrezzo() %>  </p>
+		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= prodottiCategoria.get(i).getIdProdotto() %>
+		 <p class="nomeProdotto"> <%= prodottiCategoria.get(i).getNome() %></p>
+		 <p class="nomeProdotto"> <%= prodottiCategoria.get(i).getPrezzo() %>  </p>
 		 <input type="hidden" id="prova" >
 		
 			<div class="bottoneAddCarrello">
 			<% if(session.getAttribute("utenteSessione")!= null){%>
-				<a onclick="addProdotto()" href="carrello?azioneCarrello=addCarrello&idProdotto=<%= catalogo.get(i).getIdProdotto() %>" class=" bottoni bottoni-colori " >
+				<a onclick="addProdotto()" href="carrello?azioneCarrello=addCarrello&idProdotto=<%= prodottiCategoria.get(i).getIdProdotto() %>" class=" bottoni bottoni-colori " >
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			<%} else { %>
@@ -110,10 +111,8 @@
     	</form>
     	
 </div>
-    	
+
 </div>
-
-
 
 
 
