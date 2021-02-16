@@ -105,8 +105,8 @@
 		</div>
 		
 	</div>
-	<div class="bottoneProfilo">
-		<button class="botMod bottoni-colori" name="azioneProfilo" value="modificaDati">Conferma</button>
+	<div class="botModDati">
+		<button class="bottoni bottoni-colori" name="azioneProfilo" value="modificaDati">Conferma</button>
 	</div>
 	
 

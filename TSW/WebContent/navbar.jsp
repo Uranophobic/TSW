@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="bean.Utente"%>
+    <%@page import="bean.Utente, bean.Prodotto ,java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -78,6 +78,13 @@
 </style>
 </head>
 <body>
+<%// ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
+
+//System.out.println("catalogo DA NAVBAR: " + catalogo);
+
+
+%>
+
 <nav>
 <div class="contenutoNav">
 
@@ -133,7 +140,7 @@
 			  	</div>
 			</li>
 		 
-		 	<!-- barra di ricerca -->
+		 	<!-- barra di ricerca 
 			<li class="barraRicercaNav">  
 				<div class="barraRicerca">
 					 <form class="navbar-form " action="prodotto" method="post">
@@ -146,6 +153,10 @@
 					    </form>
 				 </div>
 			</li>
+			-->
+			
+		
+			
 			
 			<li  id="navbarVerde">
 					<div class="topnav" id="myTopnav">

@@ -23,27 +23,51 @@
 %>
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIE</span>
-
+  
+  
+  	<!-- barra di ricerca 	 -->
+			<div class="barraRicercaNav">  
+				<div class="barraRicerca">
+				
+					  <label for="browser">Choose your browser from the list:</label>
+					  <input list="prodotti" name="prod" id="prod">
+					  <datalist id="prodotti">
+					  	<%
+					  		for(int i=0; i<catalogo.size(); i++){
+					  	%>
+					  		<option value="<%=catalogo.get(i).getNome() %>">
+					  	<% } %>
+					  </datalist>
+					  <input type="submit">
+				
+				 </div>
+			</div>
+		
+  <script type="text/javascript">
+$( document ).ready(function() {
+$('#prod').on('input', function(){
+	  var page = $(this).val();
+	  window.location.href = "#"+page;
+	});
+});
+</script>
+  
 <div class="grid-container">
-
-
-
-	
-
 	<%for(int i=0; i<catalogo.size(); i++){ %>
-    <div class="item1"> <!-- prodotto 1  -->
+    <div id="<%= catalogo.get(i).getNome()%>"class="item1"> <!-- prodotto 1  -->
 	    <div class="hovereffect">
 	    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
 	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>&nome=<%= catalogo.get(i).getNome() %>" class="overlay">
 					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
 	            </a>
 	    </div>
-	    <% if(session.getAttribute("utenteSessione")!= null){ %>
+	    <!-- 
+	    <%// if(session.getAttribute("utenteSessione")!= null){ %>
 		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a href="prodotto?azioneP=prova" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		<%} else {%>
+	
 		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="login.jsp" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		<%} %>
-		
+	
+		 -->
 	
 		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= catalogo.get(i).getIdProdotto() %>
 		 <p class="nomeProdotto"> <%= catalogo.get(i).getNome() %></p>
@@ -60,60 +84,38 @@
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>
 				<%} %>
-			</div>
-			
-		  
-  			
-  </div>
-  
-  
+			</div> 			
+  </div>  
   <%} %>
-
-
 </div>
-
 </div>
-
-
 
 <!-- sidebar -->
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  
- 
+ <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
  <div class="menuSx">
-
-
-
-
 		 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    	 <button id="categ" name="azioneP" value="sconto">Scontati</button>
-    	</div>
+		    	<div class=" categorie">
+		    	 	<button id="botMenu" name="azioneP" value="sconto">Scontati</button>
+		    	</div>
+    	</form>
+    	<form action="prodotto" method="post">
+		    	<div class=" categorie">
+		    		<button id="categ" name="azioneP" value="giardinaggio">Giardinaggio</button>
+		    	</div>
+    	</form>
+    	<form action="prodotto" method="post">
+		    	<div class=" categorie">
+		    	 	<button id="categ" name="azioneP" value="agricoltura">Agricoltura</button>
+		    	</div>
     	</form>
     	 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    		<button id="categ" name="azioneP" value="giardinaggio">Giardinaggio</button>
-    	</div>
+		    	<div class=" categorie">
+		    	   <button id="categ" name="azioneP" value="cura">Cura delle piante</button>
+		    	</div>
     	</form>
-    	 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    	 <button id="categ" name="azioneP" value="agricoltura">Agricoltura</button>
-    	</div>
-    	</form>
-    	 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    	   <button id="categ" name="azioneP" value="cura">Cura delle piante</button>
-    	</div>
-    	</form>
-    	
+</div> 	
 </div>
-    	
-</div>
-
-
-
-
 
 <script>
 function openNav() {
@@ -137,8 +139,5 @@ function addProdotto() {
 
 
 <%@ include file="footer.jsp"%>
-
-
-	
 </body>
 </html>

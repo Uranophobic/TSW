@@ -807,26 +807,43 @@ width: 27%;}
 	border-radius: 500px;
 	background-origin: border-box;
 	margin-top: 30px;
-	width: 50%;
+	width: 91%;
 	margin-left: 50px;
 }
 
 .bottoneProfilo {
-	width: 40%;
+	width: 70%;
 	margin: auto;
-	display: inline-flex;
-	margin-left: 450px;
+	margin-left: 80px;
+		display: inline-flex; 
 }
 
-@media all and (max-width: 991px) and (min-width: 768px) {
-.bottoneProfilo {
-	width: 60%;
+.botModDati {
+	width: 13%;
 	margin: auto;
-	margin-left: 145px;
-	display: inline-flex;
+}
+
+@media all and (max-width: 1690px)and (min-width : 990px) {
+	.bottoneProfilo {
+	width: 50%;
+	margin: auto;
+	margin-left: 400px;
+		display: inline-flex; 
 }
 .botMod {
-	width: 90%;
+	width: 95%;
+	/* margin-top: 17px; */
+}
+}
+@media all and (max-width: 991px) and (min-width: 768px) {
+.bottoneProfilo {
+	width: 70%;
+	margin: auto;
+	margin-left: 200px;
+		display: inline-flex; 
+}
+.botMod {
+	width: 91%;
 	/* margin-top: 17px; */
 }
 }
@@ -836,10 +853,16 @@ width: 27%;}
 .bottoneProfilo {
 	width: 70%;
 	margin: auto;
-	margin-left: 145px;
+	margin-left: 50px;
+		display: inline-flex; 
 }
 .botMod {
-	width: 50%;
+	width: 91%;
+	/* margin-top: 17px; */
+}
+.botModDati {
+	width: 30%;
+	margin: auto;
 }
 	}
 
@@ -851,17 +874,28 @@ width: 27%;}
 	/* color: ghostwhite; */
 	/* margin: auto; */
 	margin: 0;
+	display: inline-flex; 
+	
 }
+
 	.datiBox {
 	width: 100%;
 	height: auto;
 	display: block;
 }
 .datiPersonali {
-
 	width: 85%;
 	margin: auto;
 	height: auto;
+}
+.botMod {
+	width: 90%;
+	/* margin-top: 17px; */
+}
+
+.botModDati {
+	width: 30%;
+	margin: auto;
 }
 
 }
@@ -1126,6 +1160,66 @@ width: 27%;}
 	text-align: center;
 	width: 70%;
 	margin: auto;
+}
+
+.botMenu{
+	border: none;
+	background: trasparent;
+}
+
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+
+
+.grid-container > div {
+	height: auto;
+	width: auto;
+}
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+	.grid-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 20px;
+	padding: 2px;
+	margin-left: 40px;
+	margin-right: 10px;
+}
+
+.grid-container > div {
+	height: auto;
+	width: auto;
+}
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+.grid-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-gap: 20px;
+	padding: 2px;
+	margin-left: 40px;
+	margin-right: 10px;
+}
+
+.grid-container > div {
+	height: auto;
+	width: auto;
+}
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+	.grid-container {
+	display: block;
+	padding: 2px;
+	margin-left: 40px;
+	margin-right: 10px;
+}
+	
 }
 
 /*********************************************** VISUALIZZA DETTAGLI PRODOTTO ************************************************/

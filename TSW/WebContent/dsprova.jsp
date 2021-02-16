@@ -129,7 +129,7 @@
 	<div class="bottoneProfilo">
 			<a href="modificaDati2.jsp"><button class="botMod bottoni-colori"> Modifica Dati</button></a>
 		<form>
-			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Torna indietro </button>
+			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Indietro</button>
 		</form>
 	</div>
 	
