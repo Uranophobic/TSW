@@ -29,8 +29,8 @@
 			<div class="barraRicercaNav">  
 				<div class="barraRicerca">
 				
-					  <label for="browser">Choose your browser from the list:</label>
-					  <input list="prodotti" name="prod" id="prod">
+					  <label style="font-size: 18px;">Cerca qui un elemento:</label>
+					  <input list="prodotti" name="prod" id="prod" placeholder="Nome prodotto" style="font-size: 18px;">
 					  <datalist id="prodotti">
 					  	<%
 					  		for(int i=0; i<catalogo.size(); i++){
@@ -38,7 +38,7 @@
 					  		<option value="<%=catalogo.get(i).getNome() %>">
 					  	<% } %>
 					  </datalist>
-					  <input type="submit">
+					  <input type="submit" value="Cerca Prodotto" class="bottoni bottoni-colori"style="font-size: 18px;">
 				
 				 </div>
 			</div>
@@ -96,22 +96,23 @@ $('#prod').on('input', function(){
  <div class="menuSx">
 		 <form action="prodotto" method="post">
 		    	<div class=" categorie">
-		    	 	<button id="botMenu" name="azioneP" value="sconto">Scontati</button>
+		    	 	<!-- <button class="bottoni bottoni-colori" id="botMenu" name="azioneP" value="sconto">Scontati</button> -->
+		    	 	<a href="prodotto?azioneP=sconto" id="categ"> Scontati </a>
 		    	</div>
     	</form>
     	<form action="prodotto" method="post">
 		    	<div class=" categorie">
-		    		<button id="categ" name="azioneP" value="giardinaggio">Giardinaggio</button>
+		    		<a href="prodotto?azioneP=giardinaggio" id="categ"> Giardinaggio </a>
 		    	</div>
     	</form>
     	<form action="prodotto" method="post">
 		    	<div class=" categorie">
-		    	 	<button id="categ" name="azioneP" value="agricoltura">Agricoltura</button>
+		    	 	<a href="prodotto?azioneP=agricoltura" id="categ"> Agricoltura</a>
 		    	</div>
     	</form>
     	 <form action="prodotto" method="post">
 		    	<div class=" categorie">
-		    	   <button id="categ" name="azioneP" value="cura">Cura delle piante</button>
+		    	   <a href="prodotto?azioneP=cura" id="categ"> Cura delle piante</a>
 		    	</div>
     	</form>
 </div> 	

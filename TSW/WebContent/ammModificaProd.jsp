@@ -5,12 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<title>Gestione Amministratore - Aggiungi un prodotto</title>
-</head>
+<title>Modifica Prodotto</title>
 <style>
-.boxModifica2 {
+.boxModifica {
 	width: 70%;
-	height: 635px;
+	height: 580px;
 	border: 1px solid rgba(40, 150, 5, 0.2);
 	border-radius: 5px;
 	display: inline-block;
@@ -49,28 +48,36 @@
 
 /*extra-small devices*/
 @media all and (max-width: 600px) {
-.boxModifica2 {
+.boxModifica {
 	width: 90%;
-	height: 615px;
+	height: 580px;
 	margin-left: 30px;
 }
 }
 
+
+
+
+
+
 </style>
+</head>
 <body>
 <%@include file = "navbar.jsp" %>
 
-	<div>
-		<p class="titoloPagine">Aggiungi Prodotto</p>
+
+<div>
+		<p class="titoloPagine">Modifica Prodotto</p>
 	</div>
+
+
 
 <form action="amministratore" method="post" >
 <div id="area-profilo">
 	<!-- primo quadrante -->
-		<div class="boxModifica2">
+		<div class="boxModifica">
 					<div class="prova2">
-					<label id="inputData2"> Id Prodotto</label><input type="text" placeholder="idProdotto"  class="inputProfilo" name="idProdotto" required> 
-					<label id="inputData2"> Immagine</label><input type="text" name="immaginePath"  class="inputProfilo"  placeholder="Path Immagine" required >
+					<label id="inputData2"> Immagine</label><input type="text" name="immagine"  class="inputProfilo"  placeholder="Path Immagine" required >
 					<label id="inputData2"> Nome</label><input type="text" name="nome" class="inputProfilo"  placeholder="Nome" required> 
 					<label id="inputData2"> Descrizione</label><input type="text" name="descrizione" class="inputProfilo"  placeholder="Descrizione" required>
 					<label id="inputData2"> Categoria</label><input type="text" name="categoria"  class="inputProfilo"  placeholder="Categoria" required >
@@ -83,12 +90,11 @@
 		
 	</div>
 	<div class="botModDati">
-		<button name="azioneCapo" class="bottoni bottoni-colori" value="aggiungiProd">Conferma</button>
+		<button  name="azioneCapo" class="bottoni bottoni-colori" value="modificaProd">Conferma</button>
 	</div>
 	
 
 </form>
 <%@include file = "footer.jsp" %>
-
 </body>
 </html>

@@ -157,7 +157,7 @@ public class amministratoreServlet extends HttpServlet {
 						e.printStackTrace();
 					}
 			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("modificaProdAmm.jsp");
+			RequestDispatcher dispatcher=request.getRequestDispatcher("ammModificaProd.jsp");
 			dispatcher.forward(request, response);
 			
 			
