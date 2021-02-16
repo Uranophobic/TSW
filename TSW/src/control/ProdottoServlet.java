@@ -171,151 +171,186 @@ public class ProdottoServlet extends HttpServlet {
 			}
 
 		}
-	
-	
-	if(azioneP.equals("agricoltura")) {
-		
-		System.out.println("sono in agricoltura");
-		try {
-		//String categoria=request.getParameter("categoria");
-		ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
-		ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
-		
-		
-			allCategoria=prodottoModel.doRetrieveAll("categoria");
-			for(int i=0;i<allCategoria.size();i++) {
+
+
+		if(azioneP.equals("agricoltura")) {
+
+			System.out.println("sono in agricoltura");
+			try {
+				//String categoria=request.getParameter("categoria");
+				ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+				ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
+
+
+				allCategoria=prodottoModel.doRetrieveAll("categoria");
+				for(int i=0;i<allCategoria.size();i++) {
+
+					if(allCategoria.get(i).getCategoria().equals("Agricoltura")) {
+
+
+
+						Prodotto prod=new Prodotto();
+						prod.setCategoria(allCategoria.get(i).getCategoria());
+						prod.setDescrizione(allCategoria.get(i).getDescrizione());
+						prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+						prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+						prod.setIva(allCategoria.get(i).getIva());
+						prod.setNome(allCategoria.get(i).getNome());
+						prod.setPrezzo(allCategoria.get(i).getPrezzo());
+						prod.setSconto(allCategoria.get(i).getSconto());
+
+						prodottiCategoria.add(prod);
+					}
+
+
+				}
+				System.out.println("prodotti categoria servlet"+prodottiCategoria);
+
+				request.getSession().setAttribute("menuSessione", prodottiCategoria);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+			RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+			view.forward(request, response);
+		}
+
+		//cura
+		if(azioneP.equals("cura")) {
+
+			System.out.println("sono in cura");
+			try {
+				//String categoria=request.getParameter("categoria");
+				ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+				ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
+
+
+				allCategoria=prodottoModel.doRetrieveAll("categoria");
+				for(int i=0;i<allCategoria.size();i++) {
+
+					if(allCategoria.get(i).getCategoria().equals("Cura")) {
+
+
+
+						Prodotto prod=new Prodotto();
+						prod.setCategoria(allCategoria.get(i).getCategoria());
+						prod.setDescrizione(allCategoria.get(i).getDescrizione());
+						prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+						prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+						prod.setIva(allCategoria.get(i).getIva());
+						prod.setNome(allCategoria.get(i).getNome());
+						prod.setPrezzo(allCategoria.get(i).getPrezzo());
+						prod.setSconto(allCategoria.get(i).getSconto());
+
+						prodottiCategoria.add(prod);
+					}
+
+
+				}
+				System.out.println("prodotti categoria servlet"+prodottiCategoria);
+
+				request.getSession().setAttribute("menuSessione", prodottiCategoria);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+			RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+			view.forward(request, response);
+		}
+
+
+
+		//giardinaggio
+		if(azioneP.equals("giardinaggio")) {
+
+			System.out.println("sono in giardinaggio");
+			try {
+				//String categoria=request.getParameter("categoria");
+				ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+				ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
+
+
+				allCategoria=prodottoModel.doRetrieveAll("categoria");
+				for(int i=0;i<allCategoria.size();i++) {
+
+					if(allCategoria.get(i).getCategoria().equals("Giardinaggio")) {
+
+
+
+						Prodotto prod=new Prodotto();
+						prod.setCategoria(allCategoria.get(i).getCategoria());
+						prod.setDescrizione(allCategoria.get(i).getDescrizione());
+						prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+						prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+						prod.setIva(allCategoria.get(i).getIva());
+						prod.setNome(allCategoria.get(i).getNome());
+						prod.setPrezzo(allCategoria.get(i).getPrezzo());
+						prod.setSconto(allCategoria.get(i).getSconto());
+
+						prodottiCategoria.add(prod);
+					}
+
+
+				}
+				System.out.println("prodotti categoria servlet"+prodottiCategoria);
+
+				request.getSession().setAttribute("menuSessione", prodottiCategoria);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+			RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+			view.forward(request, response);
+		}
+
+
+		//sconto
+		if(azioneP.equals("sconto")) {
+			try {
+				ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
+				ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
 				
-				if(allCategoria.get(i).getCategoria().equals("Agricoltura")) {
-					
-					
-					
-					Prodotto prod=new Prodotto();
-					prod.setCategoria(allCategoria.get(i).getCategoria());
-					prod.setDescrizione(allCategoria.get(i).getDescrizione());
-					prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
-					prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
-					prod.setIva(allCategoria.get(i).getIva());
-					prod.setNome(allCategoria.get(i).getNome());
-					prod.setPrezzo(allCategoria.get(i).getPrezzo());
-					prod.setSconto(allCategoria.get(i).getSconto());
-					
-					prodottiCategoria.add(prod);
+				allCategoria=prodottoModel.doRetrieveAll("sconto");
+				for(int i=0;i<allCategoria.size();i++) {
+					if(allCategoria.get(i).getSconto() > 0 ) {
+						
+						Prodotto prod=new Prodotto();
+						prod.setCategoria(allCategoria.get(i).getCategoria());
+						prod.setDescrizione(allCategoria.get(i).getDescrizione());
+						prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
+						prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
+						prod.setIva(allCategoria.get(i).getIva());
+						prod.setNome(allCategoria.get(i).getNome());
+						prod.setPrezzo(allCategoria.get(i).getPrezzo());
+						prod.setSconto(allCategoria.get(i).getSconto());
+
+						prodottiCategoria.add(prod);
+					}
 				}
 				
-				
+				System.out.println("prodotti SCONTATI"+prodottiCategoria);
+				request.getSession().setAttribute("menuSessione", prodottiCategoria);
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			System.out.println("prodotti categoria servlet"+prodottiCategoria);
-			
-			request.getSession().setAttribute("menuSessione", prodottiCategoria);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+
+			RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
+			view.forward(request, response);
 		}
-		
-		
-		RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
-		view.forward(request, response);
-	}
-
-//cura
-if(azioneP.equals("cura")) {
-		
-		System.out.println("sono in cura");
-		try {
-		//String categoria=request.getParameter("categoria");
-		ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
-		ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
-		
-		
-			allCategoria=prodottoModel.doRetrieveAll("categoria");
-			for(int i=0;i<allCategoria.size();i++) {
-				
-				if(allCategoria.get(i).getCategoria().equals("Cura")) {
-					
-					
-					
-					Prodotto prod=new Prodotto();
-					prod.setCategoria(allCategoria.get(i).getCategoria());
-					prod.setDescrizione(allCategoria.get(i).getDescrizione());
-					prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
-					prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
-					prod.setIva(allCategoria.get(i).getIva());
-					prod.setNome(allCategoria.get(i).getNome());
-					prod.setPrezzo(allCategoria.get(i).getPrezzo());
-					prod.setSconto(allCategoria.get(i).getSconto());
-					
-					prodottiCategoria.add(prod);
-				}
-				
-				
-			}
-			System.out.println("prodotti categoria servlet"+prodottiCategoria);
-			
-			request.getSession().setAttribute("menuSessione", prodottiCategoria);
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
-		view.forward(request, response);
-	}
-
-
-		
-				//giardinaggio
-if(azioneP.equals("giardinaggio")) {
-	
-	System.out.println("sono in giardinaggio");
-	try {
-	//String categoria=request.getParameter("categoria");
-	ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
-	ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
-	
-	
-		allCategoria=prodottoModel.doRetrieveAll("categoria");
-		for(int i=0;i<allCategoria.size();i++) {
-			
-			if(allCategoria.get(i).getCategoria().equals("Giardinaggio")) {
-				
-				
-				
-				Prodotto prod=new Prodotto();
-				prod.setCategoria(allCategoria.get(i).getCategoria());
-				prod.setDescrizione(allCategoria.get(i).getDescrizione());
-				prod.setIdProdotto(allCategoria.get(i).getIdProdotto());
-				prod.setImmaginePath(allCategoria.get(i).getImmaginePath());
-				prod.setIva(allCategoria.get(i).getIva());
-				prod.setNome(allCategoria.get(i).getNome());
-				prod.setPrezzo(allCategoria.get(i).getPrezzo());
-				prod.setSconto(allCategoria.get(i).getSconto());
-				
-				prodottiCategoria.add(prod);
-			}
-			
-			
-		}
-		System.out.println("prodotti categoria servlet"+prodottiCategoria);
-		
-		request.getSession().setAttribute("menuSessione", prodottiCategoria);
-		
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
-	
-	RequestDispatcher view=request.getRequestDispatcher("catalogo2.jsp");
-	view.forward(request, response);
-}
 
 
 
-		
-		
-		
 	}
 }

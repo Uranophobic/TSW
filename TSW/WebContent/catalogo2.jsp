@@ -13,23 +13,31 @@
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
-
-<div>
-<p  class="titoloPagine"> prodottiCategoria </p>
-</div>
 <% 
 ArrayList<Prodotto> prodottiCategoria= (ArrayList<Prodotto>) request.getSession().getAttribute("menuSessione");
 System.out.println("prodotti categoria: "+prodottiCategoria);
-
 %>
+
+
+<div>
+<%
+int j=0;
+if(prodottiCategoria.get(j).getCategoria().equals("Agricoltura")) {%>
+		<p  class="titoloPagine"> Catalogo - Prodotti Agricoltura </p>	
+<%}else if (prodottiCategoria.get(j).getCategoria().equals("Giardinaggio")){ %>
+		<p  class="titoloPagine"> Catalogo - Prodotti Giardinaggio </p>	
+<%}else if (prodottiCategoria.get(j).getCategoria().equals("Cura")){ %>
+		<p  class="titoloPagine"> Catalogo - Prodotti Cura delle piante </p>	
+<% }else{ %>
+		<p  class="titoloPagine"> Catalogo - Prodotti In Sconto</p>	
+<% } %>
+
+</div>
+
+
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIE</span>
-
 <div class="grid-container">
-
-
-
-	
 
 	<%for(int i=0; i<prodottiCategoria.size(); i++){ %>
     <div class="item1"> <!-- prodotto 1  -->

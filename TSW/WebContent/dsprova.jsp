@@ -89,22 +89,16 @@
 					<label id="inputData"> Citta</label><input type="text" name="citta" id="citta" class="inputProfilo" value="<%=citta%>" readonly>
 					<label id="inputData"> Cap</label><input type="text" name="cap" id="cap" class="inputProfilo" value="<%=cap%>" readonly> 
 					<label id="inputData"> Provincia</label><input type="text" name="provincia" id="provincia" class="inputProfilo" value="<%=provincia%>" readonly> 
-				
-			
-					<button class="bottoni bottoni-colori" name ="azioneProfilo" value="modificaDati" onclick="document.getElementById('modifica').style.display='block'" style="width:auto;" >
-					Modifica Dati</button>
-				
-				
-			</div>
+				</div>
 			</div>
 			<div class="datiPersonali">
 				<p class="titProfilo text-center">Dati Pagamento</p>
 				<div class="riga1" class="hr"></div>
 				<div class="prova">
-					<label id=""> Numero</label> <input type="text" name="numeroCarta" id="numeroCarta" class="inputProfilo" value="<%=numeroCarta%>" readonly>
-					<label id=""> Scadenza</label><input type="text" name="scadenza" id="scadenza" class="inputProfilo" value="<%=scadenza%>" readonly>
-					<label id=""> Circuito</label><input type="text" name="circuito" id="circuito" class="inputProfilo" value="<%=circuito%>" readonly> 
-					<label id=""> CVV</label><input type="text" name="CVV" id="CVV" class="inputProfilo" value="<%=CVV%>" readonly> 
+					<label id="inputData"> Numero</label> <input type="text" name="numeroCarta" id="numeroCarta" class="inputProfilo" value="<%=numeroCarta%>" readonly>
+					<label id="inputData"> Scadenza</label><input type="text" name="scadenza" id="scadenza" class="inputProfilo" value="<%=scadenza%>" readonly>
+					<label id="inputData"> Circuito</label><input type="text" name="circuito" id="circuito" class="inputProfilo" value="<%=circuito%>" readonly> 
+					<label id="inputData"> CVV</label><input type="text" name="CVV" id="CVV" class="inputProfilo" value="<%=CVV%>" readonly> 
 			</div>
 			</div>	
 		</div>
@@ -133,11 +127,13 @@
 		</div>
 	</div>
 	<div class="bottoneProfilo">
-		<button type="submit" class=" bottoni bottoni-colori ">
-			Indietro</button>
+			<a href="modificaDati2.jsp"><button class="botMod bottoni-colori"> Modifica Dati</button></a>
+		<form>
+			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Torna indietro </button>
+		</form>
 	</div>
 	
-	<!-- POP UP -->
+	<!-- POP UP 
 	<div id="modifica" class="modale">
   <form class="animate" action="profilo" method="post">
   <div class="modificheSped">
@@ -176,25 +172,19 @@
        
 	  <button class="secondo" type="submit" name ="azioneProfilo" value="modificaDati">MODIFICA</button>
        <div class="hr"></div>
-       <!-- bottonemodifica sempre a posto di quello che stava prima nell if guarda servlet -->
+       <!-- bottonemodifica sempre a posto di quell'o che stava prima nell if guarda servlet 
     </div>
 
     
   </div>
 		</form>
 </div>
+
+-->
+
+
+
 	<%@ include file="footer.jsp"%>
-	<script>
-	// Get the modal
-	var modal = document.getElementById('modifica');
 
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-		if (event.target == modal) {
-			modal.style.display = "none";
-		}
-	}
-
-</script>
 </body>
 </html>

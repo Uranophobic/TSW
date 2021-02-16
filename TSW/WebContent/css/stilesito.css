@@ -228,7 +228,9 @@ body {
 	color: #394a3e;
 	list-style-type: none;
 	width: 97%;
-	z-index: 9;
+	z-index: 10;
+	position: relative;
+
 }
 
 .sticky {
@@ -742,13 +744,8 @@ font-family: janda;
 }
 #area-profilo {
 	width: 95%;
-	height: 900px;
+	height: auto;
 	margin: auto;
-}
-.bottoneProfilo {
-	margin: auto;
-	width: 10%;
-	color: ghostwhite;
 }
 
 
@@ -794,19 +791,67 @@ font-family: janda;
 .immagineOp{margin: auto;
 width: 27%;}
 
-/*GRANDEZZE large, medium, small, extra-large e extra-small*/
-@media all and (max-width: 1690px)and (min-width : 990px) {
+.botMod {
+	overflow: visible;
+	text-transform: none;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 0 30px;
+	vertical-align: middle;
+	font-size: 16px;
+	line-height: 38px;
+	text-align: center;
+	text-decoration: none;
+	transition: .5s ease-in-out;
+	letter-spacing: 1.8px;
+	border-radius: 500px;
+	background-origin: border-box;
+	margin-top: 30px;
+	width: 50%;
+	margin-left: 50px;
+}
+
+.bottoneProfilo {
+	width: 40%;
+	margin: auto;
+	display: inline-flex;
+	margin-left: 450px;
 }
 
 @media all and (max-width: 991px) and (min-width: 768px) {
+.bottoneProfilo {
+	width: 60%;
+	margin: auto;
+	margin-left: 145px;
+	display: inline-flex;
+}
+.botMod {
+	width: 90%;
+	/* margin-top: 17px; */
+}
 }
 
 /*small devices*/
 @media all and (max-width: 767px) and (min-width: 601px) {
+.bottoneProfilo {
+	width: 70%;
+	margin: auto;
+	margin-left: 145px;
 }
+.botMod {
+	width: 50%;
+}
+	}
 
 /*extra-small devices*/
 @media all and (max-width: 600px) {
+.bottoneProfilo {
+	/* margin: auto; */
+	width: 85%;
+	/* color: ghostwhite; */
+	/* margin: auto; */
+	margin: 0;
+}
 	.datiBox {
 	width: 100%;
 	height: auto;

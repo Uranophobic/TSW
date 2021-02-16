@@ -86,13 +86,11 @@
 
 
 
-<div class=" categorie">
-	<h3 id="titSx"> Categorie </h3>
-    		<ul class="sottoList">
-    			<li><a class="sottoCateg" href="">Nuovi Arrivi</a></li>
-    			<li><a  class="sottoCateg" href="">Scontati</a></li>
-        	</ul>
+		 <form action="prodotto" method="post">
+    	<div class=" categorie">
+    	 <button id="categ" name="azioneP" value="sconto">Scontati</button>
     	</div>
+    	</form>
     	 <form action="prodotto" method="post">
     	<div class=" categorie">
     		<button id="categ" name="azioneP" value="giardinaggio">Giardinaggio</button>

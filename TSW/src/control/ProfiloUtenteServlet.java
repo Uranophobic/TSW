@@ -134,7 +134,7 @@ public class ProfiloUtenteServlet extends HttpServlet {
 				
 				utenteModel.doUpdate(utente);
 				request.getSession().setAttribute("utenteSessione", utente);
-				RequestDispatcher view = request.getRequestDispatcher("HomePage.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("dsprova.jsp");
 				view.forward(request,response);
 				if(utenteModel.doUpdate(utente)==1) {
 					System.out.println("risultato 1");
