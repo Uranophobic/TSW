@@ -22,6 +22,7 @@
 	border-radius: 5px;
 	margin-top: 15px;
 	margin: auto;
+	
 }
 .table{
 	width: 90%;
