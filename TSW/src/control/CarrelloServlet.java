@@ -190,8 +190,7 @@ public class CarrelloServlet extends HttpServlet {
 				request.getSession().setAttribute("carrelloSessione", carrello);
 				request.getSession().removeAttribute("quantitaCarrello");
 				request.getSession().setAttribute("quantitaCarrello", quantitaCar);
-				System.out.println(quantita + "questa è la quantità di chi ti è biecchio");
-				RequestDispatcher view = request.getRequestDispatcher("catalogo.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("carrello.jsp");
 				view.forward(request, response);
 				
 				
@@ -252,26 +251,42 @@ public class CarrelloServlet extends HttpServlet {
 			int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
 			String  idProdottoDelete=request.getParameter("idProdDelete");
 			System.out.println("id prod da eliminare (idProdDelete): " + idProdottoDelete);//prod è il prodotto da eliminare
-
+/*
 			for(Composizione prod : carrello) {
-
 				String getIdProd=prod.getCodiceProdotto();
 				if(idProdottoDelete.equals(getIdProd)) {
 					carrello.remove(prod);
+					
+					
+					
 					quantitaCar--;
 					System.out.println("Prodotto Eliminato da carrello");
 					System.out.println("Quantita dopo elimina di un prodotto: "+quantitaCar);
 					break;
 				}
 			}
+*/
+			
+			for(int i=0; i<carrello.size(); i++) {
+				if(carrello.get(i).getCodiceProdotto().equals(idProdottoDelete)) {
+					carrello.remove(i);
+					prodottiCarrello.remove(i);
+					quantitaCar--;
+					//System.out.println("Prodotto Eliminato da carrello:" + carrello.get(i).getCodiceProdotto());
+					System.out.println("Quantita dopo elimina di un prodotto: "+quantitaCar);
+				}
+			
+			}
+			
+			
+			System.out.println("\n\n carrelo DOPO ELIMINA: " + carrello);
+			System.out.println("\n \nPRODOTTI carrelo DOPO ELIMINA: " + prodottiCarrello);
 
-			System.out.println("carrelo DOPO ELIMINA: " + carrello);
-
-			request.getSession().removeAttribute("carrelloSessione");
+			//request.getSession().removeAttribute("carrelloSessione");
 			request.getSession().setAttribute("carrelloSessione", carrello);
-			request.getSession().removeAttribute("prodottiCarrello");
+			//request.getSession().removeAttribute("prodottiCarrello");
 			request.getSession().setAttribute("prodottiCarrello", prodottiCarrello);
-			request.getSession().removeAttribute("quantitaCarrello");
+			//request.getSession().removeAttribute("quantitaCarrello");
 			request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 
 			if(carrello.size()==0) {

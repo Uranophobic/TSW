@@ -30,27 +30,37 @@
 	margin: auto;
 }
 .totComplessivo {
-	/* float: right; */
-	width: 13%;
+	float: right;
+	width: 32%;
 	margin: auto;
-}
-
-.tot{
 	font-size: 18px;
 }
 
-.botAcquisto {
-	position: relative;
+#scrittaTot {
+	width: 50%;
 	margin: auto;
-	width: 17%;
 }
+
+.botAcquisto {
+	/* position: relative; */
+	margin: auto;
+	width: 57%;
+}
+#link{
+	text-decoration: underline;
+	/* font-style: italic; */
+	color: #394a3c;
+	font-family: janda;
+}
+
 </style>
 </head>
 <body>
 
 <%@include file = "navbar.jsp" %>
-<br>
-
+<div>
+<p  class="titoloPagine"> Carrello </p>
+</div>
 <div class="containerCarrello">
 <%
 	if(carrello.size()!=0){
@@ -141,30 +151,32 @@
 		%>
 	</tbody>
 	</table>
-	 </div>
-	<div>
-		<div class="totComplessivo">
-		<p class="tot">Totale Complessivo: <%=totale%></p>
-		</div>
-		
-	<div class="botAcquisto">
-		<a href="procediOrdine.jsp">
-			<button class=" bottoni bottoni-colori " type="submit" id="ac">Procedi all'acquisto</button>
-		</a>
-		</div>
 	</div>
+		<div class="totComplessivo">
+			<p id="scrittaTot">Totale Complessivo: <%=totale%></p>
+			<div class="botAcquisto">
+				<a href="procediOrdine.jsp"><button class=" bottoni bottoni-colori " type="submit">Procedi all'acquisto</button></a>
+			</div>
+		</div>
 	<%} else { %>
 		<div>
-		<p> Non ci sono prodotti nel carrello.</p>
+		<p style="font-size: 28px;"> Non ci sono ancora prodotti <br> 
+			Visualizza il catalogo e iniziare ad aggiungere prodotti al carrello! <img src="https://img.icons8.com/small/32/000000/add-shopping-cart.png"/></a>
+		</p>
+		
+		
+		</div>
 		</div>
 	<% } %>
 <br>
 <br>
 <br>	
-
+ 
 <script>
 function deleteProdotto() {
+	
   alert("Hai eliminato un prodotto dal carrello!");
+  window.location.reload();
 }
 </script>
 <%@include file = "footer.jsp" %>
