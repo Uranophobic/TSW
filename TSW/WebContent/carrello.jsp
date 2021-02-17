@@ -65,6 +65,8 @@
         <th id="descrCol">Descrizione</th>
         <th id="priceCol">Prezzo</th>
         <th id="qntCol">Quantità</th>
+         <th id="qntCol">Iva</th>
+         <th id="qntCol">Sconto</th>
         <th id="elimina"> Rimuovi </th>
         <th id="totCol">Totale</th>
       </tr>
@@ -82,25 +84,7 @@
 			<p><%=prodottiCarrello.get(i).getDescrizione()%></p>
 			</td>
 			<td> 
-			<div class="price">
-						<%
-							double costo = 0;
-								if (prodottiCarrello.get(i).getSconto() != 0) {
-									double percentuale = (prodottiCarrello.get(i).getPrezzo() * prodottiCarrello.get(i).getSconto())
-											/ 100;
-									costo = prodottiCarrello.get(i).getPrezzo() - percentuale;
-						%>
-						<%=prodottiCarrello.get(i).getPrezzo()%>
-						<%
-							} else {
-						%>
-						<p>&#8364 <%=prodottiCarrello.get(i).getPrezzo()%></p>
-						<%
-							costo = prodottiCarrello.get(i).getPrezzo();
-								}
-								totale += carrello.get(i).getQuantità() * costo;
-						%>
-					</div>
+			<p> <%=prodottiCarrello.get(i).getPrezzo() %></p>
 			</td>	
 					
 			<td class = "modQ">
@@ -112,12 +96,44 @@
 						<img src="images/check-icon.png" alt="conferma"/></button>
 			</form>
 			</td>
+			<td>
+			<p> <%=prodottiCarrello.get(i).getIva() %></p>
+			<!-- iva -->
+			</td>
+			<!-- sconto -->
+			
+			<td>
+			<p><%=prodottiCarrello.get(i).getSconto() %></p>
+			</td>
 			<td class = "remove">
 			<a onclick="deleteProdotto()" href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%=prodottiCarrello.get(i).getIdProdotto()%>">
 					<img src="images/cestino.png" style="width: 40%"alt="rimuovi"/>
 			</a></td>
 			<td>
-			TOTALE
+			<div class="price">
+						<%
+							double costo = 0;
+								if (prodottiCarrello.get(i).getSconto() != 0) {
+									double percentuale = (prodottiCarrello.get(i).getPrezzo() * prodottiCarrello.get(i).getSconto())
+											/ 100;
+									costo = prodottiCarrello.get(i).getPrezzo() - percentuale;
+									costo=costo+(costo*prodottiCarrello.get(i).getIva());
+									costo=costo*carrello.get(i).getQuantità();
+						%>
+						
+						<%
+							} else {
+						%>
+						
+						<%
+							costo = prodottiCarrello.get(i).getPrezzo();
+							costo=costo+(costo*prodottiCarrello.get(i).getIva());
+							costo=costo*carrello.get(i).getQuantità();
+								}
+								totale=totale+costo;
+						%>
+						<p>&#8364</p><%=costo%>
+					</div>
 			</td>
 		</tr>
 		<%

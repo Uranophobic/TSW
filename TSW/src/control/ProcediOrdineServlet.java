@@ -75,10 +75,16 @@ public class ProcediOrdineServlet extends HttpServlet {
 					if(carrello.get(i).getScontoAttuale()!=0) {
 						double sconto = carrello.get(i).getScontoAttuale();
 						double prezzo = carrello.get(i).getPrezzoUnitario();
+						double iva=carrello.get(i).getIva();
 						prezzo = prezzo - ( prezzo * sconto / 100) ; 
-						prezzoTot = prezzo * carrello.get(i).getQuantità();
+						prezzo=prezzo+(prezzo*iva);
+						prezzoTot = prezzoTot+(prezzo * carrello.get(i).getQuantità());
+					
 					} else {
-						prezzoTot = prezzoTot + carrello.get(i).getPrezzoUnitario() * carrello.get(i).getQuantità();
+						double prezzo = carrello.get(i).getPrezzoUnitario();
+						double iva=carrello.get(i).getIva();
+						prezzo=prezzo+(prezzo*iva);
+						prezzoTot = prezzoTot+(prezzo * carrello.get(i).getQuantità());
 					}
 				}
 

@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"
-    import="java.util.ArrayList, bean.Prodotto, java.text.*, bean.Composizione"%>
+	pageEncoding="ISO-8859-1"
+	import="java.util.ArrayList, bean.Prodotto, java.text.*, bean.Composizione"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<title>Procedi Ordine </title>
+<title>Procedi Ordine</title>
 <style>
-.immagineProd{
-width: 25%;
+.immagineProd {
+	width: 25%;
 }
 
 #specificheTab {
@@ -22,12 +22,12 @@ width: 25%;
 	width: 80%;
 }
 
-#datiIn{
-	border: none; 
+#datiIn {
+	border: none;
 	border-bottom: 1px solid #dddd;
 }
 
-#datiLab{
+#datiLab {
 	font-weight: bold;
 	font-size: 18px;
 	margin-right: 10px;
@@ -36,8 +36,8 @@ width: 25%;
 </style>
 </head>
 <body>
-<%@ include file="navbar.jsp"%>
-<%
+	<%@ include file="navbar.jsp"%>
+	<%
 
 	ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
     ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
@@ -96,24 +96,25 @@ width: 25%;
 		   CVV = rtre.substring(0);
 	   }
 %>
-<div>
-<p  class="titoloPagine"> Procedi all'acquisto </p>
-</div>
+	<div>
+		<p class="titoloPagine">Procedi all'acquisto</p>
+	</div>
 
-<div class="procediOrdine" >
-	<div  class="colonnaSx ">
-		<p class="titColonne text-center"> Stai acquistando: </p>
-				<table id="carrelloOrdine">
-					  <tr id="specificheTab" style="text-align: left;">
-						    <th id="colonna1">Immagine</th>
-						    <th id="colonna2">Nome</th>
-						    <th id="colonna3">Quantità</th>
-						    <th id="colonna4">Prezzo</th>
-						    <th id="colonna5">Sconto</th>
-						    <th id="colonna6">Totale</th>
-				  	 </tr>
+	<div class="procediOrdine">
+		<div class="colonnaSx ">
+			<p class="titColonne text-center">Stai acquistando:</p>
+			<table id="carrelloOrdine">
+				<tr id="specificheTab" style="text-align: left;">
+					<th id="colonna1">Immagine</th>
+					<th id="colonna2">Nome</th>
+					<th id="colonna3">Quantità</th>
+					<th id="colonna4">Prezzo</th>
+					<th id="colonna5">Sconto</th>
+					<th id="colonna5">Iva</th>
+					<th id="colonna6">Totale</th>
+				</tr>
 				<% 		
-				double prezzo=0, totSingProd=0, sconto=0; 
+				double prezzo=0, totale=0, sconto=0; 
 		 			int quantità = 0;
 		 			
 		 			
@@ -121,92 +122,103 @@ width: 25%;
 		 				int prova = carrello.get(i).getQuantità();
 		 				System.out.println("\n Quantita che mi prendo dal carrello:  " + prova);
 		 		%>
-		 		
-		 		
-		 		<!-- ELEMENTI -->
-				  <tr id="specificheTab" >
-				    <td class="immagineProd"><img style="width:50%;"src="<%= prodottiCarrello.get(i).getImmaginePath() %>" alt="immagine-prod"/></td>
-				    <td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
-				    <td class="quantProd"><%=carrello.get(i).getQuantità() %></td>
-				    <td class="prezzoProd"> 
-				    <% prezzo = prodottiCarrello.get(i).getPrezzo(); 
+
+
+				<!-- ELEMENTI -->
+				<tr id="specificheTab">
+					<td class="immagineProd"><img style="width: 50%;"
+						src="<%= prodottiCarrello.get(i).getImmaginePath() %>"
+						alt="immagine-prod" /></td>
+					<td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
+					<td class="quantProd"><%=carrello.get(i).getQuantità() %></td>
+					<td class="prezzoProd">
+						<% prezzo = prodottiCarrello.get(i).getPrezzo(); 
 				    prezzo = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
-				    %>
-				    <%= prezzo %>
-				    </td>
-					<td class="scontoProd">
-					<%= prodottiCarrello.get(i).getSconto() %>
-				</td>
+				    %> <%= prezzo %>
+					</td>
+					<td class="scontoProd"><%= prodottiCarrello.get(i).getSconto() %>
+					</td>
+					<td><%=prodottiCarrello.get(i).getIva() %></td>
 
-					<td class ="prezzoTot">
-			
-     				<%if(prodottiCarrello.get(i).getSconto()!=0){
-        	
-        			sconto=prodottiCarrello.get(i).getSconto();
-        			//iva=prodottiCarrello.get(i).getIva();
-        			 prezzo=prodottiCarrello.get(i).getPrezzo();
-        			 totSingProd=0;//totale singolo prodotto prezzo*quantita
-        			
-        			totSingProd=prezzo-(prezzo*sconto/100);
-        			totSingProd=totSingProd*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
-        			totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
-        			totaleCarrello=totaleCarrello+totSingProd;
-        	
-			        }else{
-			        	
-			        	prezzo=prodottiCarrello.get(i).getPrezzo();
-			        	//System.out.println("\nPrezzo senzo niente: " + prezzo);
-			        	//System.out.println("Calcolo l'iva");
-			        	totSingProd = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
-			        	//System.out.println("Prezzo prod + iva : " + totSingProd);
-			        	totSingProd = totSingProd * carrello.get(i).getQuantità();
-			        	//System.out.println("Prezzo prod(con iva) * quantità  : " + totSingProd);
-			        	totaleCarrello=totaleCarrello+totSingProd;
-			        	
-						//totSingProd=prezzo*carrello.get(i).getQuantità()*prodottiCarrello.get(i).getIva();
-						//totSingProd=totSingProd+prodottiCarrello.get(i).getPrezzo();
-						//totaleCarrello=totaleCarrello+totSingProd;
-			        }
-        	%>
-        	<%=totSingProd %>
-					</td> 
-				   
-				  </tr>
-		 		
-				<% } %> <!--  chiusura for -->
-				</table><!-- chiusura tabella -->
-				
-				<div class="totaleCol">
-				<a> Totale complessivo: <%= totaleCarrello %> </a>
-				</div>	
-				
-	</div> <!-- chiusura div colonna sx -->
-	
-	<div  class="colonnaDx1 ">
-		<p class="titColonne text-center" > Spedisci all'indirizzo: </p>
-			<div class="datiUt">
-					<label id="datiLab"> Via </label> <input type="text" name="via" id="datiIn" value="<%=via%>" readonly><br>
-					<label id="datiLab"> Citta </label> <input type="text" name="citta" id="datiIn" value="<%=citta%>" readonly><br>
-					<label id="datiLab"> Cap </label> <input type="text" name="cap" id="datiIn" value="<%=cap%>" readonly><br> 
-					<label id="datiLab"> Provincia </label> <input type="text" name="provincia" id="datiIn"  value="<%=provincia%>" readonly><br> 
+					<td class="prezzoTot">
+
+						<div class="price">
+							<%
+							double costo = 0;
+								if (prodottiCarrello.get(i).getSconto() != 0) {
+									double percentuale = (prodottiCarrello.get(i).getPrezzo() * prodottiCarrello.get(i).getSconto())
+											/ 100;
+									costo = prodottiCarrello.get(i).getPrezzo() - percentuale;
+									costo=costo+(costo*prodottiCarrello.get(i).getIva());
+									costo=costo*carrello.get(i).getQuantità();
+						%>
+
+							<%
+							} else {
+						%>
+
+							<%
+							costo = prodottiCarrello.get(i).getPrezzo();
+							costo=costo+(costo*prodottiCarrello.get(i).getIva());
+							costo=costo*carrello.get(i).getQuantità();
+								}
+								totale=totale+costo;
+						%>
+							<p>&#8364</p><%=costo%>
+						</div>
+					</td>
+
+				</tr>
+
+				<% } %>
+				<!--  chiusura for -->
+			</table>
+			<!-- chiusura tabella -->
+			<div class="totComplessivo">
+				<p class="tot">
+					Totale Complessivo:
+					<%=totale%></p>
 			</div>
-	</div> <!-- chiusura div colonna dx -->
 
-	<div  class="colonnaDx2 ">
-		<p class="titColonne text-center"> Paghi con: </p>
-		<div class="datiUt">
-					<label id="datiLab"> Numero</label> <input type="text" name="numeroCarta" id="datiIn" value="<%=numeroCarta%>" readonly><br> 
-					<label id="datiLab">Scadenza</label> <input type="text" name="scadenza"  id="datiIn" value="<%=scadenza%>" readonly><br> 
-					<label id="datiLab"> Circuito</label> <input type="text" name="circuito"  id="datiIn"  value="<%=circuito%>" readonly> <br> 
-					<label id="datiLab"> CVV</label> <input type="text" name="CVV"  id="datiIn" value="<%=CVV%>" readonly> <br> 
 		</div>
-	</div> <!-- chiusura div colonna dx2 -->
+		<!-- chiusura div colonna sx -->
 
-</div> <!-- chiusura div procedi ordine -->
+		<div class="colonnaDx1 ">
+			<p class="titColonne text-center">Spedisci all'indirizzo:</p>
+			<div class="datiUt">
+				<label id="datiLab"> Via </label> <input type="text" name="via"
+					id="datiIn" value="<%=via%>" readonly><br> <label
+					id="datiLab"> Citta </label> <input type="text" name="citta"
+					id="datiIn" value="<%=citta%>" readonly><br> <label
+					id="datiLab"> Cap </label> <input type="text" name="cap"
+					id="datiIn" value="<%=cap%>" readonly><br> <label
+					id="datiLab"> Provincia </label> <input type="text"
+					name="provincia" id="datiIn" value="<%=provincia%>" readonly><br>
+			</div>
+		</div>
+		<!-- chiusura div colonna dx -->
 
-<div class="opBtn2">
-		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista</a>	
-  	</div>
-  			<%@include file="footer.jsp"%>		
+		<div class="colonnaDx2 ">
+			<p class="titColonne text-center">Paghi con:</p>
+			<div class="datiUt">
+				<label id="datiLab"> Numero</label> <input type="text"
+					name="numeroCarta" id="datiIn" value="<%=numeroCarta%>" readonly><br>
+				<label id="datiLab">Scadenza</label> <input type="text"
+					name="scadenza" id="datiIn" value="<%=scadenza%>" readonly><br>
+				<label id="datiLab"> Circuito</label> <input type="text"
+					name="circuito" id="datiIn" value="<%=circuito%>" readonly>
+				<br> <label id="datiLab"> CVV</label> <input type="text"
+					name="CVV" id="datiIn" value="<%=CVV%>" readonly> <br>
+			</div>
+		</div>
+		<!-- chiusura div colonna dx2 -->
+
+	</div>
+	<!-- chiusura div procedi ordine -->
+
+	<div class="opBtn2">
+		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista</a>
+	</div>
+	<%@include file="footer.jsp"%>
 </body>
 </html>
