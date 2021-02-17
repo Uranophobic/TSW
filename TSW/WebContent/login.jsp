@@ -4,9 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link type="text/css" rel="stylesheet" href="css/stilesito.css">
-
+<meta charset="ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <title>Login form</title>
@@ -59,6 +59,24 @@
 		}
 	}
 </script>
-
+<script>
+$(document).ready(function(){
+	$("#login-button").click(function(){
+		
+		$.post("/TSW/login",
+				{
+					"azioneLogin" : "loginUtente",
+				},
+				function(responseTxt, statusTxt, xhr){
+					if(responseTxt=="successo")
+						alert("Benvenuto");
+					if(responseTxt=="passwordFailed")
+						alert("Password non corretta!");
+					if(responseTxt=="notExists")
+						alert("Devi prima registrarti per accedere!");
+			});
+	});
+});
+</script>
 </body>
 </html>

@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 			try {
 				String email = request.getParameter("email");
 				String password = request.getParameter("password");
-				String errore= "";
+				
 
 				utente=utenteModel.doRetrieveByKey(email);
 				System.out.println(utente);
@@ -73,7 +73,10 @@ public class LoginServlet extends HttpServlet {
 				//if controllo mail, se la mail esiste nel db 
 				if(utente.getEmail().equals(email)) {
 					if(utente.getPassword().equals(password)) {
-
+						
+						response.setContentType("text/html;charset=ISO-8859-1");
+						response.getWriter().write("successo");
+						
 						request.getSession().setAttribute("utenteSessione", utente);
 						
 						//sessione del carrello
@@ -103,24 +106,17 @@ public class LoginServlet extends HttpServlet {
 						view.forward(request, response);
 					}else {
 						System.out.println("password sbagliata\n");
-						errore = "Password errata.\n"; 
-						System.out.println(errore);
-						response.setContentType("text/html;charset=utf-8");
+						response.setContentType("text/html;charset=ISO-8859-1");
 						response.getWriter().write("passwordFailed");
-						getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+						//getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 
 					}	
 				}else {
 					System.out.println("email sbagliata\n");
-					errore = "Email errata.\n"; 
-					/*
-						System.out.println(errore);
-						response.setContentType("text/html;charset=utf-8");
-						response.getWriter().write("notExists");
+					response.setContentType("text/html;charset=ISO-8859-1");
+					response.getWriter().write("notExists");
 
-					 */
-
-					getServletContext().getRequestDispatcher("/404Error.jsp").forward(request, response);
+					//getServletContext().getRequestDispatcher("/404Error.jsp").forward(request, response);
 
 				}
 

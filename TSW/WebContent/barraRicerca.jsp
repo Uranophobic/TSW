@@ -3,10 +3,7 @@
 <html>
 <head>
 
-<% ArrayList<String> prova = new ArrayList<String>();
-prova.add("aa");
-prova.add("ab");
-prova.add("ac");%>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
