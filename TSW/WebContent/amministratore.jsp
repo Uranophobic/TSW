@@ -40,6 +40,12 @@
 .headTab{
 display: none;
 }
+
+.ordiniAmm {
+	width: 90%;
+	margin: auto;
+	/* margin-left: 410px; */
+}
 }
 
 
@@ -71,15 +77,42 @@ display: none;
 <a href="ammAddProd.jsp"><button class="bottoni bottoni-colori"> AGGIUNGI UN PRODOTTO </button></a>
 <a href="amministratore?azioneCapo=visualizzaOrdini"><button class="bottoni bottoni-colori"> LISTA DEGLI ORDINI </button></a>
 </div>
+
+
+	<!-- barra di ricerca 	 -->
+			<div class="barraRicercaNav">  
+				<div class="barraRicerca">
+				
+					  <label style="font-size: 18px;">Cerca qui un elemento:</label><br>
+					  <input list="prodotti" name="prod" id="prod" placeholder="Nome prodotto" style="font-size: 18px;">
+					  <datalist id="prodotti">
+					  	<%
+					  		for(int i=0; i<catalogo.size(); i++){
+					  	%>
+					  		<option value="<%=catalogo.get(i).getNome() %>">
+					  	<% } %>
+					  </datalist>
+					  <input type="submit" value="Cerca Prodotto" class="bottoni bottoni-colori"style="font-size: 18px;">
+				
+				 </div>
+			</div>
+
+  <script type="text/javascript">
+$( document ).ready(function() {
+$('#prod').on('input', function(){
+	  var page = $(this).val();
+	  window.location.href = "#"+page;
+	});
+});
+</script>
+  
 <p class="titColonne text-center"> I prodotti del Catalogo</p>
-
-
 <div class="container">
   <div class="table-responsive-sm">          
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Id Prodotto</th>
+        <th>Id</th>
         <th>Immagine</th>
         <th>Nome</th>
         <th>Descrizione</th>
@@ -93,7 +126,8 @@ display: none;
     <tbody>
     <%for(int i=0;i<catalogo.size();i++){%>
       <tr>
-        <td><%=catalogo.get(i).getIdProdotto() %></td>
+       <div id="<%= catalogo.get(i).getNome()%>"class="item1"> <!-- prodotto 1  -->
+        <td ><p id=""><%=catalogo.get(i).getIdProdotto() %></p></td>
         <td><img src=" <%=catalogo.get(i).getImmaginePath() %>" style="width:30%"></td>
         <td> <%=catalogo.get(i).getNome() %></td>
         <td> <%=catalogo.get(i).getDescrizione() %></td>
@@ -105,6 +139,7 @@ display: none;
 					<a href="amministratore?azioneCapo=prendiProd&idProdCapo=<%=catalogo.get(i).getIdProdotto()%>"><button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Modifica</button></a>
 					<a href="amministratore?azioneCapo=eliminaProd&id=<%=catalogo.get(i).getIdProdotto()%>"><button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Elimina</button></a>
 				   </td>
+				   </div>
       </tr>
       <% } %>
     </tbody>

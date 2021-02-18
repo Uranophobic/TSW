@@ -289,6 +289,42 @@ public class amministratoreServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		
+		
+		if(azioneCapo.equals("cercaPerEmail")) {
+			String emailCercata = request.getParameter("emailCercata");
+			System.out.println("email che ho cercato: " + emailCercata);
+			try {
+				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("emailUtente");
+				ArrayList<Ordine> ordiniUtente = new ArrayList<Ordine>();
+				
+				for(int i=0; i<allOrdini.size(); i++) {
+					if(allOrdini.get(i).getEmailUtente().equals(emailCercata)) {
+						System.out.println("le email combaciano");
+						
+						Ordine o = new Ordine(); //setto l'ordine dell'utente
+						
+						o.setDataOrdine(allOrdini.get(i).getDataOrdine());
+						o.setEmailUtente(allOrdini.get(i).getEmailUtente());
+						o.setIdOrdine(allOrdini.get(i).getIdOrdine());
+						o.setImportoTot(allOrdini.get(i).getImportoTot());
+						
+						ordiniUtente.add(o);
+						System.out.println("ordine aggiunto" + o);
+					}
+				
+				
+				}
+				request.getSession().setAttribute("ordiniCercati", ordiniUtente);	
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher dispatcher=request.getRequestDispatcher("risultatiRicerca.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 		if(azioneCapo.equals("cercaPerEmail")) {
 			String emailCercata = request.getParameter("emailCercata");
 			System.out.println("email che ho cercato: " + emailCercata);

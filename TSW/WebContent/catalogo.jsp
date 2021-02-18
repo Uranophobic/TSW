@@ -68,13 +68,6 @@ $('#prod').on('input', function(){
 					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
 	            </a>
 	    </div>
-	    <!-- 
-	    <%// if(session.getAttribute("utenteSessione")!= null){ %>
-		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a href="prodotto?azioneP=prova" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-	
-		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="login.jsp" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-	
-		 -->
 	
 		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= catalogo.get(i).getIdProdotto() %>
 		 <p class="nomeProdotto"> <%= catalogo.get(i).getNome() %></p>
