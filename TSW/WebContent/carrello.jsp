@@ -54,6 +54,50 @@
 	font-family: janda;
 }
 
+.totComplessivo2 {
+	float: right;
+	width: 36%;
+	margin: auto;
+	font-size: 18px;
+}
+
+#nomePicc{
+	display: none;
+}
+
+#q {
+	width: 50%;
+}
+
+#imgCol{
+	width: 15%;
+}
+
+#rimCol{
+	width: 10%;
+}
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+.descrCol{
+	display:none;
+}
+#nomePicc{
+	display: block;
+}
+
+}
 </style>
 </head>
 <body>
@@ -62,7 +106,8 @@
 <div>
 <p  class="titoloPagine"> Carrello </p>
 </div>
-<div class="containerCarrello">
+<div class="container">
+<div class="table-responsive-sm">
 <%
 	if(carrello.size()!=0){
 		
@@ -71,15 +116,15 @@
 	  <table class="table">
 	  <thead>
       <tr>
-        <th id="numCol">#</th>
-        <th id="imgCol">Immagine del prodotto</th>
-        <th id="descrCol">Descrizione</th>
-        <th id="priceCol">Prezzo</th>
-        <th id="qntCol">Quantità</th>
-         <th id="qntCol">Iva</th>
-         <th id="qntCol">Sconto</th>
-        <th id="elimina"> Rimuovi </th>
-        <th id="totCol">Totale</th>
+        <th id="">#</th>
+        <th id="imgCol">Immagine</th>
+        <th class="descrCol">Descrizione</th>
+        <th id="">Prezzo</th>
+        <th id="quantitaCol">Quantità</th>
+         <th id="">Iva</th>
+         <th id="">Sconto</th>
+        <th id="rimCol"> Rimuovi </th>
+        <th id="imgCol">Totale</th>
       </tr>
     </thead>
      <tbody>
@@ -89,22 +134,25 @@
 		for (int i = 0; i < carrello.size(); i++) {
 	    %>
       	 <td><%= i+1 %></td>
-		 <td> <img src="<%=prodottiCarrello.get(i).getImmaginePath()%>" style="width: 80%;"></td>
-			<td class="descrizione">
+		 <td> 
+		 	<h6 id="nomePicc"><%=prodottiCarrello.get(i).getNome()%></h6>
+		 	<img src="<%=prodottiCarrello.get(i).getImmaginePath()%>" style="width: 70%;"></td>
+			<td class="descrCol">
 			<h3><%=prodottiCarrello.get(i).getNome()%></h3>
 			<p><%=prodottiCarrello.get(i).getDescrizione()%></p>
 			</td>
 			<td> 
-			<p> <%=prodottiCarrello.get(i).getPrezzo() %></p>
+			<p> <%=prodottiCarrello.get(i).getPrezzo() %> &#8364</p>
 			</td>	
 					
 			<td class = "modQ">
 			<form action = "carrello" method="post">
-					Quantit&agrave: <input type="number" min="1" max="10" 
+					<input type="number" min="1" max="10" 
 					value="<%=carrello.get(i).getQuantità() %>" name="quantita" id="q">
 						<input type="hidden" name="idProd" value="<%=prodottiCarrello.get(i).getIdProdotto()%>">
 						<button type="submit" name="azioneCarrello" value="modificaQuantita">
-						<img src="images/check-icon.png" alt="conferma"/></button>
+						<img src="https://img.icons8.com/small/16/000000/checkmark.png" alt="conferma"/></button>
+						
 			</form>
 			</td>
 			<td>
@@ -114,11 +162,11 @@
 			<!-- sconto -->
 			
 			<td>
-			<p><%=prodottiCarrello.get(i).getSconto() %></p>
+			<p><%=prodottiCarrello.get(i).getSconto() %> %</p>
 			</td>
 			<td class = "remove">
 			<a onclick="deleteProdotto()" href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%=prodottiCarrello.get(i).getIdProdotto()%>">
-					<img src="images/cestino.png" style="width: 40%"alt="rimuovi"/>
+					<img src="images/cestino.png" style="width: 20%"alt="rimuovi"/>
 			</a></td>
 			<td>
 			<div class="price">
@@ -143,7 +191,7 @@
 								}
 								totale=totale+costo;
 						%>
-						<p>&#8364</p><%=costo%>
+						<p><%=costo%> &#8364</p>
 					</div>
 			</td>
 		</tr>
@@ -153,7 +201,7 @@
 	</tbody>
 	</table>
 	</div>
-		<div class="totComplessivo">
+		<div class="totComplessivo2">
 			<p id="scrittaTot">Totale Complessivo: <%=totale%></p>
 			<div class="botAcquisto">
 				<a href="procediOrdine.jsp"><button class=" bottoni bottoni-colori " type="submit">Procedi all'acquisto</button></a>
@@ -167,8 +215,9 @@
 		
 		
 		</div>
-		</div>
+
 	<% } %>
+	</div>
 <br>
 <br>
 <br>	

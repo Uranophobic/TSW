@@ -107,13 +107,6 @@
 						 <a class="iconaTxt" href="dsprova.jsp"> Profilo Utente </a>
 					</div>
 
-					<!-- wish list -->  
-					<div  class="icona"> 
-					<a href="wishlist.jsp">	<img class="size" src="https://img.icons8.com/small/32/000000/like.png"/> </a>
-						<a class="iconaTxt" href="wishlist.jsp"> Lista dei Desideri </a>
-						<!-- href="prodotto?azioneP=prova" questo stava prima -->
-					</div>
-		
 					<!-- carrello -->
 					<div class="icona"> 
 					<a href="carrello?azioneCarrello=visualizzaCarrello">	<img class="size" src="https://img.icons8.com/small/32/000000/shopping-cart.png"/> </a>

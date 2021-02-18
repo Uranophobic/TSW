@@ -10,17 +10,24 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
 <title> Catalogo - Oltre il Giardino</title>
+<style>
+.imgProdotto {
+	width: 90%;
+	margin: auto;
+}
+
+#aggCar{
+	text-decoration: none;
+	color: white;
+}
+</style>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>
-
 <div>
 <p  class="titoloPagine"> Catalogo </p>
 </div>
-<%	ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
-
-
-%>
+<%	ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");%>
 <div id="main">
   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; CATEGORIE</span>
   
@@ -29,7 +36,7 @@
 			<div class="barraRicercaNav">  
 				<div class="barraRicerca">
 				
-					  <label style="font-size: 18px;">Cerca qui un elemento:</label>
+					  <label style="font-size: 18px;">Cerca qui un elemento:</label><br>
 					  <input list="prodotti" name="prod" id="prod" placeholder="Nome prodotto" style="font-size: 18px;">
 					  <datalist id="prodotti">
 					  	<%
@@ -80,8 +87,8 @@ $('#prod').on('input', function(){
 					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
 				</a>	
 			<%} else { %>
-			<a href="login.jsp" class=" bottoni bottoni-colori " >
-					<span>Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png"> </span>
+			<a id="aggCar" href="login.jsp" class=" bottoni bottoni-colori " >
+				Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png">
 				</a>
 				<%} %>
 			</div> 			
@@ -94,6 +101,7 @@ $('#prod').on('input', function(){
 <div id="mySidenav" class="sidenav">
  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
  <div class="menuSx">
+ 	 <h1 style="color: white; margin:auto; width:50%;"> MENU'</h1>
 		 <form action="prodotto" method="post">
 		    	<div class=" categorie">
 		    	 	<!-- <button class="bottoni bottoni-colori" id="botMenu" name="azioneP" value="sconto">Scontati</button> -->

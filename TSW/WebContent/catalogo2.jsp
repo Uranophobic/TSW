@@ -85,43 +85,33 @@ if(prodottiCategoria.get(j).getCategoria().equals("Agricoltura")) {%>
 
 
 
-<!-- sidebar -->
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  
- 
+ <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
  <div class="menuSx">
-
-
-
-
-<div class=" categorie">
-	<h3 id="titSx"> Categorie </h3>
-    		<ul class="sottoList">
-    			<li><a class="sottoCateg" href="">Nuovi Arrivi</a></li>
-    			<li><a  class="sottoCateg" href="">Scontati</a></li>
-        	</ul>
-    	</div>
-    	 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    		<button id="categ" name="azioneP" value="giardinaggio">Giardinaggio</button>
-    	</div>
+	 <h1 style="color: white; margin:auto; width:50%;"> MENU'</h1>
+		 <form action="prodotto" method="post">
+		    	<div class=" categorie">
+		    	 	<!-- <button class="bottoni bottoni-colori" id="botMenu" name="azioneP" value="sconto">Scontati</button> -->
+		    	 	<a href="prodotto?azioneP=sconto" id="categ"> Scontati </a>
+		    	</div>
+    	</form>
+    	<form action="prodotto" method="post">
+		    	<div class=" categorie">
+		    		<a href="prodotto?azioneP=giardinaggio" id="categ"> Giardinaggio </a>
+		    	</div>
+    	</form>
+    	<form action="prodotto" method="post">
+		    	<div class=" categorie">
+		    	 	<a href="prodotto?azioneP=agricoltura" id="categ"> Agricoltura</a>
+		    	</div>
     	</form>
     	 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    	 <button id="categ" name="azioneP" value="agricoltura">Agricoltura</button>
-    	</div>
+		    	<div class=" categorie">
+		    	   <a href="prodotto?azioneP=cura" id="categ"> Cura delle piante</a>
+		    	</div>
     	</form>
-    	 <form action="prodotto" method="post">
-    	<div class=" categorie">
-    	   <button id="categ" name="azioneP" value="cura">Cura delle piante</button>
-    	</div>
-    	</form>
-    	
+</div> 	
 </div>
-
-</div>
-
 
 
 <script>

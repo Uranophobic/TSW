@@ -42,8 +42,8 @@
 		
 		<div  class="text-center datiPag">
 			<p class="titColonne text-center" > Dati Pagamento: </p>
-			<input type="text" name="numeroCarta" id="numeroCarta" placeholder="Numero Carta" required>
-			<input type="text" name="CVV" id="CVV"  placeholder="CVV" required>
+			<input type="text" name="numeroCarta" id="numeroCarta" placeholder="Numero Carta" class="inputLogin2"  required>
+			<input type="text" name="CVV" id="CVV"  placeholder="CVV" class="inputLogin2"  required>
 			<label id="inputData"> Scadenza </label><input type="date" placeholder="dd mm yyyy" name="scadenzaCarta" id="scadenzaCarta" class="inputLogin" data-date-format="DD MM YYYY" required> 
 			<br><label class="etichette">Circuito<br></label>
 				

@@ -114,15 +114,6 @@
 						<p class="text-center" >Visualizza qui gli ordini effettuati in precedenza e gli ordini in arrivo!</p>
 				</div>
 				
-				<div class="datiPersonali">
-				<p class="titProfilo text-center">Wishlist</p>
-				<div class="riga1" class="hr"></div>
-				<div class="immagineOp">
-					<img src="https://img.icons8.com/plasticine/150/000000/wish-list.png" />
-				</div>
-						<h4 class="text-center"><a id="nomeOperazione"   href="">WishList</a></h4>
-						<p class="text-center" >Visualizza qui gli oggetti che hai aggiunto alla tua lista dei desideri!</p>
-				</div>
 			
 		</div>
 	</div>

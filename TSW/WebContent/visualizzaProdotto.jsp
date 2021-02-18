@@ -9,6 +9,17 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title>Visualizza prodotto - Oltre il Giardino </title>
 </head>
+<style>
+#titBoxVis {
+	text-align: center;
+	font-family: "janda";
+}
+
+.detProd{
+
+	margin: 20px;
+}
+</style>
 <body>
 <%@ include file="navbar.jsp"%>
 
@@ -22,40 +33,39 @@
 %>
 
 	<div  class="fotoProdotto ">
-	<h4 id="titoloCaselle" >Immagine Prodotto</h4>
+	<h4 id="titBoxVis" >Immagine Prodotto</h4>
 					<div class= "riga1" class="hr"></div>
 		<img class="imgProdotto" src="<%= prodotto.getImmaginePath() %>" alt="forbice">
 	
 	</div>
 	
 	<div  class="dettagliProdotto ">
-		<div class="datiPersona"> 
-					<h4 id="titoloCaselle" > Dettagli Informazioni Prodotto</h4>
-					<div class= "riga" class="hr"></div>
+ 
+					<h4 id="titBoxVis" > Dettagli Informazioni Prodotto</h4>
+						<div class= "riga1" class="hr"></div>
 		
-					<div class="row justify-content">
-    					<div class="col-10 form-group">
-		    				<label class="etichette">NOME:</label> 
-		    				<a id="informazioni"> <%= prodotto.getNome() %></a> <br>
-		    				<label class="etichette">CODICE:</label>
-		      				<a id="informazioni"> <%= prodotto.getIdProdotto() %></a><br>
-		      				<label class="etichette">DESCRIZIONE:</label>
-		      				<a id="informazioni"> <%= prodotto.getDescrizione() %></a><br>
-		      				<label class="etichette">	CATEGORIA :</label>
-		      				<a id="informazioni"> <%= prodotto.getCategoria() %></a><br>
-		      				<label class="etichette">PREZZO:</label>
-		      				<a id="informazioni"> <%= prodotto.getPrezzo() %></a><br>
-		      					<label class="etichette">IVA:</label>
-		      				<a id="informazioni"> <%= prodotto.getIva() %></a><br>
+		
+    			<div class="detProd">
+		    				<label class="datiLab">NOME:</label> 
+		    				<a class="inputLogin2"> <%= prodotto.getNome() %></a> <br>
+		    				<label class="datiLab">CODICE:</label>
+		      				<a class="inputLogin2"> <%= prodotto.getIdProdotto() %></a><br>
+		      				<label class="datiLab">DESCRIZIONE:</label>
+		      				<a class="inputLogin2"> <%= prodotto.getDescrizione() %></a><br>
+		      				<label class="datiLab">	CATEGORIA :</label>
+		      				<a class="inputLogin2"> <%= prodotto.getCategoria() %></a><br>
+		      				<label class="datiLab">PREZZO:</label>
+		      				<a class="inputLogin2"> <%= prodotto.getPrezzo() %></a><br>
+		      					<label class="datiLab">IVA:</label>
+		      				<a class="inputLogin2"> <%= prodotto.getIva() %></a><br>
 		      				<% if(prodotto.getSconto() ==0 ){ %>
-		      					<label class="etichette">SCONTO: No</label><br>
+		      					<label class="datiLab">SCONTO: No</label><br>
 		      				<%} else { %>
-		      					<label class="etichette">SCONTO:</label>
-		      				<a id="informazioni"> <%= prodotto.getSconto() %></a><br>
+		      					<label class="datiLab">SCONTO:</label>
+		      				<a class="inputLogin2"> <%= prodotto.getSconto() %></a><br>
 		      				<%} %>
-    					</div>
-  					</div>
-	</div>
+    				</div>
+
 	
 </div>
 

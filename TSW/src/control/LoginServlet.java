@@ -18,7 +18,6 @@ import bean.Composizione;
 import bean.Ordine;
 import bean.Prodotto;
 import bean.Utente;
-import bean.Wishlist;
 import model.UtenteModel;
 import modelDS.UtenteModelDS;
 
@@ -90,10 +89,6 @@ public class LoginServlet extends HttpServlet {
 						//sessione degli ordini
 						ArrayList<Ordine> ordini=new ArrayList<Ordine>();
 						request.getSession().setAttribute("ordiniSessione", ordini);
-						
-						//sessione di wishlist
-						ArrayList<Wishlist> wishlist=new ArrayList<Wishlist>();
-						request.getSession().setAttribute("wishlistSessione", wishlist);
 
 						//sessione ricerca
 						ArrayList<Prodotto> risultatiRicerca = new ArrayList<Prodotto>();
@@ -186,12 +181,7 @@ public class LoginServlet extends HttpServlet {
 			//sessione degli ordini
 			ArrayList<Ordine> ordini=new ArrayList<Ordine>();
 			request.getSession().setAttribute("ordiniSessione", ordini);
-			
-			//sessione di wishlist
-			ArrayList<Wishlist> wishlist=new ArrayList<Wishlist>();
-			request.getSession().setAttribute("wishlistSessione", wishlist);
-			
-			
+					
 			//sessione ricerca
 			ArrayList<Prodotto> risultatiRicerca = new ArrayList<Prodotto>();
 			request.getSession().setAttribute("risultatiRicerca", risultatiRicerca);
@@ -222,11 +212,6 @@ public class LoginServlet extends HttpServlet {
 
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dsprova.jsp");
 			dispatcher.forward(request, response);
-		}
-		
-		
-		if(azioneLogin.equals("loginAmministratore")) {
-			
 		}
 		
 	}

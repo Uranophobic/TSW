@@ -7,7 +7,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/fattura.css">
+<style>
+.quadrFattura {
+	border: 2px solid #a6ec84;
+	border-radius: 5px;
+	text-align: center;
+	height: auto;
+	width: 50%;
+	margin: auto;
+}
 
+.fattBot {
+	width: 13%;
+	margin: auto;
+	margin-top: 20px;
+}
+</style>
 <title>Fattura</title>
 </head>
 <body>
@@ -16,23 +31,24 @@
 		<p class="titoloPagine">Fattura</p>
 	</div>
 	<% ArrayList<Ordine> ordini=(ArrayList<Ordine>)request.getSession().getAttribute("ordiniSessione"); %>
-	<h2 class="sottotitoloFattura" align="center">Questa pagina presenta la fattura
-		del prodotto che hai appena acquistato</h2>
-	<div class="quadrato-a">
-	<h3 class="titoloCaselle">Il tuo ordine è andato a buon fine </h3>
+
+	<div class="quadrFattura">
+	<br>
+	<p style="font-size:22px;">Il tuo ordine è andato a buon fine </p>
 	
 			<h4>
 			<%for(int i=0; i<ordini.size();i++){ %>
-			<label class="a">ID ORDINE: <%=ordini.get(i).getIdOrdine() %></label><br>
-			<label class="a">DATA ORDINE: <%=ordini.get(i).getDataOrdine() %></label><br>
-			<label class="a">IMPORTO TOTALE: <%=ordini.get(i).getImportoTot() %></label><br>
+			<p>ID ORDINE: <%=ordini.get(i).getIdOrdine() %><br>
+			DATA ORDINE: <%=ordini.get(i).getDataOrdine() %><br>
+			IMPORTO TOTALE: <%=ordini.get(i).getImportoTot() %></p><br>
 			
 			<%} %>
 			</h4>
 			
 	</div>
-	<a href="visualizzaOrdiniUtente.jsp"><button type="submit" class="conferma" >I miei ordini</button></a>
-
+	<div class="fattBot">
+	<a href="visualizzaOrdiniUtente.jsp"><button type="submit" class="bottoni bottoni-colori" >I miei ordini</button></a>
+	</div>
 	<%@include file="footer.jsp"%>
 </body>
 </html>

@@ -100,8 +100,8 @@
 		<p class="titoloPagine">Procedi all'acquisto</p>
 	</div>
 
-	<div class="procediOrdine">
-		<div class="colonnaSx ">
+	<div class="regContenitore" >
+		<div  class="text-center datiUtente"> 
 			<p class="titColonne text-center">Stai acquistando:</p>
 			<table id="carrelloOrdine">
 				<tr id="specificheTab" style="text-align: left;">
@@ -129,16 +129,16 @@
 					<td class="immagineProd"><img style="width: 50%;"
 						src="<%= prodottiCarrello.get(i).getImmaginePath() %>"
 						alt="immagine-prod" /></td>
-					<td class="nomeProd"><%= prodottiCarrello.get(i).getNome() %></td>
-					<td class="quantProd"><%=carrello.get(i).getQuantità() %></td>
+					<td class="nomeProd"><p><%= prodottiCarrello.get(i).getNome() %></p></td>
+					<td class="quantProd"><p><%=carrello.get(i).getQuantità() %></p></td>
 					<td class="prezzoProd">
 						<% prezzo = prodottiCarrello.get(i).getPrezzo(); 
 				    prezzo = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
-				    %> <%= prezzo %>
+				    %><p><%=prezzo%> &#8364</p>
 					</td>
-					<td class="scontoProd"><%= prodottiCarrello.get(i).getSconto() %>
+					<td class="scontoProd"><p><%= prodottiCarrello.get(i).getSconto() %>%</p>
 					</td>
-					<td><%=prodottiCarrello.get(i).getIva() %></td>
+					<td><p><%=prodottiCarrello.get(i).getIva() %></p></td>
 
 					<td class="prezzoTot">
 
@@ -164,7 +164,7 @@
 								}
 								totale=totale+costo;
 						%>
-							<p>&#8364</p><%=costo%>
+							<p><%=costo%> &#8364</p>
 						</div>
 					</td>
 
@@ -175,7 +175,7 @@
 			</table>
 			<!-- chiusura tabella -->
 			<div class="totComplessivo">
-				<p class="tot">
+				<p class="tot" style="font-size: 24px;">
 					Totale Complessivo:
 					<%=totale%></p>
 			</div>
@@ -183,22 +183,19 @@
 		</div>
 		<!-- chiusura div colonna sx -->
 
-		<div class="colonnaDx1 ">
+			<div  class="text-center datiSped">
 			<p class="titColonne text-center">Spedisci all'indirizzo:</p>
-			<div class="datiUt">
-				<label id="datiLab"> Via </label> <input type="text" name="via"
-					id="datiIn" value="<%=via%>" readonly><br> <label
-					id="datiLab"> Citta </label> <input type="text" name="citta"
-					id="datiIn" value="<%=citta%>" readonly><br> <label
-					id="datiLab"> Cap </label> <input type="text" name="cap"
-					id="datiIn" value="<%=cap%>" readonly><br> <label
-					id="datiLab"> Provincia </label> <input type="text"
-					name="provincia" id="datiIn" value="<%=provincia%>" readonly><br>
-			</div>
+
+				<label id="datiLab"> Via </label> <input type="text" name="via" class="inputLogin2"  value="<%=via%>" readonly><br> 
+				<label id="datiLab"> Citta </label> <input type="text" name="citta"  class="inputLogin2"  value="<%=citta%>" readonly><br> 
+				<label id="datiLab"> Cap </label> <input type="text" name="cap"  class="inputLogin2"  value="<%=cap%>" readonly><br>
+				 <label id="datiLab"> Provincia </label> <input type="text" name="provincia"  class="inputLogin2"  value="<%=provincia%>" readonly><br>
+	
 		</div>
 		<!-- chiusura div colonna dx -->
 
-		<div class="colonnaDx2 ">
+	
+						<div  class="text-center datiPag">
 			<p class="titColonne text-center">Paghi con:</p>
 			<div class="datiUt">
 				<label id="datiLab"> Numero</label> <input type="text"
@@ -219,6 +216,15 @@
 	<div class="opBtn2">
 		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista</a>
 	</div>
+	
+		
+		
+			</div>
+			
+					</div>
+						</div>
+						</div>
+	
 	<%@include file="footer.jsp"%>
 </body>
 </html>

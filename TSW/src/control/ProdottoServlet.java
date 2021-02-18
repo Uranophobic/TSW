@@ -14,10 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import bean.Composizione;
 import bean.Prodotto;
 import bean.Utente;
-import bean.Wishlist;
 import modelDS.ProdottoModelDS;
-import modelDS.WishlistModelDS;
-
 /**
  * Servlet implementation class prodottoServlete
  */
@@ -25,8 +22,6 @@ import modelDS.WishlistModelDS;
 public class ProdottoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static ProdottoModelDS prodottoModel=new ProdottoModelDS();
-	static WishlistModelDS wishlistModel=new WishlistModelDS();
-	Wishlist wish = new Wishlist();
 	Utente utente = new Utente();
 	Prodotto prodotto=new Prodotto();
 
@@ -70,56 +65,8 @@ public class ProdottoServlet extends HttpServlet {
 			}
 		}
 
-		//aggiungi prodotto a wishlist da catalogo
-		if(azioneP.equals("prova")) {
-			System.out.println("sono in wishlist");
-			try {
-				utente= (Utente)request.getSession().getAttribute("utenteSessione");
-				//wish= (Wishlist)request.getSession().getAttribute("wishlistSessione");
 
 
-				ArrayList<Prodotto> catalogo=new ArrayList<Prodotto>();
-				catalogo=(ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
-
-				ArrayList<Wishlist> prodottiWishlist=new ArrayList<Wishlist>();
-				prodottiWishlist=(ArrayList<Wishlist>) request.getSession().getAttribute("wishlistSessione");
-
-				int prodCat=catalogo.size();
-				System.out.println("PRODOTTI NEL CATALOGO:"+prodCat);
-				prodottiWishlist=wishlistModel.doRetrieveAll(utente.getEmail());
-				int prodWish=prodottiWishlist.size();
-				System.out.println("PRODOTTI NELLA WISHLIST"+prodWish);
-				for(int i=0;i<prodottiWishlist.size();i++) {
-
-
-				}
-
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
-
-
-		/*
-			try {
-				miaWish=wishlistModel.doRetrieveAll(utente.getEmail());
-				int numMia=miaWish.size();
-				System.out.println(numMia);
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-
-			request.getSession().setAttribute("prova", listaProdotti);
-			RequestDispatcher view=request.getRequestDispatcher("wishlist.jsp");
-			view.forward(request, response); 
-		}
-
-		 */
 
 
 		if(azioneP.equals("ricerca")) {

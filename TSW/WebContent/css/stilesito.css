@@ -625,7 +625,7 @@ font-family: janda;
 	box-sizing: border-box;
 	background: transparent;
 	border-bottom: 1px solid #b5afaf;
-	margin: 20px;
+	margin: 10px;
 }
 /*
 #numeroCarta {
@@ -655,8 +655,9 @@ font-family: janda;
 	height: 504px;
 	justify-content: center;
 	grid-column-gap: 2%;
-	/* margin-left: 90px; */
+	margin-left: 40px;
 	/* grid-row-gap: 0px; */
+	/* margin: auto; */
 }
 
 .datiUtente {
@@ -671,7 +672,7 @@ font-family: janda;
 }
 
 .datiSped {
-	height: 200px;
+	height: auto;
 	width: 90%;
 	border: 2px solid #a6ec84;
 	background-color: white;
@@ -681,7 +682,7 @@ font-family: janda;
 }
 
 .datiPag {
-	height: 300px;
+	height: auto;
 	width: 90%;
 	border: 2px solid #a6ec84;
 	background-color: white;
@@ -770,13 +771,14 @@ font-family: janda;
 }
 
 .operazioniBox {
-	width: 100%;
-	height: 355px;
+	width: 50%;
+	height: auto;
 	border: 1px solid rgba(40, 150, 5, 0.2);
 	border-radius: 5px;
-	display: grid;
-	grid-template-columns: 50% 50%;
+	/* display: grid; */
+	/* grid-template-columns: 50% 50%; */
 	margin-top: 20px;
+	margin: auto;
 }
 .datiBox {
 	width: 100%;
@@ -785,15 +787,15 @@ font-family: janda;
 	border-radius: 5px;
 	display: grid;
 	grid-template-columns: 35% 35% 35%;
+	margin-bottom: 20px;
 }
 .datiPersonali {
 	grid-row-start: 1;
 	grid-row-end: 4;
 	width: 85%;
 	margin: auto;
-	height: 445px;
+	height: auto;
 }
-
 .prova{ width: 80%;}
 .immagineOp{margin: auto;
 width: 27%;}
@@ -819,49 +821,57 @@ width: 27%;}
 }
 
 .bottoneProfilo {
-	width: 70%;
+	width: 50%;
 	margin: auto;
-	margin-left: 80px;
-		display: inline-flex; 
+	margin-left: 400px;
+	display: inline-flex;
 }
-
 .botModDati {
 	width: 13%;
 	margin: auto;
 }
 
-@media all and (max-width: 1690px)and (min-width : 990px) {
-	.bottoneProfilo {
-	width: 50%;
+.immagineOp {
 	margin: auto;
-	margin-left: 400px;
-		display: inline-flex; 
+	width: 30%;
 }
+
+@media screen and (max-width: 1690px)and (min-width : 990px) {
+
 .botMod {
 	width: 95%;
 	/* margin-top: 17px; */
 }
+.immagineOp {
+	margin: auto;
+	width: 32%;
 }
-@media all and (max-width: 991px) and (min-width: 768px) {
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
 .bottoneProfilo {
 	width: 70%;
 	margin: auto;
-	margin-left: 200px;
-		display: inline-flex; 
+	margin-left: 150px;
+	display: inline-flex;
 }
 .botMod {
 	width: 91%;
 	/* margin-top: 17px; */
 }
+
+.immagineOp {
+	margin: auto;
+	width: 46%;
+}
 }
 
 /*small devices*/
-@media all and (max-width: 767px) and (min-width: 601px) {
+@media screen and (max-width: 767px) and (min-width: 601px) {
 .bottoneProfilo {
 	width: 70%;
 	margin: auto;
-	margin-left: 50px;
-		display: inline-flex; 
+	margin-left: 89px;
+	display: inline-flex;
 }
 .botMod {
 	width: 91%;
@@ -871,10 +881,15 @@ width: 27%;}
 	width: 30%;
 	margin: auto;
 }
+
+.immagineOp {
+	margin: auto;
+	width: 54%;
+}
 	}
 
 /*extra-small devices*/
-@media all and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 .bottoneProfilo {
 	/* margin: auto; */
 	width: 85%;
@@ -905,6 +920,21 @@ width: 27%;}
 	margin: auto;
 }
 
+.operazioniBox {
+	width: 100%;
+	height: auto;
+	border: 1px solid rgba(40, 150, 5, 0.2);
+	border-radius: 5px;
+	/* display: grid; */
+	/* grid-template-columns: 50% 50%; */
+	margin-top: 20px;
+	margin: auto;
+}
+
+.immagineOp {
+	margin: auto;
+	width: 42%;
+}
 }
 
 /************************************************** MODIFICA DATI UTENTE ******************************************************/
@@ -1001,7 +1031,7 @@ width: 27%;}
 	margin-right: 10px;
 }
 
-.grid-container>div {
+.grid-container > div {
 	background-color: white;
 	text-align: center;
 	padding: 20px 0;
@@ -1010,6 +1040,7 @@ width: 27%;}
 	width: 350px;
 	border: 1px solid #d2d2d2;
 	border-radius: 5px;
+	margin-bottom: 10px;
 }
 
 .hovereffect {
@@ -1060,8 +1091,8 @@ width: 27%;}
 }
 
 .imgProdotto {
-	width: 350px;
-	height: 300px;
+	width: 90%;
+	margin: auto;
 }
 
 #scopri {
@@ -1229,7 +1260,12 @@ width: 27%;}
 	margin-left: 40px;
 	margin-right: 10px;
 }
-	
+	#prod {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid grey;
+	margin: 10px;
+}
 }
 
 /*********************************************** VISUALIZZA DETTAGLI PRODOTTO ************************************************/
@@ -1238,7 +1274,7 @@ width: 27%;}
 	display: grid;
 	grid-template-columns: 30% 60%;
 	grid-template-rows: 65% 5% 25%;
-	height: 350px;
+	height: auto;
 	justify-content: center;
 	grid-column-gap: 2%;
 }
@@ -1249,32 +1285,85 @@ width: 27%;}
 	width: 100%;
 	height: auto;
 	text-align: center;
-	border: 1px solid rgba(40, 150, 5, 0.2);
-	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	border: 2px solid #a6ec84;
 	border-radius: 5px;
 	margin-top: 15px;
 }
-
 .dettagliProdotto {
-	grid-row-start: 1;
-	grid-row-end: 4;
+	/* grid-row-start: 1; */
+	/* grid-row-end: 4; */
 	width: 100%;
-	height: auto;
+	height: 415px;
 	width: 100%;
-	text-align: inherit;
-	border: 1px solid rgba(40, 150, 5, 0.2);
-	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
+	/* text-align: inherit; */
+	border: 2px solid #a6ec84;
 	border-radius: 5px;
 	margin-top: 15px;
 }
-
 .opBtn4 {
 	margin: auto;
-	width: 30%;
+	width: 19%;
 	color: ghostwhite;
 	margin-top: 20px;
 	padding: 5px;
 }
+
+
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+	.opBtn4 {
+	margin: auto;
+	width: 29%;
+	color: ghostwhite;
+	margin-top: 20px;
+	padding: 5px;
+}
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+	.opBtn4 {
+	margin: auto;
+	width: 43%;
+	color: ghostwhite;
+	margin-top: 20px;
+	padding: 5px;
+}
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+	.visualizzaProdotto {
+	width: 90%;
+	display: block;
+	grid-template-columns: 30% 60%;
+	grid-template-rows: 65% 5% 25%;
+	height: auto;
+	justify-content: center;
+	grid-column-gap: 2%;
+	margin: auto;
+}
+
+.opBtn4 {
+	margin: auto;
+	width: 60%;
+	color: ghostwhite;
+	margin-top: 20px;
+	padding: 5px;
+}
+	
+}
+
+
+
+
+
+
+
 
 /******************************************************* CARRELLO ***********************************************************/
 .carello {
@@ -1328,13 +1417,12 @@ width: 27%;}
 	display: grid;
 	grid-template-columns: 50% 50%;
 	/* grid-template-rows: 50% 50%; */
-	height: 1050px;
+	height: auto;
 	justify-content: center;
 	grid-column-gap: 5%;
 	margin-left: 90px;
 	grid-row-gap: 20px;
 }
-
 .colonnaSx {
 	grid-row-start: 1;
 	grid-row-end: 4;
@@ -1347,16 +1435,15 @@ width: 27%;}
 }
 
 .colonnaDx1 {
-	height: 450px;
+	height: auto;
 	width: 90%;
 	border: 1px solid gainsboro;
 	background-color: rgb(250, 330, 300);
 	border-radius: 5px;
 	grid-row-gap: 5%;
 }
-
 .colonnaDx2 {
-	height: 565px;
+	height: auto;
 	width: 90%;
 	border: 1px solid gainsboro;
 	background-color: rgb(250, 330, 300);
@@ -1503,17 +1590,7 @@ width: 27%;}
 	margin-top: 15px;
 }
 
-.quadrato-a {
-	grid-row-start: 1;
-	grid-row-end: 4;
-	width: 100%;
-	height: 200%;
-	text-align: center;
-	border: 1px solid rgba(40, 150, 5, 0.2);
-	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
-	border-radius: 5px;
-	margin-top: 15px;
-}
+
 
 .titoloCasella {
 	font-size: 25px;
