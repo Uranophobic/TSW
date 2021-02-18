@@ -705,7 +705,89 @@ font-family: janda;
 #dataDiNascita, #scadenzaCarta {
 	color: grey;
 }
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
 
+@media all and (max-width: 991px) and (min-width: 768px) {
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+	.regContenitore {
+	width: 100%;
+	display: block;
+	/* grid-template-columns: 50% 50%; */
+	height: auto;
+	/* justify-content: center; */
+	/* grid-column-gap: 2%; */
+	margin-left: 4px;
+	/* grid-row-gap: 0px; */
+	/* margin: auto; */
+}
+	
+	.datiUtente {
+	width: 100%;
+	height: auto;
+
+}
+
+.datiSped {
+	height: auto;
+	width: 100%;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.datiPag {
+	height: auto;
+	width: 100%;
+	padding-bottom: 10px;
+}
+	
+	.opBtn2 {
+	width: 65%;
+}
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+.regContenitore {
+	width: 100%;
+	display: block;
+	/* grid-template-columns: 50% 50%; */
+	height: auto;
+	/* justify-content: center; */
+	/* grid-column-gap: 2%; */
+	margin-left: 4px;
+	/* grid-row-gap: 0px; */
+	/* margin: auto; */
+}
+	
+	.datiUtente {
+	width: 100%;
+	height: auto;
+
+}
+
+.datiSped {
+	height: auto;
+	width: 100%;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.datiPag {
+	height: auto;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+.opBtn2 {
+	width: 71%;
+}
+}
 /*************************************************   PROFILO UTENTE   ****************************************************/
 .item-a {
 	grid-row-start: 1;
