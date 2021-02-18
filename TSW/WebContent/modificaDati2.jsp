@@ -96,10 +96,10 @@
 				<p class="titProfilo text-center">Dati Pagamento</p>
 				<div class="riga1" class="hr"></div>
 				<div class="prova">
-					<label id="inputData"> Numero</label> <input type="text" name="numeroModificato" id="numeroCarta" class="inputProfilo"  placeholder="Numero della Carta" >
-					<label id="inputData"> Scadenza</label><input type="text" name="scadenzaModificata" id="scadenza" class="inputProfilo"  placeholder="Scadenza" >
-					<label id="inputData"> Circuito</label><input type="text" name="circuitoModificato" id="circuito" class="inputProfilo"  placeholder="Circuito" > 
-					<label id="inputData"> CVV</label><input type="text" name="cvvModificata" id="CVV" class="inputProfilo"  placeholder="CVV" > 
+					<label id="inputData"> Numero</label> <input type="text" name="numeroModificato" id="numeroCarta" class="inputProfilo"  placeholder="Numero della Carta" required >
+					<label id="inputData"> Scadenza</label><input type="text" name="scadenzaModificata" id="scadenza" class="inputProfilo"  placeholder="Scadenza"  required>
+					<label id="inputData"> Circuito</label><input type="text" name="circuitoModificato" id="circuito" class="inputProfilo"  placeholder="Circuito"  required> 
+					<label id="inputData"> CVV</label><input type="text" name="cvvModificata" id="CVV" class="inputProfilo"  placeholder="CVV" required > 
 			</div>
 			</div>	
 		</div>

@@ -124,54 +124,8 @@
 		</form>
 	</div>
 	
-	<!-- POP UP 
-	<div id="modifica" class="modale">
-  <form class="animate" action="profilo" method="post">
-  <div class="modificheSped">
-  <div class="imgcontenitore">
-      <span onclick="document.getElementById('modificaSped').style.display='none'" class="close">&times;</span>
-    </div>
 
-    <div class="contenitore">
-    	<h1 class="titAccedi text-center"><b> Modifica Sped</b></h1><br>
-    	
-      <label class="etichetteModifica"><b>Via</b></label>
-      <input  class= "inputModifica" type="text" placeholder="via" name="viaModificata"  required >
-      
-      <label class="etichetteModifica"><b>Citta'</b></label>
-      <input  class= "inputModifica" type="text" placeholder="Citta"  name="cittaModificata" required> 
-      
-       <label class="etichetteModifica"><b>Provincia</b></label>
-      <input  class= "inputModifica" type="text" placeholder="provincia"  name="provinciaModificata" required>
-       
-       <label class="etichetteModifica"><b>Cap</b></label>
-      <input  class= "inputModifica" type="text" placeholder="CAP"  name="capModificata" required> 
-      
-   	 <label class="etichetteModifica"><b>Numero Carta</b></label>
-      <input  class= "inputModifica" type="text" placeholder="numero carta" name="numeroModificato"  required >
-      
-      <label class="etichetteModifica"><b>Scadenza</b></label>
-      <input  class= "inputModifica" type="text" placeholder="scadenza"  name="scadenzaModificata" required> 
-      
-       <label class="etichetteModifica"><b>Circuito</b></label>
-      <input  class= "inputModifica" type="text" placeholder="circutio"  name="circuitoModificato" required>
-       
-       <label class="etichetteModifica"><b>CVV</b></label>
-      <input  class= "inputModifica" type="text" placeholder="CVV"  name="cvvModificata" required> 
 
-       
-       
-	  <button class="secondo" type="submit" name ="azioneProfilo" value="modificaDati">MODIFICA</button>
-       <div class="hr"></div>
-       <!-- bottonemodifica sempre a posto di quell'o che stava prima nell if guarda servlet 
-    </div>
-
-    
-  </div>
-		</form>
-</div>
-
--->
 
 
 

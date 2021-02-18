@@ -75,6 +75,9 @@
 					Aggiungi al carrello  <img src="images/icons8-add-shopping-cart-16.png">
 				</a>		
 </div>
+         <form>
+			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Indietro</button>
+		</form>
 <%@ include file="footer.jsp"%>
 
 
