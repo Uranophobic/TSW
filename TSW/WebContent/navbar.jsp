@@ -103,8 +103,8 @@
 				
 				  	<!-- profilo utente  -->
 					<div class="icona"> 
-						  <a href="dsProva.jsp"><img class="size"  src="https://img.icons8.com/fluent-systems-regular/32/000000/user.png"/></a><!-- cambia immagine -->
-						 <a class="iconaTxt" href="dsprova.jsp"> Profilo Utente </a>
+						  <a href="profilo.jsp"><img class="size"  src="https://img.icons8.com/fluent-systems-regular/32/000000/user.png"/></a><!-- cambia immagine -->
+						 <a class="iconaTxt" href="profilo.jsp"> Profilo Utente </a>
 					</div>
 
 					<!-- carrello -->

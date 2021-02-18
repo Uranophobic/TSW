@@ -9,11 +9,21 @@
 <title>ORDINI AMMINISTRATORE</title>
    <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <style>
+.ordiniAmm {
+	width: 70%;
+	margin: auto;
+	margin-left: 410px;
+}
 
-.ordini{
+.barraAmm {
 	width: 50%;
-	margin:auto;
-	border: 1px solid #ddd;
+	border: none;
+	border-bottom: 1px solid grey;
+	margin: 20px;
+}
+
+.lab{
+	margin: -9px;
 }
 </style>
 </head>
@@ -22,23 +32,46 @@
 <% ArrayList<Ordine> allOrdini = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniSessione");
  System.out.println("\n\n ordini nella jsp: "+ allOrdini);
 %>
+
+<div>
+<p  class="titoloPagine"> Lista Ordini </p>
+</div>
+<div class="ordiniAmm">
 <form action="amministratore" method="post" onsubmit="return validateEmail();">
-<input type="search" name="emailCercata"  id="email" placeholder="cerca un utente per email"> 
-<button name="azioneCapo" value="cercaPerEmail"> cerca </button>
+<p class="lab"> Cerca un ordini utente(email): </p> <input type="search" name="emailCercata"  id="email" class="barraAmm" placeholder="cerca un utente per email"> 
+<button name="azioneCapo" value="cercaPerEmail" class="bottoni bottoni-colori"> cerca </button>
 </form>
 <form action="amministratore" method="post">
-<p> Cerca ordini da data: </p> <input type="date" name="dataInizio">
-<p> a data: </p> <input type="date" name="dataFine">
-<button name="azioneCapo" value="cercaPerData"> cerca </button>
+<p class="lab"> Cerca un ordini dalla data: </p> <input type="date" class="barraAmm" name="dataInizio">
+<p class="lab"> Alla data: </p> <input type="date" class="barraAmm" name="dataFine">
+<button name="azioneCapo" value="cercaPerData" class="bottoni bottoni-colori"> cerca </button>
 </form>
+</div>
+	<div class="container">
+				<table class="table">
+					<thead>
+						<tr>
+							<th id="colOrdini">Id ordine</th>
+							<th id="colOrdini">Email utente</th>
+							<th id="colOrdini">Data</th>
+							<th id="colOrdini">Importo totale</th>
+						</tr>
+					</thead>
+					<tbody>
 <% for(int i=0; i<allOrdini.size(); i++){%>
-	<div class="ordini">
-	<p> ID ORDINE <%=allOrdini.get(i).getIdOrdine() %> </p>
-	<p> EMAIL ORDINE <%=allOrdini.get(i).getEmailUtente() %> </p>
-	<p> IMPORTO TOTALE <%=allOrdini.get(i).getImportoTot() %> </p>
-	<p> DATA ORDINE <%=allOrdini.get(i).getDataOrdine() %> </p>
-	</div>
+<tr>
+	
+	<td><p>  <%=allOrdini.get(i).getIdOrdine() %> </p></td>
+	<td><p>  <%=allOrdini.get(i).getEmailUtente() %> </p></td>
+	<td><p> <%=allOrdini.get(i).getImportoTot() %> </p></td>
+	<td><p><%=allOrdini.get(i).getDataOrdine() %> </p></td>
+
+	</tr>
 <%} %>
+		</tbody>
+				</table>
+			</div>
+
 <%@include file = "footer.jsp" %>
 
 <script>
