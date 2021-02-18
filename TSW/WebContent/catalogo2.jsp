@@ -42,16 +42,12 @@ if(prodottiCategoria.get(j).getCategoria().equals("Agricoltura")) {%>
 	<%for(int i=0; i<prodottiCategoria.size(); i++){ %>
     <div class="item1"> <!-- prodotto 1  -->
 	    <div class="hovereffect">
-	    	<img class="imgProdotto" src="<%= prodottiCategoria.get(i).getImmaginePath() %>" alt="forbice">
+	    	<img class="immagineProdotto" src="<%= prodottiCategoria.get(i).getImmaginePath() %>" alt="forbice">
 	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=prodottiCategoria.get(i).getIdProdotto() %>&nome=<%= prodottiCategoria.get(i).getNome() %>" class="overlay">
 					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
 	            </a>
 	    </div>
-	    <% if(session.getAttribute("utenteSessione")!= null){ %>
-		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a href="prodotto?azioneP=prova" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		<%} else {%>
-		<div class="addWishlist"><img style="width: 13%;" src="https://img.icons8.com/small/20/000000/like.png"/> <a  href="login.jsp" style="font-size: 16px;">  Aggiungi alla tua wishlist </a></div>
-		<%} %>
+	
 		
 	
 		 <p class="nomeProdotto" id="idProdottoSelezionato"> <%= prodottiCategoria.get(i).getIdProdotto() %>

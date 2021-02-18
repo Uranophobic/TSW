@@ -1089,6 +1089,11 @@ width: 27%;}
 	-webkit-filter: brightness(0.6);
 }
 
+.immagineProdotto {
+	width: 400px;
+	height: 350px;
+	margin: 10px;
+}
 .imgProdotto {
 	width: 90%;
 	margin: auto;

@@ -63,7 +63,7 @@ $('#prod').on('input', function(){
 	<%for(int i=0; i<catalogo.size(); i++){ %>
     <div id="<%= catalogo.get(i).getNome()%>"class="item1"> <!-- prodotto 1  -->
 	    <div class="hovereffect">
-	    	<img class="imgProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
+	    	<img class="immagineProdotto" src="<%= catalogo.get(i).getImmaginePath() %>" alt="forbice">
 	            <a id="link" href="prodotto?azioneP=visualizzaProdotto&idProdotto=<%=catalogo.get(i).getIdProdotto() %>&nome=<%= catalogo.get(i).getNome() %>" class="overlay">
 					<button id="scopri"  class="  bottoni bottoni-colori"> Scopri di più</button>
 	            </a>
