@@ -155,9 +155,9 @@
 					<div class="topnav" id="myTopnav">
 		  				<a href="HomePage.jsp" class="item">HOMEPAGE</a>
 						  <a href="prodotto?azioneP=visualizzaCatalogo" class="item">CATALOGO</a>
-						  <a href="#contact" class="item"> ASSISTENZA</a>
-						  <a  href="InformazioniServlet?informazioni=assistenza" class="item"> CHI SIAMO</a>
-						 <a href="InformazioniServlet?informazioni=chisiamo" class="item"> COME FUNZIONA</a>
+						   <a  href="InformazioniServlet?informazioni=assistenza" class="item">ASSISTENZA</a>
+						  <a  href="InformazioniServlet?informazioni=chisiamo" class="item"> CHI SIAMO</a>
+						 <a href="InformazioniServlet?informazioni=comefunziona" class="item"> COME FUNZIONA</a>
 						 
 							  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 							    <i class="fa fa-bars"></i>

@@ -23,13 +23,16 @@ public class InformazioniServlet extends HttpServlet {
 		String f= request.getParameter("informazioni");
 		
 		if(f.equals("assistenza")) {
-			getServletContext().getRequestDispatcher("/view/assistenza.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/assistenza.jsp").forward(request, response);
 
 	
 
 		}else if(f.equals("chisiamo")) {
-			getServletContext().getRequestDispatcher("/view/chiSiamo.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/chiSiamo.jsp").forward(request, response);
 
+		}else if(f.equals("comefunziona")) {
+			getServletContext().getRequestDispatcher("/comeFunziona.jsp").forward(request, response);
+			
 		}
 	}
 
