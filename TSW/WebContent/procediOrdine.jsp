@@ -88,20 +88,20 @@
 	grid-row-end: 4;
 }
 
-.tot {
-	font-size: 24px;
-	width: 54%;
-	/* margin: auto; */
-	margin-left: 15px;
-	font-weight: bold;
-	color: red;
-}
-
-.tot2{
+.tot2 {
 	/* float: left; */
 	width: 7%;
 	margin: auto;
-	float: right;
+	/* float: right; */
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.tot2 {
+	/* float: left; */
+	width: 7%;
+	margin: auto;
+	/* float: right; */
 	font-size: 24px;
 	font-weight: bold;
 }

@@ -18,16 +18,28 @@
 	margin-bottom: 20px;
 }
 
+#imgAmm{
+	width: 80%;
+}
 
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/
 @media all and (max-width: 1690px)and (min-width : 990px) {
+#imgAmm{
+	width: 80%;
+}
 }
 
 @media all and (max-width: 991px) and (min-width: 768px) {
+#imgAmm{
+	width: 80%;
+}
 }
 
 /*small devices*/
 @media all and (max-width: 767px) and (min-width: 601px) {
+#imgAmm{
+	width: 90%;
+}
 }
 
 /*extra-small devices*/
@@ -45,6 +57,9 @@ display: none;
 	width: 90%;
 	margin: auto;
 	/* margin-left: 410px; */
+}
+#imgAmm{
+	width: 100%;
 }
 }
 
@@ -68,7 +83,7 @@ display: none;
 			<div class="barraRicercaNav">  
 				<div class="barraRicerca">
 				
-					  <label style="font-size: 18px;">Cerca qui un elemento:</label><br>
+					  <label style="font-size: 18px;">Cerca qui un prodotto:</label><br>
 					  <input list="prodotti" name="prod" id="prod" placeholder="Nome prodotto" style="font-size: 18px;">
 					  <datalist id="prodotti">
 					  	<%
@@ -113,7 +128,7 @@ $('#prod').on('input', function(){
       <tr>
        <div id="<%= catalogo.get(i).getNome()%>"class="item1"> <!-- prodotto 1  -->
         <td ><p id=""><%=catalogo.get(i).getIdProdotto() %></p></td>
-        <td><img src=" <%=catalogo.get(i).getImmaginePath() %>" style="width:30%"></td>
+        <td><img src=" <%=catalogo.get(i).getImmaginePath() %>" id="imgAmm"></td>
         <td> <%=catalogo.get(i).getNome() %></td>
         <td> <%=catalogo.get(i).getDescrizione() %></td>
         <td><%=catalogo.get(i).getCategoria() %></td>

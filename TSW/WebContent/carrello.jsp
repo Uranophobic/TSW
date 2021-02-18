@@ -143,8 +143,7 @@
 <br>	
  
 <script>
-function deleteProdotto() {
-	
+function deleteProdotto() 
   alert("Hai eliminato un prodotto dal carrello!");
   window.location.reload();
 }

@@ -71,9 +71,6 @@
 		</div>
 	</div>
 	</div>
-	<form>
-			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Indietro</button>
-		</form>
 	<%@include file="footer.jsp"%>
 </body>
 </html>

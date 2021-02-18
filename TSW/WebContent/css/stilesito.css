@@ -419,7 +419,6 @@ body {
 		height: 300px;
 	}
 }
-
 @media all and (max-width: 991px) and (min-width: 768px) {
 	.titoloParagrafo2 {
 		font-size: 22px;
@@ -433,14 +432,9 @@ body {
 		height: 280px;
 	}
 }
-
-/*small devices*/
 @media all and (max-width: 767px) and (min-width: 601px) {
 	.bottoni {
-		/* display: inline-block; */
 		margin: 5px;
-		/* width: 50%; */
-		/* position: relative; */
 	}
 .titoloParagrafo2 {
 	font-size: 25px;
@@ -1136,7 +1130,7 @@ width: 27%;}
 	text-align: center;
 	padding: 20px 0;
 	font-size: 30px;
-	height: 500px;
+	height: 550px;
 	width: 350px;
 	border: 1px solid #d2d2d2;
 	border-radius: 5px;
@@ -1481,12 +1475,12 @@ width: 27%;}
 	margin: auto;
 	
 }
-		.table-responsive-sm{
-		overflow-y: auto;
-		overflow-x: auto;
-		height: 500px;
-		width:100%;
-	}
+.table-responsive-sm {
+	overflow-y: auto;
+	overflow-x: auto;
+	height: 250px;
+	width: 100%;
+}
 
 .table {
 	width: 100%;
@@ -1496,7 +1490,7 @@ width: 27%;}
 		
 }
 #scrittaTot {
-	width: 65%;
+	width: 45%;
 	margin: auto;
 }
 .botAcquisto {
