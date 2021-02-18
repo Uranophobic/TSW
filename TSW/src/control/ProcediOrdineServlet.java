@@ -1,9 +1,6 @@
 package control;
 
 import java.io.IOException;
-
-
-
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,22 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
 import bean.Ordine;
 import bean.Prodotto;
 import bean.Utente;
 import bean.Composizione;
-
 import model.ComposizioneModel;
-
-import model.FatturaModel;
 import model.OrdineModel;
 import model.ProdottoModel;
-
 import modelDS.ComposizioneModelDS;
-
-import modelDS.FatturaModelDS;
 import modelDS.OrdineModelDS;
 import modelDS.ProdottoModelDS;
 
@@ -43,7 +32,6 @@ public class ProcediOrdineServlet extends HttpServlet {
 
 	static ProdottoModel prodottoModel = new ProdottoModelDS();
 	static OrdineModel ordineModel = new OrdineModelDS();
-	static FatturaModel fatturaModel = new FatturaModelDS();
 	static ComposizioneModel composizioneModel = new ComposizioneModelDS();
 	double prezzoTot = 0;
 
