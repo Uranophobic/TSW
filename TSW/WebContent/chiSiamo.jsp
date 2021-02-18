@@ -13,29 +13,25 @@
 		<p class="titoloPagine">Chi siamo!</p>
 
 	</div>
-	<div>
-		<h2 class="sottotitoloChiSiamo">Oltre il giardino è un sito di
-			e-commerce che si rivolge a tutti le persone che amano o lavorano con
-			la natura rendendo semplici gli acquisti degli oggetti a loro utili
-			con un semplice click!</h2>
-	</div>
-	<div class="divMebri" align="center">
-		<h4>
-			<b class="membri">I membri del team</b>
-		</h4>
-	</div>
-	<div class="container">
-		<img src="image/alessia.png" style="width: 25%">
-		<h4 class="titoloParagrafo">Alessia Crispo</h4>
-	</div>
-	<div class="container">
-		<img src="images/luisa.PNG" style="width: 25%">
-		<h4 class="titoloParagrafo">Luisa Cauteruccio</h4>
-	</div>
-
 	
+	<h4> "Ciao, mi chiamo Alessia Crispo e mi piace fare il sito responsive, i colori non troppo forti ma che esprimono 
+	armonia. Sono una persona amorevole e disponibile, ma vi avverto dopo questo progetto ho perso la pazienza e odio un po' eclipse. 
+	Ah, comunque ho 25 anni, e sono di Cicciano un paesino in provincia di Napoli. Spero di far diventare tutto questo un giorno 
+	il mio lavoro.</h4>
+	
+	<br>
+	<br>
+	<h4>"Ciao mi chiamo Luisa Cauteruccio e mi piace scrivere queste cose. I colori gli ho fatti scegliere tutti ad Alessia
+	Anche io ho perso la pazienza con eclipse e anche con MySql. Ma se vi serve un consiglio contattemi. Ho 24 anni, sono di 
+	Maratea, un paesino di provincia di Potenza. (Basilicata). Si la Basilicata esiste e anche persone che ci abitano."</h4>
+	
+	<br>
+	<br>
+	 
+	<h4> Parlando seriamente. Studiamo informatica ad Unisa, siamo amiche/colleghe e abbiamo collaborato per la creazione e lo sviluppo di questo progetto. </h4>
+	<br>
 	<div align="center">
-	<button type="submit" class="conferma">Indietro</button>
+	<h4 > Speriamo vi piaccia! </h4>
 	</div>
 	<%@include file="footer.jsp"%>
 </body>
