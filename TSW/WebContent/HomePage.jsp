@@ -61,7 +61,7 @@
   		 	<a class="link"  href="login.jsp"> <h4 class="titoloParagrafo2"> ACCEDI o REGISTRATI</h4></a>
   		  	<p id="descrFunz">Effettua l'accesso per poter usufruire del nostro shop online! </p>
   		<%}else{%>
-  		    <a class="link"  href="dsprova.jsp"> <h4 class="titoloParagrafo2"> VISUALIZZA PROFILO</h4></a>
+  		    <a class="link"  href="profilo.jsp"> <h4 class="titoloParagrafo2"> VISUALIZZA PROFILO</h4></a>
   		  	<p id="descrFunz">Clicca qui per visualizzare le tue informazioni personali!</p>
   		<%} %>
 		</div>

@@ -1080,23 +1080,42 @@ width: 27%;}
 }
 
 /*************************************************** VISUALIZZA ORDINI UTENTE *************************************************/
-.w3-black, .w3-hover-black:hover {
-	color: #fff !important;
-	background-color: #000 !important;
-	width: 70%;
+.botModDati {
+	width: 15%;
 	margin: auto;
 }
 
-.w3-bar .w3-button {
-	white-space: normal;
+@media all and (max-width: 991px) and (min-width: 768px) {
+			.botModDati {
+	width: 33%;
 	margin: auto;
-	width: 50%;
-	background-color: white;
-	color: black;
-	border-bottom: 1px solid black;
-	font-size: 32px;
+}
+	.botMod {
+	margin-left: 0;
+}
 }
 
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+		.botModDati {
+	width: 33%;
+	margin: auto;
+}
+	.botMod {
+	margin-left: 0;
+}
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+	.botModDati {
+	width: 33%;
+	margin: auto;
+}
+	.botMod {
+	margin-left: 0;
+}
+}
 /************************************************************* CATALOGO *******************************************************/
 #main {
 	transition: margin-left .5s;
@@ -1852,6 +1871,7 @@ display: none;
 	text-align: center;
 	font-size: 20px;
 	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 
@@ -1868,17 +1888,7 @@ display: none;
 .mail {
 	align: center;
 }
-/*
 
-.riga1 {
-	height: 1px;
-	background: rgba(0, 0, 0, .2);
-	width: 80%;
-	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-*/
 .titoloContatto {
 	margin: auto;
 	font-size: 20px;
@@ -1924,121 +1934,57 @@ display: none;
 	margin-top: 10px;
 }
 
-/*************************************************** CHI SIAMO  *********************************************************/
-.sottotitoloChiSiamo {
-	margin: auto;
-	text-align: center;
-	font-size: 24px;
-	margin-top: 15px;
-}
 
-.membri {
-	text-align: center;
-	font-weight: bold;
-	font-size: 30px;
-}
 
-.divMembri {
-	margin-top: 50px;
-}
-
-.titoloParagrafo {
-	text-align: center;
-}
-
-.conferma {
-	width: 10%;
-	margin: auto;
-	margin-top: 20px;
-	padding: 5px;
-	font-size: 20px;
-	background-color: #CBFFC0ED;
-	text-decoration: underline;
-	border: none;
-	cursor: pointer;
+/**************************** FATTURA *******************************/
+.quadrFattura {
+	border: 2px solid #a6ec84;
 	border-radius: 5px;
-	font-weight: bold;
-	margin-righ: 10px;
-	margin-left: 10px;
-}
-
-/************************************************* WISHLIST **************************************************************/
-.sottotitoloWish {
-	margin: auto;
 	text-align: center;
-	font-size: 24px;
-	margin-top: 15px;
-}
-/*
-#area-utente {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 35% 35%;
-	grid-template-rows: 65% 5% 25%;
-	height: 500px;
-	justify-content: center;
-	grid-column-gap: 2%;
-}
-*/
-/*
-.item-b {
-	grid-row-start: 1;
-	grid-row-end: 4;
-	width: 100%;
 	height: auto;
-	text-align: inherit;
-	border: 1px solid rgba(40, 150, 5, 0.2);
-	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
-	border-radius: 5px;
-	margin-top: 15px;
-}
-*/
-.fotoProdottoWish {
+	width: 50%;
 	margin: auto;
-	width: 50px;
 }
 
-.immagineCarrello {
-	margin: auto;
-	width: 30px;
-}
-
-.indietro {
-	width: 20%;
+.fattBot {
+	width: 13%;
 	margin: auto;
 	margin-top: 20px;
-	padding: 5px;
-	font-size: 20px;
-	background-color: #CBFFC0ED;
-	text-decoration: underline;
-	border: none;
-	cursor: pointer;
+}
+
+/********   INFO *********/
+.quadrInfo {
+	border: 2px solid #a6ec84;
 	border-radius: 5px;
-	font-weight: bold;
-	margin-righ: 10px;
-	margin-left: 10px;
 	text-align: center;
-}
-
-.prodotto {
-	margin: auto;
-	height: 90px;
-}
-
-.descrizioneProdotto {
-	margin: auto;
-	text-align: center;
-	font-size: 20px;
-}
-
-.riga1 {
-	height: 1px;
-	background: rgba(0, 0, 0, .2);
+	height: auto;
 	width: 80%;
 	margin: auto;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	padding: 20px;
 }
+.quadrAss {
+	border: 2px solid #a6ec84;
+	border-radius: 5px;
+	text-align: center;
+	height: auto;
+	width: 50%;
+	margin: auto;
+	padding: 20px;
+}
+
+
+@media all and (max-width: 600px) {
+	.quadrAss {
+	border: 2px solid #a6ec84;
+	border-radius: 5px;
+	text-align: center;
+	height: auto;
+	width: 80%;
+	margin: auto;
+	padding: 20px;
+}
+}
+
 
 /*********** grandezze monitor per il responsive ***********/
 /*GRANDEZZE large, medium, small, extra-large e extra-small*/

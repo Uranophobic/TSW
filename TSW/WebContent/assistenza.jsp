@@ -6,14 +6,15 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
-<title>Assistenza!</title>
+<title>Assistenza - Oltre il Giardino</title>
 </head>
 <body>
 	<%@include file="navbar.jsp"%>
 	<div>
-		<p class="titoloPagine">Assistenza!</p>
+		<p class="titoloPagine">Assistenza </p>
 
 	</div>
+	<div>
 	<div>
 		<h2 class="sottotitoloAssistenza">Questa pagina presenta i
 			contatti attraverso i quali un utente può contattare "oltre il
@@ -25,7 +26,7 @@
 			direttamente</h2>
 	</div>
 
-	<div class="quadrato-a">
+	<div class="quadrAss">
 
 		<h3 class="titoloCasella">I nostri contatti</h3>
 		<div class="riga1" class="hr"></div>
@@ -60,7 +61,7 @@
 		<div class="telefono">
 			<h4 class="titoloContatto">Il nostro numero di cellulare</h4>
 			<h4>
-				<img src="images/tel-wa.jpg" class="img">
+				<img src="https://flash-market.it/wp-content/uploads/2018/02/logo-whatsapp-2.png" class="img">
 			</h4>
 			<br>
 			<h5 class="contatto">
@@ -68,6 +69,7 @@
 				<!-- ovviamente è inventato -->
 			</h5>
 		</div>
+	</div>
 	</div>
 	<form>
 			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Indietro</button>

@@ -97,7 +97,7 @@
 				<div class="riga1" class="hr"></div>
 				<div class="prova">
 					<label id="inputData"> Numero</label> <input type="text" name="numeroModificato" id="numeroCarta" class="inputProfilo"  placeholder="Numero della Carta" required >
-					<label id="inputData"> Scadenza</label><input type="text" name="scadenzaModificata" id="scadenza" class="inputProfilo"  placeholder="Scadenza"  required>
+					<label id="inputData"> Scadenza</label><input type="date" placeholder="dd mm yyyy" name="scadenzaModificata" id="scadenza" class="inputProfilo"  data-date-format="DD MM YYYY" placeholder="Scadenza"  required>
 					<label id="inputData"> Circuito</label><input type="text" name="circuitoModificato" id="circuito" class="inputProfilo"  placeholder="Circuito"  required> 
 					<label id="inputData"> CVV</label><input type="text" name="cvvModificata" id="CVV" class="inputProfilo"  placeholder="CVV" required > 
 			</div>

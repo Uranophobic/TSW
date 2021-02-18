@@ -65,13 +65,14 @@
 						%>
 					</tbody>
 				</table>
-			</div>
+			
 
+<div class="botModDati">
           <form>
 			<button class="botMod bottoni-colori" onClick="history.go(-1);return true;" name="button">Indietro</button>
 		</form>
-
-
+</div>
+</div>
 	<%@ include file="footer.jsp"%>
 
 
