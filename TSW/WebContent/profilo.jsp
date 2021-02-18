@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
 
-<title>Oltre il giardino - Profilo Utente</title>
+<title>Profilo Utente - Oltre il Giardino</title>
 </head>
 <body>
 	<%@ include file="navbar.jsp"%>

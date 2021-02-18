@@ -9,7 +9,7 @@
 <script src="menu.js"></script>
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 
-<title> prodottiCategoria - Oltre il Giardino</title>
+<title> Catalogo - Oltre il Giardino</title>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>

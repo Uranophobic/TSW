@@ -8,7 +8,7 @@
 <style>
 
 </style>
-<title>HomePage Di Oltre Il Giardino</title>
+<title>HomePage - Oltre Il Giardino</title>
 </head>
 <body>
 <%@ include file="navbar.jsp"%>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<title>Chi siamo</title>
+<title>Chi siamo - Oltre il Giardino</title>
 </head>
 <body>
 	<%@include file="navbar.jsp"%>

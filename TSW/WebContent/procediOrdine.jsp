@@ -6,7 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<title>Procedi Ordine</title>
+<title>Procedi Ordine - Oltre il Giardino</title>
 <style>
 .immagineProd {
 	width: 25%;

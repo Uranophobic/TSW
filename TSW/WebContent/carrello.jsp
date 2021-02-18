@@ -13,7 +13,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="menu.js"></script>
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
-<title>Visualizza Carrello</title>
+<title>Carrello - Oltre il Giardino</title>
 <style>
 
 </style>

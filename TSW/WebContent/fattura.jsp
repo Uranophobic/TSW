@@ -23,7 +23,7 @@
 	margin-top: 20px;
 }
 </style>
-<title>Fattura</title>
+<title>Fattura - Oltre il Giardino</title>
 </head>
 <body>
 	<%@include file="navbar.jsp"%>

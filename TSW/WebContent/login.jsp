@@ -9,7 +9,7 @@
 <meta charset="ISO-8859-1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<title>Login form</title>
+<title>Login - Oltre il Giardino</title>
 <style>
 
 </style>

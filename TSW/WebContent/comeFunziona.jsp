@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Come funziona</title>
+<title>Come funziona - Oltre il Giardino</title>
 </head>
 <body>
 	<%@include file = "navbar.jsp" %>

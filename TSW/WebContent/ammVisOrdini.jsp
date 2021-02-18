@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ORDINI AMMINISTRATORE</title>
+<title>Gestione Amministratore - Lista Ordini</title>
    <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <style>
 .ordiniAmm {
