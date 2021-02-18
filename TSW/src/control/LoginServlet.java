@@ -210,7 +210,7 @@ public class LoginServlet extends HttpServlet {
 
 
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/dsprova.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/profilo.jsp");
 			dispatcher.forward(request, response);
 		}
 		
