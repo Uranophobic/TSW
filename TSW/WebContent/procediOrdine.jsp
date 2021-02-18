@@ -33,6 +33,220 @@
 	margin-right: 10px;
 	margin-top: 10px;
 }
+
+.totComp {
+	border: 2px solid #a6ec84;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	width: 103%;
+	border-radius: 5px;
+}
+
+.regProcOrdine {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	height: 504px;
+	justify-content: center;
+	grid-column-gap: 2%;
+	margin-left: 40px;
+	/* grid-row-gap: 0px; */
+	/* margin: auto; */
+}
+
+.oggCompra {
+	grid-row-start: 1;
+	grid-row-end: 3;
+	width: 100%;
+	height: 400px;
+	width: 103%;
+	border: 2px solid #a6ec84;
+	background-color: white;
+	border-radius: 5px;
+	overflow-x: clip;
+	overflow-y: scroll;
+}
+
+.ordSped {
+	height: auto;
+	width: 90%;
+	border: 2px solid #a6ec84;
+	background-color: white;
+	border-radius: 5px;
+	/* grid-row-gap: 5%; */
+	margin-bottom: 5px;
+}
+
+.ordPag {
+	height: auto;
+	width: 90%;
+	border: 2px solid #a6ec84;
+	background-color: white;
+	border-radius: 5px;
+	grid-row-gap: 0;
+	grid-row-start: 2;
+	grid-row-end: 4;
+}
+
+.tot {
+	font-size: 24px;
+	width: 54%;
+	/* margin: auto; */
+	margin-left: 15px;
+	font-weight: bold;
+	color: red;
+}
+
+.tot2{
+	/* float: left; */
+	width: 7%;
+	margin: auto;
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+.regProcOrdine {
+	width: 95%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	height: 504px;
+	justify-content: center;
+	grid-column-gap: 4%;
+	margin-left: 40px;
+	/* grid-row-gap: 0px; */
+	/* margin: auto; */
+}
+.tot2 {
+	/* float: left; */
+	width: 15%;
+	margin: auto;
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+}
+#ivaCol{
+display: none;
+}
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+.regProcOrdine {
+	width: 90%;
+	display: block;
+	height: auto;
+	justify-content: center;
+	grid-column-gap: 2%;
+	margin-left: 20px;
+}
+.totComp {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 103%;
+	height: 100px;
+}
+.tot2 {
+	/* float: left; */
+	width: 15%;
+	/* margin: auto; */
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+	/* margin-bottom: 81px; */
+}
+.tot {
+	font-size: 24px;
+	width: 50%;
+	/* margin: auto; */
+	margin-left: 15px;
+	font-weight: bold;
+	color: red;
+}
+.ordSped {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 103%;
+}
+.ordPag {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 103%;
+}
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+.regProcOrdine {
+	width: 90%;
+	display: block;
+	height: auto;
+	justify-content: center;
+	grid-column-gap: 2%;
+	margin-left: 20px;
+}
+.totComp {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 103%;
+	height: 100px;
+}
+.tot2 {
+	/* float: left; */
+	width: 15%;
+	/* margin: auto; */
+	float: right;
+	font-size: 24px;
+	font-weight: bold;
+	/* margin-bottom: 81px; */
+}
+.tot {
+	font-size: 24px;
+	width: 50%;
+	/* margin: auto; */
+	margin-left: 15px;
+	font-weight: bold;
+	color: red;
+}
+.totComp {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.ordSped {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 103%;
+}
+.ordPag {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 103%;
+}
+.opBtn2 {	width: 32%;
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -100,18 +314,18 @@
 		<p class="titoloPagine">Procedi all'acquisto</p>
 	</div>
 
-	<div class="regContenitore" >
-		<div  class="text-center datiUtente"> 
+	<div class="regProcOrdine" >
+		<div  class="text-center oggCompra"> 
 			<p class="titColonne text-center">Stai acquistando:</p>
 			<table id="carrelloOrdine">
 				<tr id="specificheTab" style="text-align: left;">
-					<th id="colonna1">Immagine</th>
+					<th id="imgCol">Immagine</th>
 					<th id="colonna2">Nome</th>
-					<th id="colonna3">Quantità</th>
+					<th id="quantitaCol">Quantità</th>
 					<th id="colonna4">Prezzo</th>
-					<th id="colonna5">Sconto</th>
-					<th id="colonna5">Iva</th>
-					<th id="colonna6">Totale</th>
+					<th id="ivaCol">Sconto</th>
+					<th id="ivaCol">Iva</th>
+					<th id="imgCol">Totale</th>
 				</tr>
 				<% 		
 				double prezzo=0, totale=0, sconto=0; 
@@ -126,19 +340,19 @@
 
 				<!-- ELEMENTI -->
 				<tr id="specificheTab">
-					<td class="immagineProd"><img style="width: 50%;"
+					<td id="imgCol"><img style="width: 50%;"
 						src="<%= prodottiCarrello.get(i).getImmaginePath() %>"
 						alt="immagine-prod" /></td>
 					<td class="nomeProd"><p><%= prodottiCarrello.get(i).getNome() %></p></td>
-					<td class="quantProd"><p><%=carrello.get(i).getQuantità() %></p></td>
-					<td class="prezzoProd">
+					<td id="quantitaCol"><p><%=carrello.get(i).getQuantità() %></p></td>
+					<td>
 						<% prezzo = prodottiCarrello.get(i).getPrezzo(); 
 				    prezzo = prezzo + (prezzo * prodottiCarrello.get(i).getIva());
 				    %><p><%=prezzo%> &#8364</p>
 					</td>
-					<td class="scontoProd"><p><%= prodottiCarrello.get(i).getSconto() %>%</p>
+					<td id="ivaCol"><p><%= prodottiCarrello.get(i).getSconto() %>%</p>
 					</td>
-					<td><p><%=prodottiCarrello.get(i).getIva() %></p></td>
+					<td id="ivaCol"><p><%=prodottiCarrello.get(i).getIva() %></p></td>
 
 					<td class="prezzoTot">
 
@@ -174,16 +388,15 @@
 				<!--  chiusura for -->
 			</table>
 			<!-- chiusura tabella -->
-			<div class="totComplessivo">
-				<p class="tot" style="font-size: 24px;">
-					Totale Complessivo:
-					<%=totale%></p>
-			</div>
+			
 
 		</div>
 		<!-- chiusura div colonna sx -->
 
-			<div  class="text-center datiSped">
+<div style=""class="totComp">
+				<p class="tot">Totale Complessivo:</p><p class="tot2"><%=totale%></p>
+			</div>
+			<div  class="text-center ordSped">
 			<p class="titColonne text-center">Spedisci all'indirizzo:</p>
 
 				<label id="datiLab"> Via </label> <input type="text" name="via" class="inputLogin2"  value="<%=via%>" readonly><br> 
@@ -195,7 +408,7 @@
 		<!-- chiusura div colonna dx -->
 
 	
-						<div  class="text-center datiPag">
+						<div  class="text-center ordPag">
 			<p class="titColonne text-center">Paghi con:</p>
 			<div class="datiUt">
 				<label id="datiLab"> Numero</label> <input type="text"
@@ -208,23 +421,22 @@
 					name="CVV" id="datiIn" value="<%=CVV%>" readonly> <br>
 			</div>
 		</div>
-		<!-- chiusura div colonna dx2 -->
-
-	</div>
-	<!-- chiusura div procedi ordine -->
-
-	<div class="opBtn2">
+			<br>
+		<div class="opBtn2">
 		<a class=" bottoni bottoni-colori " href="procedi?azioneOrdine=compra">Acquista</a>
 	</div>
 	
-		
-		
-			</div>
-			
-					</div>
-						</div>
-						</div>
+		<!-- chiusura div colonna dx2 -->
+
+
+	<!-- chiusura div procedi ordine -->
+
 	
+		
+	</div>
+
+	<br>
+	<br>
 	<%@include file="footer.jsp"%>
 </body>
 </html>

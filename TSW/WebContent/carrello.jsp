@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList, bean.Composizione, bean.Prodotto, bean.Utente"%>
+<%@page import="java.text.*" %>
 <%
 	ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
 	ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
@@ -14,90 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title>Visualizza Carrello</title>
 <style>
-.containerCarrello {
-	width: 70%;
-	height: auto;
-	text-align: center;
-	border: 1px solid rgba(40, 150, 5, 0.2);
-	border-radius: 5px;
-	margin-top: 15px;
-	margin: auto;
-	
-}
-.table{
-	width: 90%;
-	margin-bottom: 1rem;
-	color: #212529;
-	margin: auto;
-}
-.totComplessivo {
-	float: right;
-	width: 32%;
-	margin: auto;
-	font-size: 18px;
-}
 
-#scrittaTot {
-	width: 50%;
-	margin: auto;
-}
-
-.botAcquisto {
-	/* position: relative; */
-	margin: auto;
-	width: 57%;
-}
-#link{
-	text-decoration: underline;
-	/* font-style: italic; */
-	color: #394a3c;
-	font-family: janda;
-}
-
-.totComplessivo2 {
-	float: right;
-	width: 36%;
-	margin: auto;
-	font-size: 18px;
-}
-
-#nomePicc{
-	display: none;
-}
-
-#q {
-	width: 50%;
-}
-
-#imgCol{
-	width: 15%;
-}
-
-#rimCol{
-	width: 10%;
-}
-/*********** grandezze monitor per il responsive ***********/
-/*GRANDEZZE large, medium, small, extra-large e extra-small*/
-@media all and (max-width: 1690px)and (min-width : 990px) {
-}
-
-@media all and (max-width: 991px) and (min-width: 768px) {
-}
-
-/*small devices*/
-@media all and (max-width: 767px) and (min-width: 601px) {
-}
-
-/*extra-small devices*/
-@media all and (max-width: 600px) {
-.descrCol{
-	display:none;
-}
-#nomePicc{
-	display: block;
-}
-
-}
 </style>
 </head>
 <body>
@@ -109,9 +27,8 @@
 <div class="container">
 <div class="table-responsive-sm">
 <%
+	DecimalFormat df = new DecimalFormat("#,##0.00;(#,##0.00)");
 	if(carrello.size()!=0){
-		
-	
 %>
 	  <table class="table">
 	  <thead>
@@ -121,8 +38,8 @@
         <th class="descrCol">Descrizione</th>
         <th id="">Prezzo</th>
         <th id="quantitaCol">Quantità</th>
-         <th id="">Iva</th>
-         <th id="">Sconto</th>
+         <th id="ivaCol">Iva</th>
+         <th id="ivaCol">Sconto</th>
         <th id="rimCol"> Rimuovi </th>
         <th id="imgCol">Totale</th>
       </tr>
@@ -130,7 +47,7 @@
      <tbody>
       <tr>
       	<%
-		double totale = 0;
+		double totale = 0, prezzo = 0;
 		for (int i = 0; i < carrello.size(); i++) {
 	    %>
       	 <td><%= i+1 %></td>
@@ -142,7 +59,8 @@
 			<p><%=prodottiCarrello.get(i).getDescrizione()%></p>
 			</td>
 			<td> 
-			<p> <%=prodottiCarrello.get(i).getPrezzo() %> &#8364</p>
+			<p> <%prezzo = prodottiCarrello.get(i).getPrezzo();
+				df.format(prezzo);%> <%=prezzo %> &#8364</p>
 			</td>	
 					
 			<td class = "modQ">
@@ -155,18 +73,18 @@
 						
 			</form>
 			</td>
-			<td>
+			<td id="ivaCol">
 			<p> <%=prodottiCarrello.get(i).getIva() %></p>
 			<!-- iva -->
-			</td>
+			</td >
 			<!-- sconto -->
 			
-			<td>
+			<td id="ivaCol">
 			<p><%=prodottiCarrello.get(i).getSconto() %> %</p>
 			</td>
 			<td class = "remove">
 			<a onclick="deleteProdotto()" href="carrello?azioneCarrello=eliminaProdotto&idProdDelete=<%=prodottiCarrello.get(i).getIdProdotto()%>">
-					<img src="images/cestino.png" style="width: 20%"alt="rimuovi"/>
+					<img src="images/cestino.png" id="cestino" alt="rimuovi"/>
 			</a></td>
 			<td>
 			<div class="price">
@@ -191,7 +109,7 @@
 								}
 								totale=totale+costo;
 						%>
-						<p><%=costo%> &#8364</p>
+						<p><%df.format(costo);%> <%=costo %> &#8364</p>
 					</div>
 			</td>
 		</tr>
@@ -202,7 +120,9 @@
 	</table>
 	</div>
 		<div class="totComplessivo2">
-			<p id="scrittaTot">Totale Complessivo: <%=totale%></p>
+			<p id="scrittaTot">Totale Complessivo: 
+			<%df.format(totale);%> <%=totale %> &#8364</p>
+		
 			<div class="botAcquisto">
 				<a href="procediOrdine.jsp"><button class=" bottoni bottoni-colori " type="submit">Procedi all'acquisto</button></a>
 			</div>

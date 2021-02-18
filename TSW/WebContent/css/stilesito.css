@@ -72,10 +72,8 @@ body {
 
 /*extra-small devices*/
 @media all and (max-width: 600px) {
-	.titoloPagine {
-
-	margin-top: 125px;
-
+.titoloPagine {
+	margin-top: 70px;
 }
 }
 /***************************************************   STILI BOTTONI  ****************************************************/
@@ -664,13 +662,14 @@ font-family: janda;
 	grid-row-start: 1;
 	grid-row-end: 4;
 	width: 100%;
-	height: 504px;
-	width: 100%;
+	height: 503px;
+	width: 103%;
 	border: 2px solid #a6ec84;
 	background-color: white;
 	border-radius: 5px;
+	overflow-x: clip;
+	overflow-y: scroll;
 }
-
 .datiSped {
 	height: auto;
 	width: 90%;
@@ -1366,33 +1365,211 @@ width: 27%;}
 
 
 /******************************************************* CARRELLO ***********************************************************/
-.carello {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 15% 40% 8% 7% 7% 15%;
-	grid-template-rows: 65% 5% 25%;
-	height: auto;
-	justify-content: center;
-}
-
-.totale {
-	grid-row-start: 1;
-	grid-row-end: 4;
-	width: 100%;
+.containerCarrello {
+	width: 70%;
 	height: auto;
 	text-align: center;
 	border: 1px solid rgba(40, 150, 5, 0.2);
-	box-shadow: 0px 15px 8px -11px rgba(40, 150, 5, 0.8);
 	border-radius: 5px;
 	margin-top: 15px;
+	margin: auto;
+	
+}
+.table{
+	width: 90%;
+	margin-bottom: 1rem;
+	color: #212529;
+	margin: auto;
 }
 
-.opBtn3 {
+#scrittaTot {
+	width: 65%;
 	margin: auto;
-	width: 28%;
-	color: ghostwhite;
-	margin-top: 20px;
-	padding: 5px;
+}
+.botAcquisto {
+	/* position: relative; */
+	margin: auto;
+	width: 50%;
+}
+#link{
+	text-decoration: underline;
+	/* font-style: italic; */
+	color: #394a3c;
+	font-family: janda;
+}
+
+.totComplessivo2 {
+	/* float: right; */
+	width: 50%;
+	margin: auto;
+	font-size: 18px;
+}
+
+#nomePicc{
+	display: none;
+}
+
+#q {
+	width: 50%;
+}
+
+#imgCol{
+	width: 15%;
+}
+
+#rimCol{
+	width: 10%;
+}
+
+#cestino {
+	width: 35%;
+}
+/*********** grandezze monitor per il responsive ***********/
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+.botAcquisto {
+	/* position: relative; */
+	margin: auto;
+	width: 100%;
+}
+#scrittaTot {
+	width: 100%;
+	margin: auto;
+}
+
+.totComplessivo2 {
+	/* float: right; */
+	width: 50%;
+	margin: auto;
+	font-size: 18px;
+}
+#q {
+	width: 70%;
+}
+#cestino {
+	width: 50%;
+}
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+	.descrCol{
+	display:none;
+}
+
+#scrittaTot {
+	width: 100%;
+	margin: auto;
+}
+
+#q {
+	width: 70%;
+}
+
+#nomePicc{
+	display: block;
+}
+
+.botAcquisto {
+	/* position: relative; */
+	margin: auto;
+	width: 100%;
+}
+
+.totComplessivo2 {
+	float: right;
+	width: 80%;
+	margin: auto;
+	font-size: 18px;
+}
+
+#cestino {
+	width: 45%;
+}
+
+#ivaCol{
+display: none;
+}.descrCol{
+	display:none;
+}
+
+#scrittaTot {
+	width: 100%;
+	margin: auto;
+}
+
+#q {
+	width: 70%;
+}
+
+#nomePicc{
+	display: block;
+}
+
+.botAcquisto {
+	/* position: relative; */
+	margin: auto;
+	width: 100%;
+}
+
+.totComplessivo2 {
+	float: right;
+	width: 80%;
+	margin: auto;
+	font-size: 18px;
+}
+
+#cestino {
+	width: 45%;
+}
+
+#ivaCol{
+display: none;
+}
+}
+
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+.descrCol{
+	display:none;
+}
+
+#scrittaTot {
+	width: 100%;
+	margin: auto;
+}
+
+#q {
+	width: 70%;
+}
+
+#nomePicc{
+	display: block;
+}
+
+.botAcquisto {
+	/* position: relative; */
+	margin: auto;
+	width: 100%;
+}
+
+.totComplessivo2 {
+	float: right;
+	width: 80%;
+	margin: auto;
+	font-size: 18px;
+}
+
+#cestino {
+	width: 45%;
+}
+
+#ivaCol{
+display: none;
+}
 }
 
 /**************************************************** PROCEDI ORDINE *********************************************************/
@@ -1458,9 +1635,9 @@ width: 27%;}
 }
 
 #carrelloOrdine {
-	border-collapse: collapse;
-	width: 90%;
-	margin-left: 40px;
+	/* border-collapse: collapse; */
+	/* width: 53%; */
+	margin-left: 10px;
 	font-size: 20px;
 }
 
