@@ -108,9 +108,8 @@ $('#prod').on('input', function(){
   
 <p class="titColonne text-center"> I prodotti del Catalogo</p>
 <div class="container">
-  <div class="table-responsive-sm">          
-  <table class="table table-bordered">
-    <thead>
+				<table class="table">
+				<thead>
       <tr>
         <th>Id</th>
         <th>Immagine</th>

@@ -53,8 +53,8 @@
 						<tr>
 							<th id="colOrdini">Id ordine</th>
 							<th id="colOrdini">Email utente</th>
-							<th id="colOrdini">Data</th>
 							<th id="colOrdini">Importo totale</th>
+							<th id="colOrdini">Data</th>
 						</tr>
 					</thead>
 					<tbody>
