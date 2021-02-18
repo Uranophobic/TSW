@@ -37,10 +37,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stu
-		//test per vedere se stampava la data
-		String data = dataOggi();
-		System.out.println(data);
+		
 		doPost(request,response);
 	}
 
@@ -109,20 +106,6 @@ public class ProcediOrdineServlet extends HttpServlet {
 				ordini.add(ordine);
 				ordineModel.doSave(ordine);
 
-/*
-				for(int i=0; i<prodottiCarrello.size(); i++) {
-					if(prodottiCarrello.size() >=1){
-						prodottiCarrello.remove(prodottiCarrello.get(i));
-					}
-					//ordini.remove(i);
-				}
- 
-				for(int y=0; y<carrello.size(); y++) {
-					if(carrello.size() >=1){
-						carrello.remove(carrello.get(y));
-				}
-				}
-*/
 					prodottiCarrello.clear();
 					prodottiCarrello.removeAll(prodottiCarrello);
 					
@@ -153,17 +136,13 @@ public class ProcediOrdineServlet extends HttpServlet {
 
 
 
-
-
-
-
 		private String dataOggi(){
 			Date oggi = new Date(); // Data di oggi
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy"); // Qui decido il formato di visualizzazione
 			String dataOggi = sdf.format( oggi );
 			return dataOggi;		
 		} 
-
+//metodo per generare l'id dell'ordine
 		public String newId(ArrayList<Ordine>allOrdini) {
 			String idCorrente="";
 			int size = allOrdini.size();
@@ -171,29 +150,9 @@ public class ProcediOrdineServlet extends HttpServlet {
 			System.out.println("Array list ALL: \n"+allOrdini);
 
 			if(allOrdini.size()!=0) {
-				//System.out.println("sono nell'if di new id\n");
+				
 				for(int i=0; i<allOrdini.size();i++) {
 
-					/*
-				if(i==allOrdini.size()-1) {
-					System.out.println("sono nell if che cerco l'ultimo elemento\n");
-					String ultimoId=allOrdini.get(i).getIdOrdine();
-
-					String k2="", numero2="";
-					k2 = ultimoId.substring(0,1);
-					System.out.println(" K2 " + k2);
-
-
-					numero2 = ultimoId.substring(1);
-					int n = Integer.parseInt(numero2);
-					idNoK[i]=n;
-					n = n+1;
-					System.out.println("numero2 : " + numero2);
-					String risultatoId; 
-					risultatoId = k2 + n;
-					idCorrente = risultatoId;
-					System.out.println("RISULTATO ID "+ risultatoId);
-				}*/
 
 					String id = allOrdini.get(i).getIdOrdine();
 					System.out.println("INDICE " +  i +"ID TUTTI: "+ id);
@@ -209,8 +168,7 @@ public class ProcediOrdineServlet extends HttpServlet {
 
 
 					idNoK[i]=n;
-					System.out.println("che cazzo"+idNoK[i]);
-
+					
 				}
 
 				int max = idNoK[0];
@@ -219,12 +177,12 @@ public class ProcediOrdineServlet extends HttpServlet {
 						max = idNoK[i];
 					}
 				}
-				System.out.println("max"+ max);
+				
 
 				int id = max + 1;
 
 				idCorrente ="K"+id;
-				System.out.println("id cazzooooooo:" + idCorrente);
+				
 			}else {
 
 				idCorrente="K1";

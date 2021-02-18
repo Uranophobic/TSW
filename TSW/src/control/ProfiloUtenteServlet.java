@@ -49,35 +49,8 @@ public class ProfiloUtenteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("sono del dopost di profilo utente");
 		String azioneProfilo = request.getParameter("azioneProfilo");
-		/*
-		if(azioneProfilo.equals("visualizzaWishList")) {
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher("wishlist.jsp");
-
-		}
-
-		if(azioneProfilo.equals("visualizzaOrdini")) {
-			utente = (Utente) request.getSession().getAttribute("utenteSessione");
-			ArrayList<Ordine> ordiniUtente = new ArrayList<Ordine>();
-			try {
-				ArrayList<Ordine> ordiniTotali = ordineModel.doRetrieveAll("idOrdine");
-
-				for (Ordine o: ordiniTotali) {
-					if(o.getEmailUtente().equals(utente.getEmail())) {
-						ordiniUtente.add(o);
-					}
-				}
-				if(ordiniUtente.size()!=0) {
-					//setti la sessione e gli fai vedere la jsp degli ordini 
-				}else {
-					//caso in cui non c'è ancora un ordine effettuato. gli fai vedere la jsp vuota/alert
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		 */
+		
+		 
 		if(azioneProfilo.equals("visualizzaDatiIndirizzo")) {
 			System.out.println("sono in visualizzadatiIndirizzo");
 			System.out.println(azioneProfilo);
@@ -88,7 +61,6 @@ public class ProfiloUtenteServlet extends HttpServlet {
 
 		}
 
-		
 		if(azioneProfilo.equals("modificaDati")) {
 			try {
 				
@@ -156,12 +128,11 @@ public class ProfiloUtenteServlet extends HttpServlet {
 			try {
 				
 				ArrayList<Ordine> ordiniAll=ordineModel.doRetrieveAll("emailUtente");
-				//System.out.println("tutti gli ordini\n : "+ordiniAll);
+				
 				for(int i=0;i<ordiniAll.size();i++) {
 					
 					if(ordiniAll.get(i).getEmailUtente().equals(utente.getEmail())) {
 						System.out.println("le mail combaciano");
-						//System.out.println("sono nel do retrive by key");
 						
 						Ordine ordine=new Ordine();
 						ordine.setEmailUtente(utente.getEmail());
@@ -171,10 +142,6 @@ public class ProfiloUtenteServlet extends HttpServlet {
 						
 						System.out.println("ordine del mio utente : "+ordine);
 						ordiniUtente.add(ordine);
-						
-						
-						
-	
 					}
 					
 				}
@@ -186,9 +153,6 @@ public class ProfiloUtenteServlet extends HttpServlet {
 			request.getSession().setAttribute("ordiniSessione", ordiniUtente);
 			RequestDispatcher view = request.getRequestDispatcher("visualizzaOrdiniUtente.jsp");
 			view.forward(request,response);
-			
-			
-			
 			
 			}
 	}

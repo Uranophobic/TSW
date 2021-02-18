@@ -65,10 +65,6 @@ public class ProdottoServlet extends HttpServlet {
 			}
 		}
 
-
-
-
-
 		if(azioneP.equals("ricerca")) {
 			String insProd=request.getParameter("insProd");
 			System.out.println("prodotto inserito: " + insProd);
@@ -95,23 +91,16 @@ public class ProdottoServlet extends HttpServlet {
 				}
 
 				if(risultatiRicerca.size()!=0) {
-					/*	
-					 * Questo if va a controllare che l'array risultati ricerca non sia vuoto
-					 * Quindi in risultatiricerca ci sta il risultato o meglio i prodotti che l'utente ha ricercato
-					 * se è vuoto vuol dire che quel prodotto non è presente. 
-					 * Ma se così non fosse procediamo
-					 * 
-					 */
+					
 					System.out.println("prodotto trovato");
 					request.getSession().setAttribute("risultatiRicerca",risultatiRicerca);
 					System.out.println("risultati ricerca : " + risultatiRicerca);
 					RequestDispatcher dispatcher=request.getRequestDispatcher("catalogo.jsp");//controlla nome jsp
 					dispatcher.forward(request, response);
 
-				}else {//se cosi non fosse..., cioè se risultatiRicerca è vuoto 
+				}else {
 					System.out.println("prodotto non trovato");
-					//RequestDispatcher dispatcher=request.getRequestDispatcher("404Error.jsp");//controllare nome jsp
-					//dispatcher.forward(request, response);
+					
 				}
 			}catch(SQLException e) {
 				e.printStackTrace();
@@ -119,12 +108,12 @@ public class ProdottoServlet extends HttpServlet {
 
 		}
 
-
+//agricoltura
 		if(azioneP.equals("agricoltura")) {
 
 			System.out.println("sono in agricoltura");
 			try {
-				//String categoria=request.getParameter("categoria");
+				
 				ArrayList<Prodotto> allCategoria=new ArrayList<Prodotto>();
 				ArrayList<Prodotto> prodottiCategoria=new ArrayList<Prodotto>();
 
@@ -133,8 +122,6 @@ public class ProdottoServlet extends HttpServlet {
 				for(int i=0;i<allCategoria.size();i++) {
 
 					if(allCategoria.get(i).getCategoria().equals("Agricoltura")) {
-
-
 
 						Prodotto prod=new Prodotto();
 						prod.setCategoria(allCategoria.get(i).getCategoria());
@@ -227,8 +214,6 @@ public class ProdottoServlet extends HttpServlet {
 				for(int i=0;i<allCategoria.size();i++) {
 
 					if(allCategoria.get(i).getCategoria().equals("Giardinaggio")) {
-
-
 
 						Prodotto prod=new Prodotto();
 						prod.setCategoria(allCategoria.get(i).getCategoria());

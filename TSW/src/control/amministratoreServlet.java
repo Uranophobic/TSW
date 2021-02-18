@@ -125,33 +125,7 @@ public class amministratoreServlet extends HttpServlet {
 				System.out.println("prodotto cercato: "+prodotto);
 			
 				request.getSession().setAttribute("prodDaMod", prodotto);
-					/*
-					String idProdotto=request.getParameter("idProdotto");
-					String immaginePath=request.getParameter("imgProd");
-					String nome=request.getParameter("nome");
-					String descrizione=request.getParameter("descrizione");
-					String categoria=request.getParameter("categoria");
-					double prezzo=Double.parseDouble(request.getParameter("prezzo"));
-					double iva=Double.parseDouble(request.getParameter("iva"));
-					double sconto=Double.parseDouble(request.getParameter("sconto"));
 					
-					System.out.println("prodotto e nome: "+idProdotto+nome);
-					
-					
-					Prodotto p=new Prodotto();
-					p.setIdProdotto(idProdotto);
-					p.setImmaginePath(immaginePath);
-					p.setNome(nome);
-					p.setDescrizione(descrizione);
-					p.setCategoria(categoria);
-					p.setPrezzo(prezzo);
-					p.setSconto(sconto);
-					p.setIva(iva);
-					
-					System.out.println("prodottoModificato: "+p);
-						prodModel.doUpdate(p);
-				
-			*/
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -206,12 +180,6 @@ public class amministratoreServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/amministratore.jsp").forward(request, response);
 		}
 					
-				
-			
-			
-			
-
-		
 		
 		if(azioneCapo.equals("eliminaProd")) {
 			
@@ -226,16 +194,6 @@ public class amministratoreServlet extends HttpServlet {
 				
 				prodModel.doDelete(id);
 				
-				/*
-				//p.setIdProdotto(idProdotto);
-				p.setImmaginePath(prodDaEl.getImmaginePath());
-				p.setNome(prodDaEl.getNome());
-				p.setDescrizione(prodDaEl.getDescrizione());
-				p.setCategoria(prodDaEl.getCategoria());
-				p.setPrezzo(prodDaEl.getPrezzo());
-				p.setSconto(prodDaEl.getSconto());
-				p.setIva(prodDaEl.getIva());
-				*/
 				for(int i=0;i<catalogo.size();i++) {
 					
 					if(catalogo.get(i).getIdProdotto().equals(id)) {
@@ -246,11 +204,6 @@ public class amministratoreServlet extends HttpServlet {
 						System.out.println("sono dopo il dodedete");
 					}
 				}
-				
-				
-					
-					
-				
 				
 				request.getSession().removeAttribute("catalogoSessione");
 				request.getSession().setAttribute("catalogoSessione", catalogo);
@@ -266,12 +219,6 @@ public class amministratoreServlet extends HttpServlet {
 			}
 						
 					
-				
-
-			
-			
-		
-		
 		if(azioneCapo.equals("visualizzaOrdini")) {
 			
 			try {
@@ -412,7 +359,7 @@ public class amministratoreServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-		//	dataInizio = sdf.format( dataIn );
+		
 			System.out.println("data inizio dopo di conversione (dataIn)" + dataIn);
 			System.out.println("data inizio dopo di conversione (dataFine)" + dataEnd);
 			
@@ -434,9 +381,7 @@ public class amministratoreServlet extends HttpServlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					// 0 se sono uguali
-					// <0 se la data è precedente all'argomento date 
-					// >0 se è successiva
+					
 					int resultDataInd=dataIn.compareTo(dataOrd);
 					int resutlDataEnd=dataOrd.compareTo(dataEnd);
 					

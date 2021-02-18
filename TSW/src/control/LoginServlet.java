@@ -46,14 +46,6 @@ public class LoginServlet extends HttpServlet {
 		request.getSession().setAttribute("quantitaCarrello", quantitaCar);
 		
 		if(azioneLogin.equals("loginUtente")) {
-			/*
-			 * 1 mail inserita corrisponde a quella dell'utente o meglio a una presente nel db 
-			 * 	1.1 se la mail inserita non corrisponde a quella dell'utente, l'utente si deve registrare
-			 * 	1.2 se la mail corrisponde controlliamo la password
-			 * 2. controllo password
-			 * 2.1 se la passowrd non è corretta ti dice di rimetterla 
-			 * 2..2 se la password è corretta visualizza la home 
-			 */
 
 			try {
 				String email = request.getParameter("email");
@@ -103,7 +95,7 @@ public class LoginServlet extends HttpServlet {
 						System.out.println("password sbagliata\n");
 						response.setContentType("text/html;charset=ISO-8859-1");
 						response.getWriter().write("passwordFailed");
-						//getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+						
 
 					}	
 				}else {
@@ -111,7 +103,7 @@ public class LoginServlet extends HttpServlet {
 					response.setContentType("text/html;charset=ISO-8859-1");
 					response.getWriter().write("notExists");
 
-					//getServletContext().getRequestDispatcher("/404Error.jsp").forward(request, response);
+					
 
 				}
 
