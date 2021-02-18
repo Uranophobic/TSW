@@ -48,10 +48,7 @@
 			<br><label class="etichette">Circuito<br></label>
 				
 				<div>
-	<!-- 	<label class="etichette"><input type="" name="circuito" id="circuito" onClick="return trovaCircuito()"><img src="images/mastercard.jpg" class="circuito"></label>
-					<label class="etichette"><input type="radio"  name="circuito" id="circuito" onClick=" return trovaCircuito()"><img src="images/maestro.png" class="circuito"></label> 
-					<label class="etichette"><input type="radio"  name="circuito" id="circuito" onClick=" return trovaCircuito()"><img src="images/visa.jpg" class="circuito"></label> 
-			</div>  -->
+	
 			<select name="circuito" id="circuito" required>
 			<option value="0" selected> Perfavore, seleziona un circuito: </option>
 			<option value="mastercard"> Mastercard </option>

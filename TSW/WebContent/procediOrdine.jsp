@@ -233,20 +233,6 @@ display: none;
 }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 </head>
 <body>
@@ -256,16 +242,9 @@ display: none;
 	ArrayList<Composizione> carrello = (ArrayList<Composizione>) request.getSession().getAttribute("carrelloSessione");
     ArrayList<Prodotto> prodottiCarrello = (ArrayList<Prodotto>) request.getSession().getAttribute("prodottiCarrello");
     int quantitaCar = (int) request.getSession().getAttribute("quantitaCarrello");
-    System.out.println("                    QUANTITA' NEL PROCEDI ORDINE: " + quantitaCar);
     double totaleCarrello=0;
 
-    for(int i =0; i<prodottiCarrello.size(); i++){
-    	System.out.println("PRODOTTO NUMERO " + i + ":" + prodottiCarrello.get(i).toString());
-    }
-    System.out.println("SECONDO FOR NEL PROCEDI ORDINE");
-    for(int i =0; i<carrello.size(); i++){
-    	System.out.println("CARRELLO NUMERO " + i + ":" + carrello.get(i).toString());
-    }
+   
     
     Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
 	   String datiSped = utente.getDatiSpedizione();

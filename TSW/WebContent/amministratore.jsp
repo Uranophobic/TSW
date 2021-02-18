@@ -55,21 +55,6 @@ display: none;
 <%@include file = "navbar.jsp" %>
 <% ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
 	System.out.println("catalogo lato jsp admin: "+catalogo);%>
-	
-	
-	<!-- 	OPERAZIONI CATALOGO:
-		  dobbiamo prendere tutti i prodotti del catalogo dal db
-		  dobbiamo poter aggiungere un prodotto (e vedere dopo la lista aggiornata)
-		  dobbiao poter selezionare un prodotto da modificare (e vederlo modificato successivamente, lista aggiornata)
-		  dobbiamo poter selezionare un prodotto per eliminarlo (e vedere la lista aggiornata senza il prodotto che abbiamo cancellato)
-		  
-		  	OPERAZIONI ORDINI:
-		  dobbiamo prendere tutti gli ordini dal db
-		  dobbiamo visualizzarli in ordine data-data
-		  dobbiamo visualizzarli pr utente A-Z
-	 -->
-	 
-	 
 	 <div>
 <p  class="titoloPagine"> Gestione Amministratore </p>
 </div>

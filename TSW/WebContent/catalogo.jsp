@@ -97,7 +97,7 @@ $('#prod').on('input', function(){
  	 <h1 style="color: white; margin:auto; width:50%;"> MENU'</h1>
 		 <form action="prodotto" method="post">
 		    	<div class=" categorie">
-		    	 	<!-- <button class="bottoni bottoni-colori" id="botMenu" name="azioneP" value="sconto">Scontati</button> -->
+		    	 	
 		    	 	<a href="prodotto?azioneP=sconto" id="categ"> Scontati </a>
 		    	</div>
     	</form>

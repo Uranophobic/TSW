@@ -30,13 +30,9 @@
 	</div>
 	<%
 		Utente utente = (Utente) request.getSession().getAttribute("utenteSessione");
-	System.out.println("sto prendendo la sessione dell'utente\n" + utente);
 	ArrayList<Ordine> ordini = (ArrayList<Ordine>) request.getSession().getAttribute("ordiniSessione");
-	System.out.println("sto prendendo la sessione degli ordini" + ordini);
+	
 	%>
-
-
-
 	
 			<div class="container">
 				<table class="table">
@@ -78,10 +74,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-

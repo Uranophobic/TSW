@@ -78,12 +78,7 @@
 </style>
 </head>
 <body>
-<%// ArrayList<Prodotto> catalogo = (ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
 
-//System.out.println("catalogo DA NAVBAR: " + catalogo);
-
-
-%>
 
 <nav>
 <div class="contenutoNav">
@@ -133,20 +128,7 @@
 			  	</div>
 			</li>
 		 
-		 	<!-- barra di ricerca 
-			<li class="barraRicercaNav">  
-				<div class="barraRicerca">
-					 <form class="navbar-form " action="prodotto" method="post">
-					      <div class="input-group">
-					        <input type="text" class="form-control" placeholder="Search" name="insProd">
-					        <div class="input-group-btn">
-					        <a href="prodotto?azioneP=ricerca"> <button class="btnRicerca" type="submit" name="azioneP" value="ricerca"><i class="fa fa-search"></i></button></a>
-					        </div>
-					      </div>
-					    </form>
-				 </div>
-			</li>
-			-->
+		 	
 			
 		
 			
