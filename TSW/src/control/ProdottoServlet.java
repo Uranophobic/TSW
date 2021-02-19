@@ -64,50 +64,7 @@ public class ProdottoServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
-		if(azioneP.equals("ricerca")) {
-			String insProd=request.getParameter("insProd");
-			System.out.println("prodotto inserito: " + insProd);
-			try {
-				ArrayList<Prodotto> AllProdotti=prodottoModel.doRetrieveAll("nome");//essere sicuri
-				ArrayList<Prodotto>risultatiRicerca=new ArrayList<Prodotto>();
-
-				for(Prodotto prodotto: AllProdotti) {
-					if(prodotto.getNome().equals(insProd)) {
-						Prodotto p = new Prodotto();
-						p.setCategoria(prodotto.getCategoria());
-						p.setDescrizione(prodotto.getDescrizione());
-						p.setIdProdotto(prodotto.getIdProdotto());
-						p.setImmaginePath(prodotto.getImmaginePath());
-						p.setNome(prodotto.getNome());
-						p.setPrezzo(prodotto.getPrezzo());
-						p.setSconto(prodotto.getSconto());
-						p.setIva(prodotto.getIva());
-						System.out.println("PRODOTTO CHE ABBIAMO SETTATO "+ p);
-						AllProdotti.add(p);
-
-					}
-
-				}
-
-				if(risultatiRicerca.size()!=0) {
-					
-					System.out.println("prodotto trovato");
-					request.getSession().setAttribute("risultatiRicerca",risultatiRicerca);
-					System.out.println("risultati ricerca : " + risultatiRicerca);
-					RequestDispatcher dispatcher=request.getRequestDispatcher("catalogo.jsp");//controlla nome jsp
-					dispatcher.forward(request, response);
-
-				}else {
-					System.out.println("prodotto non trovato");
-					
-				}
-			}catch(SQLException e) {
-				e.printStackTrace();
-			}
-
-		}
-
+	
 //agricoltura
 		if(azioneP.equals("agricoltura")) {
 
