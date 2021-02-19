@@ -152,30 +152,27 @@ public class CarrelloServlet extends HttpServlet {
 
 						//incrementa quantità di prodotto già presente
 						if((carrello.get(i).getCodiceProdotto()).equals(idProd)){
-							System.out.println("\n SONO NELL' IFFFFFFFFFFFFFFF \n: ");
 							System.out.println("carrello get i get codice prod" + carrello.get(i).getCodiceProdotto() + " | idProd: " + idProd);
+							
 							carrello.get(i).setCodiceProdotto(p.getIdProdotto());
 							System.out.println("codice prod: "+ carrello.get(i).getCodiceProdotto());
+							
 							carrello.get(i).setIva(p.getIva());
 							System.out.println("iva: "+ carrello.get(i).getIva());
+							
 							carrello.get(i).setPrezzoUnitario(p.getPrezzo());
 							System.out.println("prezzo: "+ carrello.get(i).getPrezzoUnitario());
+							
 							carrello.get(i).setScontoAttuale(p.getSconto());
 							System.out.println("sconto: "+ carrello.get(i).getScontoAttuale());
+							
 							carrello.get(i).setQuantità(quantita);
 							quantitaCar = quantita;
-							System.out.println("QUANTITA DEL PRODOTTO CHE HO AGGIUNTO: "+ quantita);
-							System.out.println("nome: "+ p.getNome());
+						
 							break;
 						}
 					}
 
-				
-				
-
-				
-				
-				
 				request.getSession().removeAttribute("carrelloSessione");
 				request.getSession().setAttribute("carrelloSessione", carrello);
 				request.getSession().removeAttribute("quantitaCarrello");
@@ -187,11 +184,7 @@ public class CarrelloServlet extends HttpServlet {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			
-			
-	
-			
+			}	
 		}
 
 

@@ -11,26 +11,18 @@
 
 	<%@include file="navbar.jsp"%>
 	<div>
-		<p class="titoloPagine">Errore nell'accesso</p>
+		<p class="titoloPagine">Errore</p>
 
 	</div>
 	<div>
-		<h2 class="sottotitoloAssistenza">Qualcosa è andato storto!</h2>
+		<h2 class="sottotitoloAssistenza">Spiacenti, abbiamo riscontrato un errore</h2>
 	</div>
-<div class="immagineErrorDiv" align="center">
+		<div class="immagineErrorDiv" align="center">
 			<img src="images/imm4042.jpg" class="immagine404">
 		</div>
-
-
-<!-- modifica font  -->
-		<h2 class="contenutoErrore">Email non trovata</h2>
-
-		<div class="tornaAllaHome" align="center">
-
-			<a class="tornaHomeLink" href="registrazione.jsp">Registrati</a>
-
-		</div>
-
+<div class="text-center">
+	<p style="font-size:28px"> Torna alla <a href="HomePage.jsp"> HomePage</a> </p> 
+</div>
 
 	<%@include file="footer.jsp"%>
 

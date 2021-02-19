@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   <%@page  import= "bean.Utente" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,20 +71,23 @@
 		<p class="titoloPagine">Modifica Prodotto</p>
 	</div>
 
-
+<%
+Prodotto p = (Prodotto) request.getSession().getAttribute("prodDaMod");
+System.out.println("\n\n prodotto selezionato per modificare" + p);
+%>
 
 <form action="amministratore" method="post" >
 <div id="area-profilo">
 	<!-- primo quadrante -->
 		<div class="boxModifica">
 					<div class="prova2">
-					<label id="inputData2"> Immagine</label><input type="text" name="immagine"  class="inputProfilo"  placeholder="Path Immagine" required >
-					<label id="inputData2"> Nome</label><input type="text" name="nome" class="inputProfilo"  placeholder="Nome" required> 
-					<label id="inputData2"> Descrizione</label><input type="text" name="descrizione" class="inputProfilo"  placeholder="Descrizione" required>
-					<label id="inputData2"> Categoria</label><input type="text" name="categoria"  class="inputProfilo"  placeholder="Categoria" required >
-					<label id="inputData2"> Prezzo</label><input type="text" name="prezzo"  class="inputProfilo"  placeholder="Prezzo" required> 
-					<label id="inputData2"> Iva</label><input type="text" name="iva"  class="inputProfilo"  placeholder="Iva" required> 
-					<label id="inputData2"> Sconto</label><input type="text" name="sconto"  class="inputProfilo"  placeholder="Sconto" required >  
+					<label id="inputData2"> Immagine</label><input type="text" name="immagine" value="<%= p.getImmaginePath() %>"  class="inputProfilo"  placeholder="Path Immagine" required >
+					<label id="inputData2"> Nome</label><input type="text" name="nome" class="inputProfilo" value="<%= p.getNome() %>" placeholder="Nome" required> 
+					<label id="inputData2"> Descrizione</label><input type="text" name="descrizione" class="inputProfilo"  value="<%= p.getDescrizione() %>" placeholder="Descrizione" required>
+					<label id="inputData2"> Categoria</label><input type="text" name="categoria"  class="inputProfilo" value="<%= p.getCategoria() %>" placeholder="Categoria" required >
+					<label id="inputData2"> Prezzo</label><input type="text" name="prezzo"  class="inputProfilo" value="<%= p.getPrezzo() %>" placeholder="Prezzo" required> 
+					<label id="inputData2"> Iva</label><input type="text" name="iva"  class="inputProfilo"  placeholder="Iva"  value="<%= p.getIva() %>"required> 
+					<label id="inputData2"> Sconto</label><input type="text" name="sconto"  class="inputProfilo" value="<%= p.getSconto() %>" placeholder="Sconto" required >  
 			</div>
 			
 		</div>

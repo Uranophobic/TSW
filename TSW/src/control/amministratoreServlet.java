@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import bean.Ordine;
 import bean.Prodotto;
@@ -118,6 +119,8 @@ public class amministratoreServlet extends HttpServlet {
 			ArrayList<Prodotto> catalogo= (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
 			String idProdCapo=request.getParameter("idProdCapo");
 			System.out.println("id del prodotto passato: "+idProdCapo);
+			
+		
 		
 			
 			try {
@@ -139,10 +142,13 @@ public class amministratoreServlet extends HttpServlet {
 		if(azioneCapo.equals("modificaProd")) {
 			ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
 			Prodotto prodDaMod=(Prodotto)request.getSession().getAttribute("prodDaMod");
+		
 			System.out.println("id del prodotto da cercare e che poi e quello che andrà modificato: "+prodDaMod.getIdProdotto());
+			
 			try {
+				
+				
 			Prodotto p=prodModel.doRetrieveByKey(prodDaMod.getIdProdotto());
-			//String idProdotto=request.getParameter("idProdotto");
 			String immaginePath=request.getParameter("imgProd");
 			String nome=request.getParameter("nome");
 			String descrizione=request.getParameter("descrizione");
@@ -153,7 +159,7 @@ public class amministratoreServlet extends HttpServlet {
 			
 			System.out.println("prodotto e nome: "+nome);
 			
-			
+		
 			
 			//p.setIdProdotto(idProdotto);
 			p.setImmaginePath(immaginePath);
@@ -165,10 +171,13 @@ public class amministratoreServlet extends HttpServlet {
 			p.setIva(iva);
 			
 			System.out.println("prodottoModificato: "+p);
-				prodModel.doUpdate(p);
-				request.getSession().setAttribute("prodDaMod", p);
+			prodModel.doUpdate(p);
+			request.getSession().setAttribute("prodDaMod", p);
+			
 			ArrayList<Prodotto>catalogoPostModifica=prodModel.doRetrieveAll("idProdotto");
 			System.out.println("catalogoPostModifica:\n "+catalogoPostModifica);
+			
+			
 			request.getSession().setAttribute("catalogoSessione", catalogoPostModifica);
 		
 	
@@ -184,29 +193,21 @@ public class amministratoreServlet extends HttpServlet {
 		if(azioneCapo.equals("eliminaProd")) {
 			
 			ArrayList<Prodotto> catalogo=(ArrayList<Prodotto>)request.getSession().getAttribute("catalogoSessione");
-			//Prodotto prodDaEl=(Prodotto)request.getSession().getAttribute("prodDaEl");
-			//String idProdDelete=request.getParameter("idProdCapo");
 			String id=request.getParameter("id");
 			System.out.println("id del prod da eliminare: "+id);
+			
 			try {
-				//Prodotto p=prodModel.doRetrieveByKey(prodDaEl.getIdProdotto());
-				//String idProdotto=request.getParameter("idProdotto");
-				
 				prodModel.doDelete(id);
 				
 				for(int i=0;i<catalogo.size();i++) {
 					
 					if(catalogo.get(i).getIdProdotto().equals(id)) {
-						System.out.println("sono nell if\n");
-						
 						catalogo.remove(i);
-						
-						System.out.println("sono dopo il dodedete");
 					}
 				}
 				
 				request.getSession().removeAttribute("catalogoSessione");
-				request.getSession().setAttribute("catalogoSessione", catalogo);
+				request.getSession().setAttribute("catalogoSessione", catalogo); //riaggiungiamo tutti i prodotti 
 				System.out.println("catalogo dopo eliminazione: "+catalogo);
 			
 		
@@ -360,8 +361,8 @@ public class amministratoreServlet extends HttpServlet {
 				e1.printStackTrace();
 			}
 		
-			System.out.println("data inizio dopo di conversione (dataIn)" + dataIn);
-			System.out.println("data inizio dopo di conversione (dataFine)" + dataEnd);
+			//System.out.println("data inizio dopo di conversione (dataIn)" + dataIn);
+			//System.out.println("data inizio dopo di conversione (dataFine)" + dataEnd);
 			
 		
 			try {
@@ -376,7 +377,7 @@ public class amministratoreServlet extends HttpServlet {
 				
 					try {
 						dataOrd = sdf3.parse(allOrdini.get(i).getDataOrdine());
-						System.out.println("DATA FORMATTATA !!!!!!!!11" + dataOrd);
+						//System.out.println("DATA FORMATTATA:" + dataOrd);
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -385,8 +386,7 @@ public class amministratoreServlet extends HttpServlet {
 					int resultDataInd=dataIn.compareTo(dataOrd);
 					int resutlDataEnd=dataOrd.compareTo(dataEnd);
 					
-					//  data ord  deve essere uguale data inizio oppure DOPO (after)
-					//data ord uguale a data fine oppure  prima (BEFORE)
+				
 					
 					if((dataOrd.equals(dataIn)) || (dataOrd.after(dataIn))) {
 						if((dataOrd.equals(dataEnd)) || (dataOrd.before(dataEnd))) {	
@@ -399,9 +399,7 @@ public class amministratoreServlet extends HttpServlet {
 							System.out.println("la data trovata e successiva alla data di fine");
 							
 						}
-						System.out.println("DATA inizio:" + dataOrd.compareTo(dataIn));
-						System.out.println("DATA FINE:" + dataOrd.compareTo(dataEnd));
-						System.out.println("sono nell'if della data");
+						
 	
 							Ordine o = new Ordine(); //setto l'ordine dell'utente
 							System.out.println("setto l'ordine");

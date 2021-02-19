@@ -25,6 +25,48 @@
 .lab{
 	margin: -9px;
 }
+
+
+/*GRANDEZZE large, medium, small, extra-large e extra-small*/
+@media all and (max-width: 1690px)and (min-width : 990px) {
+.ordiniAmm {
+	width: 105%;
+	margin: auto;
+	margin-left: 135px;
+}
+}
+
+@media all and (max-width: 991px) and (min-width: 768px) {
+.ordiniAmm {
+	width: 105%;
+	margin: auto;
+	margin-left: 82px;
+}
+}
+
+/*small devices*/
+@media all and (max-width: 767px) and (min-width: 601px) {
+.ordiniAmm {
+	width: 105%;
+	margin: auto;
+	margin-left: 82px;
+}
+}
+/*extra-small devices*/
+@media all and (max-width: 600px) {
+#table2{
+	overflow-x: scroll;
+	overflow-y: scroll;
+	height: 500px;
+	}
+.ordiniAmm {
+	width: 105%;
+	margin: auto;
+	margin-left: 25px;
+
+}
+}
+
 </style>
 </head>
 <body>
@@ -47,7 +89,7 @@
 <button name="azioneCapo" value="cercaPerData" class="bottoni bottoni-colori"> cerca </button>
 </form>
 </div>
-	<div class="container">
+	<div class="container" id="table2">
 				<table class="table">
 					<thead>
 						<tr>

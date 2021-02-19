@@ -40,6 +40,7 @@ System.out.println("ORDINI DATA NELLA JSP\n" + ordiniData);%>
 <div>
 <p  class="titoloPagine"> Risultati Ricerca </p>
 </div>
+<% if(ordiniData.size()!=0){ %>
 <div class="container">
 				<table class="table">
 					<thead>
@@ -62,7 +63,10 @@ System.out.println("ORDINI DATA NELLA JSP\n" + ordiniData);%>
 					</tbody>
 				</table>
 			</div>
-	
+<% } else {%>
+<div class="text-center">
+			<p style="font-size: 28px;"> Spiacenti, la ricerca non ha prodotto nessun risultato. </p></div>
+		<% } %>		
 
 </body>
 </html>

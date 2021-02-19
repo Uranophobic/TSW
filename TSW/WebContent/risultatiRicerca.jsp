@@ -39,6 +39,7 @@ System.out.println("ordiniUtente" + ordiniUtente);%>
 <div>
 <p  class="titoloPagine"> Risultati Ricerca </p>
 </div>
+<% if(ordiniUtente.size()!=0){ %>
 	<div class="container">
 				<table class="table">
 					<thead>
@@ -50,6 +51,7 @@ System.out.println("ordiniUtente" + ordiniUtente);%>
 						</tr>
 					</thead>
 					<tbody>
+					
 <% for(int i=0; i<ordiniUtente.size(); i++){%>
 <tr>
 <td>	<p> <%=ordiniUtente.get(i).getIdOrdine() %> </p> </td>
@@ -62,7 +64,10 @@ System.out.println("ordiniUtente" + ordiniUtente);%>
 					</tbody>
 				</table>
 			</div>
-	
+<% } else {%>
+<div class="text-center">
+			<p style="font-size: 28px;"> Spiacenti, la ricerca non ha prodotto nessun risultato. </p></div>
+		<% } %>	
 
 
 </body>

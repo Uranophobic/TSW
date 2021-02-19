@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/stilesito.css">
 <title>Gestione Amministratore</title>
 <style>
+
 .botAmm{
 	margin:auto;
 	width: 40%;
@@ -44,22 +45,13 @@
 
 /*extra-small devices*/
 @media all and (max-width: 600px) {
-.colonnaSx {
-	display: grid;
-	grid-template-columns: 25% 75%;
-}
-
-.headTab{
-display: none;
-}
-
-.ordiniAmm {
-	width: 90%;
-	margin: auto;
-	/* margin-left: 410px; */
-}
 #imgAmm{
 	width: 100%;
+}
+#table2{
+	overflow-x: scroll;
+	overflow-y: scroll;
+	height: 500px;
 }
 }
 
@@ -93,7 +85,8 @@ display: none;
 					  	<% } %>
 					  </datalist>
 					  <input type="submit" value="Cerca Prodotto" class="bottoni bottoni-colori"style="font-size: 18px;">
-				
+						<br>
+						<br>
 				 </div>
 			</div>
 
@@ -107,8 +100,8 @@ $('#prod').on('input', function(){
 </script>
   
 <p class="titColonne text-center"> I prodotti del Catalogo</p>
-<div class="container">
-				<table class="table">
+<div class="container" id="table2">
+				<table class="table" >
 				<thead>
       <tr>
         <th>Id</th>
@@ -124,8 +117,7 @@ $('#prod').on('input', function(){
     </thead>
     <tbody>
     <%for(int i=0;i<catalogo.size();i++){%>
-      <tr>
-       <div id="<%= catalogo.get(i).getNome()%>"class="item1"> <!-- prodotto 1  -->
+      <tr id="<%= catalogo.get(i).getNome()%>">
         <td ><p id=""><%=catalogo.get(i).getIdProdotto() %></p></td>
         <td><img src=" <%=catalogo.get(i).getImmaginePath() %>" id="imgAmm"></td>
         <td> <%=catalogo.get(i).getNome() %></td>
@@ -138,13 +130,13 @@ $('#prod').on('input', function(){
 					<a href="amministratore?azioneCapo=prendiProd&idProdCapo=<%=catalogo.get(i).getIdProdotto()%>"><button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Modifica</button></a>
 					<a href="amministratore?azioneCapo=eliminaProd&id=<%=catalogo.get(i).getIdProdotto()%>"><button class=" bottoni bottoni-colori " name="azioneCapo" value="prendiProd">Elimina</button></a>
 				   </td>
-				   </div>
+			
       </tr>
       <% } %>
     </tbody>
   </table>
   </div>
-</div>
+
 
 
 
