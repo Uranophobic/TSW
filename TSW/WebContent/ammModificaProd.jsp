@@ -81,7 +81,7 @@ System.out.println("\n\n prodotto selezionato per modificare" + p);
 	<!-- primo quadrante -->
 		<div class="boxModifica">
 					<div class="prova2">
-					<label id="inputData2"> Immagine</label><input type="text" name="immagine" value="<%= p.getImmaginePath() %>"  class="inputProfilo"  placeholder="Path Immagine" required >
+					<label id="inputData2"> Immagine</label><input type="text" name="imgProd" value="<%= p.getImmaginePath() %>"  class="inputProfilo"  placeholder="Path Immagine" required >
 					<label id="inputData2"> Nome</label><input type="text" name="nome" class="inputProfilo" value="<%= p.getNome() %>" placeholder="Nome" required> 
 					<label id="inputData2"> Descrizione</label><input type="text" name="descrizione" class="inputProfilo"  value="<%= p.getDescrizione() %>" placeholder="Descrizione" required>
 					<label id="inputData2"> Categoria</label><input type="text" name="categoria"  class="inputProfilo" value="<%= p.getCategoria() %>" placeholder="Categoria" required >
