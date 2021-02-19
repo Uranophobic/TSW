@@ -119,10 +119,7 @@ public class amministratoreServlet extends HttpServlet {
 			ArrayList<Prodotto> catalogo= (ArrayList<Prodotto>) request.getSession().getAttribute("catalogoSessione");
 			String idProdCapo=request.getParameter("idProdCapo");
 			System.out.println("id del prodotto passato: "+idProdCapo);
-			
-		
-		
-			
+
 			try {
 				Prodotto prodotto=prodModel.doRetrieveByKey(idProdCapo);
 				System.out.println("prodotto cercato: "+prodotto);
@@ -145,10 +142,9 @@ public class amministratoreServlet extends HttpServlet {
 		
 			System.out.println("id del prodotto da cercare e che poi e quello che andrà modificato: "+prodDaMod.getIdProdotto());
 			
-			try {
-				
-				
+			try {	
 			Prodotto p=prodModel.doRetrieveByKey(prodDaMod.getIdProdotto());
+			
 			String immaginePath=request.getParameter("imgProd");
 			String nome=request.getParameter("nome");
 			String descrizione=request.getParameter("descrizione");
@@ -169,17 +165,14 @@ public class amministratoreServlet extends HttpServlet {
 			p.setPrezzo(prezzo);
 			p.setSconto(sconto);
 			p.setIva(iva);
-			
 			System.out.println("prodottoModificato: "+p);
+			
 			prodModel.doUpdate(p);
 			request.getSession().setAttribute("prodDaMod", p);
 			
 			ArrayList<Prodotto>catalogoPostModifica=prodModel.doRetrieveAll("idProdotto");
 			System.out.println("catalogoPostModifica:\n "+catalogoPostModifica);
-			
-			
 			request.getSession().setAttribute("catalogoSessione", catalogoPostModifica);
-		
 	
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -237,41 +230,6 @@ public class amministratoreServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 		
-		
-		if(azioneCapo.equals("cercaPerEmail")) {
-			String emailCercata = request.getParameter("emailCercata");
-			System.out.println("email che ho cercato: " + emailCercata);
-			try {
-				ArrayList<Ordine> allOrdini = ordiniModel.doRetrieveAll("emailUtente");
-				ArrayList<Ordine> ordiniUtente = new ArrayList<Ordine>();
-				
-				for(int i=0; i<allOrdini.size(); i++) {
-					if(allOrdini.get(i).getEmailUtente().equals(emailCercata)) {
-						System.out.println("le email combaciano");
-						
-						Ordine o = new Ordine(); //setto l'ordine dell'utente
-						
-						o.setDataOrdine(allOrdini.get(i).getDataOrdine());
-						o.setEmailUtente(allOrdini.get(i).getEmailUtente());
-						o.setIdOrdine(allOrdini.get(i).getIdOrdine());
-						o.setImportoTot(allOrdini.get(i).getImportoTot());
-						
-						ordiniUtente.add(o);
-						System.out.println("ordine aggiunto" + o);
-					}
-				
-				
-				}
-				request.getSession().setAttribute("ordiniCercati", ordiniUtente);	
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("risultatiRicerca.jsp");
-			dispatcher.forward(request, response);
-		}
 		
 		if(azioneCapo.equals("cercaPerEmail")) {
 			String emailCercata = request.getParameter("emailCercata");
@@ -383,24 +341,22 @@ public class amministratoreServlet extends HttpServlet {
 						e.printStackTrace();
 					}
 					
-					int resultDataInd=dataIn.compareTo(dataOrd);
+					
+					/*
+					 * int resultDataInd=dataIn.compareTo(dataOrd);
 					int resutlDataEnd=dataOrd.compareTo(dataEnd);
 					
-				
+					if(resultDataInd<0) {
+						System.out.println("la data trovata e precendente alla data di inizio");
+					}else if(resutlDataEnd>0) {
+						System.out.println("la data trovata e successiva alla data di fine");
+					}
+					 */
+					
 					
 					if((dataOrd.equals(dataIn)) || (dataOrd.after(dataIn))) {
 						if((dataOrd.equals(dataEnd)) || (dataOrd.before(dataEnd))) {	
 					
-						if(resultDataInd<0) {
-							
-							System.out.println("la data trovata e precendente alla data di inizio");
-							
-						}else if(resutlDataEnd>0) {
-							System.out.println("la data trovata e successiva alla data di fine");
-							
-						}
-						
-	
 							Ordine o = new Ordine(); //setto l'ordine dell'utente
 							System.out.println("setto l'ordine");
 							o.setDataOrdine(allOrdini.get(i).getDataOrdine());

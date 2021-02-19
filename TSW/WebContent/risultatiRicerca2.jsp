@@ -67,6 +67,6 @@ System.out.println("ORDINI DATA NELLA JSP\n" + ordiniData);%>
 <div class="text-center">
 			<p style="font-size: 28px;"> Spiacenti, la ricerca non ha prodotto nessun risultato. </p></div>
 		<% } %>		
-
+<%@include file = "footer.jsp" %>
 </body>
 </html>

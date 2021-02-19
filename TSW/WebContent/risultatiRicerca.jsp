@@ -69,6 +69,6 @@ System.out.println("ordiniUtente" + ordiniUtente);%>
 			<p style="font-size: 28px;"> Spiacenti, la ricerca non ha prodotto nessun risultato. </p></div>
 		<% } %>	
 
-
+<%@include file = "footer.jsp" %>
 </body>
 </html>
